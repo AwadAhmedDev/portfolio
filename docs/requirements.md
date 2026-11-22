@@ -42,7 +42,7 @@ Chaque carte affiche :
 
 Chaque fiche projet affiche en plus :
 - un fil d'Ariane (Accueil › Projets › nom du projet) ;
-- captures ordinateur et mobile ;
+- captures ordinateur et mobile (template Next.js : schéma d'architecture à la place, avec la mention « Pas de site en ligne » en haut et en bas — décisions C9 et C10 de `design.md`) ;
 - ce que fait le projet, le rôle d'Awad (« seul développeur », « équipe de 3 : Awad, Prativa, Manon »…), le client cité quand l'accord est donné ;
 - toutes les technologies ;
 - « Choix techniques » : 2 ou 3 décisions, chacune avec sa raison en une phrase (P5) ;
@@ -69,7 +69,7 @@ Règles :
 
 ### EF-6 — Contact
 
-- Formulaire avec les champs : nom (obligatoire), adresse e-mail (obligatoire, pour pouvoir répondre), type de demande (« Offre d'emploi », « Projet freelance », « Autre »), message (obligatoire, 20 à 3 000 caractères).
+- Formulaire avec les champs : nom (obligatoire), adresse e-mail (obligatoire, pour pouvoir répondre), type de demande (facultatif, 3 boutons radio : « Offre d'emploi », « Projet freelance », « Autre » — décision C16), message (obligatoire, 20 à 3 000 caractères).
 - Une case à cocher obligatoire d'accord pour le traitement des données, avec un lien vers les mentions légales.
 - Validation dans le navigateur **et** côté serveur : messages d'erreur sous chaque champ, en clair, en français.
 - Anti-spam : champ piège invisible et limite de demandes ; **[A6]** pour un captcha.

@@ -96,7 +96,7 @@ Pas de filtres ni de recherche : 6 projets se parcourent d'un coup d'œil.
 
 Cas particuliers :
 - **I Make My World** : pas de « Voir le code » (dépôt privé) ; une phrase l'explique.
-- **Template Next.js** : pas de « Voir le site » (code seulement).
+- **Template Next.js** : pas de « Voir le site » ; mention « Pas de site en ligne » en haut et en bas ; schéma d'architecture à la place des captures ; pas de tableau Lighthouse (décisions C9, C10).
 - **Solidays** : mention « projet de formation en équipe de 3 » visible en haut.
 
 ### 3.4 À propos — `/a-propos/`
@@ -106,7 +106,7 @@ Cas particuliers :
 | **Objectif** | Présenter le profil : compétences réellement démontrées, parcours, façon de travailler. |
 | **Audience** | Recruteurs et RH en priorité ; entrepreneurs qui veulent savoir à qui ils ont affaire. |
 | **Contenu** | 1. Présentation courte (photo, quelques phrases).<br>2. **Compétences** en trois groupes : « Utilisé dans plusieurs projets », « Utilisé dans un projet », « Outils de travail ».<br>3. **Façon de travailler** : méthode, tests et CI, et une phrase honnête sur les outils d'IA (D5).<br>4. **Parcours** : formation « Développeur web et web mobile » chez Simplon.co, projets datés. Expériences du CV ajoutées plus tard, après validation.<br>5. **CV** : les trois versions, avec la mention « CV disponible en français, en anglais et en allemand ». |
-| **Appels à l'action** | Principal : « Télécharger mon CV ». Secondaires : « Voir mes projets », « Me contacter ». |
+| **Appels à l'action** | Principal : « Voir mes projets » (décision C15). Secondaire : « Me contacter ». Le CV est proposé par les 3 liens de téléchargement. |
 | **Liens vers** | CV (3 versions), Projets, Contact, LinkedIn, GitHub. |
 
 ### 3.5 Contact — `/contact/`

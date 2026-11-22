@@ -52,7 +52,7 @@
 
 ### 1.3 Preuves en chiffres
 - **6 projets** présentés, dont **5 en ligne**
-- **185 tests automatisés** au total *(17 + 16 + 63 + 20 + 24 + 45)*
+- **185 tests automatisés** au total *(17 + 45 + 16 + 63 + 24 + 20)*
 - **Intégration continue** sur les 6 projets *(GitHub Actions)*
 - **100 / 100** sur les 4 scores Lighthouse pour 2 sites, sur ordinateur
 
@@ -143,7 +143,10 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
   - Experts : candidature, gestion de ses expertises, réponse aux demandes reçues.
   - Back-office : tableau de bord, modération des projets et des expertises, gestion des utilisateurs et de leurs rôles, abonnements, messages de contact.
 - Règle à respecter dans les textes : **aucun paiement n'est encaissé en ligne** (les abonnements sont confirmés par l'équipe) ; ne pas annoncer de paiement en ligne.
-- **Technologies** : React 19, TypeScript, Vite, React Router, Tailwind CSS 4, shadcn/ui, React Hook Form, Zod ; Node.js, Express 5, MySQL, JWT, bcrypt, Helmet, Cloudflare R2, Resend ; Vitest, Supertest, GitHub Actions, Hostinger.
+- **Technologies** (en 3 groupes, décision C8) :
+  - **Interface** : React 19, TypeScript, Vite, React Router, Tailwind CSS 4, shadcn/ui, React Hook Form, Zod
+  - **Serveur** : Node.js, Express 5, MySQL, JWT, bcrypt, Helmet, Cloudflare R2, Resend
+  - **Tests et mise en ligne** : Vitest, Supertest, GitHub Actions, Hostinger
 - **Choix techniques** :
   - **Une API Express séparée de l'interface**, avec authentification par jeton (JWT).
   - **Images stockées dans un espace privé Cloudflare R2**, servies uniquement par l'API.
@@ -192,8 +195,16 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
   - **Tests de bout en bout Playwright dans l'intégration continue**, sur une vraie base de données préparée à chaque lancement.
   - **Docker et Caddy** pour déployer sur un serveur avec HTTPS automatique.
   - **Contrôle des failles des dépendances dans l'intégration continue**, et mises à jour proposées par Dependabot.
-- **Qualité** : 13 tests unitaires (Vitest) et 7 scénarios de bout en bout (Playwright), exécutés chacun sur deux profils : ordinateur et mobile · intégration continue · aucune faille connue dans les dépendances *(vérifié le 22 novembre 2026)*.
-- Liens : **Voir le code** (pas de site en ligne : c'est une base de projet)
+- **Qualité** : 13 tests unitaires (Vitest) · **7 scénarios E2E exécutés sur 2 profils : ordinateur et mobile** (Playwright) · intégration continue · aucune faille connue dans les dépendances *(vérifié le 22 novembre 2026)*.
+- Mention en haut et en bas de la fiche (décision C10) : **Pas de site en ligne**
+- Liens : **Voir le code**
+- **Schéma à la place des captures** (décisions C9, C11, C12) :
+  - Titre : **Architecture cible — configuration de production**
+  - Cadre : **VPS · Docker Compose · réseau interne**, avec **Caddy 2**, **Next.js 16** (Prisma 7 comme bibliothèque intégrée) et **PostgreSQL 17**
+  - Conteneur ponctuel : **migrate**
+  - Services externes : **Stripe** et **Resend**
+  - Bande CI/CD : **Workflow de déploiement configuré — désactivé par défaut.**
+  - Légende : **Architecture cible de production, d'après docker-compose.prod.yml, Dockerfile et Caddyfile.**
 
 ### 3.5 eMatériel — `/projets/emateriel/`
 
@@ -223,7 +234,7 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
 
 - Mention en haut : **Projet de formation Simplon.co, réalisé en équipe de 3 : Awad, Prativa et Manon.**
 - **Le projet** : une reproduction du site du festival Solidays, avec un espace de gestion des artistes. Le site de démonstration n'est pas référencé sur Google, pour ne pas être confondu avec le vrai festival.
-- **Mon rôle** : **Lead Dev de l'équipe de 3** (confirmé par Awad le 22/11/2026). *J'ai créé et mis en place le dépôt du projet, puis réalisé l'en-tête et la navigation adaptés au mobile, la section d'accueil animée, le pied de page, la page Festival, la billetterie, les mentions légales et le back-office de gestion des artistes. Après la formation, j'ai rénové le site, ajouté les tests et l'intégration continue, et je l'ai mis en ligne.* Organisation de l'équipe : une branche par fonctionnalité, pull requests et revues de code, modélisation de la base réalisée ensemble.
+- **Mon rôle** : **Lead Dev de l'équipe de 3.** *J'ai créé et mis en place le dépôt du projet, puis réalisé l'en-tête et la navigation adaptés au mobile, la section d'accueil animée, le pied de page, la page Festival, la billetterie, les mentions légales et le back-office de gestion des artistes. Après la formation, j'ai rénové le site, ajouté les tests et l'intégration continue, et je l'ai mis en ligne.* Organisation de l'équipe : une branche par fonctionnalité, pull requests et revues de code, modélisation de la base réalisée ensemble.
 - **Fonctionnalités** :
   - Accueil fidèle au site d'origine, avec une bannière d'artistes interactive : la photo change au survol de chaque nom.
   - Programmation chargée depuis l'API, filtrée par jour.
@@ -274,7 +285,7 @@ Phrase sous les compétences : **Je n'affiche que des technologies utilisées da
 ### 4.5 CV
 - Texte : **CV disponible en français, en anglais et en allemand.**
 - Liens : **CV en français (PDF)** · **CV en anglais (PDF)** · **CV en allemand (PDF)** — la taille sera ajoutée quand les fichiers seront fournis.
-- Boutons : **Voir mes projets** · **Me contacter**
+- Boutons : **Voir mes projets** (principal, décision C15) · **Me contacter**
 
 ---
 
@@ -293,7 +304,7 @@ Phrase sous les compétences : **Je n'affiche que des technologies utilisées da
 |---|---|---|
 | Nom | **Votre nom** | — |
 | E-mail | **Votre adresse e-mail** | « Pour que je puisse vous répondre. » |
-| Type de demande | **Votre demande** | Choix : **Offre d'emploi** · **Projet freelance** · **Autre** |
+| Type de demande | **Votre demande** (facultatif, 3 boutons radio, décision C16) | Choix : **Offre d'emploi** · **Projet freelance** · **Autre** |
 | Message | **Votre message** | « Entre 20 et 3 000 caractères. » |
 | Accord | **J'accepte que mes données servent uniquement à répondre à ma demande.** (lien « En savoir plus » vers les mentions légales) | — |
 | Bouton | **Envoyer le message** (pendant l'envoi : **Envoi en cours…**) | — |
@@ -322,7 +333,8 @@ Les champs obligatoires sont signalés par la mention **(obligatoire)** dans leu
 **Description** : Éditeur, hébergeur et traitement des données personnelles du portfolio d'Awad Ahmed.
 
 - **Éditeur du site** : Awad Ahmed, particulier. Contact : par le [formulaire de contact](/contact/).
-- **Hébergeur** : Hostinger International Ltd, 61 Lordou Vironos Street, 6023 Larnaca, Chypre — https://www.hostinger.fr *(adresse relevée le 22/11/2026, à revérifier sur le site de Hostinger avant la mise en ligne)*.
+- **Hébergeur** : Hostinger International Ltd, 61 Lordou Vironos Street, 6023 Larnaca, Chypre — https://www.hostinger.fr.
+  *Note interne, à ne pas afficher : adresse relevée le 22/11/2026, à revérifier sur le site de Hostinger avant la mise en ligne.*
 - **Données personnelles (formulaire de contact)** :
   - Données collectées : nom, adresse e-mail, type de demande, message.
   - But : uniquement répondre à votre demande.
