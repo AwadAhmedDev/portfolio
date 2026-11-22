@@ -25,7 +25,7 @@ Les scores Lighthouse (performance / accessibilité / bonnes pratiques / SEO) on
 
 | Projet | Nature | État | Site en ligne | Code | Stack principale | Preuves de qualité |
 |---|---|---|---|---|---|---|
-| **RepaTek** (`repartech-booking`) | Réservation de dépannage informatique à domicile : créneaux calculés (horaires, délai, marge de trajet), back-office, e-mails | Terminé, en ligne | https://repatek.fr | Public | React 19, TypeScript, Vite, Supabase (RLS, fonctions SQL, Edge Functions), Tailwind 4, Resend | Lighthouse ordinateur 97/100/100/100, mobile 87/100/100/100. **Pas de tests automatisés.** |
+| **RepaTek** (`repartech-booking`) | Réservation de dépannage informatique à domicile : créneaux calculés (horaires, délai, marge de trajet), back-office, e-mails | Terminé, en ligne | https://repatek.fr | Public | React 19, TypeScript, Vite, Supabase (RLS, fonctions SQL, Edge Functions), Tailwind 4, Resend | Lighthouse ordinateur 97/100/100/100, mobile 87/100/100/100. 17 tests (`node --test`), lancés par la CI avant chaque déploiement |
 | **Plateforme éditoriale** (`plateforme-editoriale`) | Média en ligne sur la Corne de l'Afrique + back-office de rédaction. Éditeur : Harbi Egueh Aouled ; Awad a conçu et développé le site | Terminé, en ligne | https://snowy-floralwhite-giraffe-20.hostingersite.com | Public | Next.js 16, Prisma 7, PostgreSQL (Supabase), Cloudflare R2, Resend, Turnstile | 16 tests Vitest, lint strict, CI. Lighthouse ordinateur 100/100/100/100, mobile 93/100/100/100 |
 | **eMatériel** (`eMateriel`) | Boutique en ligne : panier, stock géré en transaction, paiement Stripe (mode test), back-office | Projet de formation Simplon, finalisé ensuite | https://darkseagreen-sandpiper-710943.hostingersite.com | Public | React 19, Express 5, MySQL, Stripe | 63 tests Vitest + Supertest, CI. Lighthouse ordinateur 100/100/100/100, mobile 98 en performance |
 | **Template Next.js** (`nextjs-freelance-template`) | Base de projet SaaS réutilisable | Terminé, code seulement (pas de site) | — | Public | Next.js 16, Better Auth, Stripe + webhook, Prisma 7, Docker + Caddy | 13 tests Vitest + 14 tests E2E Playwright, CI |
@@ -69,7 +69,7 @@ Points ouverts sur cet inventaire :
 Ce qui distingue Awad (démontrable) :
 
 - des projets **en ligne et utilisables**, pas seulement des captures ;
-- des **preuves de qualité** : de 16 à 63 tests automatisés selon le projet (RepaTek n'en a pas encore), CI, Lighthouse à 100 sur plusieurs sites ;
+- des **preuves de qualité** : de 16 à 63 tests automatisés selon le projet, CI, Lighthouse à 100 sur plusieurs sites ;
 - des projets **pour de vrais clients** : RepaTek, la plateforme éditoriale et I Make My World (Awad seul développeur).
 
 ---
@@ -155,7 +155,6 @@ Les outils d'IA (Claude Code, Claude Design, ChatGPT) sont mentionnés sur le si
 | Disque plein pendant le développement | Installation qui échoue | Peu de dépendances, nettoyage régulier |
 | Vouloir deux cibles à la fois (emploi et freelance) | Message flou | Un message principal clair, l'autre en second (décision D3) |
 | Trop de fonctionnalités avant la mise en ligne | Le site ne sort jamais | Lancer le MVP (section 6), le reste après |
-| RepaTek sans tests automatisés | Question probable en entretien | Le dire honnêtement, ou ajouter des tests dans RepaTek (projet séparé, sur demande) |
 
 ---
 
