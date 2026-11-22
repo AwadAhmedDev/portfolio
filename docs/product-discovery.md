@@ -35,7 +35,7 @@ Les scores Lighthouse (performance / accessibilité / bonnes pratiques / SEO) on
 Points ouverts sur cet inventaire :
 
 - **I Make My World** (dépôt `solution_innovation`) : projet client **terminé et en ligne** sur le compte Hostinger d'Awad (confirmé par Awad le 22/11/2026). Le transfert sur l'hébergement du client viendra plus tard ; d'ici là, le portfolio utilise l'adresse actuelle. Le dépôt est privé : pas de lien « Voir le code ». **L'accord du client est donné** (confirmé par Awad le 22/11/2026). Rôle : **seul développeur**.
-- **RepaTek** (ancien nom « RéparTech ») : **projet pour un client** (confirmé par Awad). **[À CONFIRMER]** : le nom du client à citer, s'il faut le citer. Le site n'a pas de paiement en ligne : ne pas en annoncer.
+- **RepaTek** (ancien nom « RéparTech ») : **projet pour un client** (confirmé par Awad). Le client sera cité (confirmé par Awad) ; **[À CONFIRMER]** : son nom. Le site n'a pas de paiement en ligne : ne pas en annoncer.
 
 ---
 
