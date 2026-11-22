@@ -43,7 +43,7 @@ Total : **11 pages** (accueil, projets, 6 détails, à propos, contact, mentions
 - Sur mobile : un bouton « Menu » ouvre la liste (Projets, À propos, Contact, CV, thème).
 
 **Pied de page** :
-- Liens : Projets, À propos, Contact, CV, Mentions légales.
+- Liens : Projets, À propos, Contact, CV (version française, comme l'en-tête), Mentions légales.
 - LinkedIn, GitHub, code du portfolio sur GitHub.
 - « © 2026 Awad Ahmed ».
 
@@ -148,7 +148,7 @@ Après l'envoi : message de confirmation sur la même page (pas de page « merci
 | `/cv/awad-ahmed-cv-de.pdf` | Allemand |
 
 - Pas des pages : des fichiers, ouverts dans le navigateur.
-- Accessibles depuis : l'en-tête (bouton « CV »), À propos, Contact, pied de page.
+- Accessibles depuis : l'en-tête et le pied de page (CV français), À propos et Contact (les 3 versions).
 - Chaque lien annonce la langue, le format et la taille : « CV en anglais (PDF, 150 Ko) ». Le lien vers un CV en langue étrangère porte `hreflang` pour les lecteurs d'écran et les moteurs de recherche.
 - Un CV qui n'est pas encore fourni par Awad n'a pas de lien.
 

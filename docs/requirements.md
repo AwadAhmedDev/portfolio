@@ -16,7 +16,7 @@ Comportement attendu :
 - Un en-tête fixe en haut contient : le nom « Awad Ahmed », les liens de navigation, le bouton « CV » et le bouton clair/sombre.
 - Sur mobile, les liens passent dans un menu qui s'ouvre par un bouton ; le menu se ferme après un clic sur un lien, avec la touche Échap, ou en touchant en dehors.
 - Un lien « Aller au contenu » est le premier élément accessible au clavier.
-- Un pied de page contient : liens LinkedIn et GitHub, lien vers les mentions légales, lien vers le code du portfolio.
+- Un pied de page contient : liens Projets, À propos, Contact, CV (version française) et Mentions légales ; LinkedIn, GitHub et le code du portfolio ; « © 2026 Awad Ahmed » (détail dans `sitemap.md`).
 
 ### EF-2 — Accueil (en-tête de page)
 
@@ -37,14 +37,17 @@ Chaque carte affiche :
 - le nom et une phrase de description ;
 - un badge d'état : « Projet client », « Projet de formation » ou « Projet personnel » ;
 - les principales technologies (5 au maximum sur la carte) ;
-- les liens « Voir le site » et « Voir le code », **seulement s'ils existent** (pas de lien « code » pour I Make My World, dépôt privé ; pas de lien « site » pour le template).
+- le mois de début du projet **[A5]** ;
+- le lien principal « Voir le détail », puis les liens « Voir le site » et « Voir le code », **seulement s'ils existent** (pas de lien « code » pour I Make My World, dépôt privé ; pas de lien « site » pour le template).
 
 Chaque fiche projet affiche en plus :
+- un fil d'Ariane (Accueil › Projets › nom du projet) ;
 - captures ordinateur et mobile ;
 - ce que fait le projet, le rôle d'Awad (« seul développeur », « équipe de 3 : Awad, Prativa, Manon »…), le client cité quand l'accord est donné ;
 - toutes les technologies ;
 - « Choix techniques » : 2 ou 3 décisions, chacune avec sa raison en une phrase (P5) ;
-- les preuves de qualité : nombre de tests, CI, scores Lighthouse **avec leur date de mesure** **[A3]**.
+- les preuves de qualité : nombre de tests, CI, scores Lighthouse **avec leur date de mesure** **[A3]** ;
+- en bas : « Projet suivant » et « Me contacter ».
 
 Règles :
 - Les liens externes s'ouvrent dans le même onglet **[A4]**. Si un lien ouvre un nouvel onglet, il l'annonce (texte ou icône étiquetée) et porte `rel="noopener noreferrer"`.
@@ -59,7 +62,7 @@ Règles :
 
 ### EF-5 — Parcours
 
-- Formation « Développeur web et web mobile » chez Simplon.co.
+- Formation « Développeur web et web mobile » chez Simplon.co, de septembre 2025 à avril 2026 (confirmé par Awad le 22/11/2026).
 - Les projets réalisés, datés **[A5]**.
 - Aucune expérience reprise du CV tant qu'Awad ne l'a pas fournie et validée.
 - Pas de section « langues parlées » sur le site (décision S4 du sitemap) : elles figurent dans les CV.
@@ -99,7 +102,13 @@ Règles :
 - Un bouton permet de changer ; le choix est gardé pour les visites suivantes (stockage local du navigateur, pas de cookie).
 - Pas de flash de la mauvaise couleur au chargement.
 
-### EF-10 — Mentions légales
+### EF-10 — Direction visuelle (plan validé par Awad au démarrage du projet)
+
+- Design **sobre et professionnel**, mode clair et mode sombre, adapté au mobile et accessible.
+- Ordre de conception (décision d'Awad du 22/11/2026) : **les textes du site sont rédigés et validés par Awad d'abord** (`contenus.md`) ; ensuite seulement, Claude Design maquette **l'accueil et une fiche projet**, validés par Awad **avant** les autres pages.
+- Couleurs, typographie et style précis : à proposer par Claude Design, puis à valider par Awad.
+
+### EF-11 — Mentions légales
 
 - Éditeur du site, hébergeur (Hostinger), données collectées par le formulaire et leur durée de conservation, droits de l'utilisateur.
 - Contenu exact selon la situation d'Awad : **[A11]**.
@@ -256,7 +265,7 @@ Les marqueurs **[A1]**… dans le document renvoient à ces décisions.
 | A2 | Ordre des projets | **Projets clients d'abord** : RepaTek, I Make My World, plateforme éditoriale ; puis template Next.js, eMatériel, Solidays |
 | A3 | Scores Lighthouse | **Affichés sur les fiches projet, avec leur date**, mesurés de nouveau juste avant la mise en ligne |
 | A4 | Liens externes | **Même onglet** |
-| A5 | Dates des projets | **D'après les dépôts GitHub** : seul le **mois de début** (premier commit) est affiché, car le dernier commit de chaque dépôt correspond à des mises à jour récentes, pas à la fin du projet. Liste ci-dessous, à valider |
+| A5 | Dates des projets | **D'après les dépôts GitHub** : seul le **mois de début** (premier commit) est affiché, car le dernier commit de chaque dépôt correspond à des mises à jour récentes, pas à la fin du projet. Liste ci-dessous, validée par Awad le 22/11/2026 |
 | A6 | Anti-spam | **Champ piège + limite de demandes**, sans captcha ; Cloudflare Turnstile ajouté seulement si du spam arrive |
 | A7 | Envoi du formulaire | **Petit script PHP sur l'hébergement Hostinger**, qui envoie le message par Resend. La clé Resend et l'adresse de réception restent sur le serveur (jamais dans le dépôt ni dans le navigateur). Adresse de réception : à fournir par Awad au moment du développement |
 | A8 | CV | **Trois PDF : français, anglais, allemand**, fournis par Awad |

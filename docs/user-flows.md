@@ -149,7 +149,7 @@ flowchart TD
     C --> D[CV français en PDF]
     B -- Page À propos --> E[3 versions : FR · EN · DE]
     B -- Page Contact --> E
-    B -- Pied de page --> E
+    B -- Pied de page --> C
     E --> F[CV choisi en PDF]
     D --> G([Ouvert dans le navigateur, téléchargeable])
     F --> G

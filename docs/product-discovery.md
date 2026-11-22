@@ -97,7 +97,7 @@ Les outils d'IA (Claude Code, Claude Design, ChatGPT) sont mentionnés sur le si
 ## 6. Fonctionnalités indispensables (MVP)
 
 1. **Accueil** : nom, titre, une phrase de présentation, deux appels à l'action (« Voir mes projets », « Me contacter »).
-2. **Projets** : une fiche par projet avec capture (ordinateur et mobile), description, rôle d'Awad, technologies, preuves de qualité, état (terminé / en cours / formation), liens « Voir le site » et « Voir le code » (s'ils existent).
+2. **Projets** : une fiche par projet avec capture (ordinateur et mobile), description, rôle d'Awad, technologies, preuves de qualité, badge (« Projet client », « Projet de formation » ou « Projet personnel »), liens « Voir le site » et « Voir le code » (s'ils existent).
 3. **Compétences** : présentées par niveau (voir section 5).
 4. **Parcours** : formation et expériences, **uniquement des faits confirmés par Awad**.
 5. **Contact** : moyen de contact sans afficher d'adresse e-mail, plus les liens LinkedIn et GitHub.
@@ -112,7 +112,7 @@ Les outils d'IA (Claude Code, Claude Design, ChatGPT) sont mentionnés sur le si
 ## 7. Fonctionnalités secondaires (après le lancement)
 
 - Page « Services » pour les clients freelance (types de projets, façon de travailler).
-- Fiche détaillée par projet (étude de cas : problème, solution, résultat).
+- Étude de cas approfondie par projet (problème, solution, résultat), en plus de la page de détail prévue au lancement.
 - Statistiques de visite respectueuses de la vie privée (sans bandeau cookies).
 - Blog ou articles techniques.
 
@@ -167,7 +167,7 @@ Les outils d'IA (Claude Code, Claude Design, ChatGPT) sont mentionnés sur le si
 | D1 | Technologie | **Next.js en export statique** (+ React, TypeScript, Tailwind CSS, shadcn/ui) |
 | D2 | RepaTek et I Make My World | I Make My World : **accord du client donné**, Awad **seul développeur**, terminé et en ligne. RepaTek : **projet client**, client cité : Aden Dahier Okieh |
 | D3 | Cible principale | **Les deux, emploi d'abord** ; l'offre freelance reste bien visible |
-| D4 | Parcours | Basé **uniquement sur les faits déjà vérifiés** : formation « Développeur web et web mobile » chez Simplon.co (confirmé par Awad), Île-de-France, et les projets de ce document. Le CV sera transmis plus tard par Awad ; rien n'en est repris d'ici là |
+| D4 | Parcours | Basé **uniquement sur les faits déjà vérifiés** : formation « Développeur web et web mobile » chez Simplon.co, de septembre 2025 à avril 2026 (confirmé par Awad), Île-de-France, et les projets de ce document. Le CV sera transmis plus tard par Awad ; rien n'en est repris d'ici là |
 | D5 | Outils d'IA | **Oui**, une phrase honnête sur la façon de travailler |
 | D6 | Adresses | **Adresses Hostinger actuelles** pour le portfolio et pour tous les liens « Voir le site » (y compris I Make My World). Les vrais noms de domaine viendront plus tard : les liens devront alors être mis à jour |
 | D7 | Contact | **Formulaire** (sans adresse affichée, anti-spam) **+ LinkedIn** |
