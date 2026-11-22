@@ -37,7 +37,7 @@ Le projet avance par phases, dans cet ordre :
 - **Signaler les incertitudes** et poser la question quand une information manque.
 - **Code simple, sécurisé et maintenable** : pas de dépendance, d'abstraction ou de fonctionnalité dont on n'a pas besoin.
 - **Expliquer avant d'agir** et attendre l'accord d'Awad pour toute action visible : création de dépôt, commit, push, publication, déploiement, achat.
-- **Confidentialité** : seul le nom « Awad Ahmed » apparaît. Aucune adresse e-mail personnelle, aucun secret, aucun token dans le code, le site ou les commits.
+- **Confidentialité** : pour Awad, seul le nom « Awad Ahmed » apparaît ; les autres noms (clients, coéquipiers) sont cités seulement avec leur accord. Aucune adresse e-mail personnelle, aucun secret, aucun token dans le code, le site ou les commits.
 - Répondre en français, avec des mots simples.
 
 ## 5. Contraintes matérielles

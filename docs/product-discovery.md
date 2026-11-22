@@ -32,12 +32,12 @@ Les scores Lighthouse (performance / accessibilité / bonnes pratiques / SEO) on
 | **Solidays** (`solidays_app`) | Clone du site du festival solidays.org + back-office artistes | Projet de formation en **équipe de 3** (Awad, Prativa, Manon) | https://tasteful-lightcoral-yak-94.hostingersite.com (volontairement en noindex) | Public | React, TypeScript, Vite, Express, MySQL, Zod | 24 tests, CI/CD, Dependabot |
 | **I Make My World** (`solution_innovation`) | Projet client, plateforme d'innovation sociale : créateurs / experts / investisseurs, back-office de modération | **Terminé, en ligne** (hébergé sur le compte Hostinger d'Awad) | https://teal-starling-640860.hostingersite.com | **Privé** | React, TypeScript, Vite, Tailwind 4, shadcn/ui ; Express, MySQL, JWT, Cloudflare R2, Resend | 45 tests (Vitest + Supertest). Lighthouse ordinateur 99/99/100/100, mobile 90/99/100/100 |
 
-Points ouverts sur cet inventaire :
+Précisions sur cet inventaire :
 
 - **I Make My World** (dépôt `solution_innovation`) : projet client **terminé et en ligne** sur le compte Hostinger d'Awad (confirmé par Awad le 22/11/2026). Le transfert sur l'hébergement du client viendra plus tard ; d'ici là, le portfolio utilise l'adresse actuelle. Le dépôt est privé : pas de lien « Voir le code ». **L'accord du client est donné** (confirmé par Awad le 22/11/2026). Rôle : **seul développeur**.
-- **RepaTek** (ancien nom « RéparTech ») : **projet pour un client** (confirmé par Awad). Client cité : **Aden Dahier Okieh** (confirmé par Awad le 22/11/2026).
+- **RepaTek** (ancien nom « RéparTech ») : **projet pour un client** (confirmé par Awad). Client cité : **Aden Dahier Okieh** (confirmé par Awad le 22/11/2026). Le site n'a pas de paiement en ligne : ne pas en annoncer.
 - **Accords pour citer des noms** (confirmés par Awad le 22/11/2026) : l'éditeur de la plateforme éditoriale (Harbi Egueh Aouled) et les coéquipières de Solidays (Prativa et Manon) sont d'accord.
-- **CV** : Awad le fournira quand il sera nécessaire ; le lui demander à ce moment-là. Le site n'a pas de paiement en ligne : ne pas en annoncer.
+- **CV** : Awad le fournira quand il sera nécessaire ; le lui demander à ce moment-là.
 
 ---
 
@@ -82,10 +82,10 @@ Ce qui distingue Awad (démontrable) :
 
 Pas de mot « junior » ni « senior » dans le titre (décision d'Awad du 22/11/2026). On reste honnête sans étiquette : le parcours est exact (formation Simplon.co, projets datés) et on n'annonce **aucun nombre d'années d'expérience**. Les compétences sont présentées selon trois niveaux, pour ne pas transformer une compétence en expertise :
 
-| Niveau | Définition | Technologies (d'après les dépôts publics) |
+| Niveau | Définition | Technologies (d'après les dépôts) |
 |---|---|---|
-| **Utilisé dans plusieurs projets livrés** | Présent dans au moins deux projets en ligne ou publics | React 19, TypeScript, Vite, Next.js, Node.js, Express, MySQL, Prisma, PostgreSQL / Supabase, Tailwind CSS, Zod, Vitest, Supertest, GitHub Actions, Resend, Stripe (mode test) |
-| **Utilisé dans un projet livré** | Présent dans un seul projet | Supabase RLS et Edge Functions, Cloudflare R2, Turnstile, Better Auth, Playwright, Docker + Caddy, shadcn/ui, JWT, Dependabot |
+| **Utilisé dans plusieurs projets livrés** | Présent dans au moins deux projets en ligne ou publics | React 19, TypeScript, Vite, Next.js, Node.js, Express, MySQL, Prisma, PostgreSQL / Supabase, Tailwind CSS, Zod, Vitest, Supertest, GitHub Actions, Resend, Stripe (mode test), Cloudflare R2, Dependabot |
+| **Utilisé dans un projet livré** | Présent dans un seul projet | Supabase RLS et Edge Functions, Turnstile, Better Auth, Playwright, Docker + Caddy, shadcn/ui, JWT |
 | **Outils de travail** | Ce qu'Awad utilise au quotidien | Git / GitHub, hébergement Hostinger, Claude Code, Claude Design, ChatGPT |
 
 Docker n'est démontré que dans le template Next.js (Docker + Caddy) : il est donc dans « Utilisé dans un projet livré ».
@@ -125,7 +125,7 @@ Les outils d'IA (Claude Code, Claude Design, ChatGPT) sont mentionnés sur le si
 - **Site rapide et simple** : le contenu change rarement, donc un site **statique** suffit (objectif Lighthouse 100).
 - **Technologie** : Next.js en export statique, avec React, TypeScript, Tailwind CSS et shadcn/ui (décision D1).
 - **Formulaire de contact** : un site statique ne peut pas envoyer d'e-mail seul. Il faut un petit service (par exemple Resend via une fonction serveur, ou un service de formulaire). Protection anti-spam obligatoire.
-- **Confidentialité** : seul le nom « Awad Ahmed » apparaît. Aucune adresse e-mail personnelle, aucun secret dans le code.
+- **Confidentialité** : pour Awad, seul le nom « Awad Ahmed » apparaît ; les autres noms sont cités seulement avec leur accord. Aucune adresse e-mail personnelle, aucun secret dans le code.
 - **Maintenance** : le contenu des projets doit pouvoir se mettre à jour facilement (un seul fichier de données).
 
 ---
