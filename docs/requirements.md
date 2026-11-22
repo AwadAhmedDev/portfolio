@@ -1,6 +1,6 @@
 # Exigences — Portfolio de Awad Ahmed
 
-> Statut : **brouillon à valider par Awad**. Aucun développement n'est commencé.
+> Statut : **validé par Awad le 22/11/2026**. Aucun développement n'est commencé.
 > Source : [`product-discovery.md`](./product-discovery.md). Les points tranchés par Awad sont marqués **[A1]**, **[A2]**… et détaillés à la fin (« Décisions d'Awad »).
 > Identifiants : `EF` = exigence fonctionnelle, `ENF` = non fonctionnelle. Chaque exigence est vérifiable par au moins un critère d'acceptation (section 9).
 
@@ -24,6 +24,7 @@ Comportement attendu :
 - Deux boutons : « Voir mes projets » (page Projets) et « Me contacter » (page Contact).
 - Le message principal vise l'emploi ; l'offre freelance est mentionnée juste après, de façon visible (décision D3).
 - Aucun mot « junior » ni « senior », aucun nombre d'années d'expérience.
+- Projets mis en avant : **les 3 projets clients** (RepaTek, I Make My World, plateforme éditoriale), puis un lien « Voir les 6 projets » (décision S3 du sitemap).
 
 ### EF-3 — Projets
 
@@ -58,6 +59,7 @@ Règles :
 - Formation « Développeur web et web mobile » chez Simplon.co.
 - Les projets réalisés, datés **[A5]**.
 - Aucune expérience reprise du CV tant qu'Awad ne l'a pas fournie et validée.
+- Langues parlées, avec leur niveau (décision S4 du sitemap) : liste à fournir par Awad ; la section n'apparaît pas tant qu'elle n'est pas donnée.
 
 ### EF-6 — Contact
 
@@ -68,6 +70,7 @@ Règles :
 - Après l'envoi : message de confirmation sur la page, le formulaire est vidé, le bouton est désactivé pendant l'envoi.
 - L'adresse e-mail d'Awad n'apparaît **nulle part** : ni dans la page, ni dans le code envoyé au navigateur.
 - Liens LinkedIn et GitHub affichés à côté du formulaire.
+- Délai affiché : « Je réponds sous 24 h. » (décision S5 du sitemap).
 - Fonctionnement technique (le site est statique) : **[A7]**.
 
 ### EF-7 — CV
@@ -206,6 +209,7 @@ Mesurée **sur le site en ligne**, avec Lighthouse.
 Le portfolio est accepté quand **tous** ces points sont vérifiés :
 
 **Contenu**
+- [ ] L'accueil met en avant les 3 projets clients ; la page Contact affiche « Je réponds sous 24 h ».
 - [ ] Les 6 projets sont présents, en français, avec les bons liens, badges, technologies et chiffres datés.
 - [ ] Chaque fait affiché a été validé par Awad.
 - [ ] Aucun « junior », « senior » ni nombre d'années d'expérience.

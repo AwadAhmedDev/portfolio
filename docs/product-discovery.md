@@ -1,6 +1,6 @@
 # Product Discovery — Portfolio de Awad Ahmed
 
-> Statut : **brouillon à valider par Awad**. Aucune implémentation n'est commencée.
+> Statut : **validé par Awad le 22/11/2026** (Phase 1 terminée). Aucune implémentation n'est commencée.
 > Règle de ce document : chaque fait vient d'une source vérifiée (dépôt GitHub, site en ligne, mesure datée). Ce qui n'est pas vérifié est marqué **[À CONFIRMER]**.
 
 ---
