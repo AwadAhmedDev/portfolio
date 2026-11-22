@@ -35,7 +35,9 @@ Les scores Lighthouse (performance / accessibilité / bonnes pratiques / SEO) on
 Points ouverts sur cet inventaire :
 
 - **I Make My World** (dépôt `solution_innovation`) : projet client **terminé et en ligne** sur le compte Hostinger d'Awad (confirmé par Awad le 22/11/2026). Le transfert sur l'hébergement du client viendra plus tard ; d'ici là, le portfolio utilise l'adresse actuelle. Le dépôt est privé : pas de lien « Voir le code ». **L'accord du client est donné** (confirmé par Awad le 22/11/2026). Rôle : **seul développeur**.
-- **RepaTek** (ancien nom « RéparTech ») : **projet pour un client** (confirmé par Awad). Le client sera cité (confirmé par Awad) ; **[À CONFIRMER]** : son nom. Le site n'a pas de paiement en ligne : ne pas en annoncer.
+- **RepaTek** (ancien nom « RéparTech ») : **projet pour un client** (confirmé par Awad). Client cité : **Aden Dahier Okieh** (confirmé par Awad le 22/11/2026).
+- **Accords pour citer des noms** (confirmés par Awad le 22/11/2026) : l'éditeur de la plateforme éditoriale (Harbi Egueh Aouled) et les coéquipières de Solidays (Prativa et Manon) sont d'accord.
+- **CV** : Awad le fournira quand il sera nécessaire ; le lui demander à ce moment-là. Le site n'a pas de paiement en ligne : ne pas en annoncer.
 
 ---
 
@@ -163,7 +165,7 @@ Les outils d'IA (Claude Code, Claude Design, ChatGPT) sont mentionnés sur le si
 | # | Décision | Choix |
 |---|---|---|
 | D1 | Technologie | **Next.js en export statique** (+ React, TypeScript, Tailwind CSS, shadcn/ui) |
-| D2 | RepaTek et I Make My World | I Make My World : **accord du client donné**, Awad **seul développeur**, terminé et en ligne. RepaTek : **projet client** (nom du client à citer : [À CONFIRMER]) |
+| D2 | RepaTek et I Make My World | I Make My World : **accord du client donné**, Awad **seul développeur**, terminé et en ligne. RepaTek : **projet client**, client cité : Aden Dahier Okieh |
 | D3 | Cible principale | **Les deux, emploi d'abord** ; l'offre freelance reste bien visible |
 | D4 | Parcours | Basé **uniquement sur les faits déjà vérifiés** : formation « Développeur web et web mobile » chez Simplon.co (confirmé par Awad), Île-de-France, et les projets de ce document. Le CV sera transmis plus tard par Awad ; rien n'en est repris d'ici là |
 | D5 | Outils d'IA | **Oui**, une phrase honnête sur la façon de travailler |
