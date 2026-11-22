@@ -36,11 +36,11 @@ Total : **11 pages** (accueil, projets, 6 détails, à propos, contact, mentions
 | Projets | `/projets/` |
 | À propos | `/a-propos/` |
 | Contact | `/contact/` |
-| Bouton « CV » | CV en français **[S2]** |
+| Bouton « CV » | CV en français **[S2]** ; libellé visible « CV », nom lu par les lecteurs d'écran « CV en français (PDF) » **[S7]** |
 | Bouton clair / sombre | — |
 
 - La page en cours est signalée dans le menu (visuellement et avec `aria-current="page"`).
-- Sur mobile : un bouton « Menu » ouvre la liste (Projets, À propos, Contact, CV, thème).
+- Sur mobile : « Awad Ahmed », le bouton « CV » **toujours visible** dans l'en-tête, puis le bouton « Menu », qui ouvre Projets, À propos, Contact et le bouton thème **[S6]**.
 
 **Pied de page** :
 - Liens : Projets, À propos, Contact, CV (version française, comme l'en-tête), Mentions légales.
@@ -198,3 +198,5 @@ Next.js 16, **App Router**, **export statique** (`output: 'export'`, `trailingSl
 | S3 | Projets mis en avant sur l'accueil | **Les 3 projets clients** (RepaTek, I Make My World, plateforme éditoriale), puis « Voir les 6 projets » |
 | S4 | Langues parlées dans À propos | **Pas affichées sur le site** : la plupart des portfolios de développeurs français ne les montrent pas (2 sur 8 vérifiés le 22/11/2026). Les langues d'Awad (français courant, anglais B1, allemand B2) restent dans ses CV |
 | S5 | Délai de réponse sur la page Contact | **« Je réponds sous 24 h. »** |
+| S6 | Bouton « CV » sur mobile | **Visible dans l'en-tête**, retiré du menu (décision V2 de Claude Design, prise par Awad le 22/11/2026) |
+| S7 | Libellé du bouton « CV » de l'en-tête | **« CV » visible**, lu « CV en français (PDF) » par les lecteurs d'écran (décision V3, prise par Awad le 22/11/2026) |

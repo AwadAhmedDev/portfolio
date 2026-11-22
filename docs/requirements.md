@@ -85,7 +85,7 @@ Règles :
 ### EF-7 — CV
 
 - Trois versions du CV en PDF : **français, anglais, allemand** **[A8]**, fournies par Awad.
-- Bouton « CV » dans l'en-tête (version française), et les trois versions dans À propos et Contact, avec la mention « CV disponible en français, en anglais et en allemand » (P6).
+- Bouton « CV » dans l'en-tête (version française) : libellé visible « CV », nom lu par les lecteurs d'écran « CV en français (PDF) » — exception à la règle suivante, pour l'en-tête seulement (décision V3, 22/11/2026). Les trois versions sont dans À propos et Contact, avec la mention « CV disponible en français, en anglais et en allemand » (P6).
 - Chaque lien annonce la langue, le format et la taille (ex. « CV en anglais (PDF, 150 Ko) »).
 - Chaque PDF est vérifié avant publication : pas d'adresse e-mail ni de téléphone personnels.
 - Une version pas encore fournie n'a pas de lien.
@@ -105,8 +105,8 @@ Règles :
 ### EF-10 — Direction visuelle (plan validé par Awad au démarrage du projet)
 
 - Design **sobre et professionnel**, mode clair et mode sombre, adapté au mobile et accessible.
-- Ordre de conception (décision d'Awad du 22/11/2026) : **les textes du site sont rédigés et validés par Awad d'abord** (`contenus.md`) ; ensuite seulement, Claude Design maquette **l'accueil et une fiche projet**, validés par Awad **avant** les autres pages.
-- Couleurs, typographie et style précis : à proposer par Claude Design, puis à valider par Awad.
+- Ordre de conception (décision d'Awad du 22/11/2026) : **les textes du site sont rédigés et validés par Awad d'abord** (`contenus.md`) ; ensuite seulement, Claude Design maquette **l'accueil et une fiche projet**, validés par Awad **avant** les autres pages. **Maquettes de l'accueil et de la fiche RepaTek validées le 22/11/2026** ; règles visuelles dans [`design.md`](./design.md).
+- Couleurs et typographie : **piste A « Technique sobre »** retenue par Awad le 22/11/2026 (décision V1) — ardoise et bleu, Inter pour les titres et le texte, JetBrains Mono pour les chiffres et les petits libellés. Le détail (couleurs, tailles, arrondis, points de rupture) est dans le canevas de Claude Design « Portfolio Awad Ahmed — maquettes de l'accueil et de la fiche RepaTek ».
 
 ### EF-11 — Mentions légales
 
