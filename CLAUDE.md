@@ -1,0 +1,53 @@
+# CLAUDE.md — Portfolio de Awad Ahmed
+
+Instructions générales pour toute intervention de Claude sur ce dépôt.
+
+## 1. Contexte et objectif
+
+Portfolio professionnel de Awad Ahmed, développeur Full Stack junior.
+Objectif : présenter ses projets réels (avec un lien vers chaque site en ligne et vers son code), ses compétences et son parcours, et permettre de le contacter.
+
+Le portfolio est un projet séparé : il ne modifie jamais les dépôts des projets qu'il présente.
+
+Stack envisagée (pas encore installée, à confirmer pendant la conception) : Next.js, React, TypeScript, Tailwind CSS, shadcn/ui.
+
+## 2. Rôles
+
+- **Claude Code** : analyse, architecture, développement, tests, déploiement et maintenance, dans ce dépôt.
+- **Claude Design** : maquettes et direction visuelle (mise en page, couleurs, typographie, mode clair et mode sombre). Les maquettes sont validées par Awad avant d'être développées.
+
+## 3. Méthodologie
+
+Le projet avance par phases, dans cet ordre :
+
+1. Analyse (Product Discovery)
+2. Conception
+3. Architecture
+4. Développement
+5. Tests
+6. Déploiement
+7. Maintenance
+
+**On ne commence jamais une phase sans la validation explicite de la phase précédente par Awad.**
+
+## 4. Règles de travail
+
+- **Lire la documentation existante avant toute intervention** : ce fichier, puis le dossier `docs/`.
+- **Ne jamais inventer d'informations** sur le parcours, les compétences, les projets ou les résultats d'Awad. Chaque chiffre, lien et fonctionnalité doit être vérifié avant d'être écrit.
+- **Signaler les incertitudes** et poser la question quand une information manque.
+- **Code simple, sécurisé et maintenable** : pas de dépendance, d'abstraction ou de fonctionnalité dont on n'a pas besoin.
+- **Expliquer avant d'agir** et attendre l'accord d'Awad pour toute action visible : création de dépôt, commit, push, publication, déploiement, achat.
+- **Confidentialité** : seul le nom « Awad Ahmed » apparaît. Aucune adresse e-mail personnelle, aucun secret, aucun token dans le code, le site ou les commits.
+- Répondre en français, avec des mots simples.
+
+## 5. Contraintes matérielles
+
+L'ordinateur d'Awad a très peu d'espace disque libre.
+
+- Ne rien installer (Node.js, paquets npm, Docker, base de données…) sans l'accord d'Awad, en précisant la place nécessaire.
+- Garder le minimum de dépendances et supprimer les fichiers temporaires.
+
+## 6. Organisation du dépôt
+
+- `docs/` : documents produits au fil des phases (découverte produit, spécifications, conception, architecture, tests, déploiement).
+- `skills/` : instructions spécialisées, définies plus tard. Attention : Claude Code ne découvre automatiquement les Skills de projet que dans `.claude/skills/<nom>/SKILL.md`. Ce dossier n'est donc pas lu automatiquement.
