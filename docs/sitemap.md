@@ -59,7 +59,7 @@ Total : **11 pages** (accueil, projets, 6 détails, à propos, contact, mentions
 |---|---|
 | **Objectif** | Faire comprendre en moins de 10 secondes qui est Awad, ce qu'il fait, et donner envie de voir ses projets ou de le contacter. |
 | **Audience** | Tous : recruteurs (prioritaires), développeurs/CTO, entrepreneurs et PME. |
-| **Contenu** | 1. En-tête de page : photo, nom, titre « Développeur Full Stack JavaScript / TypeScript — React, Next.js, Node.js », une phrase de présentation, « Île-de-France ».<br>2. Projets mis en avant : **3 cartes** (RepaTek, I Make My World, plateforme éditoriale) **[S3]**.<br>3. Preuves en chiffres, toutes vérifiées : nombre de projets en ligne, tests automatisés, CI.<br>4. Bloc freelance : une phrase pour les entrepreneurs et PME (décision D3 : emploi d'abord, freelance visible ensuite).<br>5. Rappel du contact. |
+| **Contenu** | 1. En-tête de page : photo, nom, titre « Développeur Full Stack JavaScript / TypeScript — React, Next.js, Node.js », une phrase de présentation, « Île-de-France », et la disponibilité « Ouvert aux postes en CDI ou CDD et aux missions freelance ».<br>2. Projets mis en avant : **3 cartes** (RepaTek, I Make My World, plateforme éditoriale) **[S3]**.<br>3. Preuves en chiffres, toutes vérifiées : nombre de projets en ligne, tests automatisés, CI.<br>4. Bloc freelance (décision D3 : emploi d'abord, freelance visible ensuite) : ce qu'Awad réalise (site vitrine, réservation en ligne, boutique, application sur mesure, back-office) et 3 étapes « Comment je travaille » (échange → devis → réalisation et mise en ligne).<br>5. Rappel du contact. |
 | **Appels à l'action** | Principal : « Voir mes projets ». Secondaire : « Me contacter ». Dans le bloc freelance : « Parlons de votre projet ». |
 | **Liens vers** | Projets, détail de chacun des 3 projets mis en avant, Contact, CV. |
 
@@ -90,7 +90,7 @@ Pas de filtres ni de recherche : 6 projets se parcourent d'un coup d'œil.
 |---|---|
 | **Objectif** | Prouver la compétence sur un projet précis : ce qu'il fait, le rôle d'Awad, les choix techniques, les preuves de qualité. |
 | **Audience** | Développeurs/CTO et recruteurs techniques en priorité ; entrepreneurs pour les projets clients. |
-| **Contenu** | Fil d'Ariane ; nom, badge, mois de début ; captures ordinateur et mobile ; « Le projet » (ce qu'il fait) ; « Mon rôle » (seul développeur, équipe de 3 avec Prativa et Manon…, client cité avec accord) ; fonctionnalités principales ; technologies ; « Qualité » : tests, CI, scores Lighthouse avec leur date. |
+| **Contenu** | Fil d'Ariane ; nom, badge, mois de début ; captures ordinateur et mobile ; « Le projet » (ce qu'il fait) ; « Mon rôle » (seul développeur, équipe de 3 avec Prativa et Manon…, client cité avec accord) ; fonctionnalités principales ; technologies ; « Choix techniques » (2 ou 3 décisions et leur raison) ; « Qualité » : tests, CI, scores Lighthouse avec leur date. |
 | **Appels à l'action** | « Voir le site » et « Voir le code » (quand ils existent), en haut et en bas. En bas : « Projet suivant » et « Me contacter ». |
 | **Liens vers** | Site du projet, dépôt GitHub, projet précédent / suivant, Projets, Contact. |
 
@@ -105,7 +105,7 @@ Cas particuliers :
 |---|---|
 | **Objectif** | Présenter le profil : compétences réellement démontrées, parcours, façon de travailler. |
 | **Audience** | Recruteurs et RH en priorité ; entrepreneurs qui veulent savoir à qui ils ont affaire. |
-| **Contenu** | 1. Présentation courte (photo, quelques phrases).<br>2. **Compétences** en trois groupes : « Utilisé dans plusieurs projets », « Utilisé dans un projet », « Outils de travail ».<br>3. **Façon de travailler** : méthode, tests et CI, et une phrase honnête sur les outils d'IA (D5).<br>4. **Parcours** : formation « Développeur web et web mobile » chez Simplon.co, projets datés. Expériences du CV ajoutées plus tard, après validation.<br>5. **CV** : les trois versions (français, anglais, allemand). |
+| **Contenu** | 1. Présentation courte (photo, quelques phrases).<br>2. **Compétences** en trois groupes : « Utilisé dans plusieurs projets », « Utilisé dans un projet », « Outils de travail ».<br>3. **Façon de travailler** : méthode, tests et CI, et une phrase honnête sur les outils d'IA (D5).<br>4. **Parcours** : formation « Développeur web et web mobile » chez Simplon.co, projets datés. Expériences du CV ajoutées plus tard, après validation.<br>5. **CV** : les trois versions, avec la mention « CV disponible en français, en anglais et en allemand ». |
 | **Appels à l'action** | Principal : « Télécharger mon CV ». Secondaires : « Voir mes projets », « Me contacter ». |
 | **Liens vers** | CV (3 versions), Projets, Contact, LinkedIn, GitHub. |
 
@@ -115,7 +115,7 @@ Cas particuliers :
 |---|---|
 | **Objectif** | Recevoir des propositions d'emploi et des demandes de projets freelance. |
 | **Audience** | Recruteurs, entrepreneurs et PME. |
-| **Contenu** | Une phrase d'accueil ; le formulaire (nom, e-mail, type de demande, message, case d'accord) ; à côté : LinkedIn, GitHub, CV ; « Je réponds sous 24 h » **[S5]**. |
+| **Contenu** | Une phrase d'accueil ; le formulaire (nom, e-mail, type de demande, message, case d'accord) ; à côté : LinkedIn, GitHub, CV (avec « CV disponible en français, en anglais et en allemand ») ; « Pour me joindre : ce formulaire ou LinkedIn » ; « Je réponds sous 24 h » **[S5]**. Depuis le bloc freelance de l'accueil, « Projet freelance » est déjà choisi. |
 | **Appels à l'action** | Principal : « Envoyer le message ». Secondaires : « Me contacter sur LinkedIn », « Télécharger mon CV ». |
 | **Liens vers** | Mentions légales (traitement des données), LinkedIn, GitHub, CV. |
 

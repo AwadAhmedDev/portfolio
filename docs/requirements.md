@@ -21,6 +21,8 @@ Comportement attendu :
 ### EF-2 — Accueil (en-tête de page)
 
 - Affiche : photo d'Awad, nom, titre « Développeur Full Stack JavaScript / TypeScript — React, Next.js, Node.js », une phrase de présentation, localisation « Île-de-France ».
+- Ligne de disponibilité dans le premier écran : « Ouvert aux postes en CDI ou CDD et aux missions freelance. » (P1 de `user-flows.md`).
+- Bloc freelance : courte liste de ce qu'Awad réalise (site vitrine, réservation en ligne, boutique en ligne, application sur mesure, back-office) (P2) et 3 étapes « Comment je travaille » : échange → devis → réalisation et mise en ligne (P3). Bouton « Parlons de votre projet » vers `/contact/?demande=freelance` (P4).
 - Deux boutons : « Voir mes projets » (page Projets) et « Me contacter » (page Contact).
 - Le message principal vise l'emploi ; l'offre freelance est mentionnée juste après, de façon visible (décision D3).
 - Aucun mot « junior » ni « senior », aucun nombre d'années d'expérience.
@@ -41,6 +43,7 @@ Chaque fiche projet affiche en plus :
 - captures ordinateur et mobile ;
 - ce que fait le projet, le rôle d'Awad (« seul développeur », « équipe de 3 : Awad, Prativa, Manon »…), le client cité quand l'accord est donné ;
 - toutes les technologies ;
+- « Choix techniques » : 2 ou 3 décisions, chacune avec sa raison en une phrase (P5) ;
 - les preuves de qualité : nombre de tests, CI, scores Lighthouse **avec leur date de mesure** **[A3]**.
 
 Règles :
@@ -71,12 +74,15 @@ Règles :
 - L'adresse e-mail d'Awad n'apparaît **nulle part** : ni dans la page, ni dans le code envoyé au navigateur.
 - Liens LinkedIn et GitHub affichés à côté du formulaire.
 - Délai affiché : « Je réponds sous 24 h. » (décision S5 du sitemap).
+- Phrase visible : « Pour me joindre : ce formulaire ou LinkedIn. » (P7).
+- Arrivée depuis `/contact/?demande=freelance` : « Projet freelance » est déjà choisi dans le type de demande (P4).
+- Après le lancement seulement : e-mail automatique de confirmation au visiteur, avec des limites strictes contre le spam (P8).
 - Fonctionnement technique (le site est statique) : **[A7]**.
 
 ### EF-7 — CV
 
 - Trois versions du CV en PDF : **français, anglais, allemand** **[A8]**, fournies par Awad.
-- Bouton « CV » dans l'en-tête (version française), et les trois versions dans À propos et Contact.
+- Bouton « CV » dans l'en-tête (version française), et les trois versions dans À propos et Contact, avec la mention « CV disponible en français, en anglais et en allemand » (P6).
 - Chaque lien annonce la langue, le format et la taille (ex. « CV en anglais (PDF, 150 Ko) »).
 - Chaque PDF est vérifié avant publication : pas d'adresse e-mail ni de téléphone personnels.
 - Une version pas encore fournie n'a pas de lien.
