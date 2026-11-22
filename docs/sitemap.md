@@ -1,6 +1,6 @@
 # Plan du site (sitemap) — Portfolio de Awad Ahmed
 
-> Statut : **validé par Awad le 22/11/2026** (sauf la liste des langues parlées, S4). Aucun développement n'est commencé.
+> Statut : **validé par Awad le 22/11/2026**. Aucun développement n'est commencé.
 > Sources : [`product-discovery.md`](./product-discovery.md) et [`requirements.md`](./requirements.md).
 > **Le site est 100 % en français** (décision d'Awad du 22/11/2026). Seul le CV existe en trois versions : français, anglais, allemand.
 > Les points tranchés par Awad sont marqués **[S1]**, **[S2]**… et détaillés à la fin.
@@ -105,7 +105,7 @@ Cas particuliers :
 |---|---|
 | **Objectif** | Présenter le profil : compétences réellement démontrées, parcours, façon de travailler. |
 | **Audience** | Recruteurs et RH en priorité ; entrepreneurs qui veulent savoir à qui ils ont affaire. |
-| **Contenu** | 1. Présentation courte (photo, quelques phrases).<br>2. **Compétences** en trois groupes : « Utilisé dans plusieurs projets », « Utilisé dans un projet », « Outils de travail ».<br>3. **Façon de travailler** : méthode, tests et CI, et une phrase honnête sur les outils d'IA (D5).<br>4. **Parcours** : formation « Développeur web et web mobile » chez Simplon.co, projets datés. Expériences du CV ajoutées plus tard, après validation.<br>5. Langues parlées **[S4]**.<br>6. **CV** : les trois versions (français, anglais, allemand). |
+| **Contenu** | 1. Présentation courte (photo, quelques phrases).<br>2. **Compétences** en trois groupes : « Utilisé dans plusieurs projets », « Utilisé dans un projet », « Outils de travail ».<br>3. **Façon de travailler** : méthode, tests et CI, et une phrase honnête sur les outils d'IA (D5).<br>4. **Parcours** : formation « Développeur web et web mobile » chez Simplon.co, projets datés. Expériences du CV ajoutées plus tard, après validation.<br>5. **CV** : les trois versions (français, anglais, allemand). |
 | **Appels à l'action** | Principal : « Télécharger mon CV ». Secondaires : « Voir mes projets », « Me contacter ». |
 | **Liens vers** | CV (3 versions), Projets, Contact, LinkedIn, GitHub. |
 
@@ -196,5 +196,5 @@ Next.js 16, **App Router**, **export statique** (`output: 'export'`, `trailingSl
 | S1 | Structure | **Pages séparées** : Accueil, Projets, détail par projet, À propos, Contact, Mentions légales. Remplace la décision A1 de `requirements.md` |
 | S2 | Bouton « CV » de l'en-tête | **Ouvre directement le CV en français** ; les 3 versions sont proposées dans À propos et Contact |
 | S3 | Projets mis en avant sur l'accueil | **Les 3 projets clients** (RepaTek, I Make My World, plateforme éditoriale), puis « Voir les 6 projets » |
-| S4 | Langues parlées dans À propos | **Affichées** ; liste et niveaux **à fournir par Awad** (la section n'apparaît pas tant qu'ils ne sont pas donnés) |
+| S4 | Langues parlées dans À propos | **Pas affichées sur le site** : la plupart des portfolios de développeurs français ne les montrent pas (2 sur 8 vérifiés le 22/11/2026). Les langues d'Awad (français courant, anglais B1, allemand B2) restent dans ses CV |
 | S5 | Délai de réponse sur la page Contact | **« Je réponds sous 24 h. »** |

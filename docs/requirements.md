@@ -59,7 +59,7 @@ Règles :
 - Formation « Développeur web et web mobile » chez Simplon.co.
 - Les projets réalisés, datés **[A5]**.
 - Aucune expérience reprise du CV tant qu'Awad ne l'a pas fournie et validée.
-- Langues parlées, avec leur niveau (décision S4 du sitemap) : liste à fournir par Awad ; la section n'apparaît pas tant qu'elle n'est pas donnée.
+- Pas de section « langues parlées » sur le site (décision S4 du sitemap) : elles figurent dans les CV.
 
 ### EF-6 — Contact
 
