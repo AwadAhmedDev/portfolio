@@ -9,7 +9,7 @@ Objectif : présenter ses projets réels (avec un lien vers chaque site en ligne
 
 Le portfolio est un projet séparé : il ne modifie jamais les dépôts des projets qu'il présente.
 
-Stack envisagée (pas encore installée, à confirmer pendant la conception) : Next.js, React, TypeScript, Tailwind CSS, shadcn/ui.
+Stack choisie (pas encore installée) : Next.js en export statique, React, TypeScript, Tailwind CSS, shadcn/ui. Détails et décisions : `docs/product-discovery.md`.
 
 ## 2. Rôles
 

@@ -11,7 +11,7 @@
 
 Awad est développeur Full Stack JavaScript / TypeScript (formation Simplon.co, Île-de-France). Il a plusieurs projets réels en ligne, mais rien ne les montre au même endroit :
 
-- un recruteur doit parcourir GitHub (6 dépôts publics) sans savoir par où commencer ;
+- un recruteur doit parcourir GitHub (7 dépôts publics) sans savoir par où commencer ;
 - un entrepreneur ne lit pas de code : il veut voir un site qui marche et comprendre ce qu'il y gagne ;
 - les preuves de qualité (tests, CI, scores Lighthouse) existent mais ne sont visibles nulle part.
 
@@ -69,7 +69,7 @@ Points ouverts sur cet inventaire :
 Ce qui distingue Awad (démontrable) :
 
 - des projets **en ligne et utilisables**, pas seulement des captures ;
-- des **preuves de qualité** : tests automatisés (16 à 63 selon le projet), CI, Lighthouse à 100 sur plusieurs sites ;
+- des **preuves de qualité** : de 16 à 63 tests automatisés selon le projet (RepaTek n'en a pas encore), CI, Lighthouse à 100 sur plusieurs sites ;
 - des projets **pour de vrais clients** : RepaTek, la plateforme éditoriale et I Make My World (en cours, Awad seul développeur).
 
 ---
@@ -86,9 +86,9 @@ Pas de mot « junior » ni « senior » dans le titre (décision d'Awad du 22/11
 | **Utilisé dans un projet livré** | Présent dans un seul projet | Supabase RLS et Edge Functions, Cloudflare R2, Turnstile, Better Auth, Playwright, Docker + Caddy, shadcn/ui, JWT, Dependabot |
 | **Outils de travail** | Ce qu'Awad utilise au quotidien | Git / GitHub, hébergement Hostinger, Claude Code, Claude Design, ChatGPT |
 
-**[À CONFIRMER]** : Docker n'est démontré que dans le template Next.js (Docker + Caddy). On l'affiche donc dans « Utilisé dans un projet livré ».
+Docker n'est démontré que dans le template Next.js (Docker + Caddy) : il est donc dans « Utilisé dans un projet livré ».
 
-**[À DÉCIDER]** : faut-il dire sur le site qu'Awad utilise des outils d'IA (Claude Code, Claude Design, ChatGPT) ? Voir la décision D5.
+Les outils d'IA (Claude Code, Claude Design, ChatGPT) sont mentionnés sur le site en une phrase honnête sur la façon de travailler (décision D5).
 
 ---
 
@@ -121,7 +121,7 @@ Pas de mot « junior » ni « senior » dans le titre (décision d'Awad du 22/11
 - **Espace disque très limité** sur l'ordinateur d'Awad (environ 2,4 Go libres) : peu de dépendances, une seule installation, pas de Docker en local.
 - **Hébergement** : Hostinger, comme les autres projets, avec déploiement automatique depuis GitHub.
 - **Site rapide et simple** : le contenu change rarement, donc un site **statique** suffit (objectif Lighthouse 100).
-- **Technologie [À DÉCIDER]** : le plan initial recommandait Astro ; la stack envisagée maintenant est Next.js + React + TypeScript + Tailwind + shadcn/ui. Voir la décision D1.
+- **Technologie** : Next.js en export statique, avec React, TypeScript, Tailwind CSS et shadcn/ui (décision D1).
 - **Formulaire de contact** : un site statique ne peut pas envoyer d'e-mail seul. Il faut un petit service (par exemple Resend via une fonction serveur, ou un service de formulaire). Protection anti-spam obligatoire.
 - **Confidentialité** : seul le nom « Awad Ahmed » apparaît. Aucune adresse e-mail personnelle, aucun secret dans le code.
 - **Maintenance** : le contenu des projets doit pouvoir se mettre à jour facilement (un seul fichier de données).
@@ -166,7 +166,7 @@ Pas de mot « junior » ni « senior » dans le titre (décision d'Awad du 22/11
 | D1 | Technologie | **Next.js en export statique** (+ React, TypeScript, Tailwind CSS, shadcn/ui) |
 | D2 | RepaTek et I Make My World | I Make My World : **accord du client donné**, Awad **seul développeur**, en cours de développement. RepaTek : **projet client** (nom du client à citer : [À CONFIRMER]) |
 | D3 | Cible principale | **Les deux, emploi d'abord** ; l'offre freelance reste bien visible |
-| D4 | Parcours | Basé **uniquement sur les faits déjà vérifiés** : formation Développeur Full Stack chez Simplon.co, Île-de-France, et les projets de ce document. Le CV sera transmis plus tard par Awad ; rien n'en est repris d'ici là |
+| D4 | Parcours | Basé **uniquement sur les faits déjà vérifiés** : formation chez Simplon.co (titre exact de la formation : [À CONFIRMER]), Île-de-France, et les projets de ce document. Le CV sera transmis plus tard par Awad ; rien n'en est repris d'ici là |
 | D5 | Outils d'IA | **Oui**, une phrase honnête sur la façon de travailler |
 | D6 | Adresse du site | **Adresse gratuite Hostinger** (domaine possible plus tard) |
 | D7 | Contact | **Formulaire** (sans adresse affichée, anti-spam) **+ LinkedIn** |
