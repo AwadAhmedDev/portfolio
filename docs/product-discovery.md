@@ -9,7 +9,7 @@
 
 ### Le problème
 
-Awad est développeur Full Stack JavaScript / TypeScript (formation Simplon.co, Île-de-France). Il a plusieurs projets réels en ligne, mais rien ne les montre au même endroit :
+Awad est développeur Full Stack JavaScript / TypeScript (formation « Développeur web et web mobile » chez Simplon.co, Île-de-France). Il a plusieurs projets réels en ligne, mais rien ne les montre au même endroit :
 
 - un recruteur doit parcourir GitHub (7 dépôts publics) sans savoir par où commencer ;
 - un entrepreneur ne lit pas de code : il veut voir un site qui marche et comprendre ce qu'il y gagne ;
@@ -166,7 +166,7 @@ Les outils d'IA (Claude Code, Claude Design, ChatGPT) sont mentionnés sur le si
 | D1 | Technologie | **Next.js en export statique** (+ React, TypeScript, Tailwind CSS, shadcn/ui) |
 | D2 | RepaTek et I Make My World | I Make My World : **accord du client donné**, Awad **seul développeur**, en cours de développement. RepaTek : **projet client** (nom du client à citer : [À CONFIRMER]) |
 | D3 | Cible principale | **Les deux, emploi d'abord** ; l'offre freelance reste bien visible |
-| D4 | Parcours | Basé **uniquement sur les faits déjà vérifiés** : formation chez Simplon.co (titre exact de la formation : [À CONFIRMER]), Île-de-France, et les projets de ce document. Le CV sera transmis plus tard par Awad ; rien n'en est repris d'ici là |
+| D4 | Parcours | Basé **uniquement sur les faits déjà vérifiés** : formation « Développeur web et web mobile » chez Simplon.co (confirmé par Awad), Île-de-France, et les projets de ce document. Le CV sera transmis plus tard par Awad ; rien n'en est repris d'ici là |
 | D5 | Outils d'IA | **Oui**, une phrase honnête sur la façon de travailler |
 | D6 | Adresse du site | **Adresse gratuite Hostinger** (domaine possible plus tard) |
 | D7 | Contact | **Formulaire** (sans adresse affichée, anti-spam) **+ LinkedIn** |
