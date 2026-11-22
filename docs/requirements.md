@@ -10,24 +10,18 @@
 
 ### EF-1 — Navigation et structure
 
-| Page | Adresse (par langue) | Contenu |
-|---|---|---|
-| Accueil | `/fr/`, `/en/`, `/de/` | Présentation, projets mis en avant, compétences, parcours, contact (une seule page longue, avec des ancres) **[A1]** |
-| Fiche projet | `/fr/projets/<projet>/` (équivalent traduit en `/en/` et `/de/`) | Détail d'un projet **[A1]** |
-| Mentions légales | `/fr/mentions-legales/` … | Informations légales obligatoires |
-| Page 404 | — | Page introuvable, dans la langue de l'adresse demandée |
+Les pages, leurs adresses et la navigation sont détaillées dans [`sitemap.md`](./sitemap.md) **[A1]** : pages séparées (Accueil, Projets, détail par projet, À propos, Contact, Mentions légales). Site **100 % en français**, adresses sans préfixe de langue (`/`, `/projets/`, `/projets/repatek/`…).
 
 Comportement attendu :
-- Un en-tête fixe en haut contient : le nom « Awad Ahmed », les liens vers les sections (Projets, Compétences, Parcours, Contact), le sélecteur de langue et le bouton clair/sombre.
+- Un en-tête fixe en haut contient : le nom « Awad Ahmed », les liens de navigation, le bouton « CV » et le bouton clair/sombre.
 - Sur mobile, les liens passent dans un menu qui s'ouvre par un bouton ; le menu se ferme après un clic sur un lien, avec la touche Échap, ou en touchant en dehors.
 - Un lien « Aller au contenu » est le premier élément accessible au clavier.
 - Un pied de page contient : liens LinkedIn et GitHub, lien vers les mentions légales, lien vers le code du portfolio.
-- Cliquer sur une ancre fait défiler jusqu'à la section ; le défilement doux est désactivé si l'utilisateur a demandé moins d'animations (`prefers-reduced-motion`).
 
 ### EF-2 — Accueil (en-tête de page)
 
 - Affiche : photo d'Awad, nom, titre « Développeur Full Stack JavaScript / TypeScript — React, Next.js, Node.js », une phrase de présentation, localisation « Île-de-France ».
-- Deux boutons : « Voir mes projets » (défile vers les projets) et « Me contacter » (défile vers le contact).
+- Deux boutons : « Voir mes projets » (page Projets) et « Me contacter » (page Contact).
 - Le message principal vise l'emploi ; l'offre freelance est mentionnée juste après, de façon visible (décision D3).
 - Aucun mot « junior » ni « senior », aucun nombre d'années d'expérience.
 
@@ -69,7 +63,7 @@ Règles :
 
 - Formulaire avec les champs : nom (obligatoire), adresse e-mail (obligatoire, pour pouvoir répondre), type de demande (« Offre d'emploi », « Projet freelance », « Autre »), message (obligatoire, 20 à 3 000 caractères).
 - Une case à cocher obligatoire d'accord pour le traitement des données, avec un lien vers les mentions légales.
-- Validation dans le navigateur **et** côté serveur : messages d'erreur sous chaque champ, en clair, dans la langue de la page.
+- Validation dans le navigateur **et** côté serveur : messages d'erreur sous chaque champ, en clair, en français.
 - Anti-spam : champ piège invisible et limite de demandes ; **[A6]** pour un captcha.
 - Après l'envoi : message de confirmation sur la page, le formulaire est vidé, le bouton est désactivé pendant l'envoi.
 - L'adresse e-mail d'Awad n'apparaît **nulle part** : ni dans la page, ni dans le code envoyé au navigateur.
@@ -78,18 +72,17 @@ Règles :
 
 ### EF-7 — CV
 
-- Bouton « Télécharger mon CV (PDF) » dans le parcours et le contact.
-- Le PDF est vérifié avant publication : pas d'adresse e-mail ni de téléphone personnels **[A8]**.
-- Tant que le CV n'est pas fourni, le bouton n'est pas affiché.
+- Trois versions du CV en PDF : **français, anglais, allemand** **[A8]**, fournies par Awad.
+- Bouton « CV » dans l'en-tête (version française), et les trois versions dans À propos et Contact.
+- Chaque lien annonce la langue, le format et la taille (ex. « CV en anglais (PDF, 150 Ko) »).
+- Chaque PDF est vérifié avant publication : pas d'adresse e-mail ni de téléphone personnels.
+- Une version pas encore fournie n'a pas de lien.
 
-### EF-8 — Langues
+### EF-8 — Langue du site
 
-- Trois langues : français (par défaut), anglais, allemand.
-- Le sélecteur de langue mène à **la même page** dans l'autre langue (pas à l'accueil).
-- L'adresse racine `/` redirige toujours vers `/fr/` (redirection fixe 301, côté serveur) **[A9]** : chaque page n'a qu'une seule adresse. Pas de redirection selon la langue du navigateur.
-- Toutes les pages ont leur traduction ; aucun texte d'une autre langue ne reste dans une page traduite.
-- Les dates et nombres suivent la langue (ex. « 22 novembre 2026 » / « November 22, 2026 » / « 22. November 2026 »).
-- Qui relit l'anglais et l'allemand : **[A10]**.
+- **Le site est 100 % en français** (décision d'Awad du 22/11/2026, qui remplace les décisions A9 et A10) : pas de version anglaise ni allemande, pas de sélecteur de langue.
+- Seul le CV existe aussi en anglais et en allemand (EF-7).
+- Dates et nombres au format français (ex. « 22 novembre 2026 »).
 
 ### EF-9 — Thème clair / sombre
 
@@ -109,7 +102,7 @@ Règles :
 | ID | Exigence |
 |---|---|
 | ENF-1 | **Site statique** : Next.js en export statique, hébergé sur Hostinger, adresse temporaire actuelle (décision D6). |
-| ENF-2 | **Maintenable** : tout le contenu (textes, projets, chiffres, compétences) est dans des fichiers de données par langue ; ajouter un projet ne demande que ces fichiers et ses captures. |
+| ENF-2 | **Maintenable** : tout le contenu (textes, projets, chiffres, compétences) est dans des fichiers de données ; ajouter un projet ne demande que ces fichiers et ses captures. |
 | ENF-3 | **Peu de dépendances** : Next.js, React, TypeScript, Tailwind CSS, shadcn/ui, et le strict nécessaire pour les tests. Chaque nouvelle dépendance est justifiée et validée par Awad (disque limité). |
 | ENF-4 | **Qualité du code** : TypeScript strict, lint et formatage vérifiés dans la CI. |
 | ENF-5 | **CI GitHub Actions** à chaque push : lint, types, tests, build, vérification des liens ; la mise en ligne n'a lieu que si tout passe. |
@@ -138,25 +131,25 @@ Règles :
 Objectif : **WCAG 2.2 niveau AA** et Lighthouse Accessibilité 100.
 
 - Structure : un seul `h1` par page, titres dans l'ordre, zones `header`, `nav`, `main`, `footer`.
-- Langue déclarée sur chaque page (`lang="fr"`, `"en"`, `"de"`).
+- Langue déclarée : `lang="fr"` ; les liens vers les CV anglais et allemand portent `hreflang`.
 - Contraste : 4,5:1 pour le texte, 3:1 pour les grands textes et les éléments d'interface, **dans les deux thèmes**.
 - Tout est utilisable au clavier, dans un ordre logique ; le focus est toujours visible.
 - Images : texte alternatif utile ; images décoratives ignorées par les lecteurs d'écran.
 - Formulaire : chaque champ a une étiquette visible ; erreurs annoncées aux lecteurs d'écran et reliées à leur champ ; confirmation d'envoi annoncée.
 - Liens explicites (pas de « cliquez ici ») ; un lien qui ouvre un PDF le dit.
 - Animations désactivées si `prefers-reduced-motion` est activé.
-- Menu mobile et sélecteur de langue utilisables au clavier et au lecteur d'écran.
+- Menu mobile utilisable au clavier et au lecteur d'écran.
 
 ---
 
 ## 5. SEO
 
-- Titre et description uniques pour chaque page et chaque langue.
-- Adresse canonique sur chaque page ; balises `hreflang` entre les trois langues et `x-default` vers le français.
-- `sitemap.xml` avec toutes les pages et leurs versions traduites ; `robots.txt` qui pointe vers le sitemap.
+- Titre et description uniques pour chaque page, en français.
+- Adresse canonique sur chaque page.
+- `sitemap.xml` avec toutes les pages ; `robots.txt` qui pointe vers le sitemap.
 - Aperçus pour les réseaux sociaux (Open Graph et Twitter) : titre, description, image par page.
 - Données structurées : `Person` sur l'accueil (nom, titre, liens LinkedIn et GitHub — pas d'e-mail).
-- Adresses lisibles et stables (ex. `/fr/projets/repatek/`).
+- Adresses lisibles et stables (ex. `/projets/repatek/`).
 - Page 404 avec le code HTTP 404.
 - Quand de vrais noms de domaine seront achetés : redirection 301 de l'ancienne adresse et mise à jour des adresses canoniques (décision D6).
 
@@ -176,7 +169,7 @@ Mesurée **sur le site en ligne**, avec Lighthouse.
 
 - Images en WebP ou AVIF, plusieurs tailles, chargement différé hors du premier écran, dimensions fixées pour éviter les sauts.
 - Polices hébergées par le site, limitées au nécessaire, affichées sans bloquer le texte.
-- JavaScript limité au strict nécessaire : composants serveur par défaut, composants client seulement pour le formulaire, le menu mobile, le sélecteur de langue et le thème ; **moins de 150 Ko de JavaScript compressé par page** (mesuré au build).
+- JavaScript limité au strict nécessaire : composants serveur par défaut, composants client seulement pour le formulaire, le menu mobile et le thème ; **moins de 150 Ko de JavaScript compressé par page** (mesuré au build).
 - Cache long pour les fichiers qui ne changent pas (images, CSS, JS versionnés), compression activée.
 
 ---
@@ -197,7 +190,7 @@ Mesurée **sur le site en ligne**, avec Lighthouse.
 
 | Situation | Comportement attendu |
 |---|---|
-| Page introuvable | Page 404 dans la bonne langue, avec liens vers l'accueil et les projets |
+| Page introuvable | Page 404, avec liens vers l'accueil et les projets |
 | Champ du formulaire invalide | Message sous le champ, focus déplacé sur le premier champ en erreur, saisie conservée |
 | Envoi du formulaire impossible (réseau, serveur) | Message clair « Le message n'a pas pu être envoyé, réessayez ou écrivez-moi sur LinkedIn », saisie conservée |
 | Trop de demandes | Message demandant de réessayer plus tard, sans perdre la saisie |
@@ -213,18 +206,17 @@ Mesurée **sur le site en ligne**, avec Lighthouse.
 Le portfolio est accepté quand **tous** ces points sont vérifiés :
 
 **Contenu**
-- [ ] Les 6 projets sont présents dans les 3 langues, avec les bons liens, badges, technologies et chiffres datés.
+- [ ] Les 6 projets sont présents, en français, avec les bons liens, badges, technologies et chiffres datés.
 - [ ] Chaque fait affiché a été validé par Awad.
 - [ ] Aucun « junior », « senior » ni nombre d'années d'expérience.
 - [ ] L'adresse e-mail d'Awad n'apparaît dans aucune page ni aucun fichier envoyé au navigateur.
 
 **Fonctionnement**
 - [ ] Le menu mobile s'ouvre et se ferme (clic, Échap, clic en dehors).
-- [ ] Le sélecteur de langue mène à la même page dans l'autre langue, sur toutes les pages.
+- [ ] Les liens vers les CV (français, anglais, allemand) ouvrent le bon PDF.
 - [ ] Le thème suit le système au premier passage, puis le choix est conservé, sans flash.
 - [ ] Le formulaire : refuse un envoi invalide avec des messages clairs ; un envoi valide arrive dans la boîte de réception d'Awad ; un robot remplissant le champ piège ne déclenche aucun e-mail ; les cas d'erreur de la section 8 se comportent comme prévu.
-- [ ] La page 404 répond avec le code 404 dans la bonne langue.
-- [ ] `/` redirige vers `/fr/` avec le code 301.
+- [ ] La page 404 répond avec le code HTTP 404.
 - [ ] Chaque page envoie moins de 150 Ko de JavaScript compressé.
 
 **Qualité mesurée sur le site en ligne**
@@ -234,7 +226,7 @@ Le portfolio est accepté quand **tous** ces points sont vérifiés :
 - [ ] Aucun lien cassé (vérification automatique dans la CI).
 - [ ] Affichage correct à 360, 768 et 1440 px, sans défilement horizontal.
 - [ ] Navigation complète au clavier, sans piège.
-- [ ] `sitemap.xml`, `robots.txt`, `hreflang`, adresses canoniques et aperçus Open Graph présents et valides.
+- [ ] `sitemap.xml`, `robots.txt`, adresses canoniques et aperçus Open Graph présents et valides.
 - [ ] En-têtes de sécurité présents (vérifiés sur le site en ligne).
 
 **Projet**
@@ -250,16 +242,16 @@ Les marqueurs **[A1]**… dans le document renvoient à ces décisions.
 
 | # | Question | Décision |
 |---|---|---|
-| A1 | Structure | **Accueil long** (toutes les sections, avec des ancres) **+ une fiche par projet** |
+| A1 | Structure | **Remplacée par la décision S1 du sitemap** : pages séparées (Accueil, Projets, détail par projet, À propos, Contact, Mentions légales) |
 | A2 | Ordre des projets | **Projets clients d'abord** : RepaTek, I Make My World, plateforme éditoriale ; puis template Next.js, eMatériel, Solidays |
 | A3 | Scores Lighthouse | **Affichés sur les fiches projet, avec leur date**, mesurés de nouveau juste avant la mise en ligne |
 | A4 | Liens externes | **Même onglet** |
 | A5 | Dates des projets | **D'après les dépôts GitHub** : seul le **mois de début** (premier commit) est affiché, car le dernier commit de chaque dépôt correspond à des mises à jour récentes, pas à la fin du projet. Liste ci-dessous, à valider |
 | A6 | Anti-spam | **Champ piège + limite de demandes**, sans captcha ; Cloudflare Turnstile ajouté seulement si du spam arrive |
 | A7 | Envoi du formulaire | **Petit script PHP sur l'hébergement Hostinger**, qui envoie le message par Resend. La clé Resend et l'adresse de réception restent sur le serveur (jamais dans le dépôt ni dans le navigateur). Adresse de réception : à fournir par Awad au moment du développement |
-| A8 | CV | **Un PDF par langue** (français, anglais, allemand), fournis par Awad |
-| A9 | Adresse racine `/` | **Français par défaut** : `/` redirige toujours vers `/fr/` (redirection fixe, pour éviter le contenu en double), sans redirection selon la langue du navigateur |
-| A10 | Traductions | Claude traduit ; **Awad relit l'anglais** ; **l'allemand est relu par une personne qui le parle couramment** avant publication |
+| A8 | CV | **Trois PDF : français, anglais, allemand**, fournis par Awad |
+| A9 | Adresse racine `/` | **Remplacée** : le site est 100 % en français, `/` est directement l'accueil (pas de `/fr/`) |
+| A10 | Traductions | **Remplacée** : pas de traduction du site ; seul le CV existe en anglais et en allemand |
 | A11 | Mentions légales | **Pas de SIRET pour l'instant** : mentions légales de particulier (nom « Awad Ahmed » et hébergeur Hostinger), à mettre à jour quand Awad aura un SIRET. Aucune adresse postale publiée |
 
 ### Dates de début des projets (premier commit, vérifié le 22/11/2026)
