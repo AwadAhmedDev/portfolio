@@ -30,11 +30,11 @@ Les scores Lighthouse (performance / accessibilité / bonnes pratiques / SEO) on
 | **eMatériel** (`eMateriel`) | Boutique en ligne : panier, stock géré en transaction, paiement Stripe (mode test), back-office | Projet de formation Simplon, finalisé ensuite | https://darkseagreen-sandpiper-710943.hostingersite.com | Public | React 19, Express 5, MySQL, Stripe | 63 tests Vitest + Supertest, CI. Lighthouse ordinateur 100/100/100/100, mobile 98 en performance |
 | **Template Next.js** (`nextjs-freelance-template`) | Base de projet SaaS réutilisable | Terminé, code seulement (pas de site) | — | Public | Next.js 16, Better Auth, Stripe + webhook, Prisma 7, Docker + Caddy | 13 tests Vitest + 14 tests E2E Playwright, CI |
 | **Solidays** (`solidays_app`) | Clone du site du festival solidays.org + back-office artistes | Projet de formation en **équipe de 3** (Awad, Prativa, Manon) | https://tasteful-lightcoral-yak-94.hostingersite.com (volontairement en noindex) | Public | React, TypeScript, Vite, Express, MySQL, Zod | 24 tests, CI/CD, Dependabot |
-| **I Make My World** (`solution_innovation`) | Projet client, plateforme d'innovation sociale : créateurs / experts / investisseurs, back-office de modération | **En cours de développement**, version en ligne sur une adresse temporaire | https://teal-starling-640860.hostingersite.com | **Privé** | React, TypeScript, Vite, Tailwind 4, shadcn/ui ; Express, MySQL, JWT, stockage compatible S3, Resend | 45 tests (Vitest + Supertest). Lighthouse ordinateur 99/99/100/100, mobile 90/99/100/100 |
+| **I Make My World** (`solution_innovation`) | Projet client, plateforme d'innovation sociale : créateurs / experts / investisseurs, back-office de modération | **Terminé, en ligne** (hébergé sur le compte Hostinger d'Awad) | https://teal-starling-640860.hostingersite.com | **Privé** | React, TypeScript, Vite, Tailwind 4, shadcn/ui ; Express, MySQL, JWT, Cloudflare R2, Resend | 45 tests (Vitest + Supertest). Lighthouse ordinateur 99/99/100/100, mobile 90/99/100/100 |
 
 Points ouverts sur cet inventaire :
 
-- **I Make My World** (dépôt `solution_innovation`) : projet client **en cours de développement**. Le dépôt est privé : pas de lien « Voir le code ». **L'accord du client est donné** (confirmé par Awad le 22/11/2026). Rôle : **seul développeur**.
+- **I Make My World** (dépôt `solution_innovation`) : projet client **terminé et en ligne** sur le compte Hostinger d'Awad (confirmé par Awad le 22/11/2026). Le transfert sur l'hébergement du client viendra plus tard ; d'ici là, le portfolio utilise l'adresse actuelle. Le dépôt est privé : pas de lien « Voir le code ». **L'accord du client est donné** (confirmé par Awad le 22/11/2026). Rôle : **seul développeur**.
 - **RepaTek** (ancien nom « RéparTech ») : **projet pour un client** (confirmé par Awad). **[À CONFIRMER]** : le nom du client à citer, s'il faut le citer. Le site n'a pas de paiement en ligne : ne pas en annoncer.
 
 ---
@@ -70,7 +70,7 @@ Ce qui distingue Awad (démontrable) :
 
 - des projets **en ligne et utilisables**, pas seulement des captures ;
 - des **preuves de qualité** : de 16 à 63 tests automatisés selon le projet (RepaTek n'en a pas encore), CI, Lighthouse à 100 sur plusieurs sites ;
-- des projets **pour de vrais clients** : RepaTek, la plateforme éditoriale et I Make My World (en cours, Awad seul développeur).
+- des projets **pour de vrais clients** : RepaTek, la plateforme éditoriale et I Make My World (Awad seul développeur).
 
 ---
 
@@ -164,11 +164,11 @@ Les outils d'IA (Claude Code, Claude Design, ChatGPT) sont mentionnés sur le si
 | # | Décision | Choix |
 |---|---|---|
 | D1 | Technologie | **Next.js en export statique** (+ React, TypeScript, Tailwind CSS, shadcn/ui) |
-| D2 | RepaTek et I Make My World | I Make My World : **accord du client donné**, Awad **seul développeur**, en cours de développement. RepaTek : **projet client** (nom du client à citer : [À CONFIRMER]) |
+| D2 | RepaTek et I Make My World | I Make My World : **accord du client donné**, Awad **seul développeur**, terminé et en ligne. RepaTek : **projet client** (nom du client à citer : [À CONFIRMER]) |
 | D3 | Cible principale | **Les deux, emploi d'abord** ; l'offre freelance reste bien visible |
 | D4 | Parcours | Basé **uniquement sur les faits déjà vérifiés** : formation « Développeur web et web mobile » chez Simplon.co (confirmé par Awad), Île-de-France, et les projets de ce document. Le CV sera transmis plus tard par Awad ; rien n'en est repris d'ici là |
 | D5 | Outils d'IA | **Oui**, une phrase honnête sur la façon de travailler |
-| D6 | Adresse du site | **Adresse gratuite Hostinger** (domaine possible plus tard) |
+| D6 | Adresses | **Adresses Hostinger actuelles** pour le portfolio et pour tous les liens « Voir le site » (y compris I Make My World). Les vrais noms de domaine viendront plus tard : les liens devront alors être mis à jour |
 | D7 | Contact | **Formulaire** (sans adresse affichée, anti-spam) **+ LinkedIn** |
 | D8 | Photo, CV, langues | **Photo : oui. CV PDF : oui** (fournis par Awad). **Langues : français, anglais et allemand** |
 
