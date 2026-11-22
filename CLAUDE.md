@@ -7,7 +7,7 @@ Instructions générales pour toute intervention de Claude sur ce dépôt.
 Portfolio professionnel de Awad Ahmed, développeur Full Stack JavaScript / TypeScript. Le site n'emploie ni « junior » ni « senior » et n'annonce aucun nombre d'années d'expérience.
 Objectif : présenter ses projets réels (avec un lien vers le site en ligne et vers le code quand ils existent), ses compétences et son parcours, et permettre de le contacter.
 
-Le portfolio est un projet séparé : il ne modifie jamais les dépôts des projets qu'il présente.
+Le portfolio est un projet séparé : il ne modifie pas les dépôts des projets qu'il présente, sauf demande explicite d'Awad.
 
 Stack choisie (pas encore installée) : Next.js en export statique, React, TypeScript, Tailwind CSS, shadcn/ui. Détails et décisions : `docs/product-discovery.md`.
 
