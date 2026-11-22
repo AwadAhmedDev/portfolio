@@ -117,7 +117,7 @@ Textes : `contenus.md` §1.1 à §1.5.
 
 1. **Premier écran** : texte à gauche, photo à droite (320 px au plus, format 4:5). Ordre : petit titre (mono, texte secondaire), `h1`, 3 puces React · Next.js · Node.js, phrase de présentation, ligne lieu et disponibilité (point `--ac` décoratif), deux boutons. Sur mobile, la photo passe sous les boutons.
 2. **Projets clients** : fond `--sf` ; `h2` et sous-titre à gauche, « Voir les 6 projets » à droite (dessous sur mobile) ; 3 cartes issues du fichier de données.
-3. **Preuves en chiffres** : 4 cartes ; `h2` « Preuves en chiffres » réservé aux lecteurs d'écran ; le détail 17 + 16 + 63 + 27 + 24 + 45 en petit sous « 192 tests », « GitHub Actions » sous « Intégration continue » ; la note datée dessous, en italique.
+3. **Preuves en chiffres** : 4 cartes ; `h2` « Preuves en chiffres » réservé aux lecteurs d'écran ; le détail 17 + 16 + 63 + 20 + 24 + 45 en petit sous « 185 tests », « GitHub Actions » sous « Intégration continue » ; la note datée dessous, en italique.
 4. **Bloc freelance** : un bloc sur fond `--sf`, 3 colonnes sur ordinateur (titre, texte et bouton ; « Ce que je réalise » ; « Comment je travaille »), empilées sur mobile ; sous-titres en `h3` ; 5 réalisations avec coche décorative ; 3 étapes en liste numérotée (`ol`).
 5. **Rappel du contact** : bande séparée par une bordure ; phrase à gauche en style de titre, bouton « Me contacter » à droite.
 

@@ -52,7 +52,7 @@
 
 ### 1.3 Preuves en chiffres
 - **6 projets** présentés, dont **5 en ligne**
-- **192 tests automatisés** au total *(17 + 16 + 63 + 27 + 24 + 45)*
+- **185 tests automatisés** au total *(17 + 16 + 63 + 20 + 24 + 45)*
 - **Intégration continue** sur les 6 projets *(GitHub Actions)*
 - **100 / 100** sur les 4 scores Lighthouse pour 2 sites, sur ordinateur
 
@@ -192,7 +192,7 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
   - **Tests de bout en bout Playwright dans l'intégration continue**, sur une vraie base de données préparée à chaque lancement.
   - **Docker et Caddy** pour déployer sur un serveur avec HTTPS automatique.
   - **Contrôle des failles des dépendances dans l'intégration continue**, et mises à jour proposées par Dependabot.
-- **Qualité** : 13 tests unitaires (Vitest) et 14 tests de bout en bout (Playwright) · intégration continue · aucune faille connue dans les dépendances *(vérifié le 22 novembre 2026)*.
+- **Qualité** : 13 tests unitaires (Vitest) et 7 scénarios de bout en bout (Playwright), exécutés chacun sur deux profils : ordinateur et mobile · intégration continue · aucune faille connue dans les dépendances *(vérifié le 22 novembre 2026)*.
 - Liens : **Voir le code** (pas de site en ligne : c'est une base de projet)
 
 ### 3.5 eMatériel — `/projets/emateriel/`
