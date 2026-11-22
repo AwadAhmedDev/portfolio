@@ -5,7 +5,7 @@ Instructions générales pour toute intervention de Claude sur ce dépôt.
 ## 1. Contexte et objectif
 
 Portfolio professionnel de Awad Ahmed, développeur Full Stack JavaScript / TypeScript. Le site n'emploie ni « junior » ni « senior » et n'annonce aucun nombre d'années d'expérience.
-Objectif : présenter ses projets réels (avec un lien vers chaque site en ligne et vers son code), ses compétences et son parcours, et permettre de le contacter.
+Objectif : présenter ses projets réels (avec un lien vers le site en ligne et vers le code quand ils existent), ses compétences et son parcours, et permettre de le contacter.
 
 Le portfolio est un projet séparé : il ne modifie jamais les dépôts des projets qu'il présente.
 
