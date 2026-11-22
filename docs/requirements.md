@@ -86,7 +86,7 @@ Règles :
 
 - Trois langues : français (par défaut), anglais, allemand.
 - Le sélecteur de langue mène à **la même page** dans l'autre langue (pas à l'accueil).
-- L'adresse racine `/` affiche la version française **[A9]** ; pas de redirection automatique selon le navigateur.
+- L'adresse racine `/` redirige toujours vers `/fr/` (redirection fixe 301, côté serveur) **[A9]** : chaque page n'a qu'une seule adresse. Pas de redirection selon la langue du navigateur.
 - Toutes les pages ont leur traduction ; aucun texte d'une autre langue ne reste dans une page traduite.
 - Les dates et nombres suivent la langue (ex. « 22 novembre 2026 » / « November 22, 2026 » / « 22. November 2026 »).
 - Qui relit l'anglais et l'allemand : **[A10]**.
@@ -176,7 +176,7 @@ Mesurée **sur le site en ligne**, avec Lighthouse.
 
 - Images en WebP ou AVIF, plusieurs tailles, chargement différé hors du premier écran, dimensions fixées pour éviter les sauts.
 - Polices hébergées par le site, limitées au nécessaire, affichées sans bloquer le texte.
-- JavaScript limité : les sections sans interaction n'envoient pas de JavaScript.
+- JavaScript limité au strict nécessaire : composants serveur par défaut, composants client seulement pour le formulaire, le menu mobile, le sélecteur de langue et le thème ; **moins de 150 Ko de JavaScript compressé par page** (mesuré au build).
 - Cache long pour les fichiers qui ne changent pas (images, CSS, JS versionnés), compression activée.
 
 ---
@@ -184,7 +184,8 @@ Mesurée **sur le site en ligne**, avec Lighthouse.
 ## 7. Sécurité
 
 - HTTPS obligatoire, redirection de HTTP vers HTTPS.
-- En-têtes HTTP : `Content-Security-Policy`, `Strict-Transport-Security`, `X-Content-Type-Options: nosniff`, `Referrer-Policy`, `Permissions-Policy`, protection contre l'affichage dans un cadre.
+- `Content-Security-Policy` compatible avec l'export statique de Next.js : scripts intégrés autorisés par leur empreinte (hash), **sans `unsafe-eval`** ; détail fixé pendant l'architecture.
+- Autres en-têtes HTTP : `Strict-Transport-Security`, `X-Content-Type-Options: nosniff`, `Referrer-Policy`, `Permissions-Policy`, protection contre l'affichage dans un cadre.
 - Formulaire : validation serveur de chaque champ (longueur, format), limite de demandes par adresse IP, champ piège, aucune donnée réutilisée sans être nettoyée (pas d'injection dans l'e-mail envoyé).
 - Les clés d'API (envoi d'e-mails…) restent côté serveur, jamais dans le code envoyé au navigateur ni dans le dépôt.
 - Dépendances surveillées : contrôle des failles dans la CI et Dependabot.
@@ -223,6 +224,8 @@ Le portfolio est accepté quand **tous** ces points sont vérifiés :
 - [ ] Le thème suit le système au premier passage, puis le choix est conservé, sans flash.
 - [ ] Le formulaire : refuse un envoi invalide avec des messages clairs ; un envoi valide arrive dans la boîte de réception d'Awad ; un robot remplissant le champ piège ne déclenche aucun e-mail ; les cas d'erreur de la section 8 se comportent comme prévu.
 - [ ] La page 404 répond avec le code 404 dans la bonne langue.
+- [ ] `/` redirige vers `/fr/` avec le code 301.
+- [ ] Chaque page envoie moins de 150 Ko de JavaScript compressé.
 
 **Qualité mesurée sur le site en ligne**
 - [ ] Lighthouse ordinateur 100 / 100 / 100 / 100 sur l'accueil et une fiche projet.
@@ -255,7 +258,7 @@ Les marqueurs **[A1]**… dans le document renvoient à ces décisions.
 | A6 | Anti-spam | **Champ piège + limite de demandes**, sans captcha ; Cloudflare Turnstile ajouté seulement si du spam arrive |
 | A7 | Envoi du formulaire | **Petit script PHP sur l'hébergement Hostinger**, qui envoie le message par Resend. La clé Resend et l'adresse de réception restent sur le serveur (jamais dans le dépôt ni dans le navigateur). Adresse de réception : à fournir par Awad au moment du développement |
 | A8 | CV | **Un PDF par langue** (français, anglais, allemand), fournis par Awad |
-| A9 | Adresse racine `/` | **Version française directe**, sans redirection automatique |
+| A9 | Adresse racine `/` | **Français par défaut** : `/` redirige toujours vers `/fr/` (redirection fixe, pour éviter le contenu en double), sans redirection selon la langue du navigateur |
 | A10 | Traductions | Claude traduit ; **Awad relit l'anglais** ; **l'allemand est relu par une personne qui le parle couramment** avant publication |
 | A11 | Mentions légales | **Pas de SIRET pour l'instant** : mentions légales de particulier (nom « Awad Ahmed » et hébergeur Hostinger), à mettre à jour quand Awad aura un SIRET. Aucune adresse postale publiée |
 

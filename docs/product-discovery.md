@@ -124,7 +124,7 @@ Les outils d'IA (Claude Code, Claude Design, ChatGPT) sont mentionnés sur le si
 - **Hébergement** : Hostinger, comme les autres projets, avec déploiement automatique depuis GitHub.
 - **Site rapide et simple** : le contenu change rarement, donc un site **statique** suffit (objectif Lighthouse 100).
 - **Technologie** : Next.js en export statique, avec React, TypeScript, Tailwind CSS et shadcn/ui (décision D1).
-- **Formulaire de contact** : un site statique ne peut pas envoyer d'e-mail seul. Il faut un petit service (par exemple Resend via une fonction serveur, ou un service de formulaire). Protection anti-spam obligatoire.
+- **Formulaire de contact** : un site statique ne peut pas envoyer d'e-mail seul. Choix retenu : un petit script PHP sur l'hébergement Hostinger, qui envoie le message par Resend (voir `requirements.md`, décision A7). Protection anti-spam obligatoire.
 - **Confidentialité** : pour Awad, seul le nom « Awad Ahmed » apparaît ; les autres noms sont cités seulement avec leur accord. Aucune adresse e-mail personnelle, aucun secret dans le code.
 - **Maintenance** : le contenu des projets doit pouvoir se mettre à jour facilement (un seul fichier de données).
 
