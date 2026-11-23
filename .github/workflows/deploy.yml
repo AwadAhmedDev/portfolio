@@ -1,0 +1,75 @@
+# Déploiement sur Hostinger (architecture.md §8.2) : après une CI verte sur main, archive de out/ envoyée par l'API.
+# N'écrit que dans public_html/ : private/config.php (clés, HMAC) n'est jamais touché.
+# Prérequis : secret HOSTINGER_API_TOKEN (créé par Awad dans hPanel) et variable SITE_URL du dépôt.
+name: Déploiement
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploiement
+  cancel-in-progress: false
+
+jobs:
+  deployer:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    env:
+      HOSTINGER_USERNAME: u707298094
+      HOSTINGER_DOMAIN: rustic-yellowgreen-woodcock-94.hostingersite.com
+      SITE_URL: ${{ vars.SITE_URL }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Build, CSP et budget JavaScript
+        run: |
+          test -n "$SITE_URL" || { echo "Variable SITE_URL absente"; exit 1; }
+          npm run build
+      - name: Archive (fichiers cachés .htaccess compris)
+        run: cd out && zip -qr ../portfolio-deploy.zip . && cd .. && unzip -l portfolio-deploy.zip | tail -1
+      - name: Envoi et déploiement
+        env:
+          HOSTINGER_API_TOKEN: ${{ secrets.HOSTINGER_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          test -n "$HOSTINGER_API_TOKEN" || { echo "Secret HOSTINGER_API_TOKEN absent"; exit 1; }
+          RETRY=(--retry 4 --retry-delay 5 --retry-all-errors --connect-timeout 15 --max-time 120)
+          API=https://developers.hostinger.com/api/hosting/v1
+          RESP=$(curl -sS -f "${RETRY[@]}" -X POST "$API/files/upload-urls" \
+            -H "Authorization: Bearer $HOSTINGER_API_TOKEN" -H "Content-Type: application/json" \
+            -d "{\"username\":\"$HOSTINGER_USERNAME\",\"domain\":\"$HOSTINGER_DOMAIN\"}")
+          URL=$(echo "$RESP" | jq -r .url); AUTH=$(echo "$RESP" | jq -r .auth_key); REST=$(echo "$RESP" | jq -r .rest_auth_key)
+          SIZE=$(stat -c%s portfolio-deploy.zip)
+          curl -sS -f "${RETRY[@]}" -X POST "$URL/portfolio-deploy.zip?override=true" -H "X-Auth: $AUTH" -H "X-Auth-Rest: $REST" \
+            -H "Tus-Resumable: 1.0.0" -H "Upload-Length: $SIZE" -H "Upload-Offset: 0"
+          curl -sS -f "${RETRY[@]}" -X PATCH "$URL/portfolio-deploy.zip?override=true" -H "X-Auth: $AUTH" -H "X-Auth-Rest: $REST" \
+            -H "Tus-Resumable: 1.0.0" -H "Content-Type: application/offset+octet-stream" -H "Upload-Offset: 0" \
+            --data-binary "@portfolio-deploy.zip"
+          curl -sS -f "${RETRY[@]}" -X POST "$API/accounts/$HOSTINGER_USERNAME/websites/$HOSTINGER_DOMAIN/deploy" \
+            -H "Authorization: Bearer $HOSTINGER_API_TOKEN" -H "Content-Type: application/json" \
+            -d '{"archive_path":"portfolio-deploy.zip"}'
+      # Contrôles après déploiement (architecture.md §8.1) : pages, 404, fichiers interdits, en-têtes.
+      - name: Contrôles du site en ligne
+        run: |
+          set -euo pipefail
+          sleep 20
+          code() { curl -s -o /dev/null -w "%{http_code}" "$SITE_URL$1"; }
+          for p in / /projets/ /a-propos/ /contact/ /mentions-legales/; do test "$(code $p)" = 200 || { echo "$p ne répond pas 200"; exit 1; }; done
+          test "$(code /cette-page-nexiste-pas/)" = 404
+          for p in /_app/ContactHandler.php /private/config.php /.htaccess; do c=$(code $p); [[ "$c" = 403 || "$c" = 404 ]] || { echo "$p répond $c"; exit 1; }; done
+          curl -sI "$SITE_URL/" | grep -qi "^content-security-policy: frame-ancestors 'none'"
+          curl -sI "$SITE_URL/" | grep -qi "^strict-transport-security"
+          echo "Site en ligne vérifié."
