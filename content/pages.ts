@@ -175,3 +175,52 @@ export const page404 = {
   titre: "Cette page n'existe pas.",
   texte: "L'adresse est peut-être mal écrite, ou la page a été déplacée.",
 };
+
+// Mentions légales (contenus.md §6, décision A11). La note interne sur l'adresse de Hostinger n'est pas affichée ;
+// adresse revérifiée le 23/11/2026 dans les conditions d'utilisation de Hostinger.
+export const mentions = {
+  titrePage: "Mentions légales — Awad Ahmed",
+  description: "Éditeur, hébergeur et traitement des données personnelles du portfolio d'Awad Ahmed.",
+  titre: "Mentions légales",
+  editeur: {
+    titre: "Éditeur du site",
+    avant: "Awad Ahmed, particulier. Contact : par le ",
+    lien: "formulaire de contact",
+    apres: ".",
+  },
+  hebergeur: {
+    titre: "Hébergeur",
+    avant: "Hostinger International Ltd, 61 Lordou Vironos Street, 6023 Larnaca, Chypre — ",
+    lien: "www.hostinger.fr",
+    url: "https://www.hostinger.fr",
+    apres: ".",
+  },
+  donnees: {
+    titre: "Données personnelles (formulaire de contact)",
+    elements: [
+      "Données collectées : nom, adresse e-mail, type de demande, message.",
+      "But : uniquement répondre à votre demande.",
+      "Base : votre accord, donné en cochant la case du formulaire.",
+      "Destinataire : Awad Ahmed. Le message est transmis par le service d'envoi d'e-mails Resend.",
+      "Durée de conservation : **12 mois** après le dernier échange, puis suppression.",
+      "Transfert hors de l'Union européenne : Resend est une société américaine ; les messages peuvent donc transiter par des serveurs situés hors de l'Union européenne.",
+    ],
+    droits: {
+      avant:
+        "Vos droits : accès, rectification, effacement et opposition, en écrivant par le formulaire de contact. Vous pouvez aussi déposer une réclamation auprès de la CNIL (",
+      lien: "cnil.fr",
+      url: "https://www.cnil.fr",
+      apres: ").",
+    },
+  },
+  cookies: {
+    titre: "Cookies",
+    texte:
+      "Ce site n'utilise aucun cookie ni outil de mesure d'audience. Votre choix de thème clair ou sombre est gardé dans votre navigateur, uniquement sur votre appareil.",
+  },
+  propriete: {
+    titre: "Propriété",
+    texte:
+      "Les textes et le code de ce site sont ceux d'Awad Ahmed ; les captures d'écran montrent des sites qu'il a réalisés.",
+  },
+};
