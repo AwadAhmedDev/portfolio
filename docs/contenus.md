@@ -11,7 +11,7 @@
 ## 0. Éléments communs
 
 ### En-tête
-- Logo texte : **Awad Ahmed**
+- Logo : marque « AA » et **Awad** ; les lecteurs d'écran lisent « Awad Ahmed » *(décision d'Awad du 23/11/2026 : « Awad » seulement dans le logo, nom complet partout ailleurs)*
 - Liens : **Projets** · **À propos** · **Contact**
 - Bouton : **CV** (ouvre le CV en français)
 - Bouton thème : étiquette pour les lecteurs d'écran « Passer en mode sombre » / « Passer en mode clair »

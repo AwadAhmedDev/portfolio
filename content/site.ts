@@ -1,6 +1,8 @@
 // Éléments communs (docs/contenus.md §0) et liens externes connus (docs/design.md §9).
 
 export const SITE_NOM = "Awad Ahmed";
+// Nom affiché à côté du logo (décision d'Awad du 23/11/2026) ; le nom complet reste partout ailleurs.
+export const LOGO_NOM = "Awad";
 
 export const nav = [
   { href: "/projets/", label: "Projets" },
