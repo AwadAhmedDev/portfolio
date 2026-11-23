@@ -42,6 +42,8 @@ for (const chemin of PAGES) {
 
   test(`${chemin} : accessibilité (axe)`, async ({ page, browserName }) => {
     test.skip(browserName !== "chromium", "axe lancé une fois, dans Chromium");
+    // Sans animation : sinon axe mesure les boutons au milieu de leur transition de couleur après le changement de thème.
+    await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto(chemin);
     for (const theme of ["clair", "sombre"]) {
       await page.evaluate((t) => document.documentElement.classList.toggle("dark", t === "sombre"), theme);
