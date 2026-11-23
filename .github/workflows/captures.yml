@@ -4,6 +4,9 @@ name: Captures
 
 on:
   workflow_dispatch:
+  # Aussi au push d'une modification du script (le lancement manuel n'existe que depuis main).
+  push:
+    paths: [scripts/captures.mjs, .github/workflows/captures.yml]
 
 permissions:
   contents: read
