@@ -46,14 +46,28 @@ for (const chemin of PAGES) {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto(chemin);
     for (const theme of ["clair", "sombre"]) {
-      await page.evaluate((t) => document.documentElement.classList.toggle("dark", t === "sombre"), theme);
+      // Change le thème puis attend deux images affichées : les couleurs du thème sont alors appliquées partout.
+      await page.evaluate(async (t) => {
+        document.documentElement.classList.toggle("dark", t === "sombre");
+        await new Promise((fin) => requestAnimationFrame(() => requestAnimationFrame(fin)));
+      }, theme);
       const r = await new AxeBuilder({ page })
         .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
         .analyze();
       // Détail de chaque élément en cause (sélecteur et résumé d'axe), pour corriger sans deviner.
-      const detail = r.violations.flatMap((v) =>
-        v.nodes.map((n) => `${theme} : ${v.id} ${n.target.join(" ")} — ${n.failureSummary?.replace(/\s+/g, " ")}`),
-      );
+      const detail: string[] = [];
+      for (const v of r.violations)
+        for (const n of v.nodes) {
+          const cible = String(n.target[0]);
+          // Couleur réellement calculée par le navigateur au même moment, pour comparer avec la mesure d'axe.
+          const calcule = await page.evaluate((s) => {
+            const e = document.querySelector(s);
+            return e ? `${getComputedStyle(e).color} sur html.${document.documentElement.className}` : "introuvable";
+          }, cible);
+          detail.push(
+            `${theme} : ${v.id} ${cible} — ${n.failureSummary?.replace(/\s+/g, " ")} — ${n.html} — ${calcule}`,
+          );
+        }
       expect(detail).toEqual([]);
     }
   });
