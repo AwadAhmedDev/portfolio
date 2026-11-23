@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
+import * as pages from "@/content/pages";
 import { projets } from "@/content/projets";
+import * as site from "@/content/site";
 import { detailTests, executionsCI, nbProjetsEnLigne, nbSites100Ordinateur, totalTestsDistincts } from "@/lib/stats";
 
 describe("chiffres officiels (design.md §7.1)", () => {
@@ -59,6 +61,10 @@ describe("règles de contenu (requirements.md)", () => {
   });
   it("aucune adresse e-mail", () => {
     expect(texte).not.toMatch(/[a-z0-9._-]+@[a-z0-9-]+\.[a-z]{2,}/);
+  });
+  it("espaces insécables avant « : » et « ? » et dans « 24 h » (design.md §3.2)", () => {
+    const tout = JSON.stringify([projets, pages, site]);
+    expect(tout).not.toMatch(/ [:?]|24 h/); // espace ordinaire interdite à ces endroits
   });
   it("aucun paiement en ligne annoncé pour RepaTek et I Make My World", () => {
     for (const slug of ["repatek", "i-make-my-world"]) {

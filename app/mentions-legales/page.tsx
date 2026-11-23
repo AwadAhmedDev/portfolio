@@ -20,7 +20,7 @@ export default function MentionsLegales() {
 
         <h2 className="mt-10 text-[22px]">Éditeur du site</h2>
         <p className="mt-3">
-          Awad Ahmed, particulier. Contact : par le{" "}
+          Awad Ahmed, particulier. Contact : par le{" "}
           <Link href="/contact/" className={lien}>
             formulaire de contact
           </Link>
@@ -38,19 +38,19 @@ export default function MentionsLegales() {
 
         <h2 className="mt-10 text-[22px]">Données personnelles (formulaire de contact)</h2>
         <ul className="mt-3 flex list-disc flex-col gap-2 pl-5">
-          <li>Données collectées : nom, adresse e-mail, type de demande, message.</li>
-          <li>But : uniquement répondre à votre demande.</li>
-          <li>Base : votre accord, donné en cochant la case du formulaire.</li>
-          <li>Destinataire : Awad Ahmed. Le message est transmis par le service d&apos;envoi d&apos;e-mails Resend.</li>
+          <li>Données collectées : nom, adresse e-mail, type de demande, message.</li>
+          <li>But : uniquement répondre à votre demande.</li>
+          <li>Base : votre accord, donné en cochant la case du formulaire.</li>
+          <li>Destinataire : Awad Ahmed. Le message est transmis par le service d&apos;envoi d&apos;e-mails Resend.</li>
           <li>
-            Durée de conservation : <strong>12 mois</strong> après le dernier échange, puis suppression.
+            Durée de conservation : <strong>12 mois</strong> après le dernier échange, puis suppression.
           </li>
           <li>
-            Transfert hors de l&apos;Union européenne : Resend est une société américaine ; les messages peuvent donc
+            Transfert hors de l&apos;Union européenne : Resend est une société américaine ; les messages peuvent donc
             transiter par des serveurs situés hors de l&apos;Union européenne.
           </li>
           <li>
-            Vos droits : accès, rectification, effacement et opposition, en écrivant par le formulaire de contact. Vous
+            Vos droits : accès, rectification, effacement et opposition, en écrivant par le formulaire de contact. Vous
             pouvez aussi déposer une réclamation auprès de la CNIL (
             <a href="https://www.cnil.fr" className={lien}>
               cnil.fr

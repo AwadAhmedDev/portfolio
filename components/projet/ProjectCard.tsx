@@ -23,7 +23,7 @@ export function ProjectCard({ projet, niveau = "h3" }: { projet: Projet; niveau?
           {projet.badge}
           {projet.equipe ? ` · ${projet.equipe}` : ""}
         </span>
-        <span className="mono text-[13px] text-muted-foreground">Début : {projet.debut}</span>
+        <span className="mono text-[13px] text-muted-foreground">Début : {projet.debut}</span>
       </div>
       <Titre className="text-[22px]">{projet.nom}</Titre>
       <p className="text-muted-foreground">{projet.phrase}</p>

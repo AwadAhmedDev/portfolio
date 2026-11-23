@@ -60,7 +60,7 @@ export default async function FicheProjet({ params }: Props) {
             {p.badge}
             {p.equipe ? ` · ${p.equipe}` : ""}
           </span>
-          <span className="mono text-[13px] text-muted-foreground">Début : {p.debut}</span>
+          <span className="mono text-[13px] text-muted-foreground">Début : {p.debut}</span>
         </div>
         <h1 id="titre-fiche" className="mt-4 text-[clamp(44px,7vw,76px)] leading-none">
           {p.nom}

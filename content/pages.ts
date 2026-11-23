@@ -5,7 +5,7 @@ export const accueil = {
   titre: "Awad Ahmed",
   technologies: ["React", "Next.js", "Node.js"],
   presentation:
-    "Je conçois, développe et mets en ligne des applications web complètes : de l'interface au serveur et à la base de données, avec des tests et un déploiement automatique.",
+    "Je conçois, développe et mets en ligne des applications web complètes : de l'interface au serveur et à la base de données, avec des tests et un déploiement automatique.",
   lieu: "Île-de-France",
   disponibilite: "Ouvert aux postes en CDI ou CDD et aux missions freelance.",
   projets: {
@@ -18,8 +18,8 @@ export const accueil = {
     note: "Chiffres relevés sur les dépôts et les sites en ligne le 22 novembre 2026.",
   },
   freelance: {
-    titre: "Vous avez un projet de site ou d'application ?",
-    texte: "Entrepreneur, artisan ou PME : je réalise votre projet de A à Z et je le mets en ligne.",
+    titre: "Vous avez un projet de site ou d'application ?",
+    texte: "Entrepreneur, artisan ou PME : je réalise votre projet de A à Z et je le mets en ligne.",
     realisationsTitre: "Ce que je réalise",
     realisations: [
       "Site vitrine",
@@ -36,17 +36,17 @@ export const accueil = {
     ],
     bouton: "Parlons de votre projet",
   },
-  rappel: "Un poste, une mission ou une question ? Je réponds sous 24 h.",
+  rappel: "Un poste, une mission ou une question ? Je réponds sous 24 h.",
 };
 
 export const pageProjets = {
   titrePage: "Projets — Awad Ahmed",
   description:
-    "Six projets web : trois projets clients en ligne, un template SaaS et deux projets de formation. Technologies, rôle et preuves de qualité.",
+    "Six projets web : trois projets clients en ligne, un template SaaS et deux projets de formation. Technologies, rôle et preuves de qualité.",
   titre: "Mes projets",
   intro:
-    "Trois projets clients en ligne, un projet personnel et deux projets de formation. Pour chacun : ce qu'il fait, mon rôle et ce qui prouve sa qualité.",
-  bas: "Un projet en tête ?",
+    "Trois projets clients en ligne, un projet personnel et deux projets de formation. Pour chacun : ce qu'il fait, mon rôle et ce qui prouve sa qualité.",
+  bas: "Un projet en tête ?",
 };
 
 export const aPropos = {
@@ -136,10 +136,10 @@ export const aPropos = {
 export const contact = {
   titrePage: "Contact — Awad Ahmed",
   description:
-    "Proposer un poste, une mission freelance ou poser une question à Awad Ahmed, développeur Full Stack. Réponse sous 24 h.",
+    "Proposer un poste, une mission freelance ou poser une question à Awad Ahmed, développeur Full Stack. Réponse sous 24 h.",
   titre: "Me contacter",
-  intro: "Un poste en CDI ou CDD, une mission freelance ou une simple question : écrivez-moi. Je réponds sous 24 h.",
-  moyens: "Pour me joindre : ce formulaire ou LinkedIn.",
+  intro: "Un poste en CDI ou CDD, une mission freelance ou une simple question : écrivez-moi. Je réponds sous 24 h.",
+  moyens: "Pour me joindre : ce formulaire ou LinkedIn.",
   champs: {
     nom: "Votre nom",
     email: "Votre adresse e-mail",
@@ -155,7 +155,7 @@ export const contact = {
     obligatoire: "(obligatoire)",
   },
   messages: {
-    succes: "Merci, votre message est bien envoyé. Je vous réponds sous 24 h.",
+    succes: "Merci, votre message est bien envoyé. Je vous réponds sous 24 h.",
     vide: "Ce champ est obligatoire.",
     emailInvalide: "Cette adresse e-mail ne semble pas valide.",
     tropCourt: "Votre message doit contenir au moins 20 caractères.",
