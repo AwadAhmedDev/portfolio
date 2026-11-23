@@ -3,7 +3,7 @@ import Link from "next/link";
 import { accueil } from "@/content/pages";
 import { projets } from "@/content/projets";
 import { ProjectCard } from "@/components/projet/ProjectCard";
-import { Provisoire } from "@/components/ui/Provisoire";
+import { Picture } from "@/components/Picture";
 import { IconeCoche } from "@/components/ui/icones";
 import { bouton, lienTexte, puce } from "@/components/ui/styles";
 import { liens } from "@/content/site";
@@ -60,7 +60,13 @@ export default function Accueil() {
             </div>
           </div>
           <div className="w-full max-w-[200px] md:max-w-[320px]">
-            <Provisoire libelle="Photo provisoire" ratio="4:5" alt="Portrait d'Awad Ahmed" />
+            <Picture
+              nom="awad-ahmed"
+              ratio="4:5"
+              sizes="(min-width: 768px) 320px, 200px"
+              prioritaire
+              provisoire={{ libelle: "Photo provisoire", alt: "Portrait d'Awad Ahmed" }}
+            />
           </div>
         </div>
       </section>

@@ -1,0 +1,48 @@
+# Préparation des images (architecture.md §5, roadmap lot 11), lancée à la main depuis l'onglet Actions.
+# Originaux dans images-source/, déclarés dans content/images.ts ; résultat proposé en pull request, jamais poussé sur main.
+# Prérequis (une fois, par Awad) : Settings › Actions › General › « Allow GitHub Actions to create and approve pull requests ».
+name: Images
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  images:
+    runs-on: ubuntu-latest
+    env:
+      SHARP: "sharp@0.35.5" # installé seulement sur GitHub (R7)
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm install --no-save "$SHARP"
+      # Échoue si un contrôle ne passe pas : nom, format, déclaration, format 4:5 de la photo, 200 Ko par fichier.
+      - name: AVIF et WebP sans métadonnées
+        run: node --experimental-strip-types scripts/images.mjs
+      - name: Tests des images
+        run: npx vitest run tests/unit/images.test.ts
+      - name: Proposer les images en pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -z "$(git status --porcelain -- public/images content/images-generees.json)" ]; then
+            echo "Aucune image modifiée."
+            exit 0
+          fi
+          branche="images/${GITHUB_RUN_ID}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branche"
+          git add public/images content/images-generees.json
+          git commit -m "images: AVIF et WebP générés par le workflow Images"
+          git push origin "$branche"
+          gh pr create --base "$GITHUB_REF_NAME" --head "$branche" \
+            --title "Images : AVIF et WebP générés" \
+            --body "Images préparées par le workflow Images (architecture.md §5). À vérifier visuellement avant fusion."

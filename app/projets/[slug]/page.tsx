@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { projetParSlug, projets, projetSuivant, type Projet } from "@/content/projets";
 import { SchemaTemplate } from "@/components/projet/SchemaTemplate";
 import { TableauLighthouse } from "@/components/projet/TableauLighthouse";
-import { Provisoire } from "@/components/ui/Provisoire";
+import { Picture } from "@/components/Picture";
 import { IconeFleche } from "@/components/ui/icones";
 import { badge, bouton, puce } from "@/components/ui/styles";
 import { riche } from "@/lib/texte";
@@ -75,16 +75,25 @@ export default async function FicheProjet({ params }: Props) {
           <SchemaTemplate />
         ) : (
           <div className="grid items-end gap-6 md:grid-cols-[3fr_1fr]">
-            <Provisoire
-              libelle="Capture provisoire · ordinateur"
+            <Picture
+              nom={`${p.slug}-ordinateur`}
               ratio="16:10"
-              alt={`Page d'accueil du site ${p.nom} sur ordinateur`}
+              sizes="(min-width: 1200px) 860px, (min-width: 768px) 70vw, 100vw"
+              prioritaire
+              provisoire={{
+                libelle: "Capture provisoire · ordinateur",
+                alt: `Page d'accueil du site ${p.nom} sur ordinateur`,
+              }}
             />
             <div className="mx-auto w-full max-w-[220px]">
-              <Provisoire
-                libelle="Capture provisoire · mobile"
+              <Picture
+                nom={`${p.slug}-mobile`}
                 ratio="4:5"
-                alt={`Page d'accueil du site ${p.nom} sur téléphone`}
+                sizes="220px"
+                provisoire={{
+                  libelle: "Capture provisoire · mobile",
+                  alt: `Page d'accueil du site ${p.nom} sur téléphone`,
+                }}
               />
             </div>
           </div>

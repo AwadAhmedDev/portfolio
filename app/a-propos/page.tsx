@@ -4,7 +4,7 @@ import Link from "next/link";
 import { aPropos } from "@/content/pages";
 import { projetParSlug } from "@/content/projets";
 import { LiensCV } from "@/components/ui/LiensCV";
-import { Provisoire } from "@/components/ui/Provisoire";
+import { Picture } from "@/components/Picture";
 import { bouton, puce } from "@/components/ui/styles";
 
 export const metadata: Metadata = metaPage(aPropos.titrePage, aPropos.description, "/a-propos/");
@@ -31,7 +31,13 @@ export default function APropos() {
             </div>
           </div>
           <div className="w-full max-w-[200px] md:max-w-[320px]">
-            <Provisoire libelle="Photo provisoire" ratio="4:5" alt="Portrait d'Awad Ahmed" />
+            <Picture
+              nom="awad-ahmed"
+              ratio="4:5"
+              sizes="(min-width: 768px) 320px, 200px"
+              prioritaire
+              provisoire={{ libelle: "Photo provisoire", alt: "Portrait d'Awad Ahmed" }}
+            />
           </div>
         </div>
       </section>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Projet } from "@/content/projets";
-import { Provisoire } from "@/components/ui/Provisoire";
+import { Picture } from "@/components/Picture";
 import { badge, bouton, lienTexte, puce } from "@/components/ui/styles";
 import { SchemaVignette } from "./SchemaVignette";
 
@@ -12,10 +12,11 @@ export function ProjectCard({ projet, niveau = "h3" }: { projet: Projet; niveau?
       {projet.schema ? (
         <SchemaVignette />
       ) : (
-        <Provisoire
-          libelle="Capture provisoire"
+        <Picture
+          nom={`${projet.slug}-ordinateur`}
           ratio="16:10"
-          alt={`Page d'accueil du site ${projet.nom} sur ordinateur`}
+          sizes="(min-width: 1100px) 380px, (min-width: 768px) 50vw, 100vw"
+          provisoire={{ libelle: "Capture provisoire", alt: `Page d'accueil du site ${projet.nom} sur ordinateur` }}
         />
       )}
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
