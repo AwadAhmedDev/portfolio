@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useSyncExternalStore, type FormEvent } fro
 import { contact } from "@/content/pages";
 import { liens } from "@/content/site";
 import { bouton } from "@/components/ui/styles";
-import { DEMANDES, valider, type Champ, type Erreurs, type Saisie } from "@/lib/validation";
+import { DEMANDES, retirerErreurCorrigee, valider, type Champ, type Erreurs, type Saisie } from "@/lib/validation";
 
 type Etat = "normal" | "envoi" | "succes" | "trop" | "echec";
 const VIDE: Saisie = { nom: "", email: "", demande: "", message: "", accord: false };
@@ -19,6 +19,8 @@ const champ =
 const sansAbonnement = () => () => {};
 const vientDuBlocFreelance = () => new URLSearchParams(location.search).get("demande") === "freelance";
 const auBuild = () => false;
+// Durée de remplissage, lue seulement au moment de l'envoi (dans le gestionnaire, jamais au rendu).
+const depuis = (debut: number) => Date.now() - debut;
 
 function Erreur({ id, message }: { id: string; message?: string }) {
   if (!message) return null;
@@ -46,7 +48,15 @@ export function ContactForm() {
   }, []);
 
   const envoiEnCours = etat === "envoi";
-  const maj = (k: keyof Saisie, v: string | boolean) => setChamps((s) => ({ ...s, [k]: v }));
+  const corriger = (k: Champ, suite: Saisie) => setErreurs((e) => retirerErreurCorrigee(e, k, suite));
+  const maj = (k: Exclude<Champ, "demande">, v: string | boolean) => {
+    setChamps((s) => ({ ...s, [k]: v }));
+    corriger(k, { ...saisie, [k]: v });
+  };
+  const choisirDemande = (d: string) => {
+    setDemandeChoisie(d);
+    corriger("demande", { ...saisie, demande: d });
+  };
 
   async function envoyer(ev: FormEvent<HTMLFormElement>) {
     ev.preventDefault();
@@ -63,7 +73,7 @@ export function ContactForm() {
       const rep = await fetch("/contact.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...saisie, site_web: piege, duree: Date.now() - ouverture.current }),
+        body: JSON.stringify({ ...saisie, site_web: piege, duree: depuis(ouverture.current) }),
       });
       if (rep.ok) {
         setChamps(VIDE);
@@ -166,7 +176,7 @@ export function ContactForm() {
                 name="demande"
                 value={d}
                 checked={saisie.demande === d}
-                onChange={() => setDemandeChoisie(d)}
+                onChange={() => choisirDemande(d)}
                 disabled={envoiEnCours}
                 className="controle rounded-full"
               />

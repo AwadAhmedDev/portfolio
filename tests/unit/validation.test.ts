@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { contact } from "@/content/pages";
-import { valider, type Saisie } from "@/lib/validation";
+import { retirerErreurCorrigee, valider, type Saisie } from "@/lib/validation";
 
 const ok: Saisie = {
   nom: "Camille",
@@ -42,5 +42,18 @@ describe("validation du formulaire (contenus.md §5.2, architecture.md §6.1)", 
   });
   it("case d'accord obligatoire", () => {
     expect(valider({ ...ok, accord: false }).accord).toBe(m.accord);
+  });
+});
+
+describe("erreur retirée dès que le champ redevient valide (roadmap RM3)", () => {
+  const erreurs = { message: m.tropCourt, email: m.emailInvalide };
+  it("retire seulement l'erreur du champ corrigé", () => {
+    expect(retirerErreurCorrigee(erreurs, "message", ok)).toEqual({ email: m.emailInvalide });
+  });
+  it("garde l'erreur tant que le champ reste invalide", () => {
+    expect(retirerErreurCorrigee(erreurs, "message", { ...ok, message: "trop court" })).toBe(erreurs);
+  });
+  it("n'ajoute aucune erreur pendant la saisie", () => {
+    expect(retirerErreurCorrigee({}, "nom", { ...ok, nom: "" })).toEqual({});
   });
 });

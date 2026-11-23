@@ -32,3 +32,12 @@ export function valider(s: Saisie): Erreurs {
   if (!s.accord) e.accord = m.accord;
   return e;
 }
+
+// Pendant la saisie, l'erreur d'un champ disparaît dès qu'il redevient valide (roadmap RM3).
+// Aucune nouvelle erreur n'apparaît avant l'envoi, et les autres champs ne changent pas.
+export function retirerErreurCorrigee(erreurs: Erreurs, k: Champ, s: Saisie): Erreurs {
+  if (!erreurs[k] || valider(s)[k]) return erreurs;
+  const reste = { ...erreurs };
+  delete reste[k];
+  return reste;
+}
