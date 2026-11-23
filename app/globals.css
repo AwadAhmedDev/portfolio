@@ -188,3 +188,33 @@
     white-space: nowrap;
   }
 }
+
+/* Fluidité (demande d'Awad du 23/11/2026), en CSS seulement : aucun JavaScript, rien si l'utilisateur
+   demande moins d'animations. Les éléments restent visibles dans les navigateurs sans « animation-timeline ». */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+  main {
+    animation: apparition 0.45s ease-out both;
+  }
+  @supports (animation-timeline: view()) {
+    .revele {
+      animation: montee linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+}
+@keyframes apparition {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@keyframes montee {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}

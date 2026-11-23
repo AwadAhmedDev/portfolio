@@ -92,7 +92,7 @@ export default function Accueil() {
         </div>
       </section>
 
-      <section aria-labelledby="titre-chiffres" className="conteneur py-16">
+      <section aria-labelledby="titre-chiffres" className="revele conteneur py-16">
         <h2 id="titre-chiffres" className="sr-only">
           {a.chiffres.titre}
         </h2>
@@ -116,7 +116,7 @@ export default function Accueil() {
         <p className="mt-4 text-[14px] italic text-muted-foreground">{a.chiffres.note}</p>
       </section>
 
-      <section aria-labelledby="titre-freelance" className="conteneur pb-16">
+      <section aria-labelledby="titre-freelance" className="revele conteneur pb-16">
         <div className="grid gap-8 rounded-[16px] bg-muted p-8 wide:grid-cols-3">
           <div>
             <h2 id="titre-freelance" className="text-[clamp(30px,4vw,40px)]">

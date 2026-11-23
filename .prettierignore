@@ -7,3 +7,5 @@ out/
 package-lock.json
 # PHP et .htaccess : Prettier ne les formate pas
 public/
+# Fichier généré par scripts/images.mjs
+content/images-generees.json

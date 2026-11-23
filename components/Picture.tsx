@@ -1,5 +1,6 @@
 import { images } from "@/content/images";
 import generees from "@/content/images-generees.json";
+import { PhotoProvisoire } from "@/components/ui/PhotoProvisoire";
 import { Provisoire } from "@/components/ui/Provisoire";
 
 type Generee = { largeurs: number[]; largeur: number; hauteur: number };
@@ -17,7 +18,12 @@ type Props = {
 export function Picture({ nom, ratio, sizes, provisoire, prioritaire = false }: Props) {
   const declaree = images.find((i) => i.nom === nom);
   const generee = (generees as Record<string, Generee>)[nom];
-  if (!declaree || !generee) return <Provisoire libelle={provisoire.libelle} ratio={ratio} alt={provisoire.alt} />;
+  if (!declaree || !generee)
+    return nom === "awad-ahmed" ? (
+      <PhotoProvisoire libelle={provisoire.libelle} alt={provisoire.alt} />
+    ) : (
+      <Provisoire libelle={provisoire.libelle} ratio={ratio} alt={provisoire.alt} />
+    );
 
   const srcSet = (format: string) => generee.largeurs.map((l) => `/images/${nom}-${l}.${format} ${l}w`).join(", ");
   return (

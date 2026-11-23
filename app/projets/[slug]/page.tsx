@@ -192,7 +192,10 @@ export default async function FicheProjet({ params }: Props) {
 
 function Rubrique({ id, titre, children }: { id: string; titre: string; children: React.ReactNode }) {
   return (
-    <section aria-labelledby={`r-${id}`} className="grid gap-4 border-t border-border py-8 md:grid-cols-[220px_1fr]">
+    <section
+      aria-labelledby={`r-${id}`}
+      className="revele grid gap-4 border-t border-border py-8 md:grid-cols-[220px_1fr]"
+    >
       <h2 id={`r-${id}`} className="text-[22px]">
         {titre}
       </h2>

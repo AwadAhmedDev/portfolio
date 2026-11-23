@@ -8,7 +8,7 @@ import { SchemaVignette } from "./SchemaVignette";
 export function ProjectCard({ projet, niveau = "h3" }: { projet: Projet; niveau?: "h2" | "h3" }) {
   const Titre = niveau;
   return (
-    <article className="flex flex-col gap-4 rounded-[10px] border border-border bg-background p-5">
+    <article className="revele flex flex-col gap-4 rounded-[10px] border border-border bg-background p-5 transition-[transform,border-color,box-shadow] duration-200 motion-safe:hover:-translate-y-1 hover:border-input hover:shadow-[0_12px_32px_-16px_rgb(15_23_42/0.35)]">
       {projet.schema ? (
         <SchemaVignette />
       ) : (

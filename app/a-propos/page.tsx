@@ -42,7 +42,7 @@ export default function APropos() {
         </div>
       </section>
 
-      <section aria-labelledby="titre-competences" className="bg-muted py-16">
+      <section aria-labelledby="titre-competences" className="revele bg-muted py-16">
         <div className="conteneur">
           <h2 id="titre-competences" className="text-[clamp(30px,4vw,40px)]">
             Compétences
@@ -65,7 +65,7 @@ export default function APropos() {
         </div>
       </section>
 
-      <section aria-labelledby="titre-facon" className="conteneur py-16">
+      <section aria-labelledby="titre-facon" className="revele conteneur py-16">
         <h2 id="titre-facon" className="text-[clamp(30px,4vw,40px)]">
           Ma façon de travailler
         </h2>
@@ -79,7 +79,7 @@ export default function APropos() {
         </ul>
       </section>
 
-      <section aria-labelledby="titre-parcours" className="conteneur pb-16">
+      <section aria-labelledby="titre-parcours" className="revele conteneur pb-16">
         <h2 id="titre-parcours" className="text-[clamp(30px,4vw,40px)]">
           Parcours
         </h2>

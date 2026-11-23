@@ -25,3 +25,10 @@ export const cvs: CV[] = [
 ];
 export const cvsDisponibles = () => cvs.filter((c) => c.taille !== null);
 export const cvFrancais = () => cvsDisponibles().find((c) => c.langue === "fr");
+
+// Pied de page (design.md §4.2, refait à la demande d'Awad le 23/11/2026) : intitulés des colonnes et lien de retour.
+export const piedDePage = {
+  navigation: "Navigation",
+  reseaux: "Me retrouver",
+  haut: "Retour en haut",
+};
