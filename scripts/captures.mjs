@@ -28,6 +28,8 @@ for (const [slug, url] of Object.entries(SITES)) {
     });
     const page = await contexte.newPage();
     await page.goto(url, { waitUntil: "load", timeout: 90_000 }); // « networkidle » échoue avec la mesure d'audience
+    // Sites React : le contenu arrive après le chargement ; on attend qu'il y ait du texte à l'écran.
+    await page.waitForFunction(() => document.body.innerText.trim().length > 80, null, { timeout: 60_000 });
     // Bannière de cookies : on refuse (choix le plus discret), pour qu'elle ne cache pas la page.
     // Elle peut apparaître un peu après le chargement : on l'attend 5 s au plus.
     await page
