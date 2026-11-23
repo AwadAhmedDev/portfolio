@@ -1,14 +1,22 @@
-# Préparation des images (architecture.md §5, roadmap lot 11), lancée à la main depuis l'onglet Actions.
-# Originaux dans images-source/, déclarés dans content/images.ts ; résultat proposé en pull request, jamais poussé sur main.
-# Prérequis (une fois, par Awad) : Settings › Actions › General › « Allow GitHub Actions to create and approve pull requests ».
+# Préparation des images (architecture.md §5, roadmap lot 11) : au push d'un original dans images-source/
+# sur une branche de travail, ou à la main. Originaux déclarés dans content/images.ts.
+# Résultat : commit sur la branche de travail (relu avant sa fusion dans main) ; jamais de push direct sur main,
+# où le résultat est proposé en pull request (prérequis : Settings › Actions › General › autoriser les pull requests).
 name: Images
 
 on:
   workflow_dispatch:
+  push:
+    branches-ignore: [main]
+    paths: [images-source/**, content/images.ts]
 
 permissions:
   contents: write
   pull-requests: write
+
+concurrency:
+  group: images-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   images:
@@ -28,7 +36,7 @@ jobs:
         run: node --experimental-strip-types scripts/images.mjs
       - name: Tests des images
         run: npx vitest run tests/unit/images.test.ts
-      - name: Proposer les images en pull request
+      - name: Enregistrer les images
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -36,13 +44,16 @@ jobs:
             echo "Aucune image modifiée."
             exit 0
           fi
-          branche="images/${GITHUB_RUN_ID}"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git switch -c "$branche"
           git add public/images content/images-generees.json
           git commit -m "images: AVIF et WebP générés par le workflow Images"
-          git push origin "$branche"
-          gh pr create --base "$GITHUB_REF_NAME" --head "$branche" \
-            --title "Images : AVIF et WebP générés" \
-            --body "Images préparées par le workflow Images (architecture.md §5). À vérifier visuellement avant fusion."
+          if [ "$GITHUB_REF_NAME" != "main" ]; then
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          else
+            branche="images/${GITHUB_RUN_ID}"
+            git push origin "HEAD:refs/heads/$branche"
+            gh pr create --base main --head "$branche" \
+              --title "Images : AVIF et WebP générés" \
+              --body "Images préparées par le workflow Images (architecture.md §5). À vérifier visuellement avant fusion."
+          fi
