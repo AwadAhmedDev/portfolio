@@ -12,7 +12,11 @@ export function ProjectCard({ projet, niveau = "h3" }: { projet: Projet; niveau?
       {projet.schema ? (
         <SchemaVignette />
       ) : (
-        <Provisoire libelle="Capture provisoire" ratio="16:10" alt={`Page d'accueil du site ${projet.nom} sur ordinateur`} />
+        <Provisoire
+          libelle="Capture provisoire"
+          ratio="16:10"
+          alt={`Page d'accueil du site ${projet.nom} sur ordinateur`}
+        />
       )}
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
         <span className={badge}>

@@ -22,7 +22,14 @@ describe("chiffres officiels (design.md §7.1)", () => {
 describe("projets (sitemap.md, décisions A2, C9, C10)", () => {
   it("6 slugs, dans l'ordre A2, uniques et sans accent", () => {
     const slugs = projets.map((p) => p.slug);
-    expect(slugs).toEqual(["repatek", "i-make-my-world", "plateforme-editoriale", "template-nextjs", "emateriel", "solidays"]);
+    expect(slugs).toEqual([
+      "repatek",
+      "i-make-my-world",
+      "plateforme-editoriale",
+      "template-nextjs",
+      "emateriel",
+      "solidays",
+    ]);
     for (const s of slugs) expect(s).toMatch(/^[a-z0-9]+(-[a-z0-9]+)*$/);
   });
   it("I Make My World n'a pas de lien vers le code, mais une mention", () => {

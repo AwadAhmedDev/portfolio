@@ -73,7 +73,8 @@ export function ContactForm() {
       else if (rep.status === 422) {
         const corps = (await rep.json().catch(() => ({}))) as { champs?: Champ[] };
         const serveur: Erreurs = {};
-        for (const k of corps.champs ?? []) serveur[k] = k === "email" ? m.emailInvalide : k === "accord" ? m.accord : m.vide;
+        for (const k of corps.champs ?? [])
+          serveur[k] = k === "email" ? m.emailInvalide : k === "accord" ? m.accord : m.vide;
         setErreurs(serveur);
         setEtat("normal");
       } else setEtat("echec");
@@ -90,32 +91,65 @@ export function ContactForm() {
   return (
     <form ref={formRef} onSubmit={envoyer} noValidate aria-busy={envoiEnCours} className="flex flex-col gap-6">
       {etat === "succes" && (
-        <p role="status" className="rounded-[10px] bg-ok-bg p-4 font-medium text-ok-fg">{m.succes}</p>
+        <p role="status" className="rounded-[10px] bg-ok-bg p-4 font-medium text-ok-fg">
+          {m.succes}
+        </p>
       )}
       {etat === "trop" && (
-        <p role="alert" className="rounded-[10px] bg-error-bg p-4 font-medium text-error-fg">{m.tropDeDemandes}</p>
+        <p role="alert" className="rounded-[10px] bg-error-bg p-4 font-medium text-error-fg">
+          {m.tropDeDemandes}
+        </p>
       )}
       {etat === "echec" && (
         <p role="alert" className="rounded-[10px] bg-error-bg p-4 font-medium text-error-fg">
           {m.echec.replace("LinkedIn.", "")}
-          <a href={liens.linkedin} className="underline underline-offset-4">LinkedIn</a>.
+          <a href={liens.linkedin} className="underline underline-offset-4">
+            LinkedIn
+          </a>
+          .
         </p>
       )}
 
       <div>
-        <label htmlFor="nom" className="font-semibold">{c.nom} {c.obligatoire}</label>
-        <input id="nom" name="nom" type="text" autoComplete="name" maxLength={100} value={saisie.nom}
-          onChange={(e) => maj("nom", e.target.value)} readOnly={envoiEnCours}
-          aria-invalid={!!erreurs.nom} aria-describedby={aide("nom")} className={`${champ} h-12`} />
+        <label htmlFor="nom" className="font-semibold">
+          {c.nom} {c.obligatoire}
+        </label>
+        <input
+          id="nom"
+          name="nom"
+          type="text"
+          autoComplete="name"
+          maxLength={100}
+          value={saisie.nom}
+          onChange={(e) => maj("nom", e.target.value)}
+          readOnly={envoiEnCours}
+          aria-invalid={!!erreurs.nom}
+          aria-describedby={aide("nom")}
+          className={`${champ} h-12`}
+        />
         <Erreur id="nom-erreur" message={erreurs.nom} />
       </div>
 
       <div>
-        <label htmlFor="email" className="font-semibold">{c.email} {c.obligatoire}</label>
-        <p id="email-aide" className="text-[14px] text-muted-foreground">{c.emailAide}</p>
-        <input id="email" name="email" type="email" autoComplete="email" maxLength={254} value={saisie.email}
-          onChange={(e) => maj("email", e.target.value)} readOnly={envoiEnCours}
-          aria-invalid={!!erreurs.email} aria-describedby={aide("email", c.emailAide)} className={`${champ} h-12`} />
+        <label htmlFor="email" className="font-semibold">
+          {c.email} {c.obligatoire}
+        </label>
+        <p id="email-aide" className="text-[14px] text-muted-foreground">
+          {c.emailAide}
+        </p>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          autoComplete="email"
+          maxLength={254}
+          value={saisie.email}
+          onChange={(e) => maj("email", e.target.value)}
+          readOnly={envoiEnCours}
+          aria-invalid={!!erreurs.email}
+          aria-describedby={aide("email", c.emailAide)}
+          className={`${champ} h-12`}
+        />
         <Erreur id="email-erreur" message={erreurs.email} />
       </div>
 
@@ -123,11 +157,19 @@ export function ContactForm() {
         <legend className="font-semibold">{c.demande}</legend>
         <div className="mt-2 grid gap-2 sm:grid-cols-3">
           {DEMANDES.map((d) => (
-            <label key={d}
-              className="flex min-h-12 cursor-pointer items-center gap-3 rounded-[10px] border border-input px-3 has-[:checked]:border-2 has-[:checked]:border-primary has-[:checked]:bg-secondary">
-              <input type="radio" name="demande" value={d}
-                checked={saisie.demande === d} onChange={() => setDemandeChoisie(d)} disabled={envoiEnCours}
-                className="controle rounded-full" />
+            <label
+              key={d}
+              className="flex min-h-12 cursor-pointer items-center gap-3 rounded-[10px] border border-input px-3 has-[:checked]:border-2 has-[:checked]:border-primary has-[:checked]:bg-secondary"
+            >
+              <input
+                type="radio"
+                name="demande"
+                value={d}
+                checked={saisie.demande === d}
+                onChange={() => setDemandeChoisie(d)}
+                disabled={envoiEnCours}
+                className="controle rounded-full"
+              />
               {d}
             </label>
           ))}
@@ -136,12 +178,23 @@ export function ContactForm() {
       </fieldset>
 
       <div>
-        <label htmlFor="message" className="font-semibold">{c.message} {c.obligatoire}</label>
-        <p id="message-aide" className="text-[14px] text-muted-foreground">{c.messageAide}</p>
-        <textarea id="message" name="message" rows={7} value={saisie.message}
-          onChange={(e) => maj("message", e.target.value)} readOnly={envoiEnCours}
-          aria-invalid={!!erreurs.message} aria-describedby={aide("message", c.messageAide)}
-          className={`${champ} py-3`} />
+        <label htmlFor="message" className="font-semibold">
+          {c.message} {c.obligatoire}
+        </label>
+        <p id="message-aide" className="text-[14px] text-muted-foreground">
+          {c.messageAide}
+        </p>
+        <textarea
+          id="message"
+          name="message"
+          rows={7}
+          value={saisie.message}
+          onChange={(e) => maj("message", e.target.value)}
+          readOnly={envoiEnCours}
+          aria-invalid={!!erreurs.message}
+          aria-describedby={aide("message", c.messageAide)}
+          className={`${champ} py-3`}
+        />
         <Erreur id="message-erreur" message={erreurs.message} />
       </div>
 
@@ -153,13 +206,25 @@ export function ContactForm() {
 
       <div>
         <div className="flex items-start gap-3">
-          <input id="accord" name="accord" type="checkbox" checked={saisie.accord}
-            onChange={(e) => maj("accord", e.target.checked)} disabled={envoiEnCours}
-            aria-invalid={!!erreurs.accord} aria-describedby={erreurs.accord ? "accord-erreur" : undefined}
-            className="controle mt-1 shrink-0 rounded-[4px]" />
-          <label htmlFor="accord">{c.accord} {c.obligatoire}</label>
+          <input
+            id="accord"
+            name="accord"
+            type="checkbox"
+            checked={saisie.accord}
+            onChange={(e) => maj("accord", e.target.checked)}
+            disabled={envoiEnCours}
+            aria-invalid={!!erreurs.accord}
+            aria-describedby={erreurs.accord ? "accord-erreur" : undefined}
+            className="controle mt-1 shrink-0 rounded-[4px]"
+          />
+          <label htmlFor="accord">
+            {c.accord} {c.obligatoire}
+          </label>
         </div>
-        <a href="/mentions-legales/" className="ml-8 inline-flex min-h-11 items-center text-primary underline underline-offset-4">
+        <a
+          href="/mentions-legales/"
+          className="ml-8 inline-flex min-h-11 items-center text-primary underline underline-offset-4"
+        >
           {c.accordLien}
         </a>
         <Erreur id="accord-erreur" message={erreurs.accord} />

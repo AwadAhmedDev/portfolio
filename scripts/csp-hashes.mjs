@@ -11,7 +11,9 @@ export function politique(html) {
   const integres = [...html.matchAll(/<script\b(?![^>]*\bsrc=)([^>]*)>([\s\S]*?)<\/script>/gi)]
     .filter((m) => !/type="application\/(ld\+)?json"/i.test(m[1])) // blocs de données : jamais exécutés
     .map((m) => m[2]);
-  const empreintes = [...new Set(integres.map((s) => `'sha256-${createHash("sha256").update(s, "utf8").digest("base64")}'`))];
+  const empreintes = [
+    ...new Set(integres.map((s) => `'sha256-${createHash("sha256").update(s, "utf8").digest("base64")}'`)),
+  ];
   return [
     "default-src 'self'",
     `script-src 'self' ${empreintes.join(" ")}`.trim(),
@@ -26,7 +28,7 @@ export function politique(html) {
 export function erreursCsp(html) {
   const erreurs = [];
   if (/<[a-z][^>]*\son[a-z]+\s*=/i.test(html)) erreurs.push("attribut d'événement en ligne (onclick=…)");
-  if (/<[a-z][^>]*\sstyle\s*=/i.test(html)) erreurs.push('attribut style="…" (bloqué par style-src \'self\')');
+  if (/<[a-z][^>]*\sstyle\s*=/i.test(html)) erreurs.push("attribut style=\"…\" (bloqué par style-src 'self')");
   if (/<style\b/i.test(html)) erreurs.push("balise <style> intégrée");
   if (/http-equiv="Content-Security-Policy"/i.test(html)) erreurs.push("balise CSP déjà présente");
   return erreurs;

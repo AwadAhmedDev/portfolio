@@ -18,7 +18,9 @@ function pagesHtml(dossier) {
 }
 
 export function mesurerPage(html, lireFichier) {
-  const sansNoModule = [...html.matchAll(/<script\b[^>]*\bsrc="([^"]+)"[^>]*>/gi)].filter((m) => !/\bnomodule\b/i.test(m[0]));
+  const sansNoModule = [...html.matchAll(/<script\b[^>]*\bsrc="([^"]+)"[^>]*>/gi)].filter(
+    (m) => !/\bnomodule\b/i.test(m[0]),
+  );
   const prechargees = [...html.matchAll(/<link\b[^>]*>/gi)]
     .filter((m) => /rel="(?:preload|modulepreload)"/i.test(m[0]) && /as="script"|modulepreload/i.test(m[0]))
     .map((m) => (m[0].match(/href="([^"]+)"/i) || [])[1]);

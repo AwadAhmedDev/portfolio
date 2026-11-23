@@ -18,15 +18,23 @@ export function TableauLighthouse({ lighthouse }: { lighthouse: NonNullable<Proj
       </caption>
       <thead>
         <tr className="border-b border-border">
-          <th scope="col" className="py-2 pr-2 font-semibold sm:pr-6">Mesure</th>
-          <th scope="col" className="py-2 pr-2 font-semibold sm:pr-6">Ordinateur</th>
-          <th scope="col" className="py-2 font-semibold">Mobile</th>
+          <th scope="col" className="py-2 pr-2 font-semibold sm:pr-6">
+            Mesure
+          </th>
+          <th scope="col" className="py-2 pr-2 font-semibold sm:pr-6">
+            Ordinateur
+          </th>
+          <th scope="col" className="py-2 font-semibold">
+            Mobile
+          </th>
         </tr>
       </thead>
       <tbody className="mono text-[14px]">
         {mesures.map((m) => (
           <tr key={m.cle} className="border-b border-border">
-            <th scope="row" className="py-2 pr-2 font-sans font-normal sm:pr-6">{m.nom}</th>
+            <th scope="row" className="py-2 pr-2 font-sans font-normal sm:pr-6">
+              {m.nom}
+            </th>
             <td className="whitespace-nowrap py-2 pr-2 sm:pr-6">{valeur(lighthouse.ordinateur[m.cle])}</td>
             <td className="whitespace-nowrap py-2">{valeur(lighthouse.mobile[m.cle])}</td>
           </tr>

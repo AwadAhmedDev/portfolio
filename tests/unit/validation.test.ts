@@ -2,7 +2,13 @@ import { describe, expect, it } from "vitest";
 import { contact } from "@/content/pages";
 import { valider, type Saisie } from "@/lib/validation";
 
-const ok: Saisie = { nom: "Camille", email: "camille@example.org", demande: "", message: "Bonjour, je souhaite échanger sur un poste.", accord: true };
+const ok: Saisie = {
+  nom: "Camille",
+  email: "camille@example.org",
+  demande: "",
+  message: "Bonjour, je souhaite échanger sur un poste.",
+  accord: true,
+};
 const m = contact.messages;
 
 describe("validation du formulaire (contenus.md §5.2, architecture.md §6.1)", () => {
@@ -11,7 +17,11 @@ describe("validation du formulaire (contenus.md §5.2, architecture.md §6.1)", 
     expect(valider({ ...ok, demande: "Projet freelance" })).toEqual({});
   });
   it("champs obligatoires vides", () => {
-    expect(valider({ ...ok, nom: "  ", email: "", message: "" })).toEqual({ nom: m.vide, email: m.vide, message: m.vide });
+    expect(valider({ ...ok, nom: "  ", email: "", message: "" })).toEqual({
+      nom: m.vide,
+      email: m.vide,
+      message: m.vide,
+    });
   });
   it("e-mail invalide ou trop long", () => {
     expect(valider({ ...ok, email: "camille@" }).email).toBe(m.emailInvalide);

@@ -14,18 +14,26 @@ export default function MentionsLegales() {
   return (
     <article aria-labelledby="titre-mentions" className="conteneur py-16">
       <div className="max-w-[760px] text-[17px]">
-        <h1 id="titre-mentions" className="text-[clamp(40px,6vw,60px)] leading-none">Mentions légales</h1>
+        <h1 id="titre-mentions" className="text-[clamp(40px,6vw,60px)] leading-none">
+          Mentions légales
+        </h1>
 
         <h2 className="mt-10 text-[22px]">Éditeur du site</h2>
         <p className="mt-3">
           Awad Ahmed, particulier. Contact : par le{" "}
-          <Link href="/contact/" className={lien}>formulaire de contact</Link>.
+          <Link href="/contact/" className={lien}>
+            formulaire de contact
+          </Link>
+          .
         </p>
 
         <h2 className="mt-10 text-[22px]">Hébergeur</h2>
         <p className="mt-3">
           Hostinger International Ltd, 61 Lordou Vironos Street, 6023 Larnaca, Chypre —{" "}
-          <a href="https://www.hostinger.fr" className={lien}>www.hostinger.fr</a>.
+          <a href="https://www.hostinger.fr" className={lien}>
+            www.hostinger.fr
+          </a>
+          .
         </p>
 
         <h2 className="mt-10 text-[22px]">Données personnelles (formulaire de contact)</h2>
@@ -34,27 +42,33 @@ export default function MentionsLegales() {
           <li>But : uniquement répondre à votre demande.</li>
           <li>Base : votre accord, donné en cochant la case du formulaire.</li>
           <li>Destinataire : Awad Ahmed. Le message est transmis par le service d&apos;envoi d&apos;e-mails Resend.</li>
-          <li>Durée de conservation : <strong>12 mois</strong> après le dernier échange, puis suppression.</li>
           <li>
-            Transfert hors de l&apos;Union européenne : Resend est une société américaine ; les messages peuvent donc transiter
-            par des serveurs situés hors de l&apos;Union européenne.
+            Durée de conservation : <strong>12 mois</strong> après le dernier échange, puis suppression.
           </li>
           <li>
-            Vos droits : accès, rectification, effacement et opposition, en écrivant par le formulaire de contact. Vous pouvez
-            aussi déposer une réclamation auprès de la CNIL (<a href="https://www.cnil.fr" className={lien}>cnil.fr</a>).
+            Transfert hors de l&apos;Union européenne : Resend est une société américaine ; les messages peuvent donc
+            transiter par des serveurs situés hors de l&apos;Union européenne.
+          </li>
+          <li>
+            Vos droits : accès, rectification, effacement et opposition, en écrivant par le formulaire de contact. Vous
+            pouvez aussi déposer une réclamation auprès de la CNIL (
+            <a href="https://www.cnil.fr" className={lien}>
+              cnil.fr
+            </a>
+            ).
           </li>
         </ul>
 
         <h2 className="mt-10 text-[22px]">Cookies</h2>
         <p className="mt-3">
-          Ce site n&apos;utilise aucun cookie ni outil de mesure d&apos;audience. Votre choix de thème clair ou sombre est gardé
-          dans votre navigateur, uniquement sur votre appareil.
+          Ce site n&apos;utilise aucun cookie ni outil de mesure d&apos;audience. Votre choix de thème clair ou sombre
+          est gardé dans votre navigateur, uniquement sur votre appareil.
         </p>
 
         <h2 className="mt-10 text-[22px]">Propriété</h2>
         <p className="mt-3">
-          Les textes et le code de ce site sont ceux d&apos;Awad Ahmed ; les captures d&apos;écran montrent des sites qu&apos;il a
-          réalisés.
+          Les textes et le code de ce site sont ceux d&apos;Awad Ahmed ; les captures d&apos;écran montrent des sites
+          qu&apos;il a réalisés.
         </p>
       </div>
     </article>

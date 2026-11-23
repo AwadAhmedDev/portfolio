@@ -11,7 +11,9 @@ const j = (...p: string[]) => p.join(sep);
 
 describe("noms plats du préchargement (segments-plats.mjs)", () => {
   it("dossiers → points", () => {
-    expect(cheminPlat(j("projets", "__next.projets", "__PAGE__.txt"))).toBe(j("projets", "__next.projets.__PAGE__.txt"));
+    expect(cheminPlat(j("projets", "__next.projets", "__PAGE__.txt"))).toBe(
+      j("projets", "__next.projets.__PAGE__.txt"),
+    );
     expect(cheminPlat(j("projets", "repatek", "__next.projets", "$d$slug", "__PAGE__.txt"))).toBe(
       j("projets", "repatek", "__next.projets.$d$slug.__PAGE__.txt"),
     );
@@ -23,7 +25,8 @@ describe("noms plats du préchargement (segments-plats.mjs)", () => {
 });
 
 describe("CSP par empreintes (csp-hashes.mjs)", () => {
-  const html = '<html><head><title>x</title></head><body><script>alert(1)</script><script src="/a.js"></script></body></html>';
+  const html =
+    '<html><head><title>x</title></head><body><script>alert(1)</script><script src="/a.js"></script></body></html>';
   it("empreinte SHA-256 de chaque script intégré, sans unsafe-inline ni unsafe-eval", () => {
     const p = politique(html);
     expect(p).toContain("'sha256-");
@@ -36,13 +39,14 @@ describe("CSP par empreintes (csp-hashes.mjs)", () => {
   it("refuse style= et les attributs d'événement", () => {
     expect(erreursCsp('<div style="color:red"></div>')).toHaveLength(1);
     expect(erreursCsp('<button onclick="x()"></button>')).toHaveLength(1);
-    expect(erreursCsp("<div class=\"a\"></div>")).toEqual([]);
+    expect(erreursCsp('<div class="a"></div>')).toEqual([]);
   });
 });
 
 describe("budget JavaScript (js-budget.mjs)", () => {
   it("ignore noModule quelle que soit la casse, compte chaque fichier une fois", () => {
-    const html = '<script src="/a.js" async></script><script src="/a.js"></script><script src="/vieux.js" noModule=""></script>';
+    const html =
+      '<script src="/a.js" async></script><script src="/a.js"></script><script src="/vieux.js" noModule=""></script>';
     const lus: string[] = [];
     const r = mesurerPage(html, (u: string) => {
       lus.push(u);

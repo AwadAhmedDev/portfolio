@@ -80,7 +80,11 @@ export default function Accueil() {
             libelle="automatisés au total"
             detail={detailTests().join(" + ")}
           />
-          <Chiffre valeur="Intégration continue" libelle={`sur les ${projets.length} projets`} detail="GitHub Actions" />
+          <Chiffre
+            valeur="Intégration continue"
+            libelle={`sur les ${projets.length} projets`}
+            detail="GitHub Actions"
+          />
           <Chiffre
             valeur="100 / 100"
             libelle={`sur les 4 scores Lighthouse pour ${nbSites100Ordinateur()} sites, sur ordinateur`}

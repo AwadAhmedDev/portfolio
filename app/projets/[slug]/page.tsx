@@ -35,12 +35,20 @@ export default async function FicheProjet({ params }: Props) {
         <nav aria-label="Fil d'Ariane">
           <ol className="flex flex-wrap gap-2 text-[14px] text-muted-foreground">
             <li>
-              <Link href="/" className="hover:text-primary">Accueil</Link> <span aria-hidden="true">›</span>
+              <Link href="/" className="hover:text-primary">
+                Accueil
+              </Link>{" "}
+              <span aria-hidden="true">›</span>
             </li>
             <li>
-              <Link href="/projets/" className="hover:text-primary">Projets</Link> <span aria-hidden="true">›</span>
+              <Link href="/projets/" className="hover:text-primary">
+                Projets
+              </Link>{" "}
+              <span aria-hidden="true">›</span>
             </li>
-            <li aria-current="page" className="text-foreground">{p.nom}</li>
+            <li aria-current="page" className="text-foreground">
+              {p.nom}
+            </li>
           </ol>
         </nav>
       </div>
@@ -54,7 +62,9 @@ export default async function FicheProjet({ params }: Props) {
           </span>
           <span className="mono text-[13px] text-muted-foreground">Début : {p.debut}</span>
         </div>
-        <h1 id="titre-fiche" className="mt-4 text-[clamp(44px,7vw,76px)] leading-none">{p.nom}</h1>
+        <h1 id="titre-fiche" className="mt-4 text-[clamp(44px,7vw,76px)] leading-none">
+          {p.nom}
+        </h1>
         <p className="mt-5 max-w-[760px] text-[clamp(18px,2.2vw,22px)] leading-[1.55]">{p.phrase}</p>
         <Liens p={p} />
       </section>
@@ -64,9 +74,17 @@ export default async function FicheProjet({ params }: Props) {
           <SchemaTemplate />
         ) : (
           <div className="grid items-end gap-6 md:grid-cols-[3fr_1fr]">
-            <Provisoire libelle="Capture provisoire · ordinateur" ratio="16:10" alt={`Page d'accueil du site ${p.nom} sur ordinateur`} />
+            <Provisoire
+              libelle="Capture provisoire · ordinateur"
+              ratio="16:10"
+              alt={`Page d'accueil du site ${p.nom} sur ordinateur`}
+            />
             <div className="mx-auto w-full max-w-[220px]">
-              <Provisoire libelle="Capture provisoire · mobile" ratio="4:5" alt={`Page d'accueil du site ${p.nom} sur téléphone`} />
+              <Provisoire
+                libelle="Capture provisoire · mobile"
+                ratio="4:5"
+                alt={`Page d'accueil du site ${p.nom} sur téléphone`}
+              />
             </div>
           </div>
         )}
@@ -122,7 +140,9 @@ export default async function FicheProjet({ params }: Props) {
         <Rubrique id="qualite" titre="Qualité">
           <ul className="grid gap-3 sm:grid-cols-2">
             {p.qualite.map((q) => (
-              <li key={q} className="rounded-[10px] border border-border p-4">{q}</li>
+              <li key={q} className="rounded-[10px] border border-border p-4">
+                {q}
+              </li>
             ))}
           </ul>
           {p.lighthouse && (
@@ -163,7 +183,9 @@ export default async function FicheProjet({ params }: Props) {
 function Rubrique({ id, titre, children }: { id: string; titre: string; children: React.ReactNode }) {
   return (
     <section aria-labelledby={`r-${id}`} className="grid gap-4 border-t border-border py-8 md:grid-cols-[220px_1fr]">
-      <h2 id={`r-${id}`} className="text-[22px]">{titre}</h2>
+      <h2 id={`r-${id}`} className="text-[22px]">
+        {titre}
+      </h2>
       <div>{children}</div>
     </section>
   );
@@ -173,7 +195,9 @@ function Puces({ liste }: { liste: string[] }) {
   return (
     <ul className="flex flex-wrap gap-2">
       {liste.map((t) => (
-        <li key={t} className={puce}>{t}</li>
+        <li key={t} className={puce}>
+          {t}
+        </li>
       ))}
     </ul>
   );
@@ -203,7 +227,9 @@ function Mentions({ p, basDePage = false }: { p: Projet; basDePage?: boolean }) 
   return (
     <div className="flex flex-col gap-2">
       {textes.map((t) => (
-        <p key={t} className="rounded-[10px] border border-border bg-muted px-4 py-3 font-medium">{t}</p>
+        <p key={t} className="rounded-[10px] border border-border bg-muted px-4 py-3 font-medium">
+          {t}
+        </p>
       ))}
     </div>
   );

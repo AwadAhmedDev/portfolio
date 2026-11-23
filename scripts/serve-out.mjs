@@ -30,7 +30,10 @@ createServer((req, res) => {
   // Comme sur Hostinger : PHP n'est pas exécuté ici, et les fichiers cachés ou du dossier _app ne sont pas servis.
   const interdit = /(^|[\\/])\.|[\\/]_app[\\/]|\.php$/.test(fichier.slice(RACINE.length));
   if (!interdit && existsSync(fichier)) {
-    res.writeHead(200, { "Content-Type": TYPES[extname(fichier)] ?? "application/octet-stream", "Content-Security-Policy": "frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'" });
+    res.writeHead(200, {
+      "Content-Type": TYPES[extname(fichier)] ?? "application/octet-stream",
+      "Content-Security-Policy": "frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'",
+    });
     res.end(readFileSync(fichier));
     return;
   }

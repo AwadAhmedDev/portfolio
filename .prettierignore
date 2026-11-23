@@ -1,0 +1,9 @@
+# Documents validés : jamais reformatés (roadmap RM1)
+docs/
+CLAUDE.md
+.claude/
+# Fichiers générés
+out/
+package-lock.json
+# PHP et .htaccess : Prettier ne les formate pas
+public/
