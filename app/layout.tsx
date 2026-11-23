@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { accueil } from "@/content/pages";
 import { themeScript } from "@/lib/theme-script";
 import { SITE_URL } from "@/lib/seo";
 import "./globals.css";
@@ -12,9 +13,8 @@ const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono-jb", di
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Awad Ahmed — Développeur Full Stack JavaScript / TypeScript",
-  description:
-    "Développeur Full Stack en Île-de-France. Applications web complètes et en ligne, avec React, Next.js et Node.js. Ouvert aux postes en CDI ou CDD et aux missions freelance.",
+  title: accueil.titrePage,
+  description: accueil.description,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

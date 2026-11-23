@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
+import { metaPage } from "@/lib/seo";
 import Link from "next/link";
 import { pageProjets } from "@/content/pages";
 import { projets } from "@/content/projets";
 import { ProjectCard } from "@/components/projet/ProjectCard";
 import { bouton } from "@/components/ui/styles";
 
-export const metadata: Metadata = {
-  title: pageProjets.titrePage,
-  description: pageProjets.description,
-  alternates: { canonical: "/projets/" },
-};
+export const metadata: Metadata = metaPage(pageProjets.titrePage, pageProjets.description, "/projets/");
 
 // Les 6 projets dans l'ordre A2, sans filtres (sitemap.md §3.2).
 export default function Projets() {

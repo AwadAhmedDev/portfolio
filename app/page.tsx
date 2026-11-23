@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { accueil } from "@/content/pages";
 import { projets } from "@/content/projets";
@@ -5,7 +6,22 @@ import { ProjectCard } from "@/components/projet/ProjectCard";
 import { Provisoire } from "@/components/ui/Provisoire";
 import { IconeCoche } from "@/components/ui/icones";
 import { bouton, lienTexte, puce } from "@/components/ui/styles";
+import { liens } from "@/content/site";
+import { metaPage, SITE_URL } from "@/lib/seo";
 import { detailTests, nbProjetsEnLigne, nbSites100Ordinateur, totalTestsDistincts } from "@/lib/stats";
+
+export const metadata: Metadata = metaPage(accueil.titrePage, accueil.description, "/");
+
+// Données structurées Person (requirements.md §5) : nom, titre, liens LinkedIn et GitHub, jamais d'e-mail.
+// Bloc de données non exécuté ; « < » échappé pour qu'aucun texte ne puisse fermer la balise.
+const personne = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: accueil.titre,
+  jobTitle: accueil.petitTitre,
+  url: `${SITE_URL}/`,
+  sameAs: [liens.linkedin, liens.github],
+}).replace(/</g, "\\u003c");
 
 // Accueil (contenus.md §1, design.md §5.1).
 export default function Accueil() {
@@ -13,6 +29,7 @@ export default function Accueil() {
   const a = accueil;
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: personne }} />
       <section aria-labelledby="titre-accueil" className="conteneur py-16">
         <div className="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
           <div className="max-w-[720px]">

@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { metaPage } from "@/lib/seo";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Mentions légales — Awad Ahmed",
-  description: "Éditeur, hébergeur et traitement des données personnelles du portfolio d'Awad Ahmed.",
-  alternates: { canonical: "/mentions-legales/" },
-};
+export const metadata: Metadata = metaPage(
+  "Mentions légales — Awad Ahmed",
+  "Éditeur, hébergeur et traitement des données personnelles du portfolio d'Awad Ahmed.",
+  "/mentions-legales/",
+);
 
 const lien = "text-primary underline underline-offset-4";
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { metaPage } from "@/lib/seo";
 import Link from "next/link";
 import { aPropos } from "@/content/pages";
 import { projetParSlug } from "@/content/projets";
@@ -6,11 +7,7 @@ import { LiensCV } from "@/components/ui/LiensCV";
 import { Provisoire } from "@/components/ui/Provisoire";
 import { bouton, puce } from "@/components/ui/styles";
 
-export const metadata: Metadata = {
-  title: aPropos.titrePage,
-  description: aPropos.description,
-  alternates: { canonical: "/a-propos/" },
-};
+export const metadata: Metadata = metaPage(aPropos.titrePage, aPropos.description, "/a-propos/");
 
 // À propos (contenus.md §4) : bouton principal « Voir mes projets » (C15).
 export default function APropos() {

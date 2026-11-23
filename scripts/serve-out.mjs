@@ -17,6 +17,7 @@ const TYPES = {
   ".avif": "image/avif",
   ".webp": "image/webp",
   ".pdf": "application/pdf",
+  ".png": "image/png",
 };
 
 createServer((req, res) => {

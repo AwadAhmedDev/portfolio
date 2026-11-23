@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { metaPage } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projetParSlug, projets, projetSuivant, type Projet } from "@/content/projets";
@@ -21,7 +22,7 @@ type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const p = projetParSlug((await params).slug);
   if (!p) return {};
-  return { title: p.titrePage, description: p.description, alternates: { canonical: `/projets/${p.slug}/` } };
+  return metaPage(p.titrePage, p.description, `/projets/${p.slug}/`);
 }
 
 export default async function FicheProjet({ params }: Props) {

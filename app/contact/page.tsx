@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { metaPage } from "@/lib/seo";
 import { contact } from "@/content/pages";
 import { liens } from "@/content/site";
 import { aPropos } from "@/content/pages";
@@ -6,11 +7,7 @@ import { ContactForm } from "@/components/contact/ContactForm";
 import { LiensCV } from "@/components/ui/LiensCV";
 import { lienTexte } from "@/components/ui/styles";
 
-export const metadata: Metadata = {
-  title: contact.titrePage,
-  description: contact.description,
-  alternates: { canonical: "/contact/" },
-};
+export const metadata: Metadata = metaPage(contact.titrePage, contact.description, "/contact/");
 
 // Contact (contenus.md §5) : le seul composant client de la page est le formulaire.
 export default function Contact() {

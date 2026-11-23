@@ -1,6 +1,9 @@
 // Textes des pages, recopiés mot pour mot de docs/contenus.md (règle R8).
 
 export const accueil = {
+  titrePage: "Awad Ahmed — Développeur Full Stack JavaScript / TypeScript",
+  description:
+    "Développeur Full Stack en Île-de-France. Applications web complètes et en ligne, avec React, Next.js et Node.js. Ouvert aux postes en CDI ou CDD et aux missions freelance.",
   petitTitre: "Développeur Full Stack JavaScript / TypeScript",
   titre: "Awad Ahmed",
   technologies: ["React", "Next.js", "Node.js"],
