@@ -1,0 +1,115 @@
+# Intégration continue du portfolio (architecture.md §7, roadmap lot 13).
+# Ne déploie rien : le déploiement aura son propre workflow, après accord d'Awad (RM6).
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Adresse du site pour les adresses canoniques ; remplacée par la vraie adresse quand le site Hostinger existera.
+  SITE_URL: ${{ vars.SITE_URL || 'https://example.invalid' }}
+
+jobs:
+  verifier:
+    name: Lint, types, tests, build et budget
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Formatage
+        run: npm run format:check
+      - name: Lint
+        run: npm run lint
+      - name: Types
+        run: npm run typecheck
+      - name: Tests Vitest
+        run: npm test
+      - name: Failles des dépendances (élevées ou critiques)
+        run: npm audit --audit-level=high
+      - uses: shivammathur/setup-php@v2
+        with:
+          # Version de PHP du serveur Hostinger (architecture.md §1)
+          php-version: "8.3"
+          extensions: curl, mbstring, pdo_sqlite
+          coverage: none
+      - name: Tests PHP
+        run: npm run test:php
+      - name: Cache du build (polices téléchargées par next/font)
+        uses: actions/cache@v6
+        with:
+          path: .next/cache
+          key: next-${{ hashFiles('package-lock.json') }}-${{ hashFiles('app/**', 'components/**', 'content/**', 'lib/**') }}
+          restore-keys: next-${{ hashFiles('package-lock.json') }}-
+      # Le build lance aussi les contrôles postbuild : noms de préchargement, CSP par empreintes, budget JS de 150 Ko par page.
+      - name: Build, CSP et budget JavaScript
+        run: npm run build
+      - uses: actions/upload-artifact@v7
+        with:
+          name: site
+          path: out/
+          include-hidden-files: true # garde les fichiers .htaccess
+          retention-days: 7
+
+  liens:
+    name: Liens externes
+    needs: verifier
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: site
+          path: out
+      # Liens internes : vérifiés par les tests de bout en bout. LinkedIn refuse les robots (réponse 999).
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --scheme https --scheme http
+            --exclude linkedin\.com
+            --exclude example\.invalid
+            'out/**/*.html'
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  e2e:
+    name: Tests de bout en bout et accessibilité
+    needs: verifier
+    runs-on: ubuntu-latest
+    env:
+      # Installés seulement sur GitHub (R7 : rien de lourd sur l'ordinateur d'Awad), versions fixées ici.
+      PLAYWRIGHT: "@playwright/test@1.65.1"
+      AXE: "@axe-core/playwright@4.14.0"
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm install --no-save "$PLAYWRIGHT" "$AXE"
+      - run: npx playwright install --with-deps chromium firefox webkit
+      - uses: actions/download-artifact@v8
+        with:
+          name: site
+          path: out
+      - name: Playwright (Chromium, Firefox, WebKit)
+        run: npx playwright test
+      - if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: rapport-playwright
+          path: playwright-report/
+          retention-days: 7
