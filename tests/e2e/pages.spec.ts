@@ -48,7 +48,11 @@ for (const chemin of PAGES) {
       const r = await new AxeBuilder({ page })
         .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
         .analyze();
-      expect(r.violations.map((v) => `${theme} : ${v.id} (${v.nodes.length})`)).toEqual([]);
+      // Détail de chaque élément en cause (sélecteur et résumé d'axe), pour corriger sans deviner.
+      const detail = r.violations.flatMap((v) =>
+        v.nodes.map((n) => `${theme} : ${v.id} ${n.target.join(" ")} — ${n.failureSummary?.replace(/\s+/g, " ")}`),
+      );
+      expect(detail).toEqual([]);
     }
   });
 }
