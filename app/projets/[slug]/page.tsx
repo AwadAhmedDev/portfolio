@@ -34,15 +34,15 @@ export default async function FicheProjet({ params }: Props) {
     <>
       <div className="conteneur pt-8">
         <nav aria-label="Fil d'Ariane">
-          <ol className="flex flex-wrap gap-2 text-[14px] text-muted-foreground">
+          <ol className="flex flex-wrap items-center gap-x-2 text-[14px] text-muted-foreground">
             <li>
-              <Link href="/" className="hover:text-primary">
+              <Link href="/" className="inline-flex min-h-11 items-center hover:text-primary">
                 Accueil
               </Link>{" "}
               <span aria-hidden="true">›</span>
             </li>
             <li>
-              <Link href="/projets/" className="hover:text-primary">
+              <Link href="/projets/" className="inline-flex min-h-11 items-center hover:text-primary">
                 Projets
               </Link>{" "}
               <span aria-hidden="true">›</span>

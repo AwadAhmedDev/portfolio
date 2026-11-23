@@ -11,7 +11,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background">
       <div className="conteneur relative flex h-16 items-center justify-between gap-4">
-        <Link href="/" className="text-[17px] font-bold tracking-tight no-underline">
+        <Link href="/" className="inline-flex min-h-11 items-center text-[17px] font-bold tracking-tight no-underline">
           {SITE_NOM}
         </Link>
         <NavLiens />
