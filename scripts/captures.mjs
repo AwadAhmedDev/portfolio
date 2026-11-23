@@ -29,8 +29,12 @@ for (const [slug, url] of Object.entries(SITES)) {
     const page = await contexte.newPage();
     await page.goto(url, { waitUntil: "load", timeout: 90_000 }); // « networkidle » échoue avec la mesure d'audience
     // Bannière de cookies : on refuse (choix le plus discret), pour qu'elle ne cache pas la page.
-    const refuser = page.getByRole("button", { name: "Tout refuser" });
-    if (await refuser.isVisible().catch(() => false)) await refuser.click();
+    // Elle peut apparaître un peu après le chargement : on l'attend 5 s au plus.
+    await page
+      .getByRole("button", { name: /tout refuser/i })
+      .first()
+      .click({ timeout: 5000 })
+      .catch(() => {}); // pas de bannière sur ce site
     await page.waitForTimeout(3000); // polices et images du premier écran
     await page.screenshot({ path: `images-source/${slug}-${format}.png` });
     await contexte.close();
