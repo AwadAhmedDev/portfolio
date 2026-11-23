@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+/* Thème sombre piloté par la classe .dark sur <html> (script du thème, app/layout.tsx). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Couleurs de la piste A (design.md §3.1). Noms courts de la maquette + noms shadcn/ui. */
+:root {
+  --bg: #ffffff;
+  --sf: #f5f7fa;
+  --tx: #0f172a;
+  --mu: #475569;
+  --bd: #cbd5e1;
+  --bs: #64748b;
+  --ac: #1d4ed8;
+  --ach: #1e40af;
+  --af: #ffffff;
+  --so: #e8efff;
+  --sof: #1e40af;
+  --er: #b91c1c;
+  --erb: #fef2f2;
+  --erf: #991b1b;
+  --okb: #f0fdf4;
+  --okf: #166534;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0b1120;
+  --sf: #121a2c;
+  --tx: #e6eaf2;
+  --mu: #9aa7ba;
+  --bd: #334155;
+  --bs: #64748b;
+  --ac: #8fb0ff;
+  --ach: #b0c8ff;
+  --af: #0b1120;
+  --so: #1a2850;
+  --sof: #b9cdff;
+  --er: #fca5a5;
+  --erb: #2a1215;
+  --erf: #fecaca;
+  --okb: #0f2418;
+  --okf: #bbf7d0;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--tx);
+  --color-muted: var(--sf);
+  --color-accent: var(--sf);
+  --color-muted-foreground: var(--mu);
+  --color-border: var(--bd);
+  --color-input: var(--bs);
+  --color-primary: var(--ac);
+  --color-primary-hover: var(--ach);
+  --color-primary-foreground: var(--af);
+  --color-ring: var(--ac);
+  --color-secondary: var(--so);
+  --color-secondary-foreground: var(--sof);
+  --color-destructive: var(--er);
+  --color-error-bg: var(--erb);
+  --color-error-fg: var(--erf);
+  --color-ok-bg: var(--okb);
+  --color-ok-fg: var(--okf);
+
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-mono-jb), ui-monospace, monospace;
+
+  --radius-DEFAULT: 10px;
+  --radius-lg: 16px;
+  --radius-chip: 6px;
+}
+
+/* Point de rupture personnalisé de 1 100 px (décision C5) : variante « wide: ». */
+@theme {
+  --breakpoint-wide: 68.75rem;
+}
+
+@layer base {
+  html,
+  body {
+    background: var(--bg);
+    color: var(--tx);
+  }
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  a {
+    color: inherit;
+  }
+  /* Focus clavier visible sur tout élément interactif (design.md §3.3). */
+  :focus-visible {
+    outline: 3px solid var(--ac);
+    outline-offset: 3px;
+  }
+  /* L'en-tête fixe ne cache pas un élément qui reçoit le focus (design.md §5.3). */
+  :where(input, textarea, select, button, a, [tabindex]) {
+    scroll-margin-top: 88px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Conteneur : 1 200 px max, marges 20 px puis 40 px dès 768 px. */
+  .conteneur {
+    width: 100%;
+    max-width: calc(1200px + 2 * 20px);
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+  @media (min-width: 48rem) {
+    .conteneur {
+      max-width: calc(1200px + 2 * 40px);
+      padding-inline: 40px;
+    }
+  }
+  .mono {
+    font-family: var(--font-mono);
+  }
+  /* Case à cocher et bouton radio natifs, dessinés par le site aux couleurs du thème (design.md §4). */
+  .controle {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--bs);
+    background: var(--bg);
+    display: inline-grid;
+    place-content: center;
+    cursor: pointer;
+  }
+  .controle:checked {
+    border-color: var(--ac);
+    background: var(--ac);
+  }
+  .controle[type="checkbox"]:checked::after {
+    content: "";
+    width: 10px;
+    height: 6px;
+    border: solid var(--af);
+    border-width: 0 0 2px 2px;
+    transform: translateY(-1px) rotate(-45deg);
+  }
+  .controle[type="radio"]:checked {
+    background: var(--bg);
+  }
+  .controle[type="radio"]:checked::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: var(--ac);
+  }
+  .controle:disabled {
+    cursor: default;
+  }
+  .controle[aria-invalid="true"] {
+    border-color: var(--er);
+  }
+  /* Masqué à l'écran, lu par les lecteurs d'écran. */
+  .sr-only-focusable:not(:focus):not(:focus-within) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}

@@ -320,6 +320,7 @@ Les champs obligatoires sont signalés par la mention **(obligatoire)** dans leu
 - Accord non coché : **Merci de cocher la case pour que je puisse vous répondre.**
 - Trop de demandes : **Vous avez envoyé plusieurs messages en peu de temps. Réessayez dans quelques minutes.**
 - Envoi impossible : **Le message n'a pas pu être envoyé. Réessayez, ou écrivez-moi sur LinkedIn.**
+- JavaScript désactivé (à la place du formulaire, « LinkedIn » en lien) : **Le formulaire a besoin de JavaScript. Vous pouvez aussi m'écrire sur LinkedIn.** *(décision RM2 de `roadmap.md`, 23/11/2026)*
 
 ### 5.3 À côté du formulaire
 - **LinkedIn** · **GitHub**

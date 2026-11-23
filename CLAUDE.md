@@ -50,4 +50,9 @@ L'ordinateur d'Awad a très peu d'espace disque libre.
 ## 6. Organisation du dépôt
 
 - `docs/` : documents produits au fil des phases (découverte produit, spécifications, conception, architecture, tests, déploiement).
-- `skills/` : instructions spécialisées, définies plus tard. Attention : Claude Code ne découvre automatiquement les Skills de projet que dans `.claude/skills/<nom>/SKILL.md`. Ce dossier n'est donc pas lu automatiquement.
+- `.claude/skills/` : les cinq Skills du projet, découverts automatiquement par Claude Code (un dossier par Skill, `<nom>/SKILL.md`) :
+  - `.claude/skills/product-analysis/SKILL.md`
+  - `.claude/skills/frontend-engineering/SKILL.md`
+  - `.claude/skills/code-review/SKILL.md`
+  - `.claude/skills/security-review/SKILL.md`
+  - `.claude/skills/testing-deployment/SKILL.md`

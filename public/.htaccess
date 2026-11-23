@@ -1,0 +1,43 @@
+# Serveur Hostinger du portfolio (architecture.md §6.2 et §8.1).
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # HTTPS obligatoire
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Fichiers qui ne doivent jamais être servis, même copiés ici par erreur.
+<FilesMatch "(^\.|\.(sqlite|log|md|ini|bak)$)">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_headers.c>
+  # CSP partie 1 : seulement ce qu'une balise meta ne peut pas porter. Pas de default-src ni de script-src ici :
+  # les règles de chargement et les empreintes des scripts sont dans la balise meta de chaque page.
+  Header always set Content-Security-Policy "frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  Header always set X-Frame-Options "DENY"
+  Header always unset X-Powered-By
+
+  # Cache : fichiers versionnés de Next.js en cache long, pages HTML toujours revalidées.
+  <FilesMatch "\.(html|txt|xml)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  <If "%{REQUEST_URI} =~ m#^/_next/static/#">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/avif "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType application/pdf "access plus 1 week"
+</IfModule>
