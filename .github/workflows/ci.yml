@@ -1,5 +1,5 @@
 # Intégration continue du portfolio (architecture.md §7, roadmap lot 13).
-# Ne déploie rien : le déploiement aura son propre workflow, après accord d'Awad (RM6).
+# Puis, sur main et phase-4-developpement : déploiement continu (branche « site » + Git de Hostinger) et Lighthouse.
 name: CI
 
 on:
@@ -115,4 +115,102 @@ jobs:
         with:
           name: rapport-playwright
           path: playwright-report/
+          retention-days: 7
+
+  deployer:
+    # Seulement après un push sur les branches publiées, quand toutes les vérifications sont vertes.
+    needs: [verifier, liens, e2e]
+    if: github.event_name == 'push' && (github.ref_name == 'main' || github.ref_name == 'phase-4-developpement')
+    permissions:
+      contents: write # pousser la branche « site »
+    concurrency:
+      group: deploiement
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    env:
+      SITE_URL: ${{ vars.SITE_URL }}
+      VERSION: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ env.VERSION }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Build, CSP et budget JavaScript
+        run: |
+          test -n "$SITE_URL" || { echo "Variable SITE_URL absente"; exit 1; }
+          npm run build
+          echo "$VERSION" > out/version.txt
+      - name: Publier out/ sur la branche « site »
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin site >/dev/null; then
+            git fetch origin site
+            git worktree add publication origin/site
+            git -C publication switch -c site
+          else
+            git worktree add --detach publication
+            git -C publication switch --orphan site
+          fi
+          find publication -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -a out/. publication/
+          git -C publication add -A
+          git -C publication commit -q -m "site : ${VERSION:0:7}" || { echo "Rien de nouveau à publier."; exit 0; }
+          git -C publication push origin site
+      # Hostinger tire la branche après le push : on attend que la nouvelle version soit en ligne, puis on contrôle.
+      - name: Contrôles du site en ligne
+        run: |
+          set -euo pipefail
+          for i in $(seq 1 30); do
+            [ "$(curl -s "$SITE_URL/version.txt")" = "$VERSION" ] && break
+            sleep 10
+          done
+          test "$(curl -s "$SITE_URL/version.txt")" = "$VERSION" || { echo "La nouvelle version n'est pas en ligne"; exit 1; }
+          code() { curl -s -o /dev/null -w "%{http_code}" "$SITE_URL$1"; }
+          for p in / /projets/ /a-propos/ /contact/ /mentions-legales/; do test "$(code $p)" = 200 || { echo "$p ne répond pas 200"; exit 1; }; done
+          test "$(code /cette-page-nexiste-pas/)" = 404
+          for p in /_app/ContactHandler.php /private/config.php /.htaccess /.git/config; do c=$(code $p); [[ "$c" = 403 || "$c" = 404 ]] || { echo "$p répond $c"; exit 1; }; done
+          curl -sI "$SITE_URL/" | grep -qi "^content-security-policy: frame-ancestors 'none'"
+          echo "Version ${VERSION:0:7} en ligne et vérifiée."
+
+  lighthouse:
+    needs: deployer
+    runs-on: ubuntu-latest
+    env:
+      LIGHTHOUSE: "lighthouse@13.6.0" # installé seulement sur GitHub (R7)
+      SITE_URL: ${{ vars.SITE_URL }}
+    steps:
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - run: npm install --global "$LIGHTHOUSE"
+      - name: Mesures (accueil et fiche RepaTek, ordinateur et mobile)
+        run: |
+          set -euo pipefail
+          mkdir -p rapports
+          echo "| Page | Appareil | Perf. | Access. | Bonnes pratiques | SEO | LCP | CLS | TBT |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|---|---|---|---|---|---|---|---|---|" >> "$GITHUB_STEP_SUMMARY"
+          for page in / /projets/repatek/; do
+            for appareil in desktop mobile; do
+              nom="$(echo "$page" | tr '/' '_')$appareil"
+              opt=""; [ "$appareil" = desktop ] && opt="--preset=desktop"
+              lighthouse "$SITE_URL$page" $opt --quiet --chrome-flags="--headless=new --no-sandbox" \
+                --output=json --output=html --output-path="rapports/$nom"
+              node -e '
+                const r = require(process.argv[1]); const c = r.categories, a = r.audits;
+                const s = (k) => Math.round(c[k].score * 100);
+                console.log(`| ${process.argv[2]} | ${process.argv[3]} | ${s("performance")} | ${s("accessibility")} | ${s("best-practices")} | ${s("seo")} | ${a["largest-contentful-paint"].displayValue} | ${a["cumulative-layout-shift"].displayValue} | ${a["total-blocking-time"].displayValue} |`);
+              ' "$PWD/rapports/$nom.report.json" "$page" "$appareil" | tee -a "$GITHUB_STEP_SUMMARY"
+            done
+          done
+      - uses: actions/upload-artifact@v7
+        with:
+          name: lighthouse
+          path: rapports/
           retention-days: 7
