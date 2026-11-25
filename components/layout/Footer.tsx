@@ -17,7 +17,7 @@ export function Footer() {
       <div className="conteneur grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
         <div className="flex flex-col items-start gap-4">
           <Link href="/" className="inline-flex min-h-11 items-center gap-2.5 text-[18px] font-bold no-underline">
-            <Logo />
+            <Logo id="logo-pied" />
             {SITE_NOM}
           </Link>
           <p className="max-w-[340px] text-[15px] text-muted-foreground">{accueil.petitTitre}</p>

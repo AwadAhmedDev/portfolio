@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: accueil.titrePage,
   description: accueil.description,
-  // Favicons figés dans public/ (logo « AA ») : SVG pour les navigateurs actuels, ICO pour les anciens, PNG pour iOS.
+  // Favicons figés dans public/ (logo d'Awad : « A » et chevron « > ») : SVG pour les navigateurs actuels, ICO pour les anciens, PNG pour iOS.
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },

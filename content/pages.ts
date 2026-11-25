@@ -9,6 +9,9 @@ export const accueil = {
   technologies: ["React", "Next.js", "Node.js"],
   presentation:
     "Je conçois, développe et mets en ligne des applications web complètes : de l'interface au serveur et à la base de données, avec des tests et un déploiement automatique.",
+  // Premier écran refait le 25/11/2026 (choix d'Awad) : le titre dit ce que je fais, le nom passe au-dessus.
+  accroche: "Je conçois et développe des applications web complètes, testées et mises en ligne.",
+  sousAccroche: "De l'interface au serveur et à la base de données.",
   lieu: "Île-de-France",
   disponibilite: "Ouvert aux postes en CDI ou CDD et aux missions freelance.",
   projets: {
@@ -143,6 +146,21 @@ export const contact = {
   titre: "Me contacter",
   intro: "Un poste en CDI ou CDD, une mission freelance ou une simple question : écrivez-moi. Je réponds sous 24 h.",
   moyens: "Pour me joindre : ce formulaire ou LinkedIn.",
+  // Page refaite le 25/11/2026 (demande d'Awad) : repères, étapes et formulaire dans une carte.
+  reperes: [
+    { titre: "Réponse", texte: "Sous 24 h, par e-mail." },
+    { titre: "Disponibilité", texte: "Postes en CDI ou CDD et missions freelance." },
+    { titre: "Lieu", texte: "Île-de-France" },
+  ],
+  etapes: {
+    titre: "Comment ça se passe",
+    liste: [
+      "Vous m'écrivez avec ce formulaire ou sur LinkedIn.",
+      "Je vous réponds sous 24 h, par e-mail.",
+      "Nous échangeons sur votre poste ou votre projet.",
+    ],
+  },
+  formulaireTitre: "Envoyer un message",
   champs: {
     nom: "Votre nom",
     email: "Votre adresse e-mail",

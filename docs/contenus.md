@@ -11,7 +11,7 @@
 ## 0. Éléments communs
 
 ### En-tête
-- Logo : marque « AA » et **Awad** ; les lecteurs d'écran lisent « Awad Ahmed » *(décision d'Awad du 23/11/2026 : « Awad » seulement dans le logo, nom complet partout ailleurs)*
+- Logo : modèle d'Awad (« A » évidé et chevron de code « > », 25/11/2026), aux couleurs du site, et **AWAD** en capitales ; les lecteurs d'écran lisent « Awad Ahmed » *(décision d'Awad du 23/11/2026 : « Awad » seulement dans le logo, nom complet partout ailleurs)*
 - Liens : **Projets** · **À propos** · **Contact**
 - Bouton : **CV** (ouvre le CV en français)
 - Bouton thème : étiquette pour les lecteurs d'écran « Passer en mode sombre » / « Passer en mode clair »
@@ -36,13 +36,13 @@
 **Description (Google)** : Développeur Full Stack en Île-de-France. Applications web complètes et en ligne, avec React, Next.js et Node.js. Ouvert aux postes en CDI ou CDD et aux missions freelance.
 
 ### 1.1 Premier écran
-- Petit titre : **Développeur Full Stack JavaScript / TypeScript**
-- Grand titre (`h1`) : **Awad Ahmed**
-- Technologies : **React · Next.js · Node.js**
-- Phrase de présentation : **Je conçois, développe et mets en ligne des applications web complètes : de l'interface au serveur et à la base de données, avec des tests et un déploiement automatique.**
-- Lieu : **Île-de-France**
-- Disponibilité : **Ouvert aux postes en CDI ou CDD et aux missions freelance.**
+*Refait le 25/11/2026 (choix d'Awad) : le grand titre dit ce que je fais ; le nom passe au-dessus.*
+- Petit titre : **Awad Ahmed · Développeur Full Stack JavaScript / TypeScript**
+- Grand titre (`h1`) : **Je conçois et développe des applications web complètes, testées et mises en ligne.**
+- Sous-titre : **De l'interface au serveur et à la base de données.**
+- Disponibilité (pastille) : **Ouvert aux postes en CDI ou CDD et aux missions freelance.** · **Île-de-France**
 - Boutons : **Voir mes projets** (principal) · **Me contacter** (secondaire)
+- Preuves (calculées) : **5 sites en ligne** · **185 tests automatisés** · **2 sites à 100/100 sur Lighthouse**
 
 ### 1.2 Projets mis en avant
 - Titre : **Projets clients**
@@ -297,6 +297,10 @@ Phrase sous les compétences : **Je n'affiche que des technologies utilisées da
 - Grand titre : **Me contacter**
 - Introduction : **Un poste en CDI ou CDD, une mission freelance ou une simple question : écrivez-moi. Je réponds sous 24 h.**
 - **Pour me joindre : ce formulaire ou LinkedIn.**
+- *Ajouts du 25/11/2026 (page refaite à la demande d'Awad) :*
+  - Repères : **Réponse** — **Sous 24 h, par e-mail.** · **Disponibilité** — **Postes en CDI ou CDD et missions freelance.** · **Lieu** — **Île-de-France**
+  - **Comment ça se passe** : 1. **Vous m'écrivez avec ce formulaire ou sur LinkedIn.** 2. **Je vous réponds sous 24 h, par e-mail.** 3. **Nous échangeons sur votre poste ou votre projet.**
+  - Titre de la carte du formulaire : **Envoyer un message**
 
 ### 5.1 Formulaire
 

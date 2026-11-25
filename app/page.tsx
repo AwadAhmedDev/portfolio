@@ -5,7 +5,7 @@ import { projets } from "@/content/projets";
 import { ProjectCard } from "@/components/projet/ProjectCard";
 import { Picture } from "@/components/Picture";
 import { IconeCoche } from "@/components/ui/icones";
-import { bouton, lienTexte, puce } from "@/components/ui/styles";
+import { bouton, lienTexte } from "@/components/ui/styles";
 import { liens } from "@/content/site";
 import { metaPage, SITE_URL } from "@/lib/seo";
 import { detailTests, nbProjetsEnLigne, nbSites100Ordinateur, totalTestsDistincts } from "@/lib/stats";
@@ -32,23 +32,25 @@ export default function Accueil() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: personne }} />
       <section aria-labelledby="titre-accueil" className="conteneur py-16">
         <div className="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
-          <div className="max-w-[720px]">
-            <p className="mono text-[14px] text-muted-foreground">{a.petitTitre}</p>
-            <h1 id="titre-accueil" className="mt-3 text-[clamp(48px,8vw,84px)] leading-none">
-              {a.titre}
+          <div className="max-w-[760px]">
+            {/* Le titre dit ce que je fais ; le nom est juste au-dessus (choix d'Awad du 25/11/2026). */}
+            <p className="mono text-[14px] text-muted-foreground">
+              <span className="font-semibold text-foreground">{a.titre}</span> · {a.petitTitre}
+            </p>
+            <h1
+              id="titre-accueil"
+              className="mt-4 text-[clamp(36px,5.4vw,60px)] leading-[1.08] tracking-[-0.03em] text-balance"
+            >
+              {a.accroche}
             </h1>
-            <ul className="mt-5 flex flex-wrap gap-2" aria-label="Technologies principales">
-              {a.technologies.map((t) => (
-                <li key={t} className={puce}>
-                  {t}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-5 text-[clamp(17px,2vw,20px)] leading-[1.55]">{a.presentation}</p>
-            <p className="mt-4 flex flex-wrap items-center gap-x-2 text-muted-foreground">
-              <span>{a.lieu}</span>
-              <span aria-hidden="true" className="inline-block size-2 rounded-full bg-primary" />
+            <p className="mt-5 text-[clamp(17px,2vw,20px)] leading-[1.55] text-muted-foreground">{a.sousAccroche}</p>
+            <p className="mt-6 inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-border bg-muted px-4 py-2 text-[14px]">
+              <span aria-hidden="true" className="inline-block size-2 shrink-0 rounded-full bg-primary" />
               <span>{a.disponibilite}</span>
+              <span aria-hidden="true" className="text-muted-foreground">
+                ·
+              </span>
+              <span className="text-muted-foreground">{a.lieu}</span>
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/projets/" className={bouton.principal}>
@@ -58,6 +60,18 @@ export default function Accueil() {
                 Me contacter
               </Link>
             </div>
+            {/* Preuves tout de suite, calculées depuis les données (jamais écrites à la main). */}
+            <ul className="mono mt-8 flex flex-wrap gap-x-5 gap-y-2 text-[13px] text-muted-foreground">
+              <li>
+                <strong className="text-foreground">{nbProjetsEnLigne()}</strong> sites en ligne
+              </li>
+              <li>
+                <strong className="text-foreground">{totalTestsDistincts()}</strong> tests automatisés
+              </li>
+              <li>
+                <strong className="text-foreground">{nbSites100Ordinateur()}</strong> sites à 100/100 sur Lighthouse
+              </li>
+            </ul>
           </div>
           <div className="w-full max-w-[200px] md:max-w-[320px]">
             <Picture

@@ -16,8 +16,8 @@ export function Header() {
           href="/"
           className="inline-flex min-h-11 items-center gap-2.5 text-[18px] font-bold tracking-tight no-underline"
         >
-          <Logo />
-          {LOGO_NOM}
+          <Logo id="logo-entete" />
+          <span className="text-[17px] font-bold uppercase tracking-[0.14em]">{LOGO_NOM}</span>
           <span className="sr-only">{SITE_NOM.replace(LOGO_NOM, "")}</span>
         </Link>
         <NavLiens />
