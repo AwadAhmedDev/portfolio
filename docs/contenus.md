@@ -42,13 +42,24 @@
 - Sous-titre : **De l'interface au serveur et à la base de données.**
 - Disponibilité (pastille) : **Ouvert aux postes en CDI ou CDD et aux missions freelance.** · **Île-de-France**
 - Boutons : **Voir mes projets** (principal) · **Me contacter** (secondaire)
-- Preuves (calculées) : **5 sites en ligne** · **185 tests automatisés** · **2 sites à 100/100 sur Lighthouse**
+- Preuves, en langage client (25/11/2026, chiffres calculés) : **5 sites en ligne, dont 3 pour des clients** · **Chaque modification vérifiée avant la mise en ligne** · **Jusqu'à 100/100 en vitesse sur l'outil de mesure de Google**
 
 ### 1.2 Projets mis en avant
 - Titre : **Projets clients**
 - Sous-titre : **Des sites réels, conçus et développés pour des clients, en ligne aujourd'hui.**
 - 3 cartes : RepaTek, I Make My World, Plateforme éditoriale (textes des cartes : section 2)
 - Lien : **Voir les 6 projets**
+
+### 1.2 bis Ce que vous obtenez (ajouté le 25/11/2026, demande d'Awad)
+- Titre : **Ce que vous obtenez**
+- Sous-titre : **Un site professionnel, pensé pour vos visiteurs, pour Google et pour durer.**
+- 6 cartes (bénéfice · preuve) :
+  - **Un site rapide** — Il s'affiche en un instant, même sur téléphone : vos visiteurs restent. · *Jusqu'à 100/100 en vitesse sur l'outil de mesure de Google*
+  - **Trouvé sur Google** — Chaque page est préparée pour le référencement : titres, descriptions et aperçus pour les réseaux sociaux. · *4 de mes sites ont 100/100 en référencement sur l'outil de Google*
+  - **Sécurisé** — Connexion HTTPS, serveur protégé et formulaires à l'abri des robots. · *Protections contrôlées automatiquement à chaque mise en ligne de ce portfolio*
+  - **Parfait sur tous les écrans** — Téléphone, tablette ou ordinateur : le site s'adapte et reste agréable à utiliser. · *Ce portfolio est testé sur Chrome, Firefox et Safari*
+  - **Fiable** — Chaque modification est vérifiée automatiquement avant d'être mise en ligne : moins de pannes. · *185 tests automatiques sur mes 6 projets*
+  - **Accessible à tous** — Lisible par tous, y compris par les personnes malvoyantes ou qui naviguent au clavier. · *100/100 en accessibilité pour ce portfolio*
 
 ### 1.3 Preuves en chiffres
 - **6 projets** présentés, dont **5 en ligne**

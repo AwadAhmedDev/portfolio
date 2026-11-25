@@ -2,7 +2,15 @@ import { describe, expect, it } from "vitest";
 import * as pages from "@/content/pages";
 import { projets } from "@/content/projets";
 import * as site from "@/content/site";
-import { detailTests, executionsCI, nbProjetsEnLigne, nbSites100Ordinateur, totalTestsDistincts } from "@/lib/stats";
+import {
+  detailTests,
+  executionsCI,
+  nbClientsEnLigne,
+  nbProjetsEnLigne,
+  nbSites100Ordinateur,
+  nbSitesSeo100,
+  totalTestsDistincts,
+} from "@/lib/stats";
 
 describe("chiffres officiels (design.md §7.1)", () => {
   it("185 tests distincts au total", () => {
@@ -18,6 +26,10 @@ describe("chiffres officiels (design.md §7.1)", () => {
   it("5 projets en ligne et 2 sites à 100 / 100 sur ordinateur", () => {
     expect(nbProjetsEnLigne()).toBe(5);
     expect(nbSites100Ordinateur()).toBe(2);
+  });
+  it("preuves de l'accueil : 3 sites clients en ligne, 4 sites à 100/100 en référencement", () => {
+    expect(nbClientsEnLigne()).toBe(3);
+    expect(nbSitesSeo100()).toBe(4);
   });
 });
 

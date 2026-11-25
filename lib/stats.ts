@@ -34,6 +34,11 @@ export function detailTests(liste: Projet[] = projets): number[] {
 }
 
 export const nbProjetsEnLigne = (liste: Projet[] = projets) => liste.filter((p) => p.site).length;
+export const nbClientsEnLigne = (liste: Projet[] = projets) =>
+  liste.filter((p) => p.site && p.badge === "Projet client").length;
+// Sites à 100/100 en référencement (SEO) sur ordinateur.
+export const nbSitesSeo100 = (liste: Projet[] = projets) =>
+  liste.filter((p) => p.lighthouse?.ordinateur.seo === 100).length;
 
 // « 100 / 100 sur les 4 scores Lighthouse pour N sites, sur ordinateur ».
 export const nbSites100Ordinateur = (liste: Projet[] = projets) =>
