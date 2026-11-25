@@ -1,0 +1,28 @@
+2:"$Sreact.fragment"
+3:"/_next/static/chunks/3vl7k_en05gzu.js"
+4:I[39756,["$3"],"default"]
+5:I[37457,["$3"],"default"]
+b:"/_next/static/chunks/0ryl3ygwh8r6u.js"
+c:I[53160,["$3","$b"],"ContactForm"]
+d:I[97367,["$3"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:"ViewportBoundary"
+12:I[97367,["$3"],"$11"]
+13:"MetadataBoundary"
+14:I[97367,["$3"],"$13"]
+15:I[27201,["$3"],"IconMark"]
+7:X
+7:C
+8:X
+a:["$","p",null,{"className":"rounded-[10px] bg-muted p-4","children":["Le formulaire a besoin de JavaScript. Vous pouvez aussi m'écrire sur ",["$","a",null,{"href":"https://www.linkedin.com/in/awad-dev","className":"underline underline-offset-4","children":"LinkedIn"}],"."]}]
+9:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[["$","section",null,{"aria-labelledby":"titre-contact","className":"conteneur py-16","children":[["$","h1",null,{"id":"titre-contact","className":"text-[clamp(44px,7vw,72px)] leading-none","children":"Me contacter"}],["$","p",null,{"className":"mt-5 max-w-[760px] text-[clamp(17px,2vw,20px)] leading-[1.55]","children":"Un poste en CDI ou CDD, une mission freelance ou une simple question : écrivez-moi. Je réponds sous 24 h."}],["$","p",null,{"className":"mt-3 font-medium","children":"Pour me joindre : ce formulaire ou LinkedIn."}],["$","div",null,{"className":"mt-10 grid gap-12 wide:grid-cols-[2fr_1fr]","children":[["$","div",null,{"children":[["$","noscript",null,{"children":"$a"}],["$","$Lc",null,{}]]}],["$","aside",null,{"aria-label":"Autres moyens de contact","className":"flex flex-col gap-4","children":[["$","ul",null,{"className":"flex flex-col","children":[["$","li",null,{"children":["$","a",null,{"href":"https://www.linkedin.com/in/awad-dev","className":"inline-flex min-h-11 items-center font-medium text-primary underline underline-offset-4 hover:text-primary-hover","children":"LinkedIn"}]}],["$","li",null,{"children":["$","a",null,{"href":"https://github.com/AwadAhmedDev","className":"inline-flex min-h-11 items-center font-medium text-primary underline underline-offset-4 hover:text-primary-hover","children":"GitHub"}]}]]}],null]}]]}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/0ryl3ygwh8r6u.js","async":true}]],["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}],"p":"$@10","v":null,"s":"$8"}}]]
+1:[["children",{"s":"contact","h":64,"d":{"r":["$","$2","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}],"p":"$@6","v":"$7","s":"$8"},"c":"$Q9"}]]
+0:{"t":{"t":{"s":"","h":16,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L12",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L14",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$e",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Contact — Awad Ahmed"}],["$","meta","1",{"name":"description","content":"Proposer un poste, une mission freelance ou poser une question à Awad Ahmed, développeur Full Stack. Réponse sous 24 h."}],["$","link","2",{"rel":"canonical","href":"https://rustic-yellowgreen-woodcock-94.hostingersite.com/contact/"}],["$","meta","3",{"property":"og:title","content":"Contact — Awad Ahmed"}],["$","meta","4",{"property":"og:description","content":"Proposer un poste, une mission freelance ou poser une question à Awad Ahmed, développeur Full Stack. Réponse sous 24 h."}],["$","meta","5",{"property":"og:url","content":"https://rustic-yellowgreen-woodcock-94.hostingersite.com/contact/"}],["$","meta","6",{"property":"og:site_name","content":"Awad Ahmed"}],["$","meta","7",{"property":"og:locale","content":"fr_FR"}],["$","meta","8",{"property":"og:image","content":"https://rustic-yellowgreen-woodcock-94.hostingersite.com/apercu.png"}],["$","meta","9",{"property":"og:image:width","content":"1200"}],["$","meta","10",{"property":"og:image:height","content":"630"}],["$","meta","11",{"property":"og:image:alt","content":"Logo AA, Awad — Développeur Full Stack JavaScript / TypeScript"}],["$","meta","12",{"property":"og:type","content":"website"}],["$","meta","13",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","14",{"name":"twitter:title","content":"Contact — Awad Ahmed"}],["$","meta","15",{"name":"twitter:description","content":"Proposer un poste, une mission freelance ou poser une question à Awad Ahmed, développeur Full Stack. Réponse sous 24 h."}],["$","meta","16",{"name":"twitter:image","content":"https://rustic-yellowgreen-woodcock-94.hostingersite.com/apercu.png"}],["$","meta","17",{"name":"twitter:image:alt","content":"Logo AA, Awad — Développeur Full Stack JavaScript / TypeScript"}],["$","meta","18",{"name":"twitter:image:width","content":"1200"}],["$","meta","19",{"name":"twitter:image:height","content":"630"}],["$","link","20",{"rel":"icon","href":"/favicon.svg","type":"image/svg+xml"}],["$","link","21",{"rel":"icon","href":"/favicon.ico","sizes":"32x32"}],["$","link","22",{"rel":"apple-touch-icon","href":"/apple-touch-icon.png"}],["$","$L15","23",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@16","v":null,"s":"$8"}},"a":"$@17","u":"$@18","b":"uhNUkhUzYZ_W0iukrprGr"}
+f:null
+18:true
+8:300
+8:C
+17:0
+6:"$undefined"
+16:"$undefined"
+10:"$undefined"
