@@ -177,7 +177,7 @@ export default async function FicheProjet({ params }: Props) {
           >
             <span>
               <span className="block text-[14px] text-muted-foreground">Projet suivant</span>
-              <span className="text-[20px] font-bold">{suivant.nom}</span>
+              <span className="text-[20px] font-bold text-foreground">{suivant.nom}</span>
             </span>
             <IconeFleche />
           </Link>
