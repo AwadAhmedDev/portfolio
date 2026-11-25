@@ -5,6 +5,13 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    ignore:
+      # Les types de Node suivent la version de Node utilisée (22, comme la CI et Hostinger).
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+      # Une nouvelle version majeure de TypeScript se fait à la main, après vérification.
+      - dependency-name: typescript
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: github-actions
     directory: /
     schedule:

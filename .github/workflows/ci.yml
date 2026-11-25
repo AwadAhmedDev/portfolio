@@ -167,7 +167,7 @@ jobs:
       - name: Contrôles du site en ligne
         run: |
           set -euo pipefail
-          for i in $(seq 1 30); do
+          for i in $(seq 1 60); do # jusqu'à 10 minutes : Hostinger tire parfois la branche avec retard
             [ "$(curl -s "$SITE_URL/version.txt")" = "$VERSION" ] && break
             sleep 10
           done
