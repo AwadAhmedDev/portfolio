@@ -213,8 +213,8 @@
   }
 }
 @keyframes montee {
+  /* Sans transparence : le texte reste lisible (et mesurable) même avant la fin de l'animation. */
   from {
-    opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(28px);
   }
 }
