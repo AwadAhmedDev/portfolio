@@ -1,0 +1,33 @@
+# Captures des 5 sites en ligne (roadmap lot 4), lancées à la main. Résultat : un artefact à relire,
+# puis à déposer dans images-source/ avant le workflow Images. Rien n'est poussé automatiquement.
+name: Captures
+
+on:
+  workflow_dispatch:
+  # Aussi au push d'une modification du script (le lancement manuel n'existe que depuis main).
+  push:
+    paths: [scripts/captures.mjs, .github/workflows/captures.yml]
+
+permissions:
+  contents: read
+
+jobs:
+  captures:
+    runs-on: ubuntu-latest
+    env:
+      PLAYWRIGHT: "@playwright/test@1.65.1" # installé seulement sur GitHub (R7)
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm install --no-save "$PLAYWRIGHT"
+      - run: npx playwright install --with-deps chromium
+      - run: node scripts/captures.mjs
+      - uses: actions/upload-artifact@v7
+        with:
+          name: captures
+          path: images-source/*.png
+          retention-days: 7

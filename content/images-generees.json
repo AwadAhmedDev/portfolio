@@ -1,0 +1,82 @@
+{
+  "emateriel-mobile": {
+    "largeurs": [
+      640
+    ],
+    "largeur": 640,
+    "hauteur": 800
+  },
+  "emateriel-ordinateur": {
+    "largeurs": [
+      640,
+      960,
+      1440
+    ],
+    "largeur": 1440,
+    "hauteur": 900
+  },
+  "i-make-my-world-mobile": {
+    "largeurs": [
+      640
+    ],
+    "largeur": 640,
+    "hauteur": 800
+  },
+  "i-make-my-world-ordinateur": {
+    "largeurs": [
+      640,
+      960,
+      1440
+    ],
+    "largeur": 1440,
+    "hauteur": 900
+  },
+  "plateforme-editoriale-mobile": {
+    "largeurs": [
+      640
+    ],
+    "largeur": 640,
+    "hauteur": 800
+  },
+  "plateforme-editoriale-ordinateur": {
+    "largeurs": [
+      640,
+      960,
+      1440
+    ],
+    "largeur": 1440,
+    "hauteur": 900
+  },
+  "repatek-mobile": {
+    "largeurs": [
+      640
+    ],
+    "largeur": 640,
+    "hauteur": 800
+  },
+  "repatek-ordinateur": {
+    "largeurs": [
+      640,
+      960,
+      1440
+    ],
+    "largeur": 1440,
+    "hauteur": 900
+  },
+  "solidays-mobile": {
+    "largeurs": [
+      640
+    ],
+    "largeur": 640,
+    "hauteur": 800
+  },
+  "solidays-ordinateur": {
+    "largeurs": [
+      640,
+      960,
+      1440
+    ],
+    "largeur": 1440,
+    "hauteur": 900
+  }
+}

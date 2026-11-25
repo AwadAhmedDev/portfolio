@@ -1,6 +1,8 @@
 // Éléments communs (docs/contenus.md §0) et liens externes connus (docs/design.md §9).
 
 export const SITE_NOM = "Awad Ahmed";
+// Nom affiché à côté du logo (décision d'Awad du 23/11/2026) ; le nom complet reste partout ailleurs.
+export const LOGO_NOM = "Awad";
 
 export const nav = [
   { href: "/projets/", label: "Projets" },
@@ -23,3 +25,10 @@ export const cvs: CV[] = [
 ];
 export const cvsDisponibles = () => cvs.filter((c) => c.taille !== null);
 export const cvFrancais = () => cvsDisponibles().find((c) => c.langue === "fr");
+
+// Pied de page (design.md §4.2, refait à la demande d'Awad le 23/11/2026) : intitulés des colonnes et lien de retour.
+export const piedDePage = {
+  navigation: "Navigation",
+  reseaux: "Me retrouver",
+  haut: "Retour en haut",
+};

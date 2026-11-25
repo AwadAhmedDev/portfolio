@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Projet } from "@/content/projets";
-import { Provisoire } from "@/components/ui/Provisoire";
+import { Picture } from "@/components/Picture";
 import { badge, bouton, lienTexte, puce } from "@/components/ui/styles";
 import { SchemaVignette } from "./SchemaVignette";
 
@@ -8,14 +8,15 @@ import { SchemaVignette } from "./SchemaVignette";
 export function ProjectCard({ projet, niveau = "h3" }: { projet: Projet; niveau?: "h2" | "h3" }) {
   const Titre = niveau;
   return (
-    <article className="flex flex-col gap-4 rounded-[10px] border border-border bg-background p-5">
+    <article className="revele flex flex-col gap-4 rounded-[10px] border border-border bg-background p-5 transition-[transform,border-color,box-shadow] duration-200 motion-safe:hover:-translate-y-1 hover:border-input hover:shadow-[0_12px_32px_-16px_rgb(15_23_42/0.35)]">
       {projet.schema ? (
         <SchemaVignette />
       ) : (
-        <Provisoire
-          libelle="Capture provisoire"
+        <Picture
+          nom={`${projet.slug}-ordinateur`}
           ratio="16:10"
-          alt={`Page d'accueil du site ${projet.nom} sur ordinateur`}
+          sizes="(min-width: 1100px) 380px, (min-width: 768px) 50vw, 100vw"
+          provisoire={{ libelle: "Capture provisoire", alt: `Page d'accueil du site ${projet.nom} sur ordinateur` }}
         />
       )}
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
@@ -23,7 +24,7 @@ export function ProjectCard({ projet, niveau = "h3" }: { projet: Projet; niveau?
           {projet.badge}
           {projet.equipe ? ` · ${projet.equipe}` : ""}
         </span>
-        <span className="mono text-[13px] text-muted-foreground">Début : {projet.debut}</span>
+        <span className="mono text-[13px] text-muted-foreground">Début : {projet.debut}</span>
       </div>
       <Titre className="text-[22px]">{projet.nom}</Titre>
       <p className="text-muted-foreground">{projet.phrase}</p>

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { cvFrancais, SITE_NOM } from "@/content/site";
+import { cvFrancais, LOGO_NOM, SITE_NOM } from "@/content/site";
+import { Logo } from "@/components/ui/Logo";
 import { bouton } from "@/components/ui/styles";
 import { MobileMenu } from "./MobileMenu";
 import { NavLiens } from "./NavLiens";
@@ -11,8 +12,13 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background">
       <div className="conteneur relative flex h-16 items-center justify-between gap-4">
-        <Link href="/" className="text-[17px] font-bold tracking-tight no-underline">
-          {SITE_NOM}
+        <Link
+          href="/"
+          className="inline-flex min-h-11 items-center gap-2.5 text-[18px] font-bold tracking-tight no-underline"
+        >
+          <Logo id="logo-entete" />
+          <span className="text-[17px] font-bold uppercase tracking-[0.14em]">{LOGO_NOM}</span>
+          <span className="sr-only">{SITE_NOM.replace(LOGO_NOM, "")}</span>
         </Link>
         <NavLiens />
         <div className="flex items-center gap-2">

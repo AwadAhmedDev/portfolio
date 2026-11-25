@@ -1,0 +1,11 @@
+# Mises à jour proposées en pull request (requirements.md §7) ; rien n'est fusionné sans accord.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly

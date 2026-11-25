@@ -57,19 +57,19 @@ export const projets: Projet[] = [
     code: "https://github.com/AwadAhmedDev/repartech-booking",
     titrePage: "RepaTek — réservation de dépannage informatique · Awad Ahmed",
     description:
-      "Site de réservation pour un technicien informatique à domicile : créneaux calculés, back-office, e-mails. React, TypeScript, Supabase.",
+      "Site de réservation pour un technicien informatique à domicile : créneaux calculés, back-office, e-mails. React, TypeScript, Supabase.",
     leProjet:
-      "RepaTek est le site d'un service de dépannage informatique à domicile aux Ulis, en Essonne : diagnostic, suppression de virus, passage au SSD, récupération de données. Le client choisit une prestation et un créneau, indique son adresse, et le technicien valide le rendez-vous depuis un back-office.",
+      "RepaTek est le site d'un service de dépannage informatique à domicile aux Ulis, en Essonne : diagnostic, suppression de virus, passage au SSD, récupération de données. Le client choisit une prestation et un créneau, indique son adresse, et le technicien valide le rendez-vous depuis un back-office.",
     monRole: {
       texte: "seul développeur, de la conception à la mise en ligne, pour le client ",
       gras: "Aden Dahier Okieh",
       suite: ".",
     },
     fonctionnalites: [
-      "Réservation en 4 étapes : prestation, date et créneau, coordonnées et adresse, confirmation.",
+      "Réservation en 4 étapes : prestation, date et créneau, coordonnées et adresse, confirmation.",
       "Créneaux calculés selon les horaires, les jours fermés, la durée de la prestation, le délai de prévenance et une marge de trajet entre deux rendez-vous.",
       "E-mail de réception de la demande, puis e-mail de confirmation quand le technicien valide.",
-      "Back-office : rendez-vous, prestations, horaires, jours fermés et réglages.",
+      "Back-office : rendez-vous, prestations, horaires, jours fermés et réglages.",
       "Une page par prestation, une FAQ et les pages légales.",
     ],
     technologies: [
@@ -87,15 +87,15 @@ export const projets: Projet[] = [
       {
         decision: "Une réservation passe uniquement par une fonction SQL qui revalide tout",
         raison:
-          " (horaires, délai, marge de trajet, champs) : le navigateur ne peut pas créer un rendez-vous qui ne respecte pas les règles.",
+          " (horaires, délai, marge de trajet, champs) : le navigateur ne peut pas créer un rendez-vous qui ne respecte pas les règles.",
       },
       {
         decision: "La base refuse elle-même deux rendez-vous qui se chevauchent",
-        raison: " (contrainte d'exclusion PostgreSQL) : c'est la dernière barrière, quel que soit le code.",
+        raison: " (contrainte d'exclusion PostgreSQL) : c'est la dernière barrière, quel que soit le code.",
       },
       {
         decision: "Aucune donnée client n'est lisible publiquement",
-        raison: " (Row Level Security) : le calendrier public ne reçoit que des heures occupées.",
+        raison: " (Row Level Security) : le calendrier public ne reçoit que des heures occupées.",
       },
     ],
     qualite: ["17 tests automatisés, lancés avant chaque déploiement", "Déploiement automatique sur Hostinger"],
@@ -124,10 +124,10 @@ export const projets: Projet[] = [
     monRole: { texte: "seul développeur, de la conception à la mise en ligne." },
     fonctionnalites: [
       "Catalogue des projets filtrable par thématique, annuaire des experts filtrable par domaine, demande d'accompagnement.",
-      "Espace membre : profil, changement de mot de passe, suppression du compte.",
-      "Créateurs : dépôt et modification de projets avec image, suivi du statut (en attente, publié, refusé avec motif).",
-      "Experts : candidature, gestion de ses expertises, réponse aux demandes reçues.",
-      "Back-office : tableau de bord, modération des projets et des expertises, gestion des utilisateurs et de leurs rôles, abonnements, messages de contact.",
+      "Espace membre : profil, changement de mot de passe, suppression du compte.",
+      "Créateurs : dépôt et modification de projets avec image, suivi du statut (en attente, publié, refusé avec motif).",
+      "Experts : candidature, gestion de ses expertises, réponse aux demandes reçues.",
+      "Back-office : tableau de bord, modération des projets et des expertises, gestion des utilisateurs et de leurs rôles, abonnements, messages de contact.",
     ],
     technologies: [
       {
@@ -152,7 +152,7 @@ export const projets: Projet[] = [
     choix: [
       { decision: "Une API Express séparée de l'interface", raison: ", avec authentification par jeton (JWT)." },
       { decision: "Images stockées dans un espace privé Cloudflare R2", raison: ", servies uniquement par l'API." },
-      { decision: "Protection de l'API", raison: " : limite de demandes et en-têtes de sécurité." },
+      { decision: "Protection de l'API", raison: " : limite de demandes et en-têtes de sécurité." },
     ],
     qualite: ["45 tests d'intégration (Vitest et Supertest)", "TypeScript strict", "Intégration continue"],
     tests: { integration: 45 },
@@ -178,12 +178,12 @@ export const projets: Projet[] = [
       "Un média francophone consacré à la Corne de l'Afrique (asile, migrations, droits humains, analyses par pays), avec son espace de rédaction. Une seule personne administre le site, rédige et publie.",
     monRole: { texte: "conception et développement du site, pour l'éditeur ", gras: "Harbi Egueh Aouled", suite: "." },
     fonctionnalites: [
-      "Accueil éditorial : article à la une, actualités, analyses et enquêtes, fil « En continu ».",
+      "Accueil éditorial : article à la une, actualités, analyses et enquêtes, fil « En continu ».",
       "Pages par rubrique et par pays, liste des articles avec filtres.",
       "Recherche plein texte.",
-      "Page article : temps de lecture, partage, « citer cet article », articles liés.",
+      "Page article : temps de lecture, partage, « citer cet article », articles liés.",
       "Newsletter et formulaire de contact protégé contre les robots.",
-      "Back-office : tableau de bord, articles (brouillon, publié, archivé), rubriques et pays, inscrits à la newsletter, messages.",
+      "Back-office : tableau de bord, articles (brouillon, publié, archivé), rubriques et pays, inscrits à la newsletter, messages.",
     ],
     technologies: [
       "Next.js 16 (App Router, Server Components, Server Actions)",
@@ -225,15 +225,15 @@ export const projets: Projet[] = [
     slug: "template-nextjs",
     nom: "Template Next.js",
     badge: "Projet personnel",
-    phrase: "Base de projet SaaS prête à l'emploi : comptes, paiement, e-mails, tests et déploiement.",
+    phrase: "Base de projet SaaS prête à l'emploi : comptes, paiement, e-mails, tests et déploiement.",
     techCarte: ["Next.js", "Better Auth", "Stripe", "Prisma", "Playwright"],
     debut: "octobre 2026",
     code: "https://github.com/AwadAhmedDev/nextjs-freelance-template",
     mentionSite: "Pas de site en ligne",
     titrePage: "Template Next.js SaaS · Awad Ahmed",
-    description: "Base de projet SaaS : Next.js 16, Better Auth, Stripe, Prisma, tests Playwright, Docker et Caddy.",
+    description: "Base de projet SaaS : Next.js 16, Better Auth, Stripe, Prisma, tests Playwright, Docker et Caddy.",
     leProjet:
-      "Une base de départ pour lancer une application SaaS : comptes utilisateurs, paiement, e-mails, base de données, tests et déploiement déjà en place.",
+      "Une base de départ pour lancer une application SaaS : comptes utilisateurs, paiement, e-mails, base de données, tests et déploiement déjà en place.",
     monRole: { texte: "projet personnel, conçu et développé seul." },
     fonctionnalites: [
       "Comptes utilisateurs avec Better Auth.",
@@ -271,7 +271,7 @@ export const projets: Projet[] = [
     ],
     qualite: [
       "13 tests unitaires (Vitest)",
-      "7 scénarios E2E exécutés sur 2 profils : ordinateur et mobile (Playwright)",
+      "7 scénarios E2E exécutés sur 2 profils : ordinateur et mobile (Playwright)",
       "Intégration continue",
       "Aucune faille connue dans les dépendances (vérifié le 22 novembre 2026)",
     ],
@@ -316,13 +316,13 @@ export const projets: Projet[] = [
     choix: [
       {
         decision: "Le stock est modifié dans une transaction",
-        raison: " : deux commandes en même temps ne peuvent pas vendre le même dernier article.",
+        raison: " : deux commandes en même temps ne peuvent pas vendre le même dernier article.",
       },
       {
         decision: "Stripe appelé directement par son API",
         raison: ", sans bibliothèque en plus, et seule une clé de test est acceptée.",
       },
-      { decision: "API testée avec Supertest", raison: " : 63 tests vérifient le serveur à chaque modification." },
+      { decision: "API testée avec Supertest", raison: " : 63 tests vérifient le serveur à chaque modification." },
     ],
     qualite: ["63 tests automatisés", "Intégration continue"],
     tests: { unitaires: 63 },
@@ -342,7 +342,7 @@ export const projets: Projet[] = [
     debut: "décembre 2025",
     site: "https://tasteful-lightcoral-yak-94.hostingersite.com",
     code: "https://github.com/AwadAhmedDev/solidays_app",
-    mentionHaut: "Projet de formation Simplon.co, réalisé en équipe de 3 : Awad, Prativa et Manon.",
+    mentionHaut: "Projet de formation Simplon.co, réalisé en équipe de 3 : Awad, Prativa et Manon.",
     titrePage: "Solidays — projet de formation en équipe · Awad Ahmed",
     description:
       "Reproduction du site du festival Solidays avec gestion des artistes. Projet de formation en équipe de 3. React, Express, MySQL.",
@@ -352,14 +352,14 @@ export const projets: Projet[] = [
       texte: "",
       gras: "Lead Dev de l'équipe de 3.",
       suite:
-        " J'ai créé et mis en place le dépôt du projet, puis réalisé l'en-tête et la navigation adaptés au mobile, la section d'accueil animée, le pied de page, la page Festival, la billetterie, les mentions légales et le back-office de gestion des artistes. Après la formation, j'ai rénové le site, ajouté les tests et l'intégration continue, et je l'ai mis en ligne. Organisation de l'équipe : une branche par fonctionnalité, pull requests et revues de code, modélisation de la base réalisée ensemble.",
+        " J'ai créé et mis en place le dépôt du projet, puis réalisé l'en-tête et la navigation adaptés au mobile, la section d'accueil animée, le pied de page, la page Festival, la billetterie, les mentions légales et le back-office de gestion des artistes. Après la formation, j'ai rénové le site, ajouté les tests et l'intégration continue, et je l'ai mis en ligne. Organisation de l'équipe : une branche par fonctionnalité, pull requests et revues de code, modélisation de la base réalisée ensemble.",
     },
     fonctionnalites: [
-      "Accueil fidèle au site d'origine, avec une bannière d'artistes interactive : la photo change au survol de chaque nom.",
+      "Accueil fidèle au site d'origine, avec une bannière d'artistes interactive : la photo change au survol de chaque nom.",
       "Programmation chargée depuis l'API, filtrée par jour.",
-      "Fiches artistes : description, jour du concert, lien vidéo.",
+      "Fiches artistes : description, jour du concert, lien vidéo.",
       "Billetterie (liens vers les vendeurs officiels) et page Festival.",
-      "Back-office sécurisé : connexion administrateur, ajout, modification et suppression d'artistes, envoi d'images avec aperçu.",
+      "Back-office sécurisé : connexion administrateur, ajout, modification et suppression d'artistes, envoi d'images avec aperçu.",
     ],
     technologies: [
       "React 19",

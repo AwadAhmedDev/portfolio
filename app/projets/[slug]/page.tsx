@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { metaPage } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projetParSlug, projets, projetSuivant, type Projet } from "@/content/projets";
 import { SchemaTemplate } from "@/components/projet/SchemaTemplate";
 import { TableauLighthouse } from "@/components/projet/TableauLighthouse";
-import { Provisoire } from "@/components/ui/Provisoire";
+import { Picture } from "@/components/Picture";
 import { IconeFleche } from "@/components/ui/icones";
 import { badge, bouton, puce } from "@/components/ui/styles";
 import { riche } from "@/lib/texte";
@@ -21,7 +22,7 @@ type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const p = projetParSlug((await params).slug);
   if (!p) return {};
-  return { title: p.titrePage, description: p.description, alternates: { canonical: `/projets/${p.slug}/` } };
+  return metaPage(p.titrePage, p.description, `/projets/${p.slug}/`);
 }
 
 export default async function FicheProjet({ params }: Props) {
@@ -33,15 +34,15 @@ export default async function FicheProjet({ params }: Props) {
     <>
       <div className="conteneur pt-8">
         <nav aria-label="Fil d'Ariane">
-          <ol className="flex flex-wrap gap-2 text-[14px] text-muted-foreground">
+          <ol className="flex flex-wrap items-center gap-x-2 text-[14px] text-muted-foreground">
             <li>
-              <Link href="/" className="hover:text-primary">
+              <Link href="/" className="inline-flex min-h-11 items-center hover:text-primary">
                 Accueil
               </Link>{" "}
               <span aria-hidden="true">›</span>
             </li>
             <li>
-              <Link href="/projets/" className="hover:text-primary">
+              <Link href="/projets/" className="inline-flex min-h-11 items-center hover:text-primary">
                 Projets
               </Link>{" "}
               <span aria-hidden="true">›</span>
@@ -60,7 +61,7 @@ export default async function FicheProjet({ params }: Props) {
             {p.badge}
             {p.equipe ? ` · ${p.equipe}` : ""}
           </span>
-          <span className="mono text-[13px] text-muted-foreground">Début : {p.debut}</span>
+          <span className="mono text-[13px] text-muted-foreground">Début : {p.debut}</span>
         </div>
         <h1 id="titre-fiche" className="mt-4 text-[clamp(44px,7vw,76px)] leading-none">
           {p.nom}
@@ -74,16 +75,25 @@ export default async function FicheProjet({ params }: Props) {
           <SchemaTemplate />
         ) : (
           <div className="grid items-end gap-6 md:grid-cols-[3fr_1fr]">
-            <Provisoire
-              libelle="Capture provisoire · ordinateur"
+            <Picture
+              nom={`${p.slug}-ordinateur`}
               ratio="16:10"
-              alt={`Page d'accueil du site ${p.nom} sur ordinateur`}
+              sizes="(min-width: 1200px) 860px, (min-width: 768px) 70vw, 100vw"
+              prioritaire
+              provisoire={{
+                libelle: "Capture provisoire · ordinateur",
+                alt: `Page d'accueil du site ${p.nom} sur ordinateur`,
+              }}
             />
             <div className="mx-auto w-full max-w-[220px]">
-              <Provisoire
-                libelle="Capture provisoire · mobile"
+              <Picture
+                nom={`${p.slug}-mobile`}
                 ratio="4:5"
-                alt={`Page d'accueil du site ${p.nom} sur téléphone`}
+                sizes="220px"
+                provisoire={{
+                  libelle: "Capture provisoire · mobile",
+                  alt: `Page d'accueil du site ${p.nom} sur téléphone`,
+                }}
               />
             </div>
           </div>
@@ -167,7 +177,7 @@ export default async function FicheProjet({ params }: Props) {
           >
             <span>
               <span className="block text-[14px] text-muted-foreground">Projet suivant</span>
-              <span className="text-[20px] font-bold">{suivant.nom}</span>
+              <span className="text-[20px] font-bold text-foreground">{suivant.nom}</span>
             </span>
             <IconeFleche />
           </Link>
@@ -182,7 +192,10 @@ export default async function FicheProjet({ params }: Props) {
 
 function Rubrique({ id, titre, children }: { id: string; titre: string; children: React.ReactNode }) {
   return (
-    <section aria-labelledby={`r-${id}`} className="grid gap-4 border-t border-border py-8 md:grid-cols-[220px_1fr]">
+    <section
+      aria-labelledby={`r-${id}`}
+      className="revele grid gap-4 border-t border-border py-8 md:grid-cols-[220px_1fr]"
+    >
       <h2 id={`r-${id}`} className="text-[22px]">
         {titre}
       </h2>

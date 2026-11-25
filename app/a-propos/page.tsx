@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
+import { metaPage } from "@/lib/seo";
 import Link from "next/link";
 import { aPropos } from "@/content/pages";
 import { projetParSlug } from "@/content/projets";
 import { LiensCV } from "@/components/ui/LiensCV";
-import { Provisoire } from "@/components/ui/Provisoire";
+import { Picture } from "@/components/Picture";
 import { bouton, puce } from "@/components/ui/styles";
 
-export const metadata: Metadata = {
-  title: aPropos.titrePage,
-  description: aPropos.description,
-  alternates: { canonical: "/a-propos/" },
-};
+export const metadata: Metadata = metaPage(aPropos.titrePage, aPropos.description, "/a-propos/");
 
 // À propos (contenus.md §4) : bouton principal « Voir mes projets » (C15).
+// Point de la frise, centré sur la ligne verticale.
+const point =
+  "absolute -left-[35px] top-1 size-3 rounded-full border-2 border-background bg-primary ring-2 ring-primary/30";
+
 export default function APropos() {
   const a = aPropos;
   return (
@@ -34,12 +35,18 @@ export default function APropos() {
             </div>
           </div>
           <div className="w-full max-w-[200px] md:max-w-[320px]">
-            <Provisoire libelle="Photo provisoire" ratio="4:5" alt="Portrait d'Awad Ahmed" />
+            <Picture
+              nom="awad-ahmed"
+              ratio="4:5"
+              sizes="(min-width: 768px) 320px, 200px"
+              prioritaire
+              provisoire={{ libelle: "Photo provisoire", alt: "Portrait d'Awad Ahmed" }}
+            />
           </div>
         </div>
       </section>
 
-      <section aria-labelledby="titre-competences" className="bg-muted py-16">
+      <section aria-labelledby="titre-competences" className="revele bg-muted py-16">
         <div className="conteneur">
           <h2 id="titre-competences" className="text-[clamp(30px,4vw,40px)]">
             Compétences
@@ -62,33 +69,39 @@ export default function APropos() {
         </div>
       </section>
 
-      <section aria-labelledby="titre-facon" className="conteneur py-16">
+      <section aria-labelledby="titre-facon" className="revele conteneur py-16">
         <h2 id="titre-facon" className="text-[clamp(30px,4vw,40px)]">
           Ma façon de travailler
         </h2>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2">
           {a.facon.map((f) => (
-            <li key={f.titre} className="rounded-[10px] border border-border p-5">
+            <li
+              key={f.titre}
+              className="rounded-[10px] border border-border border-t-[3px] border-t-primary bg-background p-5"
+            >
               <h3 className="text-[22px]">{f.titre}</h3>
-              <p className="mt-2">{f.texte}</p>
+              <p className="mt-2 text-muted-foreground first-letter:uppercase">{f.texte}</p>
             </li>
           ))}
         </ul>
       </section>
 
-      <section aria-labelledby="titre-parcours" className="conteneur pb-16">
+      <section aria-labelledby="titre-parcours" className="revele conteneur pb-16">
         <h2 id="titre-parcours" className="text-[clamp(30px,4vw,40px)]">
           Parcours
         </h2>
-        <p className="mt-6 font-semibold">
-          {a.formation.titre} <span className="mono font-normal text-muted-foreground">· {a.formation.dates}</span>
-        </p>
-        <h3 className="mt-8 text-[22px]">Projets</h3>
-        <ol className="mt-4 flex flex-col gap-3">
+        {/* Frise chronologique : la formation, puis les projets datés (premier commit, A5). */}
+        <ol className="relative mt-8 flex flex-col gap-7 border-l-2 border-border pl-7">
+          <li className="relative">
+            <span aria-hidden="true" className={point} />
+            <p className="mono text-[13px] text-muted-foreground">{a.formation.dates}</p>
+            <p className="mt-1 font-semibold">{a.formation.titre}</p>
+          </li>
           {a.parcours.map((etape) => (
-            <li key={etape.date} className="grid gap-1 sm:grid-cols-[160px_1fr]">
-              <span className="mono text-[14px] text-muted-foreground">{etape.date}</span>
-              <span>
+            <li key={etape.date} className="relative">
+              <span aria-hidden="true" className={point} />
+              <p className="mono text-[13px] text-muted-foreground">{etape.date}</p>
+              <p className="mt-1">
                 {etape.projets.map((x, i) => {
                   const p = projetParSlug(x.slug);
                   if (!p) throw new Error(`Projet inconnu dans le parcours : ${x.slug}`);
@@ -105,7 +118,7 @@ export default function APropos() {
                     </span>
                   );
                 })}
-              </span>
+              </p>
             </li>
           ))}
         </ol>

@@ -1,11 +1,17 @@
 // Textes des pages, recopiés mot pour mot de docs/contenus.md (règle R8).
 
 export const accueil = {
+  titrePage: "Awad Ahmed — Développeur Full Stack JavaScript / TypeScript",
+  description:
+    "Développeur Full Stack en Île-de-France. Applications web complètes et en ligne, avec React, Next.js et Node.js. Ouvert aux postes en CDI ou CDD et aux missions freelance.",
   petitTitre: "Développeur Full Stack JavaScript / TypeScript",
   titre: "Awad Ahmed",
   technologies: ["React", "Next.js", "Node.js"],
   presentation:
-    "Je conçois, développe et mets en ligne des applications web complètes : de l'interface au serveur et à la base de données, avec des tests et un déploiement automatique.",
+    "Je conçois, développe et mets en ligne des applications web complètes : de l'interface au serveur et à la base de données, avec des tests et un déploiement automatique.",
+  // Premier écran refait le 25/11/2026 (choix d'Awad) : le titre dit ce que je fais, le nom passe au-dessus.
+  accroche: "Je conçois et développe des applications web complètes, testées et mises en ligne.",
+  sousAccroche: "De l'interface au serveur et à la base de données.",
   lieu: "Île-de-France",
   disponibilite: "Ouvert aux postes en CDI ou CDD et aux missions freelance.",
   projets: {
@@ -18,8 +24,8 @@ export const accueil = {
     note: "Chiffres relevés sur les dépôts et les sites en ligne le 22 novembre 2026.",
   },
   freelance: {
-    titre: "Vous avez un projet de site ou d'application ?",
-    texte: "Entrepreneur, artisan ou PME : je réalise votre projet de A à Z et je le mets en ligne.",
+    titre: "Vous avez un projet de site ou d'application ?",
+    texte: "Entrepreneur, artisan ou PME : je réalise votre projet de A à Z et je le mets en ligne.",
     realisationsTitre: "Ce que je réalise",
     realisations: [
       "Site vitrine",
@@ -36,17 +42,17 @@ export const accueil = {
     ],
     bouton: "Parlons de votre projet",
   },
-  rappel: "Un poste, une mission ou une question ? Je réponds sous 24 h.",
+  rappel: "Un poste, une mission ou une question ? Je réponds sous 24 h.",
 };
 
 export const pageProjets = {
   titrePage: "Projets — Awad Ahmed",
   description:
-    "Six projets web : trois projets clients en ligne, un template SaaS et deux projets de formation. Technologies, rôle et preuves de qualité.",
+    "Six projets web : trois projets clients en ligne, un template SaaS et deux projets de formation. Technologies, rôle et preuves de qualité.",
   titre: "Mes projets",
   intro:
-    "Trois projets clients en ligne, un projet personnel et deux projets de formation. Pour chacun : ce qu'il fait, mon rôle et ce qui prouve sa qualité.",
-  bas: "Un projet en tête ?",
+    "Trois projets clients en ligne, un projet personnel et deux projets de formation. Pour chacun : ce qu'il fait, mon rôle et ce qui prouve sa qualité.",
+  bas: "Un projet en tête ?",
 };
 
 export const aPropos = {
@@ -136,10 +142,25 @@ export const aPropos = {
 export const contact = {
   titrePage: "Contact — Awad Ahmed",
   description:
-    "Proposer un poste, une mission freelance ou poser une question à Awad Ahmed, développeur Full Stack. Réponse sous 24 h.",
+    "Proposer un poste, une mission freelance ou poser une question à Awad Ahmed, développeur Full Stack. Réponse sous 24 h.",
   titre: "Me contacter",
-  intro: "Un poste en CDI ou CDD, une mission freelance ou une simple question : écrivez-moi. Je réponds sous 24 h.",
-  moyens: "Pour me joindre : ce formulaire ou LinkedIn.",
+  intro: "Un poste en CDI ou CDD, une mission freelance ou une simple question : écrivez-moi. Je réponds sous 24 h.",
+  moyens: "Pour me joindre : ce formulaire ou LinkedIn.",
+  // Page refaite le 25/11/2026 (demande d'Awad) : repères, étapes et formulaire dans une carte.
+  reperes: [
+    { titre: "Réponse", texte: "Sous 24 h, par e-mail." },
+    { titre: "Disponibilité", texte: "Postes en CDI ou CDD et missions freelance." },
+    { titre: "Lieu", texte: "Île-de-France" },
+  ],
+  etapes: {
+    titre: "Comment ça se passe",
+    liste: [
+      "Vous m'écrivez avec ce formulaire ou sur LinkedIn.",
+      "Je vous réponds sous 24 h, par e-mail.",
+      "Nous échangeons sur votre poste ou votre projet.",
+    ],
+  },
+  formulaireTitre: "Envoyer un message",
   champs: {
     nom: "Votre nom",
     email: "Votre adresse e-mail",
@@ -155,7 +176,7 @@ export const contact = {
     obligatoire: "(obligatoire)",
   },
   messages: {
-    succes: "Merci, votre message est bien envoyé. Je vous réponds sous 24 h.",
+    succes: "Merci, votre message est bien envoyé. Je vous réponds sous 24 h.",
     vide: "Ce champ est obligatoire.",
     emailInvalide: "Cette adresse e-mail ne semble pas valide.",
     tropCourt: "Votre message doit contenir au moins 20 caractères.",
@@ -171,4 +192,53 @@ export const page404 = {
   titrePage: "Page introuvable — Awad Ahmed",
   titre: "Cette page n'existe pas.",
   texte: "L'adresse est peut-être mal écrite, ou la page a été déplacée.",
+};
+
+// Mentions légales (contenus.md §6, décision A11). La note interne sur l'adresse de Hostinger n'est pas affichée ;
+// adresse revérifiée le 23/11/2026 dans les conditions d'utilisation de Hostinger.
+export const mentions = {
+  titrePage: "Mentions légales — Awad Ahmed",
+  description: "Éditeur, hébergeur et traitement des données personnelles du portfolio d'Awad Ahmed.",
+  titre: "Mentions légales",
+  editeur: {
+    titre: "Éditeur du site",
+    avant: "Awad Ahmed, particulier. Contact : par le ",
+    lien: "formulaire de contact",
+    apres: ".",
+  },
+  hebergeur: {
+    titre: "Hébergeur",
+    avant: "Hostinger International Ltd, 61 Lordou Vironos Street, 6023 Larnaca, Chypre — ",
+    lien: "www.hostinger.fr",
+    url: "https://www.hostinger.fr",
+    apres: ".",
+  },
+  donnees: {
+    titre: "Données personnelles (formulaire de contact)",
+    elements: [
+      "Données collectées : nom, adresse e-mail, type de demande, message.",
+      "But : uniquement répondre à votre demande.",
+      "Base : votre accord, donné en cochant la case du formulaire.",
+      "Destinataire : Awad Ahmed. Le message est transmis par le service d'envoi d'e-mails Resend.",
+      "Durée de conservation : **12 mois** après le dernier échange, puis suppression.",
+      "Transfert hors de l'Union européenne : Resend est une société américaine ; les messages peuvent donc transiter par des serveurs situés hors de l'Union européenne.",
+    ],
+    droits: {
+      avant:
+        "Vos droits : accès, rectification, effacement et opposition, en écrivant par le formulaire de contact. Vous pouvez aussi déposer une réclamation auprès de la CNIL (",
+      lien: "cnil.fr",
+      url: "https://www.cnil.fr",
+      apres: ").",
+    },
+  },
+  cookies: {
+    titre: "Cookies",
+    texte:
+      "Ce site n'utilise aucun cookie ni outil de mesure d'audience. Votre choix de thème clair ou sombre est gardé dans votre navigateur, uniquement sur votre appareil.",
+  },
+  propriete: {
+    titre: "Propriété",
+    texte:
+      "Les textes et le code de ce site sont ceux d'Awad Ahmed ; les captures d'écran montrent des sites qu'il a réalisés.",
+  },
 };
