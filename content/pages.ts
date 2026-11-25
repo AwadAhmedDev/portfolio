@@ -91,6 +91,14 @@ export const accueil = {
       { titre: "Devis", texte: "je vous propose une solution, un prix et un délai." },
       { titre: "Réalisation et mise en ligne", texte: "je développe, je teste et je mets votre site en ligne." },
     ],
+    // Ajouté le 25/11/2026 : ce qu'Awad inclut vraiment (1 mois de corrections, maintenance en option).
+    inclusTitre: "Ce qui est inclus",
+    inclus: [
+      "Mise en ligne de votre site, avec nom de domaine et hébergement configurés",
+      "Prise en main : je vous montre comment gérer votre site",
+      "1 mois de corrections offertes après la mise en ligne",
+      "Maintenance proposée après la livraison, selon vos besoins",
+    ],
     bouton: "Parlons de votre projet",
   },
   rappel: "Un poste, une mission ou une question ? Je réponds sous 24 h.",
