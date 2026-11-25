@@ -72,11 +72,13 @@ jobs:
           name: site
           path: out
       # Liens internes (fichiers de out/) et externes. LinkedIn refuse les robots (réponse 999) ;
+      # les sites Node.js des projets peuvent mettre du temps à se réveiller : plusieurs essais, 45 s chacun.
       # example.invalid est l'adresse provisoire des adresses canoniques tant que le site n'existe pas.
       - uses: lycheeverse/lychee-action@v2
         with:
           args: >-
             --no-progress
+            --max-retries 4 --retry-wait-time 10 --timeout 45
             --scheme https --scheme http --scheme file
             --exclude linkedin\.com
             --exclude example\.invalid
