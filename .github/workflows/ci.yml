@@ -1,5 +1,5 @@
 # Intégration continue du portfolio (architecture.md §7, roadmap lot 13).
-# Puis, sur main et phase-4-developpement : déploiement continu (branche « site » + Git de Hostinger) et Lighthouse.
+# Puis, sur main seulement : déploiement continu (branche « site » + Git de Hostinger) et Lighthouse.
 name: CI
 
 on:
@@ -120,7 +120,7 @@ jobs:
   deployer:
     # Seulement après un push sur les branches publiées, quand toutes les vérifications sont vertes.
     needs: [verifier, liens, e2e]
-    if: github.event_name == 'push' && (github.ref_name == 'main' || github.ref_name == 'phase-4-developpement')
+    if: github.event_name == 'push' && github.ref_name == 'main'
     permissions:
       contents: write # pousser la branche « site »
     concurrency:
