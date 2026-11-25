@@ -82,13 +82,13 @@
 | 5 | Études de cas (6 fiches) | **En cours** | Nouvelle mesure Lighthouse ; accord du client d'I Make My World sur sa fiche |
 | 6 | Page Projets | **Terminé** | Colonnes contrôlées (1 / 2 / 3) ; captures en place |
 | 7 | Page À propos | **En cours · bloqué** | Photo et 3 CV |
-| 8 | Page Contact | **En cours · bloqué** | Envoi réel : `private/config.php` (clé Resend) à déposer par Awad |
+| 8 | Page Contact | **Terminé** | Envoi réel reçu par Awad le 25/11/2026 (Resend, `private/config.php` en place) ; reste à confirmer que la limite par adresse IP voit bien l'IP du visiteur |
 | 9 | Pages institutionnelles | **Terminé** | Adresse de Hostinger revérifiée ; 404 contrôlée en production |
 | 10 | SEO | **Terminé** | Canonique, Open Graph, Twitter, JSON-LD `Person`, image d'aperçu ; aperçu réel sur LinkedIn à voir |
 | 11 | Images et optimisation | **En cours** | Workflow et `Picture` faits ; reste la photo d'Awad |
 | 12 | Responsive et accessibilité | **En cours** | Largeurs, axe, NVDA + Firefox faits ; zoom 200 % à noter ; menu sous NVDA non vérifié |
 | 13 | Tests et audits | **En cours** | CI complète (Vitest, PHP, E2E, axe, liens) ; Lighthouse en ligne à mesurer |
-| 14 | Déploiement | **En cours** | Site en ligne (rustic-yellowgreen-woodcock-94.hostingersite.com) ; secret `HOSTINGER_API_TOKEN` et fusion dans `main` à faire |
+| 14 | Déploiement | **Terminé** | CI/CD sans jeton : CI verte → branche « site » → Hostinger redéploie seul ; contrôles en ligne et Lighthouse à chaque push ; fusion dans `main` à faire |
 
 ### Budget JavaScript mesuré (dernier build, gzip niveau 9)
 
