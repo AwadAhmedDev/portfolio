@@ -66,26 +66,29 @@
 | **À faire** | Rien n'est commencé |
 | **Bloqué** | La suite attend une ressource ou une décision qui ne dépend pas de Claude Code |
 
-## 4. Avancement global (vérifié le 23/11/2026)
+## 4. Avancement global (mis à jour le 25/11/2026)
 
-Vérifications faites ce jour, sans build : `eslint .` sans erreur · `tsc --noEmit` sans erreur · **25 tests Vitest** réussis · **29 vérifications PHP** réussies (PHP 8.2 de XAMPP) · `prettier --check` **en échec** (détail au lot 1). Dernier build et vérifications dans le navigateur : session du 22–23/11/2026 (export réel, CSP active). Ces vérifications dans le navigateur ont été **partielles** (une largeur de 375 px, quelques parcours) et ne sont pas enregistrées dans le dépôt : **aucun lot n'est donc déclaré terminé** tant que ses contrôles ne sont pas refaits et notés (tests E2E du lot 13 ou relevé daté).
+> Le tableau ci-dessous fait foi ; les cases à cocher des lots détaillés (§5) reflètent l'audit du 23/11/2026.
+> Décisions ajoutées depuis : logo « AA » + « Awad » (nom complet partout ailleurs), image d'aperçu fixe, captures par workflow, déploiement autorisé par Awad le 23/11/2026.
+
+État vérifié le 25/11/2026 : Prettier, lint, types, **34 tests Vitest**, **29 vérifications PHP**, build avec CSP et budget, liens et **tests E2E + axe** (Chromium, Firefox, WebKit) passent sur GitHub Actions ; site en ligne contrôlé (pages, 404, fichiers interdits, en-têtes, brotli). Budget JS le plus chargé : accueil, 148 487 octets (marge 5 113).
 
 | Lot | Nom | État | Ce qui manque surtout |
 |---|---|---|---|
-| 1 | Fondations techniques | **En cours** | Configuration Prettier, puis formatage (RM1) |
-| 2 | Structure globale | **En cours** | Implémenté ; contrôles à refaire et noter (360 px, clic en dehors du menu, deux thèmes) |
-| 3 | Page d'accueil | **En cours · bloqué** | Photo d'Awad ; captures (lot 4) |
-| 4 | Données et présentation des projets | **En cours** | Captures réelles des 5 sites |
-| 5 | Études de cas (6 fiches) | **En cours** | Captures ; nouvelle mesure Lighthouse ; accord du client d'I Make My World sur sa fiche |
-| 6 | Page Projets | **En cours** | Implémenté ; colonnes à 768 et 1 100 px à contrôler ; captures (lot 4) |
+| 1 | Fondations techniques | **Terminé** | Prettier configuré (120 caractères, documents exclus) et appliqué ; à valider par Awad |
+| 2 | Structure globale | **Terminé** | Logo « AA » + « Awad », favicons, pied de page refait ; menu, 360 px et deux thèmes couverts par les tests E2E |
+| 3 | Page d'accueil | **En cours · bloqué** | Photo d'Awad (silhouette provisoire en place) |
+| 4 | Données et présentation des projets | **Terminé** | 10 captures réelles (workflow Captures), AVIF + WebP |
+| 5 | Études de cas (6 fiches) | **En cours** | Nouvelle mesure Lighthouse ; accord du client d'I Make My World sur sa fiche |
+| 6 | Page Projets | **Terminé** | Colonnes contrôlées (1 / 2 / 3) ; captures en place |
 | 7 | Page À propos | **En cours · bloqué** | Photo et 3 CV |
-| 8 | Page Contact | **En cours · bloqué** | Effacement des erreurs (RM3) ; texte sans JavaScript à reporter dans `contenus.md` (RM2) ; envoi réel (Hostinger, Resend, `config.php`) |
-| 9 | Pages institutionnelles | **En cours** | Adresse de Hostinger à revérifier ; 404 à contrôler sur Apache |
-| 10 | SEO | **En cours** | Adresse canonique de l'accueil ; Open Graph ; JSON-LD `Person` |
-| 11 | Images et optimisation | **À faire · bloqué** | Workflow `images.yml`, composant `Picture`, originaux |
-| 12 | Responsive et accessibilité | **En cours** | Contrôle complet des largeurs, zoom 200 %, axe, NVDA + Firefox (à installer, RM5), espaces insécables |
-| 13 | Tests et audits | **En cours** | `ci.yml`, E2E Playwright, lychee, audits sécurité et SEO, Lighthouse |
-| 14 | Déploiement | **À faire · bloqué** | Création du site Hostinger (accord), `config.php`, `deploy.yml` |
+| 8 | Page Contact | **En cours · bloqué** | Envoi réel : `private/config.php` (clé Resend) à déposer par Awad |
+| 9 | Pages institutionnelles | **Terminé** | Adresse de Hostinger revérifiée ; 404 contrôlée en production |
+| 10 | SEO | **Terminé** | Canonique, Open Graph, Twitter, JSON-LD `Person`, image d'aperçu ; aperçu réel sur LinkedIn à voir |
+| 11 | Images et optimisation | **En cours** | Workflow et `Picture` faits ; reste la photo d'Awad |
+| 12 | Responsive et accessibilité | **En cours** | Largeurs, axe, NVDA + Firefox faits ; zoom 200 % à noter ; menu sous NVDA non vérifié |
+| 13 | Tests et audits | **En cours** | CI complète (Vitest, PHP, E2E, axe, liens) ; Lighthouse en ligne à mesurer |
+| 14 | Déploiement | **En cours** | Site en ligne (rustic-yellowgreen-woodcock-94.hostingersite.com) ; secret `HOSTINGER_API_TOKEN` et fusion dans `main` à faire |
 
 ### Budget JavaScript mesuré (dernier build, gzip niveau 9)
 

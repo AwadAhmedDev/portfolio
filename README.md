@@ -2,7 +2,7 @@
 
 Portfolio de Awad Ahmed, développeur Full Stack JavaScript / TypeScript : six projets réels (trois projets clients en ligne, un projet personnel, deux projets de formation), compétences, parcours et formulaire de contact. Site entièrement en français.
 
-> État : en développement sur la branche `phase-4-developpement` ; pas encore en ligne. Avancement détaillé : [`docs/roadmap.md`](docs/roadmap.md).
+> En ligne (adresse provisoire) : https://rustic-yellowgreen-woodcock-94.hostingersite.com — développement sur la branche `phase-4-developpement`. Avancement détaillé : [`docs/roadmap.md`](docs/roadmap.md).
 
 ## Technologies
 
@@ -52,7 +52,7 @@ Prérequis : Node.js 22 et un accès à internet pendant le build (téléchargem
 
 À chaque push et pull request, [`ci.yml`](.github/workflows/ci.yml) lance le formatage, le lint, les types, les tests Vitest et PHP, le contrôle des failles des dépendances, le build avec la CSP et le budget JavaScript, la vérification des liens, puis les tests de bout en bout et d'accessibilité dans Chromium, Firefox et WebKit. Dependabot propose les mises à jour chaque semaine.
 
-Les images sont préparées par [`images.yml`](.github/workflows/images.yml), lancé à la main : originaux dans `images-source/`, déclarés dans `content/images.ts` ; le workflow produit des AVIF et WebP sans métadonnées et les propose en pull request.
+Les captures des sites présentés sont prises par [`captures.yml`](.github/workflows/captures.yml) (Playwright). Les images sont préparées par [`images.yml`](.github/workflows/images.yml) : originaux dans `images-source/`, déclarés dans `content/images.ts` ; le workflow produit des AVIF et WebP sans métadonnées. Le déploiement sur Hostinger suit une CI verte sur `main` ([`deploy.yml`](.github/workflows/deploy.yml)).
 
 ## Licence
 
