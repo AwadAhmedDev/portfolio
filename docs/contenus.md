@@ -82,6 +82,11 @@ Petite note sous les chiffres : *Chiffres relevés sur les dépôts et les sites
   1. **Échange gratuit** — vous me présentez votre besoin.
   2. **Devis** — je vous propose une solution, un prix et un délai.
   3. **Réalisation et mise en ligne** — je développe, je teste et je mets votre site en ligne.
+- Ce qui est inclus *(ajouté le 25/11/2026, décisions d'Awad : 1 mois de corrections, maintenance en option)* :
+  - Mise en ligne de votre site, avec nom de domaine et hébergement configurés
+  - Prise en main : je vous montre comment gérer votre site
+  - 1 mois de corrections offertes après la mise en ligne
+  - Maintenance proposée après la livraison, selon vos besoins
 - Bouton : **Parlons de votre projet** (vers `/contact/?demande=freelance`)
 
 ### 1.5 Rappel du contact
