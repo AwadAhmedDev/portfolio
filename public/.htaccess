@@ -14,6 +14,8 @@ ErrorDocument 404 /404.html
 <FilesMatch "(^\.|\.(sqlite|log|md|ini|bak)$)">
   Require all denied
 </FilesMatch>
+# Dossiers cachés (ex. .git/ laissé par le déploiement Git de Hostinger) : jamais servis.
+RedirectMatch 404 "/\.(?!well-known/)"
 
 <IfModule mod_headers.c>
   # CSP partie 1 : seulement ce qu'une balise meta ne peut pas porter. Pas de default-src ni de script-src ici :

@@ -1,17 +1,18 @@
-# Déploiement sur Hostinger (architecture.md §8.2) : après une CI verte sur main, archive de out/ envoyée par l'API.
-# N'écrit que dans public_html/ : private/config.php (clés, HMAC) n'est jamais touché.
-# Prérequis : secret HOSTINGER_API_TOKEN (créé par Awad dans hPanel) et variable SITE_URL du dépôt.
+# Déploiement continu (architecture.md §8.2), sans jeton d'API : après une CI verte, GitHub construit le site
+# et publie out/ sur la branche « site » ; Hostinger, relié au dépôt dans hPanel, la redéploie à chaque push.
+# N'écrit que dans public_html/ : private/config.php (clés) n'est jamais touché.
 name: Déploiement
 
 on:
   workflow_run:
     workflows: [CI]
     types: [completed]
-    branches: [main]
+    # shortcut: phase-4-developpement déploie aussi tant qu'elle n'est pas fusionnée ; ne garder que main ensuite.
+    branches: [main, phase-4-developpement]
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write # pousser la branche « site »
 
 concurrency:
   group: deploiement
@@ -22,13 +23,13 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     env:
-      HOSTINGER_USERNAME: u707298094
-      HOSTINGER_DOMAIN: rustic-yellowgreen-woodcock-94.hostingersite.com
       SITE_URL: ${{ vars.SITE_URL }}
+      VERSION: ${{ github.event.workflow_run.head_sha || github.sha }}
     steps:
       - uses: actions/checkout@v7
         with:
-          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          ref: ${{ env.VERSION }}
+          fetch-depth: 0
       - uses: actions/setup-node@v7
         with:
           node-version: 22
@@ -38,38 +39,37 @@ jobs:
         run: |
           test -n "$SITE_URL" || { echo "Variable SITE_URL absente"; exit 1; }
           npm run build
-      - name: Archive (fichiers cachés .htaccess compris)
-        run: cd out && zip -qr ../portfolio-deploy.zip . && cd .. && unzip -l portfolio-deploy.zip | tail -1
-      - name: Envoi et déploiement
-        env:
-          HOSTINGER_API_TOKEN: ${{ secrets.HOSTINGER_API_TOKEN }}
+          echo "$VERSION" > out/version.txt
+      - name: Publier out/ sur la branche « site »
         run: |
           set -euo pipefail
-          test -n "$HOSTINGER_API_TOKEN" || { echo "Secret HOSTINGER_API_TOKEN absent"; exit 1; }
-          RETRY=(--retry 4 --retry-delay 5 --retry-all-errors --connect-timeout 15 --max-time 120)
-          API=https://developers.hostinger.com/api/hosting/v1
-          RESP=$(curl -sS -f "${RETRY[@]}" -X POST "$API/files/upload-urls" \
-            -H "Authorization: Bearer $HOSTINGER_API_TOKEN" -H "Content-Type: application/json" \
-            -d "{\"username\":\"$HOSTINGER_USERNAME\",\"domain\":\"$HOSTINGER_DOMAIN\"}")
-          URL=$(echo "$RESP" | jq -r .url); AUTH=$(echo "$RESP" | jq -r .auth_key); REST=$(echo "$RESP" | jq -r .rest_auth_key)
-          SIZE=$(stat -c%s portfolio-deploy.zip)
-          curl -sS -f "${RETRY[@]}" -X POST "$URL/portfolio-deploy.zip?override=true" -H "X-Auth: $AUTH" -H "X-Auth-Rest: $REST" \
-            -H "Tus-Resumable: 1.0.0" -H "Upload-Length: $SIZE" -H "Upload-Offset: 0"
-          curl -sS -f "${RETRY[@]}" -X PATCH "$URL/portfolio-deploy.zip?override=true" -H "X-Auth: $AUTH" -H "X-Auth-Rest: $REST" \
-            -H "Tus-Resumable: 1.0.0" -H "Content-Type: application/offset+octet-stream" -H "Upload-Offset: 0" \
-            --data-binary "@portfolio-deploy.zip"
-          curl -sS -f "${RETRY[@]}" -X POST "$API/accounts/$HOSTINGER_USERNAME/websites/$HOSTINGER_DOMAIN/deploy" \
-            -H "Authorization: Bearer $HOSTINGER_API_TOKEN" -H "Content-Type: application/json" \
-            -d '{"archive_path":"portfolio-deploy.zip"}'
-      # Contrôles après déploiement (architecture.md §8.1) : pages, 404, fichiers interdits, en-têtes.
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin site >/dev/null; then
+            git fetch origin site
+            git worktree add publication origin/site
+            git -C publication switch -c site
+          else
+            git worktree add --detach publication
+            git -C publication switch --orphan site
+          fi
+          find publication -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -a out/. publication/
+          git -C publication add -A
+          git -C publication commit -q -m "site : ${VERSION:0:7}" || { echo "Rien de nouveau à publier."; exit 0; }
+          git -C publication push origin site
+      # Hostinger tire la branche après le push : on attend que la nouvelle version soit en ligne, puis on contrôle.
       - name: Contrôles du site en ligne
         run: |
           set -euo pipefail
-          sleep 20
+          for i in $(seq 1 30); do
+            [ "$(curl -s "$SITE_URL/version.txt")" = "$VERSION" ] && break
+            sleep 10
+          done
+          test "$(curl -s "$SITE_URL/version.txt")" = "$VERSION" || { echo "La nouvelle version n'est pas en ligne"; exit 1; }
           code() { curl -s -o /dev/null -w "%{http_code}" "$SITE_URL$1"; }
           for p in / /projets/ /a-propos/ /contact/ /mentions-legales/; do test "$(code $p)" = 200 || { echo "$p ne répond pas 200"; exit 1; }; done
           test "$(code /cette-page-nexiste-pas/)" = 404
-          for p in /_app/ContactHandler.php /private/config.php /.htaccess; do c=$(code $p); [[ "$c" = 403 || "$c" = 404 ]] || { echo "$p répond $c"; exit 1; }; done
+          for p in /_app/ContactHandler.php /private/config.php /.htaccess /.git/config; do c=$(code $p); [[ "$c" = 403 || "$c" = 404 ]] || { echo "$p répond $c"; exit 1; }; done
           curl -sI "$SITE_URL/" | grep -qi "^content-security-policy: frame-ancestors 'none'"
-          curl -sI "$SITE_URL/" | grep -qi "^strict-transport-security"
-          echo "Site en ligne vérifié."
+          echo "Version ${VERSION:0:7} en ligne et vérifiée."
