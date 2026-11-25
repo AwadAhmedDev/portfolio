@@ -4,11 +4,26 @@ import { accueil } from "@/content/pages";
 import { projets } from "@/content/projets";
 import { ProjectCard } from "@/components/projet/ProjectCard";
 import { Picture } from "@/components/Picture";
-import { IconeCoche } from "@/components/ui/icones";
+import {
+  IconeAccessible,
+  IconeBouclier,
+  IconeCadenas,
+  IconeCoche,
+  IconeEclair,
+  IconeEcrans,
+  IconeLoupe,
+} from "@/components/ui/icones";
 import { bouton, lienTexte } from "@/components/ui/styles";
 import { liens } from "@/content/site";
 import { metaPage, SITE_URL } from "@/lib/seo";
-import { detailTests, nbProjetsEnLigne, nbSites100Ordinateur, totalTestsDistincts } from "@/lib/stats";
+import {
+  detailTests,
+  nbClientsEnLigne,
+  nbProjetsEnLigne,
+  nbSites100Ordinateur,
+  nbSitesSeo100,
+  totalTestsDistincts,
+} from "@/lib/stats";
 
 export const metadata: Metadata = metaPage(accueil.titrePage, accueil.description, "/");
 
@@ -22,6 +37,24 @@ const personne = JSON.stringify({
   url: `${SITE_URL}/`,
   sameAs: [liens.linkedin, liens.github],
 }).replace(/</g, "\\u003c");
+
+// Valeurs calculées insérées dans les textes de content/pages.ts ({enLigne}, {seo}…).
+const valeurs: Record<string, number> = {
+  enLigne: nbProjetsEnLigne(),
+  clients: nbClientsEnLigne(),
+  seo: nbSitesSeo100(),
+  tests: totalTestsDistincts(),
+  projets: projets.length,
+};
+const remplir = (texte: string) => texte.replace(/\{(\w+)\}/g, (_, cle: string) => String(valeurs[cle] ?? `{${cle}}`));
+const icones = {
+  rapide: IconeEclair,
+  google: IconeLoupe,
+  securise: IconeCadenas,
+  ecrans: IconeEcrans,
+  fiable: IconeBouclier,
+  accessible: IconeAccessible,
+} as const;
 
 // Accueil (contenus.md §1, design.md §5.1).
 export default function Accueil() {
@@ -60,17 +93,16 @@ export default function Accueil() {
                 Me contacter
               </Link>
             </div>
-            {/* Preuves tout de suite, calculées depuis les données (jamais écrites à la main). */}
-            <ul className="mono mt-8 flex flex-wrap gap-x-5 gap-y-2 text-[13px] text-muted-foreground">
-              <li>
-                <strong className="text-foreground">{nbProjetsEnLigne()}</strong> sites en ligne
-              </li>
-              <li>
-                <strong className="text-foreground">{totalTestsDistincts()}</strong> tests automatisés
-              </li>
-              <li>
-                <strong className="text-foreground">{nbSites100Ordinateur()}</strong> sites à 100/100 sur Lighthouse
-              </li>
+            {/* Preuves tout de suite, en langage client ; chiffres calculés depuis les données. */}
+            <ul className="mt-8 flex flex-col gap-2 text-[14px] text-muted-foreground sm:flex-row sm:flex-wrap sm:gap-x-6">
+              {a.preuvesHaut.map((p) => (
+                <li key={p} className="flex items-center gap-2">
+                  <span className="text-primary">
+                    <IconeCoche />
+                  </span>
+                  {remplir(p)}
+                </li>
+              ))}
             </ul>
           </div>
           <div className="w-full max-w-[200px] md:max-w-[320px]">
@@ -104,6 +136,33 @@ export default function Accueil() {
             ))}
           </div>
         </div>
+      </section>
+
+      <section aria-labelledby="titre-avantages" className="revele conteneur py-16">
+        <h2 id="titre-avantages" className="text-[clamp(30px,4vw,40px)]">
+          {a.avantages.titre}
+        </h2>
+        <p className="mt-3 max-w-[640px] text-[17px] text-muted-foreground">{a.avantages.sousTitre}</p>
+        <ul className="mt-10 grid gap-4 sm:grid-cols-2 wide:grid-cols-3">
+          {a.avantages.liste.map((av) => {
+            const Icone = icones[av.cle as keyof typeof icones];
+            return (
+              <li
+                key={av.cle}
+                className="flex flex-col gap-3 rounded-[16px] border border-border bg-background p-6 transition-[border-color,box-shadow] duration-200 hover:border-input hover:shadow-[0_12px_32px_-16px_rgb(15_23_42/0.35)]"
+              >
+                <span className="flex size-11 items-center justify-center rounded-[10px] bg-secondary text-secondary-foreground">
+                  <Icone />
+                </span>
+                <h3 className="text-[20px]">{av.titre}</h3>
+                <p className="text-muted-foreground">{av.texte}</p>
+                <p className="mono mt-auto border-t border-border pt-3 text-[12px] text-muted-foreground">
+                  {remplir(av.preuve)}
+                </p>
+              </li>
+            );
+          })}
+        </ul>
       </section>
 
       <section aria-labelledby="titre-chiffres" className="revele conteneur py-16">

@@ -38,6 +38,44 @@ export const IconeCoche = () => (
     <path d="M5 12l5 5L20 7" />
   </svg>
 );
+// Icônes de « Ce que vous obtenez » (accueil), 24 px.
+const grande = { ...props, width: 24, height: 24 };
+export const IconeEclair = () => (
+  <svg {...grande}>
+    <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z" />
+  </svg>
+);
+export const IconeLoupe = () => (
+  <svg {...grande}>
+    <circle cx="11" cy="11" r="7" />
+    <path d="m20 20-4-4" />
+  </svg>
+);
+export const IconeCadenas = () => (
+  <svg {...grande}>
+    <rect x="4" y="11" width="16" height="10" rx="2" />
+    <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+  </svg>
+);
+export const IconeEcrans = () => (
+  <svg {...grande}>
+    <rect x="2" y="4" width="15" height="11" rx="2" />
+    <rect x="15" y="9" width="7" height="12" rx="1.5" />
+    <path d="M6 19h6" />
+  </svg>
+);
+export const IconeBouclier = () => (
+  <svg {...grande}>
+    <path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3z" />
+    <path d="m9 12 2 2 4-4" />
+  </svg>
+);
+export const IconeAccessible = () => (
+  <svg {...grande}>
+    <circle cx="12" cy="4.5" r="1.5" />
+    <path d="M5 8.5 12 10l7-1.5M12 10v4l-3 6M12 14l3 6" />
+  </svg>
+);
 export const IconeFleche = () => (
   <svg {...props} width={18} height={18}>
     <path d="M5 12h14M13 6l6 6-6 6" />

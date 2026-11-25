@@ -12,6 +12,57 @@ export const accueil = {
   // Premier écran refait le 25/11/2026 (choix d'Awad) : le titre dit ce que je fais, le nom passe au-dessus.
   accroche: "Je conçois et développe des applications web complètes, testées et mises en ligne.",
   sousAccroche: "De l'interface au serveur et à la base de données.",
+  // Preuves du premier écran, en langage client (25/11/2026) ; {enLigne} et {clients} sont calculés.
+  preuvesHaut: [
+    "{enLigne} sites en ligne, dont {clients} pour des clients",
+    "Chaque modification vérifiée avant la mise en ligne",
+    "Jusqu'à 100/100 en vitesse sur l'outil de mesure de Google",
+  ],
+  // « Ce que vous obtenez » (25/11/2026) : bénéfices pour le client, chacun avec une preuve vérifiable.
+  // {seo}, {tests} et {projets} sont calculés depuis les données des projets.
+  avantages: {
+    titre: "Ce que vous obtenez",
+    sousTitre: "Un site professionnel, pensé pour vos visiteurs, pour Google et pour durer.",
+    liste: [
+      {
+        cle: "rapide",
+        titre: "Un site rapide",
+        texte: "Il s'affiche en un instant, même sur téléphone : vos visiteurs restent.",
+        preuve: "Jusqu'à 100/100 en vitesse sur l'outil de mesure de Google",
+      },
+      {
+        cle: "google",
+        titre: "Trouvé sur Google",
+        texte:
+          "Chaque page est préparée pour le référencement : titres, descriptions et aperçus pour les réseaux sociaux.",
+        preuve: "{seo} de mes sites ont 100/100 en référencement sur l'outil de Google",
+      },
+      {
+        cle: "securise",
+        titre: "Sécurisé",
+        texte: "Connexion HTTPS, serveur protégé et formulaires à l'abri des robots.",
+        preuve: "Protections contrôlées automatiquement à chaque mise en ligne de ce portfolio",
+      },
+      {
+        cle: "ecrans",
+        titre: "Parfait sur tous les écrans",
+        texte: "Téléphone, tablette ou ordinateur : le site s'adapte et reste agréable à utiliser.",
+        preuve: "Ce portfolio est testé sur Chrome, Firefox et Safari",
+      },
+      {
+        cle: "fiable",
+        titre: "Fiable",
+        texte: "Chaque modification est vérifiée automatiquement avant d'être mise en ligne : moins de pannes.",
+        preuve: "{tests} tests automatiques sur mes {projets} projets",
+      },
+      {
+        cle: "accessible",
+        titre: "Accessible à tous",
+        texte: "Lisible par tous, y compris par les personnes malvoyantes ou qui naviguent au clavier.",
+        preuve: "100/100 en accessibilité pour ce portfolio",
+      },
+    ],
+  },
   lieu: "Île-de-France",
   disponibilite: "Ouvert aux postes en CDI ou CDD et aux missions freelance.",
   projets: {
