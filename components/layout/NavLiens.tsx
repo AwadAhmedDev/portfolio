@@ -4,8 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { nav } from "@/content/site";
 
-// « Projets » reste la page en cours sur les fiches (/projets/repatek/…).
-export const estCourante = (chemin: string, href: string) => chemin === href || chemin.startsWith(href);
+// « Projets » reste la page en cours sur les fiches (/projets/repatek/…) ; « Accueil » seulement sur « / ».
+export const estCourante = (chemin: string, href: string) => (href === "/" ? chemin === "/" : chemin.startsWith(href));
 
 export function NavLiens() {
   const chemin = usePathname();
@@ -17,7 +17,7 @@ export function NavLiens() {
             <Link
               href={l.href}
               aria-current={estCourante(chemin, l.href) ? "page" : undefined}
-              className="inline-flex min-h-11 items-center text-[15px] font-medium no-underline hover:text-primary aria-[current=page]:text-primary aria-[current=page]:underline aria-[current=page]:decoration-2 aria-[current=page]:underline-offset-8"
+              className="lien-nav inline-flex min-h-11 items-center text-[15px] font-medium no-underline hover:text-primary aria-[current=page]:text-primary"
             >
               {l.label}
             </Link>

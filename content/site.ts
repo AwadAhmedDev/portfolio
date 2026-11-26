@@ -5,6 +5,7 @@ export const SITE_NOM = "Awad Ahmed";
 export const LOGO_NOM = "Awad";
 
 export const nav = [
+  { href: "/", label: "Accueil" },
   { href: "/projets/", label: "Projets" },
   { href: "/a-propos/", label: "À propos" },
   { href: "/contact/", label: "Contact" },

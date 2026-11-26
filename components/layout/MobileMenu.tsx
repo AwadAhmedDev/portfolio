@@ -62,7 +62,7 @@ export function MobileMenu() {
               href={l.href}
               aria-current={estCourante(chemin, l.href) ? "page" : undefined}
               onClick={() => setOuvert(false)}
-              className="flex min-h-12 items-center text-[17px] font-medium no-underline aria-[current=page]:text-primary aria-[current=page]:underline aria-[current=page]:underline-offset-8"
+              className="lien-nav flex min-h-12 items-center self-start text-[17px] font-medium no-underline aria-[current=page]:text-primary"
             >
               {l.label}
             </Link>

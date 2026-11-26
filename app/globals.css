@@ -123,6 +123,26 @@
 }
 
 @layer components {
+  /* Liens de navigation : trait sous le lien en cours (et au survol), de la couleur du texte. */
+  .lien-nav {
+    position: relative;
+  }
+  .lien-nav::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: 6px;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease-out;
+  }
+  .lien-nav:hover::after,
+  .lien-nav[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
   /* Conteneur : 1 200 px max, marges 20 px puis 40 px dès 768 px. */
   .conteneur {
     width: 100%;
@@ -198,6 +218,10 @@
   main {
     animation: apparition 0.45s ease-out both;
   }
+  /* Le trait du lien en cours se dessine de gauche à droite à chaque changement de page. */
+  .lien-nav[aria-current="page"]::after {
+    animation: trait 0.4s ease-out both;
+  }
   @supports (animation-timeline: view()) {
     .revele {
       animation: montee linear both;
@@ -210,6 +234,11 @@
   from {
     opacity: 0;
     transform: translateY(8px);
+  }
+}
+@keyframes trait {
+  from {
+    transform: scaleX(0);
   }
 }
 @keyframes montee {
