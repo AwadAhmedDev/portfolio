@@ -96,12 +96,13 @@ Petite note sous les chiffres : *Chiffres relevés sur les dépôts et les sites
   - Plus sûr : connexion HTTPS, serveur protégé, formulaires à l'abri des robots
   - Votre place sur Google est préservée : les anciennes adresses mènent aux nouvelles pages
   - Changement d'hébergeur ou de nom de domaine si besoin
-- Ce qui est inclus *(décisions d'Awad du 25/11/2026 : 1 mois de corrections, maintenance en option)* :
+- Inclus dans chaque projet *(décisions d'Awad du 25/11/2026 : 1 mois de corrections ; titre clarifié le 26/11/2026)* :
   - Mise en ligne, avec nom de domaine et hébergement configurés
   - Vitesse, sécurité et accessibilité contrôlées avant la livraison
   - Prise en main : je vous montre comment gérer votre site
   - 1 mois de corrections offertes après la mise en ligne
-  - Maintenance proposée après la livraison, selon vos besoins
+- Ligne à part, sous la liste : **En option : maintenance après la livraison, selon vos besoins.** *(la maintenance n'est pas incluse)*
+- En bas du bloc *(ajouté le 26/11/2026)* : bouton **Parlons de votre projet** (vers `/contact/?demande=freelance`) et, à côté, **Premier échange gratuit et sans engagement. Réponse sous 24 h.**
 
 ### 1.5 Rappel du contact
 - Texte : **Un poste, une mission ou une question ? Je réponds sous 24 h.**

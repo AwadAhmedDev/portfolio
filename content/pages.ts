@@ -144,14 +144,17 @@ export const accueil = {
       },
     ],
     // Ce qu'Awad inclut vraiment (décisions du 25/11/2026 : 1 mois de corrections, maintenance en option).
-    inclusTitre: "Ce qui est inclus",
+    inclusTitre: "Inclus dans chaque projet",
     inclus: [
       "Mise en ligne, avec nom de domaine et hébergement configurés",
       "Vitesse, sécurité et accessibilité contrôlées avant la livraison",
       "Prise en main : je vous montre comment gérer votre site",
       "1 mois de corrections offertes après la mise en ligne",
-      "Maintenance proposée après la livraison, selon vos besoins",
     ],
+    // La maintenance n'est pas incluse : option payante, affichée à part pour éviter tout malentendu au devis.
+    option: "En option : maintenance après la livraison, selon vos besoins.",
+    // Bouton en bas du bloc (26/11/2026) : au moment où le client est convaincu.
+    rassurance: "Premier échange gratuit et sans engagement. Réponse sous 24 h.",
     bouton: "Parlons de votre projet",
   },
   rappel: "Un poste, une mission ou une question ? Je réponds sous 24 h.",
