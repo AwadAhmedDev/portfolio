@@ -92,37 +92,62 @@ export const accueil = {
     titre: "Preuves en chiffres",
     note: "Chiffres relevés sur les dépôts et les sites en ligne le 22 novembre 2026.",
   },
+  // Bloc freelance repensé le 26/11/2026 (demande d'Awad) : deux parcours, premier site ou refonte,
+  // chacun avec ce qui compte pour un client (vitesse, Google, sécurité, accessibilité, téléphone).
   freelance: {
     titre: "Vous avez un projet de site ou d'application ?",
     texte:
-      "Entrepreneur, artisan ou PME : je crée votre site de A à Z, ou je refais celui que vous avez déjà, puis je le mets en ligne.",
+      "Entrepreneur, artisan, association ou PME : que ce soit votre tout premier site ou la refonte de l'actuel, je m'occupe de tout, de l'idée à la mise en ligne.",
     realisationsTitre: "Ce que je réalise",
     realisations: [
       "Site vitrine",
-      "Refonte de votre site actuel",
       "Réservation en ligne",
       "Boutique en ligne",
       "Application sur mesure",
       "Back-office pour gérer votre activité",
+      "Refonte d'un site existant",
     ],
     etapesTitre: "Comment je travaille",
     etapes: [
-      { titre: "Échange gratuit", texte: "vous me présentez votre besoin." },
-      { titre: "Devis", texte: "je vous propose une solution, un prix et un délai." },
-      { titre: "Réalisation et mise en ligne", texte: "je développe, je teste et je mets votre site en ligne." },
+      {
+        titre: "Échange gratuit",
+        texte: "vous me présentez votre besoin ; si vous avez déjà un site, je l'analyse avant.",
+      },
+      { titre: "Devis", texte: "une solution, un prix et un délai clairs, sans surprise." },
+      {
+        titre: "Réalisation",
+        texte: "je développe et je teste ; vous suivez l'avancement et donnez votre avis.",
+      },
+      { titre: "Mise en ligne", texte: "votre site est en ligne et je vous montre comment le gérer." },
     ],
-    // Ajouté le 26/11/2026 (demande d'Awad) : pour les clients qui ont déjà un site et veulent le refaire.
-    refonteTitre: "Vous avez déjà un site ?",
-    refonte: [
-      "Je fais le point sur votre site actuel : vitesse, référencement Google, affichage sur téléphone",
-      "Je le refais avec un design moderne, en gardant vos textes et vos images",
-      "Votre place sur Google est préservée : les anciennes adresses mènent aux nouvelles pages",
-      "Je m'occupe du changement d'hébergeur ou de nom de domaine si besoin",
+    parcours: [
+      {
+        titre: "Votre premier site ou application",
+        intro: "Vous partez de zéro ? Je vous accompagne à chaque étape.",
+        points: [
+          "Je vous aide à définir l'essentiel : objectifs, pages, fonctionnalités et budget",
+          "Je m'occupe de toute la technique : nom de domaine, hébergement, connexion sécurisée (HTTPS)",
+          "Rapide, sécurisé et accessible à tous dès le premier jour, sur téléphone comme sur ordinateur",
+          "Prêt pour Google : titres, descriptions et aperçus pour les réseaux sociaux",
+        ],
+      },
+      {
+        titre: "Vous avez déjà un site ?",
+        intro: "Il est lent, daté ou mal référencé ? Je le remets à niveau.",
+        points: [
+          "Je fais le point : vitesse, référencement, sécurité, accessibilité et affichage sur téléphone",
+          "Je le refais avec un design moderne, en gardant vos textes, vos images et votre identité",
+          "Plus sûr : connexion HTTPS, serveur protégé, formulaires à l'abri des robots",
+          "Votre place sur Google est préservée : les anciennes adresses mènent aux nouvelles pages",
+          "Changement d'hébergeur ou de nom de domaine si besoin",
+        ],
+      },
     ],
-    // Ajouté le 25/11/2026 : ce qu'Awad inclut vraiment (1 mois de corrections, maintenance en option).
+    // Ce qu'Awad inclut vraiment (décisions du 25/11/2026 : 1 mois de corrections, maintenance en option).
     inclusTitre: "Ce qui est inclus",
     inclus: [
-      "Mise en ligne de votre site, avec nom de domaine et hébergement configurés",
+      "Mise en ligne, avec nom de domaine et hébergement configurés",
+      "Vitesse, sécurité et accessibilité contrôlées avant la livraison",
       "Prise en main : je vous montre comment gérer votre site",
       "1 mois de corrections offertes après la mise en ligne",
       "Maintenance proposée après la livraison, selon vos besoins",
