@@ -1,4 +1,4 @@
-# Contenus du site — Portfolio de Awad Ahmed
+# Contenus du site — Portfolio Awad Dev
 
 > Statut : **validé par Awad le 22/11/2026**. Aucune maquette ni aucun code ne sont commencés.
 > Rôle : les **textes définitifs** du site, page par page, à valider avant les maquettes (décision d'Awad du 22/11/2026, `requirements.md` EF-10).
@@ -11,7 +11,7 @@
 ## 0. Éléments communs
 
 ### En-tête
-- Logo : modèle d'Awad (« A » évidé et chevron de code « > », 25/11/2026), aux couleurs du site, et **AWAD** en capitales ; les lecteurs d'écran lisent « Awad Ahmed » *(décision d'Awad du 23/11/2026 : « Awad » seulement dans le logo, nom complet partout ailleurs)*
+- Logo : modèle d'Awad (« A » évidé et chevron de code « > », 25/11/2026), aux couleurs du site, et **AWAD** en capitales ; les lecteurs d'écran lisent « Awad Dev » *(décision d'Awad du 26/11/2026 : site « Awad Dev », « Awad » dans les phrases ; le nom complet ne reste que dans les mentions légales, où la loi l'exige)* ; favicon : le même logo, murs épais et creux fin (lisible en petit)
 - Liens : **Accueil** · **Projets** · **À propos** · **Contact**
 - Bouton : **CV** (ouvre le CV en français)
 - Bouton thème : étiquette pour les lecteurs d'écran « Passer en mode sombre » / « Passer en mode clair »
@@ -21,7 +21,7 @@
 ### Pied de page
 - Liens : Accueil · Projets · À propos · Contact · CV · Mentions légales
 - LinkedIn · GitHub · Code de ce portfolio
-- © 2026 Awad Ahmed
+- © 2026 Awad Dev
 
 ### Badges des projets
 - **Projet client** — RepaTek, I Make My World, Plateforme éditoriale
@@ -32,12 +32,12 @@
 
 ## 1. Accueil — `/`
 
-**Titre de la page (onglet et Google)** : Awad Ahmed — Développeur Full Stack JavaScript / TypeScript
+**Titre de la page (onglet et Google)** : Awad Dev — Développeur Full Stack JavaScript / TypeScript
 **Description (Google)** : Développeur Full Stack en Île-de-France. Applications web complètes et en ligne, avec React, Next.js et Node.js. Ouvert aux postes en CDI ou CDD et aux missions freelance.
 
 ### 1.1 Premier écran
 *Refait le 25/11/2026 (choix d'Awad) : le grand titre dit ce que je fais ; le nom passe au-dessus.*
-- Petit titre : **Awad Ahmed · Développeur Full Stack JavaScript / TypeScript**
+- Petit titre : **Awad · Développeur Full Stack JavaScript / TypeScript**
 - Grand titre (`h1`) : **Je conçois et développe des applications web complètes, testées et mises en ligne.**
 - Sous-titre : **De l'interface au serveur et à la base de données.**
 - Disponibilité (pastille) : **Ouvert aux postes en CDI ou CDD et aux missions freelance.** · **Île-de-France**
@@ -77,9 +77,10 @@ Petite note sous les chiffres : *Chiffres relevés sur les dépôts et les sites
 
 ### 1.4 Bloc freelance
 - Titre : **Vous avez un projet de site ou d'application ?**
-- Texte : **Entrepreneur, artisan ou PME : je réalise votre projet de A à Z et je le mets en ligne.**
+- Texte : **Entrepreneur, artisan ou PME : je crée votre site de A à Z, ou je refais celui que vous avez déjà, puis je le mets en ligne.**
 - Ce que je réalise :
   - Site vitrine
+  - Refonte de votre site actuel
   - Réservation en ligne
   - Boutique en ligne
   - Application sur mesure
@@ -88,6 +89,11 @@ Petite note sous les chiffres : *Chiffres relevés sur les dépôts et les sites
   1. **Échange gratuit** — vous me présentez votre besoin.
   2. **Devis** — je vous propose une solution, un prix et un délai.
   3. **Réalisation et mise en ligne** — je développe, je teste et je mets votre site en ligne.
+- Vous avez déjà un site ? *(ajouté le 26/11/2026, demande d'Awad : clients qui veulent refaire leur site)* :
+  - Je fais le point sur votre site actuel : vitesse, référencement Google, affichage sur téléphone
+  - Je le refais avec un design moderne, en gardant vos textes et vos images
+  - Votre place sur Google est préservée : les anciennes adresses mènent aux nouvelles pages
+  - Je m'occupe du changement d'hébergeur ou de nom de domaine si besoin
 - Ce qui est inclus *(ajouté le 25/11/2026, décisions d'Awad : 1 mois de corrections, maintenance en option)* :
   - Mise en ligne de votre site, avec nom de domaine et hébergement configurés
   - Prise en main : je vous montre comment gérer votre site
@@ -103,7 +109,7 @@ Petite note sous les chiffres : *Chiffres relevés sur les dépôts et les sites
 
 ## 2. Projets — `/projets/`
 
-**Titre de la page** : Projets — Awad Ahmed
+**Titre de la page** : Projets — Awad Dev
 **Description** : Six projets web : trois projets clients en ligne, un template SaaS et deux projets de formation. Technologies, rôle et preuves de qualité.
 
 - Grand titre : **Mes projets**
@@ -132,7 +138,7 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
 
 ### 3.1 RepaTek — `/projets/repatek/`
 
-**Titre de la page** : RepaTek — réservation de dépannage informatique · Awad Ahmed
+**Titre de la page** : RepaTek — réservation de dépannage informatique · Awad Dev
 **Description** : Site de réservation pour un technicien informatique à domicile : créneaux calculés, back-office, e-mails. React, TypeScript, Supabase.
 
 - **Le projet** : RepaTek est le site d'un service de dépannage informatique à domicile aux Ulis, en Essonne : diagnostic, suppression de virus, passage au SSD, récupération de données. Le client choisit une prestation et un créneau, indique son adresse, et le technicien valide le rendez-vous depuis un back-office.
@@ -153,7 +159,7 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
 
 ### 3.2 I Make My World — `/projets/i-make-my-world/`
 
-**Titre de la page** : I Make My World — plateforme de projets à impact · Awad Ahmed
+**Titre de la page** : I Make My World — plateforme de projets à impact · Awad Dev
 **Description** : Plateforme qui réunit créateurs, experts et investisseurs, avec back-office de modération. React, Express, MySQL, 45 tests.
 
 - **Le projet** : I Make My World réunit sur une même plateforme des créateurs, qui publient des projets à impact, des experts, qui proposent leur accompagnement, et des investisseurs, qui découvrent des projets à soutenir. Tout contenu publié est d'abord validé par un administrateur.
@@ -179,7 +185,7 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
 
 ### 3.3 Plateforme éditoriale — `/projets/plateforme-editoriale/`
 
-**Titre de la page** : Plateforme éditoriale — média sur la Corne de l'Afrique · Awad Ahmed
+**Titre de la page** : Plateforme éditoriale — média sur la Corne de l'Afrique · Awad Dev
 **Description** : Média francophone et son espace de rédaction. Next.js 16, Prisma, PostgreSQL, Cloudflare R2. 16 tests, Lighthouse 100.
 
 - **Le projet** : un média francophone consacré à la Corne de l'Afrique (asile, migrations, droits humains, analyses par pays), avec son espace de rédaction. Une seule personne administre le site, rédige et publie.
@@ -201,7 +207,7 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
 
 ### 3.4 Template Next.js — `/projets/template-nextjs/`
 
-**Titre de la page** : Template Next.js SaaS · Awad Ahmed
+**Titre de la page** : Template Next.js SaaS · Awad Dev
 **Description** : Base de projet SaaS : Next.js 16, Better Auth, Stripe, Prisma, tests Playwright, Docker et Caddy.
 
 - **Le projet** : une base de départ pour lancer une application SaaS : comptes utilisateurs, paiement, e-mails, base de données, tests et déploiement déjà en place.
@@ -230,7 +236,7 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
 
 ### 3.5 eMatériel — `/projets/emateriel/`
 
-**Titre de la page** : eMatériel — boutique en ligne · Awad Ahmed
+**Titre de la page** : eMatériel — boutique en ligne · Awad Dev
 **Description** : Boutique en ligne avec panier, stock et paiement Stripe en mode test. React, Express, MySQL, 63 tests.
 
 - **Le projet** : une boutique en ligne de smartphones, tablettes, ordinateurs et accessoires. Projet de formation Simplon.co, que j'ai ensuite terminé et mis en ligne.
@@ -251,7 +257,7 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
 
 ### 3.6 Solidays — `/projets/solidays/`
 
-**Titre de la page** : Solidays — projet de formation en équipe · Awad Ahmed
+**Titre de la page** : Solidays — projet de formation en équipe · Awad Dev
 **Description** : Reproduction du site du festival Solidays avec gestion des artistes. Projet de formation en équipe de 3. React, Express, MySQL.
 
 - Mention en haut : **Projet de formation Simplon.co, réalisé en équipe de 3 : Awad, Prativa et Manon.**
@@ -275,8 +281,8 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
 
 ## 4. À propos — `/a-propos/`
 
-**Titre de la page** : À propos — Awad Ahmed, développeur Full Stack
-**Description** : Awad Ahmed, développeur Full Stack JavaScript / TypeScript en Île-de-France : ce qu'il apporte aux entreprises et aux porteurs de projet, compétences et parcours.
+**Titre de la page** : À propos — Awad Dev, développeur Full Stack JavaScript / TypeScript
+**Description** : Awad, développeur Full Stack JavaScript / TypeScript en Île-de-France : ce qu'il apporte aux entreprises et aux porteurs de projet, compétences et parcours.
 
 Refonte du 26/11/2026 : texte proposé par Awad, adapté (chaque promesse a une preuve vérifiable ; « respect strict des délais » devient un engagement pris dans le devis ; « ROI » dit en mots simples). Les nombres entre accolades sont calculés depuis les données des projets.
 
@@ -284,7 +290,7 @@ Refonte du 26/11/2026 : texte proposé par Awad, adapté (chaque promesse a une 
 - Surtitre : **À propos** (en couleur, en capitales, au-dessus du grand titre)
 - Grand titre : **Je transforme un besoin en application web qui fonctionne.**
 - Texte (3 paragraphes) :
-  1. **Je suis Awad Ahmed, développeur Full Stack JavaScript / TypeScript en Île-de-France. Je conçois des applications web sur mesure, de la base de données jusqu'à l'écran de vos utilisateurs.**
+  1. **Je suis Awad, développeur Full Stack JavaScript / TypeScript en Île-de-France. Je conçois des applications web sur mesure, de la base de données jusqu'à l'écran de vos utilisateurs.**
   2. **Mon objectif : allier rigueur technique et vision business. Avant d'écrire du code, je cherche à comprendre ce que le produit doit apporter, puis je livre une solution solide qui répond précisément au besoin.**
   3. **Formé chez Simplon.co, j'ai déjà livré {clients} projets pour des clients, tous en ligne aujourd'hui.**
 - Boutons : **Voir mes projets** (principal) · **Me contacter**
@@ -338,8 +344,8 @@ Bandeau final : **Un poste à pourvoir ou un projet à lancer ? Parlons-en.** ·
 
 ## 5. Contact — `/contact/`
 
-**Titre de la page** : Contact — Awad Ahmed
-**Description** : Proposer un poste, une mission freelance ou poser une question à Awad Ahmed, développeur Full Stack. Réponse sous 24 h.
+**Titre de la page** : Contact — Awad Dev
+**Description** : Proposer un poste, une mission freelance ou poser une question à Awad, développeur Full Stack JavaScript / TypeScript. Réponse sous 24 h.
 
 - Grand titre : **Me contacter**
 - Introduction : **Un poste en CDI ou CDD, une mission freelance ou une simple question : écrivez-moi. Je réponds sous 24 h.**
@@ -381,8 +387,8 @@ Les champs obligatoires sont signalés par la mention **(obligatoire)** dans leu
 
 ## 6. Mentions légales — `/mentions-legales/`
 
-**Titre de la page** : Mentions légales — Awad Ahmed
-**Description** : Éditeur, hébergeur et traitement des données personnelles du portfolio d'Awad Ahmed.
+**Titre de la page** : Mentions légales — Awad Dev
+**Description** : Éditeur, hébergeur et traitement des données personnelles du portfolio Awad Dev.
 
 - **Éditeur du site** : Awad Ahmed, particulier. Contact : par le [formulaire de contact](/contact/).
 - **Hébergeur** : Hostinger International Ltd, 61 Lordou Vironos Street, 6023 Larnaca, Chypre — https://www.hostinger.fr.
@@ -396,13 +402,13 @@ Les champs obligatoires sont signalés par la mention **(obligatoire)** dans leu
   - Transfert hors de l'Union européenne : Resend est une société américaine ; les messages peuvent donc transiter par des serveurs situés hors de l'Union européenne.
   - Vos droits : accès, rectification, effacement et opposition, en écrivant par le formulaire de contact. Vous pouvez aussi déposer une réclamation auprès de la CNIL (cnil.fr).
 - **Cookies** : ce site n'utilise aucun cookie ni outil de mesure d'audience. Votre choix de thème clair ou sombre est gardé dans votre navigateur, uniquement sur votre appareil.
-- **Propriété** : les textes et le code de ce site sont ceux d'Awad Ahmed ; les captures d'écran montrent des sites qu'il a réalisés.
+- **Propriété** : les textes et le code de ce site sont ceux d'Awad ; les captures d'écran montrent des sites qu'il a réalisés.
 
 ---
 
 ## 7. Page introuvable (404)
 
-**Titre de la page** : Page introuvable — Awad Ahmed
+**Titre de la page** : Page introuvable — Awad Dev
 
 - Grand titre : **Cette page n'existe pas.**
 - Texte : **L'adresse est peut-être mal écrite, ou la page a été déplacée.**
@@ -412,7 +418,7 @@ Les champs obligatoires sont signalés par la mention **(obligatoire)** dans leu
 
 ## 8. Textes alternatifs des images (modèles)
 
-- Photo : **Portrait d'Awad Ahmed**
+- Photo : **Portrait d'Awad**
 - Capture ordinateur : **Page d'accueil du site [nom du projet] sur ordinateur**
 - Capture mobile : **Page d'accueil du site [nom du projet] sur téléphone**
 
