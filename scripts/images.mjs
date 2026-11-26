@@ -56,8 +56,7 @@ async function principal() {
     const original = sharp(join(SOURCE, f)).rotate();
     const { width, height } = await original.metadata();
     const [l, h] = [width, height];
-    if (genre(nom) === "photo" && Math.abs(h / l - 1.25) > 0.02)
-      erreurs.push(`la photo doit être au format 4:5 : ${f}`);
+    if (genre(nom) === "photo" && Math.abs(h / l - 1) > 0.02) erreurs.push(`la photo doit être carrée : ${f}`);
     const largeurs = largeursProduites(nom, l);
     for (const largeur of largeurs) {
       for (const format of ["avif", "webp"]) {

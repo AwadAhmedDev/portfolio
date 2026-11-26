@@ -5,7 +5,7 @@ export function PhotoProvisoire({ alt, libelle }: { alt: string; libelle: string
     <div
       role="img"
       aria-label={`${alt} (${libelle.toLowerCase()})`}
-      className="relative aspect-[4/5] w-full overflow-hidden rounded-[16px] border border-border bg-gradient-to-b from-secondary to-muted"
+      className="relative aspect-square w-full overflow-hidden rounded-full border border-border bg-gradient-to-b from-secondary to-muted"
     >
       <svg viewBox="0 0 160 200" aria-hidden="true" focusable="false" className="absolute inset-x-0 bottom-0 w-full">
         <circle cx="80" cy="80" r="34" className="fill-primary/20" />

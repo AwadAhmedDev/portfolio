@@ -1,4 +1,12 @@
 {
+  "awad-ahmed": {
+    "largeurs": [
+      200,
+      320
+    ],
+    "largeur": 320,
+    "hauteur": 320
+  },
   "emateriel-mobile": {
     "largeurs": [
       640
