@@ -16,14 +16,7 @@ import {
 import { bouton, lienTexte } from "@/components/ui/styles";
 import { liens } from "@/content/site";
 import { metaPage, SITE_URL } from "@/lib/seo";
-import {
-  detailTests,
-  nbClientsEnLigne,
-  nbProjetsEnLigne,
-  nbSites100Ordinateur,
-  nbSitesSeo100,
-  totalTestsDistincts,
-} from "@/lib/stats";
+import { detailTests, nbProjetsEnLigne, nbSites100Ordinateur, remplir, totalTestsDistincts } from "@/lib/stats";
 
 export const metadata: Metadata = metaPage(accueil.titrePage, accueil.description, "/");
 
@@ -38,15 +31,6 @@ const personne = JSON.stringify({
   sameAs: [liens.linkedin, liens.github],
 }).replace(/</g, "\\u003c");
 
-// Valeurs calculées insérées dans les textes de content/pages.ts ({enLigne}, {seo}…).
-const valeurs: Record<string, number> = {
-  enLigne: nbProjetsEnLigne(),
-  clients: nbClientsEnLigne(),
-  seo: nbSitesSeo100(),
-  tests: totalTestsDistincts(),
-  projets: projets.length,
-};
-const remplir = (texte: string) => texte.replace(/\{(\w+)\}/g, (_, cle: string) => String(valeurs[cle] ?? `{${cle}}`));
 const icones = {
   rapide: IconeEclair,
   google: IconeLoupe,

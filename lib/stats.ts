@@ -46,3 +46,15 @@ export const nbSites100Ordinateur = (liste: Projet[] = projets) =>
     const o = p.lighthouse?.ordinateur;
     return o && o.performance === 100 && o.accessibilite === 100 && o.bonnesPratiques === 100 && o.seo === 100;
   }).length;
+
+// Remplace {enLigne}, {clients}, {seo}, {tests} et {projets} des textes de content/pages.ts par les valeurs calculées.
+export function remplir(texte: string): string {
+  const valeurs: Record<string, number> = {
+    enLigne: nbProjetsEnLigne(),
+    clients: nbClientsEnLigne(),
+    seo: nbSitesSeo100(),
+    tests: totalTestsDistincts(),
+    projets: projets.length,
+  };
+  return texte.replace(/\{(\w+)\}/g, (_, cle: string) => String(valeurs[cle] ?? `{${cle}}`));
+}

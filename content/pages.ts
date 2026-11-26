@@ -117,61 +117,84 @@ export const pageProjets = {
 export const aPropos = {
   titrePage: "À propos — Awad Ahmed, développeur Full Stack",
   description:
-    "Compétences, parcours et façon de travailler d'Awad Ahmed, développeur Full Stack JavaScript / TypeScript en Île-de-France.",
-  titre: "À propos",
-  presentation:
-    "Je suis Awad Ahmed, développeur Full Stack JavaScript / TypeScript en Île-de-France. Formé chez Simplon.co, je réalise des applications web complètes, de l'interface à la base de données, et je les mets en ligne. J'ai livré des projets pour des clients, que vous pouvez visiter aujourd'hui.",
+    "Awad Ahmed, développeur Full Stack JavaScript / TypeScript en Île-de-France : ce qu'il apporte aux entreprises et aux porteurs de projet, compétences et parcours.",
+  // Refonte du 26/11/2026 (texte proposé par Awad, adapté) : chaque promesse a une preuve vérifiable.
+  surtitre: "À propos",
+  titre: "Je transforme un besoin en application web qui fonctionne.",
+  presentation: [
+    "Je suis Awad Ahmed, développeur Full Stack JavaScript / TypeScript en Île-de-France. Je conçois des applications web sur mesure, de la base de données jusqu'à l'écran de vos utilisateurs.",
+    "Mon objectif : allier rigueur technique et vision business. Avant d'écrire du code, je cherche à comprendre ce que le produit doit apporter, puis je livre une solution solide qui répond précisément au besoin.",
+    "Formé chez Simplon.co, j'ai déjà livré {clients} projets pour des clients, tous en ligne aujourd'hui.",
+  ],
+  garantiesTitre: "Ce que je garantis",
+  garantiesSousTitre: "À mes clients comme à mes employeurs.",
+  garanties: [
+    {
+      titre: "Une maîtrise de bout en bout",
+      texte:
+        "Je prends en charge une fonctionnalité entière : base de données, API, serveur, puis une interface fluide et agréable sur tous les écrans.",
+      preuve: "{clients} projets clients en ligne, que vous pouvez visiter",
+    },
+    {
+      titre: "Vos objectifs avant la technique",
+      texte:
+        "Je traduis vos objectifs en fonctionnalités concrètes et je choisis la solution la plus simple qui marche : moins de coûts, une mise en ligne plus rapide, des utilisateurs satisfaits.",
+      preuve: "{seo} de mes sites ont 100/100 en référencement sur l'outil de Google",
+    },
+    {
+      titre: "Fiabilité et transparence",
+      texte:
+        "Code propre et versionné avec Git, tests automatisés, intégration continue. Je vous tiens informé à chaque étape et je m'engage sur un délai dès le devis.",
+      preuve: "{tests} tests automatiques sur mes {projets} projets",
+    },
+  ],
+  aideTitre: "Comment je peux vous aider",
+  aide: [
+    {
+      pour: "Entreprises et recruteurs",
+      contrat: "CDI, CDD ou mission longue",
+      points: [
+        "Je m'intègre dans votre équipe : je lis le code existant et je respecte vos conventions.",
+        "Je propose des choix d'architecture argumentés (React, Next.js, Node.js, TypeScript).",
+        "Je développe des fonctionnalités complètes en autonomie, testées avant la mise en ligne.",
+      ],
+      bouton: "Me proposer un poste",
+      lien: "/contact/",
+    },
+    {
+      pour: "Porteurs de projet et startups",
+      contrat: "Freelance",
+      points: [
+        "Un MVP (première version de votre produit) pour tester votre marché rapidement.",
+        "La refonte d'un site ou d'une application existante.",
+        "L'amélioration de la vitesse et du référencement de votre site.",
+      ],
+      bouton: "Parlons de votre projet",
+      lien: "/contact/?demande=freelance",
+    },
+  ],
+  competencesTitre: "Compétences",
   competences: [
+    { titre: "Interface (front-end)", liste: ["React", "TypeScript", "Next.js", "Vite", "Tailwind CSS", "shadcn/ui"] },
     {
-      titre: "Utilisé dans plusieurs projets",
-      liste: [
-        "React",
-        "TypeScript",
-        "Vite",
-        "Next.js",
-        "Node.js",
-        "Express",
-        "MySQL",
-        "Prisma",
-        "PostgreSQL",
-        "Supabase",
-        "Tailwind CSS",
-        "Zod",
-        "Vitest",
-        "Supertest",
-        "GitHub Actions",
-        "Resend",
-        "Stripe (mode test)",
-        "Cloudflare R2",
-        "Dependabot",
-      ],
+      titre: "Serveur et API (back-end)",
+      liste: ["Node.js", "Express", "Zod", "JWT", "Better Auth", "Resend", "Stripe (mode test)"],
     },
     {
-      titre: "Utilisé dans un projet",
-      liste: [
-        "Row Level Security et Edge Functions (Supabase)",
-        "Cloudflare Turnstile",
-        "Better Auth",
-        "Playwright",
-        "Docker",
-        "Caddy",
-        "shadcn/ui",
-        "JWT",
-      ],
+      titre: "Données",
+      liste: ["PostgreSQL", "MySQL", "Prisma", "Supabase (Row Level Security, Edge Functions)", "Cloudflare R2"],
     },
-    { titre: "Outils de travail", liste: ["Git et GitHub", "Hostinger", "Claude Code", "Claude Design", "ChatGPT"] },
+    {
+      titre: "Qualité et sécurité",
+      liste: ["Vitest", "Supertest", "Playwright", "Dependabot", "Cloudflare Turnstile"],
+    },
+    { titre: "Mise en ligne", liste: ["Git et GitHub", "GitHub Actions", "Docker", "Caddy", "Hostinger"] },
+    { titre: "Outils d'IA", liste: ["Claude Code", "Claude Design", "ChatGPT"] },
   ],
   competencesNote: "Je n'affiche que des technologies utilisées dans des projets que vous pouvez consulter.",
-  facon: [
-    { titre: "Tester", texte: "mes projets ont des tests automatisés, lancés à chaque modification." },
-    { titre: "Automatiser", texte: "intégration continue sur GitHub et mise en ligne automatique." },
-    { titre: "Mesurer", texte: "je vérifie la vitesse, l'accessibilité et le référencement avec Lighthouse." },
-    {
-      titre: "Outils d'IA",
-      texte:
-        "J'utilise Claude Code, Claude Design et ChatGPT pour concevoir, relire le code et écrire des tests. Je relis, je teste et je reste responsable de tout ce que je livre.",
-    },
-  ],
+  ia: "J'utilise ces outils d'IA pour concevoir, relire le code et écrire des tests. Je relis, je teste et je reste responsable de tout ce que je livre.",
+  parcoursTitre: "Parcours",
+  rappel: "Un poste à pourvoir ou un projet à lancer ? Parlons-en.",
   formation: {
     titre: "Formation « Développeur web et web mobile » — Simplon.co",
     dates: "septembre 2025 – avril 2026",
