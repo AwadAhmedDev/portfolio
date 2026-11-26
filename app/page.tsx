@@ -101,6 +101,35 @@ export default function Accueil() {
         </div>
       </section>
 
+      <section aria-labelledby="titre-pour-qui" className="conteneur pb-16">
+        <h2 id="titre-pour-qui" className="text-[22px]">
+          {a.pourQui.titre}
+        </h2>
+        <ul className="mt-4 grid gap-4 md:grid-cols-2">
+          {a.pourQui.choix.map((c) => (
+            <li
+              key={c.pour}
+              className="flex flex-col gap-3 rounded-[16px] border border-border bg-background p-6 sm:flex-row sm:items-center sm:justify-between"
+            >
+              <div>
+                <h3 className="text-[20px]">{c.pour}</h3>
+                <p className="mt-1 text-muted-foreground">{c.texte}</p>
+              </div>
+              {/* Ancre de la même page : lien simple, le Link de Next ne fait pas défiler jusqu'à la section. */}
+              {c.lien.startsWith("#") ? (
+                <a href={c.lien} className={`${bouton.secondaire} shrink-0 self-start sm:self-center`}>
+                  {c.bouton}
+                </a>
+              ) : (
+                <Link href={c.lien} className={`${bouton.secondaire} shrink-0 self-start sm:self-center`}>
+                  {c.bouton}
+                </Link>
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
+
       <section aria-labelledby="titre-projets" className="bg-muted py-16">
         <div className="conteneur">
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
@@ -173,7 +202,7 @@ export default function Accueil() {
         <p className="mt-4 text-[14px] italic text-muted-foreground">{a.chiffres.note}</p>
       </section>
 
-      <section aria-labelledby="titre-freelance" className="revele conteneur pb-16">
+      <section id="freelance" aria-labelledby="titre-freelance" className="revele conteneur scroll-mt-20 pb-16">
         <div className="grid gap-8 rounded-[16px] bg-muted p-8 wide:grid-cols-3">
           <div>
             <h2 id="titre-freelance" className="text-[clamp(30px,4vw,40px)]">

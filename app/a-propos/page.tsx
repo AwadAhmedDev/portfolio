@@ -24,7 +24,7 @@ export default function APropos() {
       <section aria-labelledby="titre-apropos" className="conteneur py-16">
         <div className="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
           <div className="max-w-[720px]">
-            <p className="mono text-[14px] text-muted-foreground">{a.surtitre}</p>
+            <p className="mono text-[16px] font-semibold uppercase tracking-[0.12em] text-primary">{a.surtitre}</p>
             <h1
               id="titre-apropos"
               className="mt-4 text-[clamp(34px,5vw,54px)] leading-[1.1] tracking-[-0.03em] text-balance"
