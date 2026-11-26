@@ -270,6 +270,13 @@ export default function Accueil() {
                 </li>
               ))}
             </ul>
+            <p className="mt-4 text-[15px] text-muted-foreground">{a.freelance.option}</p>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
+              <Link href="/contact/?demande=freelance" className={`${bouton.principal} self-start`}>
+                {a.freelance.bouton}
+              </Link>
+              <p className="text-[15px] font-medium">{a.freelance.rassurance}</p>
+            </div>
           </div>
         </div>
       </section>
