@@ -63,6 +63,24 @@ export const accueil = {
       },
     ],
   },
+  // « Vous êtes… » (26/11/2026) : juste sous le premier écran, chaque visiteur trouve son chemin.
+  pourQui: {
+    titre: "Vous êtes…",
+    choix: [
+      {
+        pour: "Recruteur ou entreprise",
+        texte: "Vous cherchez un développeur Full Stack en CDI, en CDD ou pour une mission longue.",
+        bouton: "Voir mon profil",
+        lien: "/a-propos/",
+      },
+      {
+        pour: "Porteur de projet",
+        texte: "Vous voulez créer ou refaire un site, une boutique ou une application sur mesure.",
+        bouton: "Voir l'offre freelance",
+        lien: "#freelance",
+      },
+    ],
+  },
   lieu: "Île-de-France",
   disponibilite: "Ouvert aux postes en CDI ou CDD et aux missions freelance.",
   projets: {

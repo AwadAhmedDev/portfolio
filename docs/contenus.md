@@ -44,6 +44,12 @@
 - Boutons : **Voir mes projets** (principal) · **Me contacter** (secondaire)
 - Preuves, en langage client (25/11/2026, chiffres calculés) : **5 sites en ligne, dont 3 pour des clients** · **Chaque modification vérifiée avant la mise en ligne** · **Jusqu'à 100/100 en vitesse sur l'outil de mesure de Google**
 
+### 1.1 bis Vous êtes… (ajouté le 26/11/2026, demande d'Awad)
+Juste sous le premier écran, deux cartes pour que chaque visiteur trouve son chemin.
+- Titre : **Vous êtes…**
+- **Recruteur ou entreprise** : Vous cherchez un développeur Full Stack en CDI, en CDD ou pour une mission longue. — bouton **Voir mon profil** → `/a-propos/`
+- **Porteur de projet** : Vous voulez créer ou refaire un site, une boutique ou une application sur mesure. — bouton **Voir l'offre freelance** → bloc freelance de l'accueil (`#freelance`)
+
 ### 1.2 Projets mis en avant
 - Titre : **Projets clients**
 - Sous-titre : **Des sites réels, conçus et développés pour des clients, en ligne aujourd'hui.**
@@ -275,7 +281,7 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
 Refonte du 26/11/2026 : texte proposé par Awad, adapté (chaque promesse a une preuve vérifiable ; « respect strict des délais » devient un engagement pris dans le devis ; « ROI » dit en mots simples). Les nombres entre accolades sont calculés depuis les données des projets.
 
 ### 4.1 Présentation
-- Surtitre : **À propos**
+- Surtitre : **À propos** (en couleur, en capitales, au-dessus du grand titre)
 - Grand titre : **Je transforme un besoin en application web qui fonctionne.**
 - Texte (3 paragraphes) :
   1. **Je suis Awad Ahmed, développeur Full Stack JavaScript / TypeScript en Île-de-France. Je conçois des applications web sur mesure, de la base de données jusqu'à l'écran de vos utilisateurs.**
