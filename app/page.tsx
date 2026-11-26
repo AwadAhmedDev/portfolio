@@ -50,9 +50,10 @@ export default function Accueil() {
       <section aria-labelledby="titre-accueil" className="conteneur py-16">
         <div className="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
           <div className="max-w-[760px]">
-            {/* Le titre dit ce que je fais ; le nom est juste au-dessus (choix d'Awad du 25/11/2026). */}
+            {/* Nom, titre officiel et technologies phares, visibles dès le premier écran (choix d'Awad du 26/11/2026). */}
             <p className="mono text-[14px] text-muted-foreground">
-              <span className="font-semibold text-foreground">{a.titre}</span> · {a.petitTitre}
+              <span className="font-semibold text-foreground">{a.titre}</span> · {a.petitTitre} ·{" "}
+              <span className="text-foreground">{a.technologies.join(", ")}</span>
             </p>
             <h1
               id="titre-accueil"
