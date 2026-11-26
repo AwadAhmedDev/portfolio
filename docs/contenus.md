@@ -39,7 +39,7 @@
 *Refait le 25/11/2026 (choix d'Awad) : le grand titre dit ce que je fais ; le nom passe au-dessus.*
 - Petit titre : **Awad · Développeur Full Stack JavaScript / TypeScript**
 - Grand titre (`h1`) : **Je conçois et développe des applications web complètes, testées et mises en ligne.**
-- Sous-titre : **De l'interface au serveur et à la base de données.**
+- Sous-titre : **De l'interface au serveur et à la base de données, avec React, Next.js et Node.js.** *(technologies ajoutées le 26/11/2026, demande d'Awad)*
 - Disponibilité (pastille) : **Ouvert aux postes en CDI ou CDD et aux missions freelance.** · **Île-de-France**
 - Boutons : **Voir mes projets** (principal) · **Me contacter** (secondaire)
 - Preuves, en langage client (25/11/2026, chiffres calculés) : **5 sites en ligne, dont 3 pour des clients** · **Chaque modification vérifiée avant la mise en ligne** · **Jusqu'à 100/100 en vitesse sur l'outil de mesure de Google**
