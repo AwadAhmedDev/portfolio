@@ -32,6 +32,22 @@ test("thème : le choix est gardé d'une page à l'autre", async ({ page }) => {
   await expect(page.getByRole("button", { name: "Passer en mode clair" })).toBeVisible();
 });
 
+test("navigation : « Accueil » n'est la page en cours que sur l'accueil", async ({ page }) => {
+  const menu = page.getByRole("navigation", { name: "Navigation principale" });
+  const enCours = menu.locator('[aria-current="page"]');
+  for (const [chemin, lien] of [
+    ["/", "Accueil"],
+    ["/projets/", "Projets"],
+    ["/projets/repatek/", "Projets"],
+    ["/a-propos/", "À propos"],
+    ["/contact/", "Contact"],
+  ]) {
+    await page.goto(chemin);
+    await expect(enCours).toHaveCount(1);
+    await expect(enCours).toHaveText(lien);
+  }
+});
+
 test.describe("menu mobile", () => {
   test.use({ viewport: { width: 360, height: 780 } });
 
