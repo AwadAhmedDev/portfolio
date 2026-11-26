@@ -437,7 +437,7 @@ Le lot 12 suit tous les autres : ses contrôles finaux se font avec les vraies i
 
 | Ressource | Fournie par | Lots |
 |---|---|---|
-| Photo au format 4:5 | Awad | 3, 7, 11 |
+| Photo carrée (affichée en rond) | Awad | 3, 7, 11 |
 | 3 CV en PDF (français, anglais, allemand) | Awad | 2, 7 |
 | Clé Resend et adresse de réception (dans `private/config.php` uniquement) | Awad | 8, 14 |
 | Accord pour créer le site Hostinger du portfolio | Awad | 14 |

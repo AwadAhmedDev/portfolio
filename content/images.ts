@@ -1,6 +1,6 @@
 // Images publiées (architecture.md §5) : une entrée par original déposé dans images-source/ (même nom, sans extension).
 // Le workflow images.yml échoue si un original n'est pas déclaré ici, ou si une image déclarée n'a pas d'original.
-// Noms attendus : « awad-ahmed » pour la photo (format 4:5) ; « <slug>-ordinateur » et « <slug>-mobile » pour les captures.
+// Noms attendus : « awad-ahmed » pour la photo (carrée, affichée en rond) ; « <slug>-ordinateur » et « <slug>-mobile » pour les captures.
 // Textes alternatifs : modèles de contenus.md §8.
 // Pas d'import dans ce fichier : scripts/images.mjs le lit directement avec Node.
 
@@ -8,6 +8,8 @@ export type ImageDeclaree = { nom: string; alt: string };
 
 // Captures des 5 sites en ligne, prises le 23/11/2026 par le workflow Captures (relues : aucune donnée personnelle).
 export const images: ImageDeclaree[] = [
+  // Photo fournie par Awad le 26/11/2026 (provisoire, en attendant une photo plus grande).
+  { nom: "awad-ahmed", alt: "Portrait d'Awad Ahmed" },
   { nom: "repatek-ordinateur", alt: "Page d'accueil du site RepaTek sur ordinateur" },
   { nom: "repatek-mobile", alt: "Page d'accueil du site RepaTek sur téléphone" },
   { nom: "i-make-my-world-ordinateur", alt: "Page d'accueil du site I Make My World sur ordinateur" },

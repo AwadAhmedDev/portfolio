@@ -37,7 +37,7 @@ export default function APropos() {
           <div className="w-full max-w-[200px] md:max-w-[320px]">
             <Picture
               nom="awad-ahmed"
-              ratio="4:5"
+              ratio="1:1"
               sizes="(min-width: 768px) 320px, 200px"
               prioritaire
               provisoire={{ libelle: "Photo provisoire", alt: "Portrait d'Awad Ahmed" }}

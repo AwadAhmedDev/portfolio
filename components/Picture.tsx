@@ -3,11 +3,17 @@ import generees from "@/content/images-generees.json";
 import { PhotoProvisoire } from "@/components/ui/PhotoProvisoire";
 import { Provisoire } from "@/components/ui/Provisoire";
 
+const forme = {
+  "16:10": "aspect-[16/10] rounded-[10px] border border-border",
+  "4:5": "aspect-[4/5] rounded-[10px] border border-border",
+  "1:1": "aspect-square rounded-full",
+} as const;
+
 type Generee = { largeurs: number[]; largeur: number; hauteur: number };
 
 type Props = {
   nom: string; // nom déclaré dans content/images.ts
-  ratio: "16:10" | "4:5";
+  ratio: "16:10" | "4:5" | "1:1"; // 1:1 : photo affichée en rond
   sizes: string; // largeur affichée, pour que le navigateur choisisse le bon fichier
   provisoire: { libelle: string; alt: string }; // emplacement signalé tant que l'image manque (C6)
   prioritaire?: boolean; // image du premier écran : chargée tout de suite
@@ -38,7 +44,7 @@ export function Picture({ nom, ratio, sizes, provisoire, prioritaire = false }: 
         loading={prioritaire ? "eager" : "lazy"}
         fetchPriority={prioritaire ? "high" : undefined}
         decoding="async"
-        className={`${ratio === "4:5" ? "aspect-[4/5]" : "aspect-[16/10]"} h-auto w-full rounded-[10px] border border-border object-cover object-top`}
+        className={`${forme[ratio]} h-auto w-full object-cover object-top`}
       />
     </picture>
   );

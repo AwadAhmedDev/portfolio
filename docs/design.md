@@ -146,7 +146,7 @@ Fond `--sf` ; navigation (Projets, À propos, Contact, CV, Mentions légales), p
 
 ### 5.1 Accueil (`/`) — textes : `contenus.md` §1
 
-1. **Premier écran** : texte à gauche, photo à droite (320 px au plus, format 4:5). Ordre : petit titre (mono, texte secondaire), `h1`, 3 puces React · Next.js · Node.js, phrase de présentation, ligne lieu et disponibilité (point `--ac` décoratif), deux boutons. **Sur mobile, la photo (200 px de large au plus) passe sous les boutons** (C7).
+1. **Premier écran** : texte à gauche, photo à droite (320 px au plus, format carré, affichée en rond). Ordre : petit titre (mono, texte secondaire), `h1`, 3 puces React · Next.js · Node.js, phrase de présentation, ligne lieu et disponibilité (point `--ac` décoratif), deux boutons. **Sur mobile, la photo (200 px de large au plus) passe sous les boutons** (C7).
 2. **Projets clients** : fond `--sf` ; `h2` et sous-titre à gauche, « Voir les 6 projets » à droite (dessous sur mobile) ; 3 cartes issues des données.
 3. **Preuves en chiffres** : 4 cartes ; `h2` réservé aux lecteurs d'écran ; le détail 17 + 45 + 16 + 63 + 24 + 20 en petit sous « 185 tests », « GitHub Actions » sous « Intégration continue » ; la note datée dessous, en italique.
 4. **Bloc freelance** : un bloc sur `--sf`, 3 colonnes sur ordinateur (titre, texte et bouton ; « Ce que je réalise » ; « Comment je travaille »), empilées sur mobile ; sous-titres en `h3` ; 5 réalisations avec coche décorative ; 3 étapes en liste numérotée (`ol`).
@@ -291,7 +291,7 @@ Elles complètent D1 à D8, A1 à A11, S1 à S7 et T1 à T12.
 ## 9. Ressources et données à fournir ou à vérifier
 
 **À fournir par Awad**
-- [ ] Photo : portrait au format 4:5 (texte alternatif « Portrait d'Awad Ahmed »).
+- [ ] Photo : portrait au format carré, affiché en rond (texte alternatif « Portrait d'Awad Ahmed »).
 - [ ] 3 CV en PDF (`awad-ahmed-cv-fr.pdf`, `-en`, `-de`), sans e-mail ni téléphone personnels ; leur taille apparaît dans leur lien.
 - [ ] Adresse de réception du formulaire et clé API Resend, placées sur le serveur uniquement (A7).
 

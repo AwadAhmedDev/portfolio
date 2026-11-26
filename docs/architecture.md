@@ -136,7 +136,7 @@ export async function generateMetadata({ params }) {
 - **Contrôles du workflow** (il échoue si l'un d'eux ne passe pas) :
   - formats d'entrée acceptés : PNG et JPEG ; noms de fichiers en minuscules, sans espace ni accent ;
   - **suppression de toutes les métadonnées** (EXIF, GPS, appareil), en particulier pour la photo d'Awad ;
-  - largeurs produites : 640, 960 et 1 440 px pour les captures ; 200, 320 et 640 px pour la photo (format 4:5) ; jamais d'agrandissement d'une image plus petite ;
+  - largeurs produites : 640, 960 et 1 440 px pour les captures ; 200, 320 et 640 px pour la photo (format carré, affichée en rond) ; jamais d'agrandissement d'une image plus petite ;
   - qualité fixe (AVIF ≈ 50, WebP ≈ 75) et **poids maximal de 200 Ko par fichier produit** ;
   - chaque image produite correspond à une image déclarée dans `content/` (avec son texte alternatif), et inversement ;
   - résultat proposé dans une **pull request** (pas de push direct sur `main`), pour qu'Awad voie les images avant de les fusionner.
