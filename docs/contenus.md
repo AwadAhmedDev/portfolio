@@ -270,24 +270,49 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
 ## 4. À propos — `/a-propos/`
 
 **Titre de la page** : À propos — Awad Ahmed, développeur Full Stack
-**Description** : Compétences, parcours et façon de travailler d'Awad Ahmed, développeur Full Stack JavaScript / TypeScript en Île-de-France.
+**Description** : Awad Ahmed, développeur Full Stack JavaScript / TypeScript en Île-de-France : ce qu'il apporte aux entreprises et aux porteurs de projet, compétences et parcours.
+
+Refonte du 26/11/2026 : texte proposé par Awad, adapté (chaque promesse a une preuve vérifiable ; « respect strict des délais » devient un engagement pris dans le devis ; « ROI » dit en mots simples). Les nombres entre accolades sont calculés depuis les données des projets.
 
 ### 4.1 Présentation
-- Grand titre : **À propos**
-- Texte : **Je suis Awad Ahmed, développeur Full Stack JavaScript / TypeScript en Île-de-France. Formé chez Simplon.co, je réalise des applications web complètes, de l'interface à la base de données, et je les mets en ligne. J'ai livré des projets pour des clients, que vous pouvez visiter aujourd'hui.**
+- Surtitre : **À propos**
+- Grand titre : **Je transforme un besoin en application web qui fonctionne.**
+- Texte (3 paragraphes) :
+  1. **Je suis Awad Ahmed, développeur Full Stack JavaScript / TypeScript en Île-de-France. Je conçois des applications web sur mesure, de la base de données jusqu'à l'écran de vos utilisateurs.**
+  2. **Mon objectif : allier rigueur technique et vision business. Avant d'écrire du code, je cherche à comprendre ce que le produit doit apporter, puis je livre une solution solide qui répond précisément au besoin.**
+  3. **Formé chez Simplon.co, j'ai déjà livré {clients} projets pour des clients, tous en ligne aujourd'hui.**
+- Boutons : **Voir mes projets** (principal) · **Me contacter**
 
-### 4.2 Compétences
-- **Utilisé dans plusieurs projets** : React, TypeScript, Vite, Next.js, Node.js, Express, MySQL, Prisma, PostgreSQL, Supabase, Tailwind CSS, Zod, Vitest, Supertest, GitHub Actions, Resend, Stripe (mode test), Cloudflare R2, Dependabot
-- **Utilisé dans un projet** : Row Level Security et Edge Functions (Supabase), Cloudflare Turnstile, Better Auth, Playwright, Docker, Caddy, shadcn/ui, JWT
-- **Outils de travail** : Git et GitHub, Hostinger, Claude Code, Claude Design, ChatGPT
+### 4.2 Ce que je garantis
+Sous-titre : **À mes clients comme à mes employeurs.**
+- **Une maîtrise de bout en bout** : Je prends en charge une fonctionnalité entière : base de données, API, serveur, puis une interface fluide et agréable sur tous les écrans. — Preuve : {clients} projets clients en ligne, que vous pouvez visiter
+- **Vos objectifs avant la technique** : Je traduis vos objectifs en fonctionnalités concrètes et je choisis la solution la plus simple qui marche : moins de coûts, une mise en ligne plus rapide, des utilisateurs satisfaits. — Preuve : {seo} de mes sites ont 100/100 en référencement sur l'outil de Google
+- **Fiabilité et transparence** : Code propre et versionné avec Git, tests automatisés, intégration continue. Je vous tiens informé à chaque étape et je m'engage sur un délai dès le devis. — Preuve : {tests} tests automatiques sur mes {projets} projets
 
-Phrase sous les compétences : **Je n'affiche que des technologies utilisées dans des projets que vous pouvez consulter.**
+### 4.3 Comment je peux vous aider
+- **01 · CDI, CDD ou mission longue — Entreprises et recruteurs**
+  - Je m'intègre dans votre équipe : je lis le code existant et je respecte vos conventions.
+  - Je propose des choix d'architecture argumentés (React, Next.js, Node.js, TypeScript).
+  - Je développe des fonctionnalités complètes en autonomie, testées avant la mise en ligne.
+  - Bouton : **Me proposer un poste** → `/contact/`
+- **02 · Freelance — Porteurs de projet et startups**
+  - Un MVP (première version de votre produit) pour tester votre marché rapidement.
+  - La refonte d'un site ou d'une application existante.
+  - L'amélioration de la vitesse et du référencement de votre site.
+  - Bouton : **Parlons de votre projet** → `/contact/?demande=freelance`
 
-### 4.3 Ma façon de travailler
-- **Tester** : mes projets ont des tests automatisés, lancés à chaque modification.
-- **Automatiser** : intégration continue sur GitHub et mise en ligne automatique.
-- **Mesurer** : je vérifie la vitesse, l'accessibilité et le référencement avec Lighthouse.
-- **Outils d'IA** : **J'utilise Claude Code, Claude Design et ChatGPT pour concevoir, relire le code et écrire des tests. Je relis, je teste et je reste responsable de tout ce que je livre.**
+### 4.3 bis Compétences (par domaine)
+- **Interface (front-end)** : React, TypeScript, Next.js, Vite, Tailwind CSS, shadcn/ui
+- **Serveur et API (back-end)** : Node.js, Express, Zod, JWT, Better Auth, Resend, Stripe (mode test)
+- **Données** : PostgreSQL, MySQL, Prisma, Supabase (Row Level Security, Edge Functions), Cloudflare R2
+- **Qualité et sécurité** : Vitest, Supertest, Playwright, Dependabot, Cloudflare Turnstile
+- **Mise en ligne** : Git et GitHub, GitHub Actions, Docker, Caddy, Hostinger
+- **Outils d'IA** : Claude Code, Claude Design, ChatGPT
+
+Phrase sous le titre : **Je n'affiche que des technologies utilisées dans des projets que vous pouvez consulter.**
+Phrase sous les compétences : **J'utilise ces outils d'IA pour concevoir, relire le code et écrire des tests. Je relis, je teste et je reste responsable de tout ce que je livre.**
+
+Bandeau final : **Un poste à pourvoir ou un projet à lancer ? Parlons-en.** · bouton **Me contacter**
 
 ### 4.4 Parcours
 - **Formation « Développeur web et web mobile » — Simplon.co** · septembre 2025 – avril 2026
