@@ -5,6 +5,16 @@ import { contact } from "../../content/pages";
 const m = contact.messages;
 const MESSAGE = "Bonjour, je souhaite échanger sur un poste.";
 
+// Attend que React ait pris la main sur le formulaire : avant, la saisie et l'envoi sont perdus
+// (cause des échecs au hasard sous WebKit, plus lent à charger).
+async function ouvrir(page: Page, adresse = "/contact/") {
+  await page.goto(adresse);
+  await page.waitForFunction(() => {
+    const form = document.querySelector("form");
+    return !!form && Object.keys(form).some((k) => k.startsWith("__reactProps"));
+  });
+}
+
 async function remplir(page: Page) {
   await page.getByLabel(/Votre nom/).fill("Camille");
   await page.getByLabel(/Votre adresse e-mail/).fill("camille@example.org");
@@ -21,7 +31,7 @@ async function simuler(page: Page, statut: number, corps: object) {
 const envoyer = (page: Page) => page.getByRole("button", { name: "Envoyer le message" }).click();
 
 test("envoi vide : erreurs sous les champs et focus sur le premier", async ({ page }) => {
-  await page.goto("/contact/");
+  await ouvrir(page);
   await envoyer(page);
   await expect(page.locator("#nom-erreur")).toContainText(m.vide);
   await expect(page.locator("#accord-erreur")).toContainText(m.accord);
@@ -30,7 +40,7 @@ test("envoi vide : erreurs sous les champs et focus sur le premier", async ({ pa
 });
 
 test("l'erreur d'un champ disparaît dès qu'il redevient valide (RM3)", async ({ page }) => {
-  await page.goto("/contact/");
+  await ouvrir(page);
   await envoyer(page);
   await page.getByLabel(/Votre nom/).fill("Camille");
   await expect(page.locator("#nom-erreur")).toHaveCount(0);
@@ -39,7 +49,7 @@ test("l'erreur d'un champ disparaît dès qu'il redevient valide (RM3)", async (
 
 test("envoi réussi : confirmation et formulaire vidé", async ({ page }) => {
   await simuler(page, 200, { ok: true });
-  await page.goto("/contact/");
+  await ouvrir(page);
   await remplir(page);
   await envoyer(page);
   await expect(page.locator("form").getByRole("status")).toHaveText(m.succes);
@@ -48,7 +58,7 @@ test("envoi réussi : confirmation et formulaire vidé", async ({ page }) => {
 
 test("trop de demandes : alerte et saisie conservée", async ({ page }) => {
   await simuler(page, 429, { erreur: "trop" });
-  await page.goto("/contact/");
+  await ouvrir(page);
   await remplir(page);
   await envoyer(page);
   await expect(page.locator("form").getByRole("alert")).toHaveText(m.tropDeDemandes);
@@ -57,7 +67,7 @@ test("trop de demandes : alerte et saisie conservée", async ({ page }) => {
 
 test("envoi impossible : alerte avec lien LinkedIn et saisie conservée", async ({ page }) => {
   await simuler(page, 502, { erreur: "envoi" });
-  await page.goto("/contact/");
+  await ouvrir(page);
   await remplir(page);
   await envoyer(page);
   await expect(page.locator("form").getByRole("alert").getByRole("link", { name: "LinkedIn" })).toBeVisible();
@@ -65,6 +75,6 @@ test("envoi impossible : alerte avec lien LinkedIn et saisie conservée", async 
 });
 
 test("?demande=freelance choisit « Projet freelance »", async ({ page }) => {
-  await page.goto("/contact/?demande=freelance");
+  await ouvrir(page, "/contact/?demande=freelance");
   await expect(page.getByRole("radio", { name: "Projet freelance" })).toBeChecked();
 });
