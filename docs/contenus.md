@@ -12,14 +12,14 @@
 
 ### En-tête
 - Logo : modèle d'Awad (« A » évidé et chevron de code « > », 25/11/2026), aux couleurs du site, et **AWAD** en capitales ; les lecteurs d'écran lisent « Awad Ahmed » *(décision d'Awad du 23/11/2026 : « Awad » seulement dans le logo, nom complet partout ailleurs)*
-- Liens : **Projets** · **À propos** · **Contact**
+- Liens : **Accueil** · **Projets** · **À propos** · **Contact**
 - Bouton : **CV** (ouvre le CV en français)
 - Bouton thème : étiquette pour les lecteurs d'écran « Passer en mode sombre » / « Passer en mode clair »
 - Mobile : bouton **Menu** (« Ouvrir le menu » / « Fermer le menu »)
 - Lien d'évitement : **Aller au contenu**
 
 ### Pied de page
-- Liens : Projets · À propos · Contact · CV · Mentions légales
+- Liens : Accueil · Projets · À propos · Contact · CV · Mentions légales
 - LinkedIn · GitHub · Code de ce portfolio
 - © 2026 Awad Ahmed
 
