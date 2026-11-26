@@ -55,7 +55,7 @@ export const projets: Projet[] = [
     debut: "juin 2026",
     site: "https://repatek.fr",
     code: "https://github.com/AwadAhmedDev/repartech-booking",
-    titrePage: "RepaTek — réservation de dépannage informatique · Awad Ahmed",
+    titrePage: "RepaTek — réservation de dépannage informatique · Awad Dev",
     description:
       "Site de réservation pour un technicien informatique à domicile : créneaux calculés, back-office, e-mails. React, TypeScript, Supabase.",
     leProjet:
@@ -116,7 +116,7 @@ export const projets: Projet[] = [
     debut: "mars 2026",
     site: "https://teal-starling-640860.hostingersite.com",
     mentionCode: "Le code de ce projet client est privé. Je peux le présenter en entretien.",
-    titrePage: "I Make My World — plateforme de projets à impact · Awad Ahmed",
+    titrePage: "I Make My World — plateforme de projets à impact · Awad Dev",
     description:
       "Plateforme qui réunit créateurs, experts et investisseurs, avec back-office de modération. React, Express, MySQL, 45 tests.",
     leProjet:
@@ -171,7 +171,7 @@ export const projets: Projet[] = [
     debut: "juin 2026",
     site: "https://snowy-floralwhite-giraffe-20.hostingersite.com",
     code: "https://github.com/AwadAhmedDev/plateforme-editoriale",
-    titrePage: "Plateforme éditoriale — média sur la Corne de l'Afrique · Awad Ahmed",
+    titrePage: "Plateforme éditoriale — média sur la Corne de l'Afrique · Awad Dev",
     description:
       "Média francophone et son espace de rédaction. Next.js 16, Prisma, PostgreSQL, Cloudflare R2. 16 tests, Lighthouse 100.",
     leProjet:
@@ -230,7 +230,7 @@ export const projets: Projet[] = [
     debut: "octobre 2026",
     code: "https://github.com/AwadAhmedDev/nextjs-freelance-template",
     mentionSite: "Pas de site en ligne",
-    titrePage: "Template Next.js SaaS · Awad Ahmed",
+    titrePage: "Template Next.js SaaS · Awad Dev",
     description: "Base de projet SaaS : Next.js 16, Better Auth, Stripe, Prisma, tests Playwright, Docker et Caddy.",
     leProjet:
       "Une base de départ pour lancer une application SaaS : comptes utilisateurs, paiement, e-mails, base de données, tests et déploiement déjà en place.",
@@ -287,7 +287,7 @@ export const projets: Projet[] = [
     debut: "décembre 2025",
     site: "https://darkseagreen-sandpiper-710943.hostingersite.com",
     code: "https://github.com/AwadAhmedDev/eMateriel",
-    titrePage: "eMatériel — boutique en ligne · Awad Ahmed",
+    titrePage: "eMatériel — boutique en ligne · Awad Dev",
     description:
       "Boutique en ligne avec panier, stock et paiement Stripe en mode test. React, Express, MySQL, 63 tests.",
     leProjet:
@@ -343,7 +343,7 @@ export const projets: Projet[] = [
     site: "https://tasteful-lightcoral-yak-94.hostingersite.com",
     code: "https://github.com/AwadAhmedDev/solidays_app",
     mentionHaut: "Projet de formation Simplon.co, réalisé en équipe de 3 : Awad, Prativa et Manon.",
-    titrePage: "Solidays — projet de formation en équipe · Awad Ahmed",
+    titrePage: "Solidays — projet de formation en équipe · Awad Dev",
     description:
       "Reproduction du site du festival Solidays avec gestion des artistes. Projet de formation en équipe de 3. React, Express, MySQL.",
     leProjet:

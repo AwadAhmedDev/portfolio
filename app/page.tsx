@@ -95,7 +95,7 @@ export default function Accueil() {
               ratio="1:1"
               sizes="(min-width: 768px) 320px, 200px"
               prioritaire
-              provisoire={{ libelle: "Photo provisoire", alt: "Portrait d'Awad Ahmed" }}
+              provisoire={{ libelle: "Photo provisoire", alt: "Portrait d'Awad" }}
             />
           </div>
         </div>
@@ -239,19 +239,24 @@ export default function Accueil() {
               ))}
             </ol>
           </div>
-          <div className="border-t border-border pt-6 wide:col-span-3">
-            <h3 className="text-[22px]">{a.freelance.inclusTitre}</h3>
-            <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-              {a.freelance.inclus.map((x) => (
-                <li key={x} className="flex items-start gap-3 rounded-[10px] bg-background px-4 py-3">
-                  <span className="mt-0.5 text-primary">
-                    <IconeCoche />
-                  </span>
-                  {x}
-                </li>
-              ))}
-            </ul>
-          </div>
+          {[
+            { titre: a.freelance.refonteTitre, liste: a.freelance.refonte },
+            { titre: a.freelance.inclusTitre, liste: a.freelance.inclus },
+          ].map((bloc) => (
+            <div key={bloc.titre} className="border-t border-border pt-6 wide:col-span-3">
+              <h3 className="text-[22px]">{bloc.titre}</h3>
+              <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                {bloc.liste.map((x) => (
+                  <li key={x} className="flex items-start gap-3 rounded-[10px] bg-background px-4 py-3">
+                    <span className="mt-0.5 text-primary">
+                      <IconeCoche />
+                    </span>
+                    {x}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </section>
 

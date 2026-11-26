@@ -9,7 +9,7 @@ export type ImageDeclaree = { nom: string; alt: string };
 // Captures des 5 sites en ligne, prises le 23/11/2026 par le workflow Captures (relues : aucune donnée personnelle).
 export const images: ImageDeclaree[] = [
   // Photo fournie par Awad le 26/11/2026 (provisoire, en attendant une photo plus grande).
-  { nom: "awad-ahmed", alt: "Portrait d'Awad Ahmed" },
+  { nom: "awad-ahmed", alt: "Portrait d'Awad" },
   { nom: "repatek-ordinateur", alt: "Page d'accueil du site RepaTek sur ordinateur" },
   { nom: "repatek-mobile", alt: "Page d'accueil du site RepaTek sur téléphone" },
   { nom: "i-make-my-world-ordinateur", alt: "Page d'accueil du site I Make My World sur ordinateur" },

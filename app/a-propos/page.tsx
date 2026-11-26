@@ -53,7 +53,7 @@ export default function APropos() {
               ratio="1:1"
               sizes="(min-width: 768px) 320px, 200px"
               prioritaire
-              provisoire={{ libelle: "Photo provisoire", alt: "Portrait d'Awad Ahmed" }}
+              provisoire={{ libelle: "Photo provisoire", alt: "Portrait d'Awad" }}
             />
           </div>
         </div>

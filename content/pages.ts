@@ -1,11 +1,11 @@
 // Textes des pages, recopiés mot pour mot de docs/contenus.md (règle R8).
 
 export const accueil = {
-  titrePage: "Awad Ahmed — Développeur Full Stack JavaScript / TypeScript",
+  titrePage: "Awad Dev — Développeur Full Stack JavaScript / TypeScript",
   description:
     "Développeur Full Stack en Île-de-France. Applications web complètes et en ligne, avec React, Next.js et Node.js. Ouvert aux postes en CDI ou CDD et aux missions freelance.",
   petitTitre: "Développeur Full Stack JavaScript / TypeScript",
-  titre: "Awad Ahmed",
+  titre: "Awad",
   technologies: ["React", "Next.js", "Node.js"],
   presentation:
     "Je conçois, développe et mets en ligne des applications web complètes : de l'interface au serveur et à la base de données, avec des tests et un déploiement automatique.",
@@ -94,10 +94,12 @@ export const accueil = {
   },
   freelance: {
     titre: "Vous avez un projet de site ou d'application ?",
-    texte: "Entrepreneur, artisan ou PME : je réalise votre projet de A à Z et je le mets en ligne.",
+    texte:
+      "Entrepreneur, artisan ou PME : je crée votre site de A à Z, ou je refais celui que vous avez déjà, puis je le mets en ligne.",
     realisationsTitre: "Ce que je réalise",
     realisations: [
       "Site vitrine",
+      "Refonte de votre site actuel",
       "Réservation en ligne",
       "Boutique en ligne",
       "Application sur mesure",
@@ -108,6 +110,14 @@ export const accueil = {
       { titre: "Échange gratuit", texte: "vous me présentez votre besoin." },
       { titre: "Devis", texte: "je vous propose une solution, un prix et un délai." },
       { titre: "Réalisation et mise en ligne", texte: "je développe, je teste et je mets votre site en ligne." },
+    ],
+    // Ajouté le 26/11/2026 (demande d'Awad) : pour les clients qui ont déjà un site et veulent le refaire.
+    refonteTitre: "Vous avez déjà un site ?",
+    refonte: [
+      "Je fais le point sur votre site actuel : vitesse, référencement Google, affichage sur téléphone",
+      "Je le refais avec un design moderne, en gardant vos textes et vos images",
+      "Votre place sur Google est préservée : les anciennes adresses mènent aux nouvelles pages",
+      "Je m'occupe du changement d'hébergeur ou de nom de domaine si besoin",
     ],
     // Ajouté le 25/11/2026 : ce qu'Awad inclut vraiment (1 mois de corrections, maintenance en option).
     inclusTitre: "Ce qui est inclus",
@@ -123,7 +133,7 @@ export const accueil = {
 };
 
 export const pageProjets = {
-  titrePage: "Projets — Awad Ahmed",
+  titrePage: "Projets — Awad Dev",
   description:
     "Six projets web : trois projets clients en ligne, un template SaaS et deux projets de formation. Technologies, rôle et preuves de qualité.",
   titre: "Mes projets",
@@ -133,14 +143,14 @@ export const pageProjets = {
 };
 
 export const aPropos = {
-  titrePage: "À propos — Awad Ahmed, développeur Full Stack",
+  titrePage: "À propos — Awad Dev, développeur Full Stack JavaScript / TypeScript",
   description:
-    "Awad Ahmed, développeur Full Stack JavaScript / TypeScript en Île-de-France : ce qu'il apporte aux entreprises et aux porteurs de projet, compétences et parcours.",
+    "Awad, développeur Full Stack JavaScript / TypeScript en Île-de-France : ce qu'il apporte aux entreprises et aux porteurs de projet, compétences et parcours.",
   // Refonte du 26/11/2026 (texte proposé par Awad, adapté) : chaque promesse a une preuve vérifiable.
   surtitre: "À propos",
   titre: "Je transforme un besoin en application web qui fonctionne.",
   presentation: [
-    "Je suis Awad Ahmed, développeur Full Stack JavaScript / TypeScript en Île-de-France. Je conçois des applications web sur mesure, de la base de données jusqu'à l'écran de vos utilisateurs.",
+    "Je suis Awad, développeur Full Stack JavaScript / TypeScript en Île-de-France. Je conçois des applications web sur mesure, de la base de données jusqu'à l'écran de vos utilisateurs.",
     "Mon objectif : allier rigueur technique et vision business. Avant d'écrire du code, je cherche à comprendre ce que le produit doit apporter, puis je livre une solution solide qui répond précisément au besoin.",
     "Formé chez Simplon.co, j'ai déjà livré {clients} projets pour des clients, tous en ligne aujourd'hui.",
   ],
@@ -240,9 +250,9 @@ export const aPropos = {
 };
 
 export const contact = {
-  titrePage: "Contact — Awad Ahmed",
+  titrePage: "Contact — Awad Dev",
   description:
-    "Proposer un poste, une mission freelance ou poser une question à Awad Ahmed, développeur Full Stack. Réponse sous 24 h.",
+    "Proposer un poste, une mission freelance ou poser une question à Awad, développeur Full Stack JavaScript / TypeScript. Réponse sous 24 h.",
   titre: "Me contacter",
   intro: "Un poste en CDI ou CDD, une mission freelance ou une simple question : écrivez-moi. Je réponds sous 24 h.",
   moyens: "Pour me joindre : ce formulaire ou LinkedIn.",
@@ -289,7 +299,7 @@ export const contact = {
 };
 
 export const page404 = {
-  titrePage: "Page introuvable — Awad Ahmed",
+  titrePage: "Page introuvable — Awad Dev",
   titre: "Cette page n'existe pas.",
   texte: "L'adresse est peut-être mal écrite, ou la page a été déplacée.",
 };
@@ -297,8 +307,8 @@ export const page404 = {
 // Mentions légales (contenus.md §6, décision A11). La note interne sur l'adresse de Hostinger n'est pas affichée ;
 // adresse revérifiée le 23/11/2026 dans les conditions d'utilisation de Hostinger.
 export const mentions = {
-  titrePage: "Mentions légales — Awad Ahmed",
-  description: "Éditeur, hébergeur et traitement des données personnelles du portfolio d'Awad Ahmed.",
+  titrePage: "Mentions légales — Awad Dev",
+  description: "Éditeur, hébergeur et traitement des données personnelles du portfolio Awad Dev.",
   titre: "Mentions légales",
   editeur: {
     titre: "Éditeur du site",
@@ -339,6 +349,6 @@ export const mentions = {
   propriete: {
     titre: "Propriété",
     texte:
-      "Les textes et le code de ce site sont ceux d'Awad Ahmed ; les captures d'écran montrent des sites qu'il a réalisés.",
+      "Les textes et le code de ce site sont ceux d'Awad ; les captures d'écran montrent des sites qu'il a réalisés.",
   },
 };

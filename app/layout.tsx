@@ -16,12 +16,13 @@ export const metadata: Metadata = {
   title: accueil.titrePage,
   description: accueil.description,
   // Favicons figés dans public/ (logo d'Awad : « A » et chevron « > ») : SVG pour les navigateurs actuels, ICO pour les anciens, PNG pour iOS.
+  // « ?v= » : à augmenter à chaque nouveau dessin, sinon les navigateurs gardent l'ancien favicon (cache de 7 jours).
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/favicon.svg?v=3", type: "image/svg+xml" },
+      { url: "/favicon.ico?v=3", sizes: "32x32" },
     ],
-    apple: "/apple-touch-icon.png",
+    apple: "/apple-touch-icon.png?v=3",
   },
 };
 

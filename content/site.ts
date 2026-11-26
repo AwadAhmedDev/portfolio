@@ -1,7 +1,8 @@
 // Éléments communs (docs/contenus.md §0) et liens externes connus (docs/design.md §9).
 
-export const SITE_NOM = "Awad Ahmed";
-// Nom affiché à côté du logo (décision d'Awad du 23/11/2026) ; le nom complet reste partout ailleurs.
+export const SITE_NOM = "Awad Dev";
+// Nom du site « Awad Dev » et « Awad » à côté du logo (décision d'Awad du 26/11/2026). Le nom complet ne reste que dans
+// les mentions légales (éditeur et destinataire des données), où la loi l'exige.
 export const LOGO_NOM = "Awad";
 
 export const nav = [
