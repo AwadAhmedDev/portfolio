@@ -11,7 +11,7 @@ export const accueil = {
     "Je conçois, développe et mets en ligne des applications web complètes : de l'interface au serveur et à la base de données, avec des tests et un déploiement automatique.",
   // Premier écran refait le 25/11/2026 (choix d'Awad) : le titre dit ce que je fais, le nom passe au-dessus.
   accroche: "Je conçois et développe des applications web complètes, testées et mises en ligne.",
-  sousAccroche: "De l'interface au serveur et à la base de données.",
+  sousAccroche: "De l'interface au serveur et à la base de données, avec React, Next.js et Node.js.",
   // Preuves du premier écran, en langage client (25/11/2026) ; {enLigne} et {clients} sont calculés.
   preuvesHaut: [
     "{enLigne} sites en ligne, dont {clients} pour des clients",
