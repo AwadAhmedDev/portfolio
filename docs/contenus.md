@@ -75,31 +75,33 @@ Juste sous le premier écran, deux cartes pour que chaque visiteur trouve son ch
 
 Petite note sous les chiffres : *Chiffres relevés sur les dépôts et les sites en ligne le 22 novembre 2026.*
 
-### 1.4 Bloc freelance
+### 1.4 Bloc freelance *(repensé le 26/11/2026, demande d'Awad : deux parcours, premier site ou refonte)*
 - Titre : **Vous avez un projet de site ou d'application ?**
-- Texte : **Entrepreneur, artisan ou PME : je crée votre site de A à Z, ou je refais celui que vous avez déjà, puis je le mets en ligne.**
-- Ce que je réalise :
-  - Site vitrine
-  - Refonte de votre site actuel
-  - Réservation en ligne
-  - Boutique en ligne
-  - Application sur mesure
-  - Back-office pour gérer votre activité
+- Texte : **Entrepreneur, artisan, association ou PME : que ce soit votre tout premier site ou la refonte de l'actuel, je m'occupe de tout, de l'idée à la mise en ligne.**
+- Bouton : **Parlons de votre projet** (vers `/contact/?demande=freelance`)
+- Ce que je réalise : Site vitrine · Réservation en ligne · Boutique en ligne · Application sur mesure · Back-office pour gérer votre activité · Refonte d'un site existant
 - Comment je travaille :
-  1. **Échange gratuit** — vous me présentez votre besoin.
-  2. **Devis** — je vous propose une solution, un prix et un délai.
-  3. **Réalisation et mise en ligne** — je développe, je teste et je mets votre site en ligne.
-- Vous avez déjà un site ? *(ajouté le 26/11/2026, demande d'Awad : clients qui veulent refaire leur site)* :
-  - Je fais le point sur votre site actuel : vitesse, référencement Google, affichage sur téléphone
-  - Je le refais avec un design moderne, en gardant vos textes et vos images
+  1. **Échange gratuit** — vous me présentez votre besoin ; si vous avez déjà un site, je l'analyse avant.
+  2. **Devis** — une solution, un prix et un délai clairs, sans surprise.
+  3. **Réalisation** — je développe et je teste ; vous suivez l'avancement et donnez votre avis.
+  4. **Mise en ligne** — votre site est en ligne et je vous montre comment le gérer.
+- **Votre premier site ou application** — Vous partez de zéro ? Je vous accompagne à chaque étape.
+  - Je vous aide à définir l'essentiel : objectifs, pages, fonctionnalités et budget
+  - Je m'occupe de toute la technique : nom de domaine, hébergement, connexion sécurisée (HTTPS)
+  - Rapide, sécurisé et accessible à tous dès le premier jour, sur téléphone comme sur ordinateur
+  - Prêt pour Google : titres, descriptions et aperçus pour les réseaux sociaux
+- **Vous avez déjà un site ?** — Il est lent, daté ou mal référencé ? Je le remets à niveau.
+  - Je fais le point : vitesse, référencement, sécurité, accessibilité et affichage sur téléphone
+  - Je le refais avec un design moderne, en gardant vos textes, vos images et votre identité
+  - Plus sûr : connexion HTTPS, serveur protégé, formulaires à l'abri des robots
   - Votre place sur Google est préservée : les anciennes adresses mènent aux nouvelles pages
-  - Je m'occupe du changement d'hébergeur ou de nom de domaine si besoin
-- Ce qui est inclus *(ajouté le 25/11/2026, décisions d'Awad : 1 mois de corrections, maintenance en option)* :
-  - Mise en ligne de votre site, avec nom de domaine et hébergement configurés
+  - Changement d'hébergeur ou de nom de domaine si besoin
+- Ce qui est inclus *(décisions d'Awad du 25/11/2026 : 1 mois de corrections, maintenance en option)* :
+  - Mise en ligne, avec nom de domaine et hébergement configurés
+  - Vitesse, sécurité et accessibilité contrôlées avant la livraison
   - Prise en main : je vous montre comment gérer votre site
   - 1 mois de corrections offertes après la mise en ligne
   - Maintenance proposée après la livraison, selon vos besoins
-- Bouton : **Parlons de votre projet** (vers `/contact/?demande=freelance`)
 
 ### 1.5 Rappel du contact
 - Texte : **Un poste, une mission ou une question ? Je réponds sous 24 h.**

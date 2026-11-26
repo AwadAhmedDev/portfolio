@@ -239,24 +239,38 @@ export default function Accueil() {
               ))}
             </ol>
           </div>
-          {[
-            { titre: a.freelance.refonteTitre, liste: a.freelance.refonte },
-            { titre: a.freelance.inclusTitre, liste: a.freelance.inclus },
-          ].map((bloc) => (
-            <div key={bloc.titre} className="border-t border-border pt-6 wide:col-span-3">
-              <h3 className="text-[22px]">{bloc.titre}</h3>
-              <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-                {bloc.liste.map((x) => (
-                  <li key={x} className="flex items-start gap-3 rounded-[10px] bg-background px-4 py-3">
-                    <span className="mt-0.5 text-primary">
-                      <IconeCoche />
-                    </span>
-                    {x}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* Deux parcours : premier site ou refonte (26/11/2026). */}
+          <ul className="grid gap-4 border-t border-border pt-6 md:grid-cols-2 wide:col-span-3">
+            {a.freelance.parcours.map((p) => (
+              <li key={p.titre} className="rounded-[16px] border-t-[3px] border-t-primary bg-background p-6">
+                <h3 className="text-[22px]">{p.titre}</h3>
+                <p className="mt-1 text-muted-foreground">{p.intro}</p>
+                <ul className="mt-4 flex flex-col gap-3">
+                  {p.points.map((x) => (
+                    <li key={x} className="flex items-start gap-3">
+                      <span className="mt-0.5 text-primary">
+                        <IconeCoche />
+                      </span>
+                      {x}
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+          <div className="border-t border-border pt-6 wide:col-span-3">
+            <h3 className="text-[22px]">{a.freelance.inclusTitre}</h3>
+            <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+              {a.freelance.inclus.map((x) => (
+                <li key={x} className="flex items-start gap-3 rounded-[10px] bg-background px-4 py-3">
+                  <span className="mt-0.5 text-primary">
+                    <IconeCoche />
+                  </span>
+                  {x}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
