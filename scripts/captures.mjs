@@ -66,11 +66,19 @@ async function reservationRepatek(page, capture) {
   await page.waitForTimeout(1200);
   await capture("repatek-etape-prestation");
   await reservation.getByRole("button", { name: /continuer/i }).click();
-  // 2. Date et créneau : premier jour disponible, puis premier créneau proposé.
-  await reservation.locator(".overflow-x-auto button:not([disabled])").first().click();
-  await reservation.locator(".grid button").first().waitFor({ timeout: 30_000 });
+  // 2. Date et créneau : premier jour qui a des créneaux libres (un jour peut être complet), puis le premier créneau.
+  const jours = reservation.locator(".overflow-x-auto button:not([disabled])");
+  const creneaux = reservation.locator(".grid button");
+  const complet = reservation.getByText(/aucun horaire disponible/i);
+  let trouve = false;
+  for (let i = 0; i < Math.min(await jours.count(), 14) && !trouve; i++) {
+    await jours.nth(i).click();
+    await creneaux.first().or(complet).waitFor({ timeout: 30_000 });
+    trouve = await creneaux.first().isVisible();
+  }
+  if (!trouve) throw new Error("Aucun créneau libre sur les 14 prochains jours");
   await page.waitForTimeout(800);
-  await reservation.locator(".grid button").first().click();
+  await creneaux.first().click();
   await page.waitForTimeout(1200);
   await capture("repatek-etape-creneau");
   await reservation.getByRole("button", { name: /continuer/i }).click();
