@@ -23,6 +23,33 @@
     "largeur": 1440,
     "hauteur": 900
   },
+  "i-make-my-world-etape-catalogue": {
+    "largeurs": [
+      640,
+      960,
+      1440
+    ],
+    "largeur": 1440,
+    "hauteur": 900
+  },
+  "i-make-my-world-etape-experts": {
+    "largeurs": [
+      640,
+      960,
+      1440
+    ],
+    "largeur": 1440,
+    "hauteur": 900
+  },
+  "i-make-my-world-etape-projet": {
+    "largeurs": [
+      640,
+      960,
+      1440
+    ],
+    "largeur": 1440,
+    "hauteur": 900
+  },
   "i-make-my-world-mobile": {
     "largeurs": [
       640

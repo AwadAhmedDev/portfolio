@@ -207,6 +207,31 @@ export const projets: Projet[] = [
       { titre: "Données", detail: "MySQL, images privées sur Cloudflare R2" },
       { titre: "Services", detail: "Resend pour les e-mails" },
     ],
+    parcours: [
+      {
+        image: "i-make-my-world-etape-catalogue",
+        titre: "1. Le catalogue des projets, filtré",
+        legende: "Recherche et filtre par thématique : le nombre de projets trouvés se met à jour aussitôt.",
+      },
+      {
+        image: "i-make-my-world-etape-projet",
+        titre: "2. La fiche d'un projet",
+        legende:
+          "Description, marché, problème, solution et porteur du projet. Tout contenu publié a d'abord été validé par un administrateur.",
+      },
+      {
+        image: "i-make-my-world-etape-experts",
+        titre: "3. L'annuaire des experts, filtré par domaine",
+        legende:
+          "Chaque expert présente son domaine et son expérience, et un porteur de projet peut lui demander un accompagnement.",
+      },
+    ],
+    video: {
+      fichier: "/videos/i-make-my-world-parcours.mp4",
+      poster: "/images/i-make-my-world-etape-catalogue-960.webp",
+      description:
+        "Vidéo sans son : filtre des projets par catégorie, ouverture d'une fiche, puis annuaire des experts filtré par domaine. Données de démonstration du site.",
+    },
     qualite: ["45 tests d'intégration (Vitest et Supertest)", "TypeScript strict", "Intégration continue"],
     tests: { integration: 45 },
     lighthouse: {
