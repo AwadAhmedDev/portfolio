@@ -183,6 +183,33 @@ async function parcoursEmateriel(page, capture) {
   await capture("emateriel-etape-panier");
 }
 
+// Solidays (27/11/2026) : programmation filtrée par jour, fiche d'un artiste, billetterie (liens officiels).
+// Site d'information seulement : aucun formulaire.
+const SOLIDAYS = "https://tasteful-lightcoral-yak-94.hostingersite.com";
+async function parcoursSolidays(page, capture) {
+  // 1. Programmation, filtrée sur le samedi.
+  await page.goto(`${SOLIDAYS}/programmation`, { waitUntil: "load", timeout: 120_000 });
+  await refuserCookies(page);
+  await page.locator('a[href^="/artist/"]').first().waitFor({ timeout: 90_000 });
+  await page.waitForTimeout(2500); // photos des artistes
+  await page.getByRole("button", { name: "Samedi", exact: true }).click();
+  await page.waitForTimeout(2000);
+  await capture("solidays-etape-programmation");
+  // 2. Fiche du premier artiste affiché.
+  await page.locator('a[href^="/artist/"]').first().click();
+  await page.waitForURL("**/artist/**", { timeout: 60_000 });
+  await page.waitForTimeout(2500);
+  await capture("solidays-etape-artiste");
+  // 3. Billetterie : liens vers les vendeurs officiels.
+  await page.goto(`${SOLIDAYS}/billetterie`, { waitUntil: "load", timeout: 90_000 });
+  await page.waitForTimeout(2000);
+  // Cadrer sur les pass (le bandeau du haut n'apprend rien) : titre « Choisissez votre pass » en haut de l'écran.
+  const pass = page.getByRole("heading", { name: /choisissez votre pass/i });
+  await pass.evaluate((titre) => window.scrollTo({ top: titre.getBoundingClientRect().top + window.scrollY - 140 }));
+  await page.waitForTimeout(1500);
+  await capture("solidays-etape-billetterie");
+}
+
 // Pour chaque parcours : captures fixes, puis la même suite filmée (pauses plus longues pour que la vidéo se suive bien).
 // La vidéo est coupée au début (chargement) et à la fin (attente) par le workflow, grâce aux fichiers .debut et .duree.
 const PARCOURS = {
@@ -190,6 +217,7 @@ const PARCOURS = {
   "i-make-my-world-parcours": parcoursImakemyworld,
   "plateforme-editoriale-parcours": parcoursPlateforme,
   "emateriel-parcours": parcoursEmateriel,
+  "solidays-parcours": parcoursSolidays,
 };
 const { renameSync, writeFileSync } = await import("node:fs");
 for (const [video, parcours] of Object.entries(PARCOURS)) {
