@@ -24,6 +24,19 @@ export const images: ImageDeclaree[] = [
   },
   { nom: "i-make-my-world-ordinateur", alt: "Page d'accueil du site I Make My World sur ordinateur" },
   { nom: "i-make-my-world-mobile", alt: "Page d'accueil du site I Make My World sur téléphone" },
+  // Parcours I Make My World (27/11/2026), capturé par le robot sur les données de démonstration du site.
+  {
+    nom: "i-make-my-world-etape-catalogue",
+    alt: "I Make My World, catalogue des projets filtré sur la catégorie Transport",
+  },
+  {
+    nom: "i-make-my-world-etape-projet",
+    alt: "I Make My World, fiche d'un projet avec ses catégories, sa maturité et son porteur",
+  },
+  {
+    nom: "i-make-my-world-etape-experts",
+    alt: "I Make My World, annuaire des experts filtré sur le domaine Intelligence Artificielle",
+  },
   { nom: "plateforme-editoriale-ordinateur", alt: "Page d'accueil du site Plateforme éditoriale sur ordinateur" },
   { nom: "plateforme-editoriale-mobile", alt: "Page d'accueil du site Plateforme éditoriale sur téléphone" },
   { nom: "emateriel-ordinateur", alt: "Page d'accueil du site eMatériel sur ordinateur" },

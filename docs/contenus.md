@@ -177,6 +177,11 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
 
 - **Le projet** : I Make My World réunit sur une même plateforme des créateurs, qui publient des projets à impact, des experts, qui proposent leur accompagnement, et des investisseurs, qui découvrent des projets à soutenir. Tout contenu publié est d'abord validé par un administrateur.
 - **Mon rôle** : seul développeur, de la conception à la mise en ligne.
+- **Le parcours en images** *(27/11/2026, captures et vidéo prises par le robot sur les données de démonstration du site)* :
+  1. **1. Le catalogue des projets, filtré** — Recherche et filtre par thématique : le nombre de projets trouvés se met à jour aussitôt.
+  2. **2. La fiche d'un projet** — Description, marché, problème, solution et porteur du projet. Tout contenu publié a d'abord été validé par un administrateur.
+  3. **3. L'annuaire des experts, filtré par domaine** — Chaque expert présente son domaine et son expérience, et un porteur de projet peut lui demander un accompagnement.
+  - Vidéo (environ 18 s, sans son, `/videos/i-make-my-world-parcours.mp4`) : **Vidéo sans son : filtre des projets par catégorie, ouverture d'une fiche, puis annuaire des experts filtré par domaine. Données de démonstration du site.**
 - **Fonctionnalités** :
   - Catalogue des projets filtrable par thématique, annuaire des experts filtrable par domaine, demande d'accompagnement.
   - Espace membre : profil, changement de mot de passe, suppression du compte.
