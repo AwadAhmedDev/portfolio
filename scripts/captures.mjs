@@ -87,37 +87,83 @@ async function reservationRepatek(page, capture) {
   await capture("repatek-etape-coordonnees");
 }
 
-// Captures fixes, puis la même suite filmée (pauses plus longues pour que la vidéo se suive bien).
-{
-  const contexte = await navigateur.newContext({ ...ecran, reducedMotion: "reduce" });
-  const page = await contexte.newPage();
-  await reservationRepatek(page, (nom) =>
-    page.screenshot({ path: `images-source/${nom}.png` }).then(() => console.log(`${nom}.png`)),
-  );
-  await contexte.close();
+// I Make My World (27/11/2026) : catalogue filtré par catégorie, fiche d'un projet, annuaire des experts filtré.
+// Données de démonstration du site (projets et experts fictifs) ; le robot ne remplit ni n'envoie aucun formulaire.
+const IMMW = "https://teal-starling-640860.hostingersite.com";
+async function refuserCookies(page) {
+  await page
+    .getByRole("button", { name: /tout refuser/i })
+    .first()
+    .click({ timeout: 5000 })
+    .catch(() => {});
 }
-{
-  const contexte = await navigateur.newContext({
-    ...ecran,
-    recordVideo: { dir: "videos-source", size: { width: 1440, height: 900 } },
-  });
-  const page = await contexte.newPage();
-  const debut = Date.now();
-  let pret = 0;
-  await reservationRepatek(page, async () => {
-    if (!pret) pret = Date.now();
-    await page.waitForTimeout(1500);
-  });
-  const fin = Date.now(); // le formulaire de coordonnées est à l'écran depuis 1,5 s
+async function parcoursImakemyworld(page, capture) {
+  await page.goto(`${IMMW}/projets`, { waitUntil: "load", timeout: 90_000 });
+  await refuserCookies(page);
+  await page
+    .getByRole("link", { name: /voir le projet/i })
+    .first()
+    .waitFor({ timeout: 60_000 });
+  await page.waitForTimeout(1200);
+  // 1. Catalogue filtré : catégorie « Transport ».
+  await page.getByRole("combobox").first().selectOption({ label: "Transport" });
   await page.waitForTimeout(1500);
-  const video = page.video();
-  await contexte.close();
-  const { renameSync, writeFileSync } = await import("node:fs");
-  renameSync(await video.path(), "videos-source/repatek-reservation.webm");
-  // On coupe le chargement au début et l'attente à la fin : la vidéo ne montre que le parcours.
-  const coupe = Math.max(0, (pret - debut) / 1000 - 3.5);
-  writeFileSync("videos-source/repatek-reservation.debut", String(coupe));
-  writeFileSync("videos-source/repatek-reservation.duree", String((fin - debut) / 1000 + 0.5 - coupe));
-  console.log("repatek-reservation.webm");
+  await capture("i-make-my-world-etape-catalogue");
+  // 2. Fiche du premier projet affiché.
+  await page
+    .getByRole("link", { name: /voir le projet/i })
+    .first()
+    .click();
+  await page.getByRole("heading", { level: 1 }).waitFor({ timeout: 30_000 });
+  await page.waitForTimeout(1500);
+  await capture("i-make-my-world-etape-projet");
+  // 3. Annuaire des experts, filtré par domaine.
+  await page.goto(`${IMMW}/expertises`, { waitUntil: "load", timeout: 90_000 });
+  await refuserCookies(page);
+  await page
+    .getByText(/experts? trouvés?/i)
+    .first()
+    .waitFor({ timeout: 60_000 });
+  await page.waitForTimeout(1000);
+  await page.getByRole("button", { name: "Intelligence Artificielle", exact: true }).click();
+  await page.waitForTimeout(1500);
+  await capture("i-make-my-world-etape-experts");
+}
+
+// Pour chaque parcours : captures fixes, puis la même suite filmée (pauses plus longues pour que la vidéo se suive bien).
+// La vidéo est coupée au début (chargement) et à la fin (attente) par le workflow, grâce aux fichiers .debut et .duree.
+const PARCOURS = { "repatek-reservation": reservationRepatek, "i-make-my-world-parcours": parcoursImakemyworld };
+const { renameSync, writeFileSync } = await import("node:fs");
+for (const [video, parcours] of Object.entries(PARCOURS)) {
+  {
+    const contexte = await navigateur.newContext({ ...ecran, reducedMotion: "reduce" });
+    const page = await contexte.newPage();
+    await parcours(page, (nom) =>
+      page.screenshot({ path: `images-source/${nom}.png` }).then(() => console.log(`${nom}.png`)),
+    );
+    await contexte.close();
+  }
+  {
+    const contexte = await navigateur.newContext({
+      ...ecran,
+      recordVideo: { dir: "videos-source", size: { width: 1440, height: 900 } },
+    });
+    const page = await contexte.newPage();
+    const debut = Date.now();
+    let pret = 0;
+    await parcours(page, async () => {
+      if (!pret) pret = Date.now();
+      await page.waitForTimeout(1500);
+    });
+    const fin = Date.now(); // dernier écran à l'écran depuis 1,5 s
+    await page.waitForTimeout(1500);
+    const enregistrement = page.video();
+    await contexte.close();
+    renameSync(await enregistrement.path(), `videos-source/${video}.webm`);
+    const coupe = Math.max(0, (pret - debut) / 1000 - 3.5);
+    writeFileSync(`videos-source/${video}.debut`, String(coupe));
+    writeFileSync(`videos-source/${video}.duree`, String((fin - debut) / 1000 + 0.5 - coupe));
+    console.log(`${video}.webm`);
+  }
 }
 await navigateur.close();
