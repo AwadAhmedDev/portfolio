@@ -54,6 +54,13 @@ export const images: ImageDeclaree[] = [
   },
   { nom: "emateriel-ordinateur", alt: "Page d'accueil du site eMatériel sur ordinateur" },
   { nom: "emateriel-mobile", alt: "Page d'accueil du site eMatériel sur téléphone" },
+  // Parcours eMatériel (27/11/2026), capturé par le robot ; le panier reste dans son navigateur, sans commande.
+  { nom: "emateriel-etape-catalogue", alt: "eMatériel, catalogue des produits avec catégorie, prix et disponibilité" },
+  {
+    nom: "emateriel-etape-produit",
+    alt: "eMatériel, fiche d'un produit avec le stock restant et l'ajout au panier confirmé",
+  },
+  { nom: "emateriel-etape-panier", alt: "eMatériel, panier avec la quantité modifiable et le total TTC" },
   { nom: "solidays-ordinateur", alt: "Page d'accueil du site Solidays sur ordinateur" },
   { nom: "solidays-mobile", alt: "Page d'accueil du site Solidays sur téléphone" },
 ];
