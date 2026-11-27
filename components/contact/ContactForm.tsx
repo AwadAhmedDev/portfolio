@@ -13,7 +13,7 @@ const c = contact.champs;
 const m = contact.messages;
 
 const champ =
-  "mt-2 w-full rounded-[10px] border border-input bg-background px-3 text-foreground aria-[invalid=true]:border-2 aria-[invalid=true]:border-destructive read-only:opacity-100";
+  "mt-2 w-full rounded-[10px] border border-input bg-card px-3 text-foreground aria-[invalid=true]:border-2 aria-[invalid=true]:border-destructive read-only:opacity-100";
 
 // « Parlons de votre projet » mène ici avec ?demande=freelance (P4). Lu dans l'adresse, jamais au build.
 const sansAbonnement = () => () => {};

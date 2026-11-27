@@ -219,7 +219,7 @@ export default async function FicheProjet({ params }: Props) {
         <div className="conteneur flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <Link
             href={`/projets/${suivant.slug}/`}
-            className="flex min-h-11 items-center gap-3 rounded-[10px] border border-border bg-background px-5 py-4 no-underline hover:border-primary"
+            className="flex min-h-11 items-center gap-3 rounded-[10px] border border-border bg-card px-5 py-4 no-underline hover:border-primary"
           >
             <span>
               <span className="block text-[14px] text-muted-foreground">Projet suivant</span>

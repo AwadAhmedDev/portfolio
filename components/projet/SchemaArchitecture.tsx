@@ -11,7 +11,7 @@ export function SchemaArchitecture({ couches }: { couches: { titre: string; deta
               <span className="hidden wide:inline">→</span>
             </span>
           )}
-          <div className="h-full flex-1 rounded-[10px] border border-border bg-background p-4">
+          <div className="h-full flex-1 rounded-[10px] border border-border bg-card p-4">
             <p className="mono text-[12px] font-semibold uppercase tracking-[0.08em] text-primary">{c.titre}</p>
             <p className="mt-1 text-[15px]">{c.detail}</p>
           </div>

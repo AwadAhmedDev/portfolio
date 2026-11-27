@@ -1,5 +1,5 @@
 // Schéma d'architecture cible du template, en HTML et CSS (design.md §5.4, contenus.md §3.4).
-const boite = "rounded-[10px] border border-border bg-background p-4";
+const boite = "rounded-[10px] border border-border bg-card p-4";
 
 export function SchemaTemplate() {
   return (
@@ -37,7 +37,7 @@ export function SchemaTemplate() {
           </ul>
         </div>
       </div>
-      <p className="mt-4 rounded-[10px] border border-border bg-background p-3 text-[14px]">
+      <p className="mt-4 rounded-[10px] border border-border bg-card p-3 text-[14px]">
         <span className="mono font-semibold">CI/CD</span> — Workflow de déploiement configuré — désactivé par défaut.
       </p>
       <figcaption className="mt-3 text-[14px] text-muted-foreground">

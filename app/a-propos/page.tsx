@@ -69,7 +69,7 @@ export default function APropos() {
             {a.garanties.map((g) => (
               <li
                 key={g.titre}
-                className="flex flex-col gap-3 rounded-[16px] border border-border border-t-[3px] border-t-primary bg-background p-6"
+                className="flex flex-col gap-3 rounded-[16px] border border-border border-t-[3px] border-t-primary bg-card p-6 shadow-carte"
               >
                 <h3 className="text-[20px]">{g.titre}</h3>
                 <p className="text-muted-foreground">{g.texte}</p>
@@ -88,7 +88,7 @@ export default function APropos() {
         </h2>
         <ul className="mt-10 grid gap-4 md:grid-cols-2">
           {a.aide.map((x, i) => (
-            <li key={x.pour} className="flex flex-col rounded-[16px] border border-border bg-background p-6">
+            <li key={x.pour} className="flex flex-col rounded-[16px] border border-border bg-card p-6 shadow-carte">
               <p className="mono text-[13px] font-semibold text-primary">
                 {String(i + 1).padStart(2, "0")} · {x.contrat}
               </p>
@@ -124,7 +124,7 @@ export default function APropos() {
                 <dd className="mt-3">
                   <ul className="flex flex-wrap gap-2">
                     {g.liste.map((t) => (
-                      <li key={t} className={`${puce} bg-background`}>
+                      <li key={t} className={`${puce} bg-card`}>
                         {t}
                       </li>
                     ))}

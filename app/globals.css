@@ -5,11 +5,14 @@
 
 /* Couleurs de la piste A (design.md §3.1). Noms courts de la maquette + noms shadcn/ui. */
 :root {
-  --bg: #ffffff;
-  --sf: #f5f7fa;
+  /* Mode clair (27/11/2026) : page gris-bleu très clair, bandeaux un ton plus soutenu, cartes blanches.
+     Plus reposant que le blanc pur partout, et les cartes se détachent de la page. */
+  --bg: #f4f6fa;
+  --sf: #e9eef5;
+  --cd: #ffffff;
   --tx: #0f172a;
   --mu: #475569;
-  --bd: #cbd5e1;
+  --bd: #d3dbe6;
   --bs: #64748b;
   --ac: #1d4ed8;
   --ach: #1e40af;
@@ -21,12 +24,15 @@
   --erf: #991b1b;
   --okb: #f0fdf4;
   --okf: #166534;
+  --om: 0 1px 2px rgb(15 23 42 / 0.04), 0 8px 24px -12px rgb(15 23 42 / 0.12);
+  --omh: 0 2px 4px rgb(15 23 42 / 0.05), 0 16px 32px -16px rgb(15 23 42 / 0.22);
   color-scheme: light;
 }
 
 .dark {
   --bg: #0b1120;
   --sf: #121a2c;
+  --cd: #0b1120;
   --tx: #e6eaf2;
   --mu: #9aa7ba;
   --bd: #334155;
@@ -41,11 +47,16 @@
   --erf: #fecaca;
   --okb: #0f2418;
   --okf: #bbf7d0;
+  --om: 0 0 0 transparent;
+  --omh: 0 12px 32px -16px rgb(0 0 0 / 0.6);
   color-scheme: dark;
 }
 
 @theme inline {
   --color-background: var(--bg);
+  --color-card: var(--cd);
+  --shadow-carte: var(--om);
+  --shadow-carte-survol: var(--omh);
   --color-foreground: var(--tx);
   --color-muted: var(--sf);
   --color-accent: var(--sf);
