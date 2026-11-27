@@ -79,7 +79,7 @@
 | 2 | Structure globale | **Terminé** | Logo « AA » + « Awad », favicons, pied de page refait ; menu, 360 px et deux thèmes couverts par les tests E2E |
 | 3 | Page d'accueil | **En cours · bloqué** | Photo d'Awad (silhouette provisoire en place) |
 | 4 | Données et présentation des projets | **Terminé** | 10 captures réelles (workflow Captures), AVIF + WebP |
-| 5 | Études de cas (6 fiches) | **En cours** | Nouvelle mesure Lighthouse ; accord du client d'I Make My World sur sa fiche |
+| 5 | Études de cas (6 fiches) | **En cours** | Nouvelle mesure Lighthouse ; accord du client d'I Make My World obtenu (26/11/2026) |
 | 6 | Page Projets | **Terminé** | Colonnes contrôlées (1 / 2 / 3) ; captures en place |
 | 7 | Page À propos | **En cours · bloqué** | Photo et 3 CV |
 | 8 | Page Contact | **Terminé** | Envoi réel reçu par Awad le 25/11/2026 (Resend, `private/config.php` en place) ; reste à confirmer que la limite par adresse IP voit bien l'IP du visiteur |
@@ -204,7 +204,7 @@ Le formulaire coûte 2 842 octets ; la base React + Next.js environ 131 652 octe
   - [x] Schéma HTML/CSS du template (C9, C11, C12) ; pas de tableau Lighthouse pour le template et Solidays.
   - [ ] Captures réelles à la place des emplacements provisoires (lot 4).
   - [ ] Nouvelle mesure Lighthouse juste avant la mise en ligne (A3), dont les 3 scores mobile d'eMatériel, puis mise à jour de `contenus.md` et `content/` dans le même commit (R8).
-  - [ ] Accord du client d'I Make My World sur le texte de sa fiche (`design.md` §9).
+  - [x] Accord du client d'I Make My World sur le texte de sa fiche (accord total confirmé par Awad le 26/11/2026) (`design.md` §9).
 - **Critères d'acceptation** : textes identiques à `contenus.md` §3 ; chaque score affiché avec sa date ; tableau lisible à 360 px sans défilement ; aucune couleur pour juger un score.
 - **Tests** : Vitest (slugs, variantes) ; navigateur (6 fiches vérifiées sur l'export réel) ; E2E et axe (lot 13).
 - **Risques** : des scores Lighthouse qui changent à la nouvelle mesure modifient aussi le chiffre « 2 sites à 100 / 100 » de l'accueil (test unitaire à mettre à jour en même temps).
@@ -415,7 +415,7 @@ Le lot 12 suit tous les autres : ses contrôles finaux se font avec les vraies i
 7. Lot 14 : README du dépôt.
 8. Lots 4 et 5 : captures des 5 sites (pages publiques) et nouvelle mesure Lighthouse, juste avant la mise en ligne.
 
-**B. En attente de contenus ou de ressources d'Awad** : photo (lots 3, 7) ; 3 CV (lots 2, 7) ; validation de l'image d'aperçu (lot 10) ; accord du client d'I Make My World (lot 5).
+**B. En attente de contenus ou de ressources d'Awad** : photo (lots 3, 7) ; 3 CV (lots 2, 7) ; validation de l'image d'aperçu (lot 10).
 
 **C. Compte ou intervention externe** : secret `HOSTINGER_API_TOKEN` dans GitHub ; clé Resend et adresse de réception dans `private/config.php`, déposé par Awad dans hPanel ; création du site Hostinger ; réglages de dépôt GitHub (Dependabot).
 
@@ -443,7 +443,7 @@ Le lot 12 suit tous les autres : ses contrôles finaux se font avec les vraies i
 | Accord pour créer le site Hostinger du portfolio | Awad | 14 |
 | Captures ordinateur et mobile des 5 sites | Claude Code | 4, 5, 11 |
 | Image d'aperçu Open Graph : composition sobre (RM4) | Claude Code, validée par Awad | 10, 11 |
-| Accord du client d'I Make My World sur sa fiche | Awad | 5 |
+| ~~Accord du client d'I Make My World sur sa fiche~~ — obtenu le 26/11/2026 | Awad | 5 |
 | Nouvelle mesure Lighthouse des 5 sites | Claude Code | 5 |
 | NVDA et Firefox (non installés) | Installation avec l'accord d'Awad | 12 |
 | Secret `HOSTINGER_API_TOKEN` dans GitHub | Awad | 14 |

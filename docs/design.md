@@ -303,7 +303,7 @@ Elles complètent D1 à D8, A1 à A11, S1 à S7 et T1 à T12.
 **À vérifier avant la mise en ligne**
 - [ ] Scores Lighthouse mesurés de nouveau (A3), dont les 3 scores mobile d'eMatériel.
 - [ ] Adresse de Hostinger dans les mentions légales, sur le site de Hostinger.
-- [ ] Accord du client d'I Make My World sur le texte de sa fiche (`product-discovery.md`, risques).
+- [x] Accord du client d'I Make My World sur le texte de sa fiche (accord total confirmé par Awad le 26/11/2026) (`product-discovery.md`, risques).
 
 ---
 
