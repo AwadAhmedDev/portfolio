@@ -213,6 +213,11 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
 
 - **Le projet** : un média francophone consacré à la Corne de l'Afrique (asile, migrations, droits humains, analyses par pays), avec son espace de rédaction. Une seule personne administre le site, rédige et publie.
 - **Mon rôle** : conception et développement du site, pour l'éditeur **Harbi Egueh Aouled**.
+- **Le parcours en images** *(27/11/2026, captures et vidéo prises par le robot sur le site public ; seule action : une recherche)* :
+  1. **1. Les articles d'un pays** — Chaque pays et chaque rubrique a sa page, avec des filtres par rubrique, type de contenu et date.
+  2. **2. La recherche plein texte** — Un mot-clé suffit, et les résultats peuvent être affinés par pays, rubrique, type et période.
+  3. **3. La lecture d'un article** — Fil d'Ariane, chapeau, rubrique et date, puis le temps de lecture, le partage et les articles liés.
+  - Vidéo (environ 14 s, sans son, `/videos/plateforme-editoriale-parcours.mp4`) : **Vidéo sans son : page d'un pays, recherche du mot « déplacés », puis ouverture du premier article trouvé.**
 - **Fonctionnalités** :
   - Accueil éditorial : article à la une, actualités, analyses et enquêtes, fil « En continu ».
   - Pages par rubrique et par pays, liste des articles avec filtres.

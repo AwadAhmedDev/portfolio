@@ -39,6 +39,19 @@ export const images: ImageDeclaree[] = [
   },
   { nom: "plateforme-editoriale-ordinateur", alt: "Page d'accueil du site Plateforme éditoriale sur ordinateur" },
   { nom: "plateforme-editoriale-mobile", alt: "Page d'accueil du site Plateforme éditoriale sur téléphone" },
+  // Parcours de la Plateforme éditoriale (27/11/2026), capturé par le robot sur le site public.
+  {
+    nom: "plateforme-editoriale-etape-pays",
+    alt: "Plateforme éditoriale, page du pays Éthiopie avec les filtres par rubrique, type et date",
+  },
+  {
+    nom: "plateforme-editoriale-etape-recherche",
+    alt: "Plateforme éditoriale, recherche du mot déplacés avec 6 résultats et les filtres",
+  },
+  {
+    nom: "plateforme-editoriale-etape-article",
+    alt: "Plateforme éditoriale, page d'un article avec son titre, son chapeau et sa rubrique",
+  },
   { nom: "emateriel-ordinateur", alt: "Page d'accueil du site eMatériel sur ordinateur" },
   { nom: "emateriel-mobile", alt: "Page d'accueil du site eMatériel sur téléphone" },
   { nom: "solidays-ordinateur", alt: "Page d'accueil du site Solidays sur ordinateur" },
