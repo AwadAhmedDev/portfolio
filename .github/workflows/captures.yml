@@ -26,8 +26,26 @@ jobs:
       - run: npm install --no-save "$PLAYWRIGHT"
       - run: npx playwright install --with-deps chromium
       - run: node scripts/captures.mjs
+      # Vidéo du parcours : début coupé (chargement), 1280 px de large, sans son ; MP4 pour tous les navigateurs,
+      # WebM plus léger pour ceux qui le lisent. « faststart » : la lecture commence avant la fin du téléchargement.
+      - name: Vidéos MP4 et WebM
+        run: |
+          set -euo pipefail
+          command -v ffmpeg >/dev/null || { sudo apt-get update -q && sudo apt-get install -y -q ffmpeg; }
+          mkdir -p videos
+          for v in videos-source/*.webm; do
+            nom=$(basename "$v" .webm)
+            debut=$(cat "videos-source/$nom.debut" 2>/dev/null || echo 0)
+            ffmpeg -loglevel error -y -ss "$debut" -i "$v" -vf "scale=1280:-2,fps=30" -an \
+              -c:v libx264 -crf 28 -preset slow -pix_fmt yuv420p -movflags +faststart "videos/$nom.mp4"
+            ffmpeg -loglevel error -y -ss "$debut" -i "$v" -vf "scale=1280:-2,fps=30" -an \
+              -c:v libvpx-vp9 -crf 40 -b:v 0 -row-mt 1 "videos/$nom.webm"
+            ls -l "videos/$nom".*
+          done
       - uses: actions/upload-artifact@v7
         with:
           name: captures
-          path: images-source/*.png
+          path: |
+            images-source/*.png
+            videos/*
           retention-days: 7
