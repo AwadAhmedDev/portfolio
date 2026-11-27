@@ -55,6 +55,33 @@
     "largeur": 1440,
     "hauteur": 900
   },
+  "repatek-etape-coordonnees": {
+    "largeurs": [
+      640,
+      960,
+      1440
+    ],
+    "largeur": 1440,
+    "hauteur": 900
+  },
+  "repatek-etape-creneau": {
+    "largeurs": [
+      640,
+      960,
+      1440
+    ],
+    "largeur": 1440,
+    "hauteur": 900
+  },
+  "repatek-etape-prestation": {
+    "largeurs": [
+      640,
+      960,
+      1440
+    ],
+    "largeur": 1440,
+    "hauteur": 900
+  },
   "repatek-mobile": {
     "largeurs": [
       640
