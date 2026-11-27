@@ -3,6 +3,7 @@ import { metaPage } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projetParSlug, projets, projetSuivant, type Projet } from "@/content/projets";
+import { SchemaArchitecture } from "@/components/projet/SchemaArchitecture";
 import { SchemaTemplate } from "@/components/projet/SchemaTemplate";
 import { TableauLighthouse } from "@/components/projet/TableauLighthouse";
 import { Picture } from "@/components/Picture";
@@ -67,6 +68,15 @@ export default async function FicheProjet({ params }: Props) {
           {p.nom}
         </h1>
         <p className="mt-5 max-w-[760px] text-[clamp(18px,2.2vw,22px)] leading-[1.55]">{p.phrase}</p>
+        {/* En-tête « en 5 secondes » : rôle et technologies principales (26/11/2026). */}
+        <dl className="mt-6 grid max-w-[760px] gap-4 sm:grid-cols-[auto_1fr] sm:gap-x-6">
+          <dt className="mono text-[13px] text-muted-foreground sm:pt-1">Mon rôle</dt>
+          <dd className="font-medium">{p.roleCourt ?? <Role p={p} />}</dd>
+          <dt className="mono text-[13px] text-muted-foreground sm:pt-2">Technologies</dt>
+          <dd>
+            <Puces liste={p.techCarte} />
+          </dd>
+        </dl>
         <Liens p={p} />
       </section>
 
@@ -75,17 +85,22 @@ export default async function FicheProjet({ params }: Props) {
           <SchemaTemplate />
         ) : (
           <div className="grid items-end gap-6 md:grid-cols-[3fr_1fr]">
-            <Picture
-              nom={`${p.slug}-ordinateur`}
-              ratio="16:10"
-              sizes="(min-width: 1200px) 860px, (min-width: 768px) 70vw, 100vw"
-              prioritaire
-              provisoire={{
-                libelle: "Capture provisoire · ordinateur",
-                alt: `Page d'accueil du site ${p.nom} sur ordinateur`,
-              }}
-            />
-            <div className="mx-auto w-full max-w-[220px]">
+            <figure>
+              <Picture
+                nom={`${p.slug}-ordinateur`}
+                ratio="16:10"
+                sizes="(min-width: 1200px) 860px, (min-width: 768px) 70vw, 100vw"
+                prioritaire
+                provisoire={{
+                  libelle: "Capture provisoire · ordinateur",
+                  alt: `Page d'accueil du site ${p.nom} sur ordinateur`,
+                }}
+              />
+              <figcaption className="mt-2 text-[14px] text-muted-foreground">
+                {"Page d'accueil, sur ordinateur"}
+              </figcaption>
+            </figure>
+            <figure className="mx-auto w-full max-w-[220px]">
               <Picture
                 nom={`${p.slug}-mobile`}
                 ratio="4:5"
@@ -95,30 +110,30 @@ export default async function FicheProjet({ params }: Props) {
                   alt: `Page d'accueil du site ${p.nom} sur téléphone`,
                 }}
               />
-            </div>
+              <figcaption className="mt-2 text-[14px] text-muted-foreground">Le même site, sur téléphone</figcaption>
+            </figure>
           </div>
         )}
       </div>
 
       <div className="conteneur py-12 text-[17px]">
-        <Rubrique id="projet" titre="Le projet">
+        {/* Ordre d'une étude de cas (26/11/2026) : contexte, architecture, défis, fonctionnalités, résultats. */}
+        <Rubrique id="contexte" titre="Le contexte">
           <p>{p.leProjet}</p>
         </Rubrique>
-        <Rubrique id="role" titre="Mon rôle">
-          <p>
-            {p.monRole.texte.charAt(0).toUpperCase() + p.monRole.texte.slice(1)}
-            {p.monRole.gras && <strong>{p.monRole.gras}</strong>}
-            {p.monRole.suite}
-          </p>
-        </Rubrique>
-        <Rubrique id="fonctionnalites" titre="Fonctionnalités">
-          <ul className="flex list-disc flex-col gap-2 pl-5">
-            {p.fonctionnalites.map((f) => (
-              <li key={f}>{riche(f)}</li>
-            ))}
-          </ul>
-        </Rubrique>
-        <Rubrique id="technologies" titre="Technologies">
+        {p.roleCourt && (
+          <Rubrique id="role" titre="Mon rôle en détail">
+            <p>
+              <Role p={p} />
+            </p>
+          </Rubrique>
+        )}
+        <Rubrique id="architecture" titre="Architecture">
+          {p.architecture && (
+            <div className="mb-6">
+              <SchemaArchitecture couches={p.architecture} />
+            </div>
+          )}
           {typeof p.technologies[0] === "string" ? (
             <Puces liste={p.technologies as string[]} />
           ) : (
@@ -134,20 +149,32 @@ export default async function FicheProjet({ params }: Props) {
             </div>
           )}
         </Rubrique>
-        <Rubrique id="choix" titre="Choix techniques">
+        <Rubrique id="defis" titre="Défis et solutions">
           <ol className="flex flex-col gap-3">
             {p.choix.map((c, i) => (
               <li key={c.decision} className="flex gap-4 rounded-[10px] bg-muted p-4">
                 <span className="mono font-semibold text-primary">{String(i + 1).padStart(2, "0")}</span>
-                <p>
-                  <strong>{c.decision}</strong>
-                  {c.raison}
-                </p>
+                <div className="flex flex-col gap-1">
+                  <p>
+                    <span className="font-semibold">Défi.</span> {p.defis[i]}
+                  </p>
+                  <p>
+                    <span className="font-semibold text-primary">Solution.</span> {c.decision}
+                    {c.raison}
+                  </p>
+                </div>
               </li>
             ))}
           </ol>
         </Rubrique>
-        <Rubrique id="qualite" titre="Qualité">
+        <Rubrique id="fonctionnalites" titre="Fonctionnalités clés">
+          <ul className="flex list-disc flex-col gap-2 pl-5">
+            {p.fonctionnalites.map((f) => (
+              <li key={f}>{riche(f)}</li>
+            ))}
+          </ul>
+        </Rubrique>
+        <Rubrique id="resultats" titre="Résultats">
           <ul className="grid gap-3 sm:grid-cols-2">
             {p.qualite.map((q) => (
               <li key={q} className="rounded-[10px] border border-border p-4">
@@ -168,6 +195,23 @@ export default async function FicheProjet({ params }: Props) {
           </div>
         )}
       </div>
+
+      {/* Appel à l'action en lien avec le projet (26/11/2026). */}
+      <section aria-labelledby="titre-similaire" className="conteneur py-12">
+        <div className="flex flex-col gap-4 rounded-[16px] border border-border border-t-[3px] border-t-primary p-8 md:flex-row md:items-center md:justify-between">
+          <div>
+            <h2 id="titre-similaire" className="text-[clamp(22px,3vw,28px)]">
+              Vous avez un projet similaire&nbsp;?
+            </h2>
+            <p className="mt-2 text-muted-foreground">
+              Site ou application sur mesure&#8239;: parlons de votre besoin. Premier échange gratuit.
+            </p>
+          </div>
+          <Link href="/contact/?demande=freelance" className={`${bouton.principal} shrink-0 self-start md:self-center`}>
+            Parlons de votre projet
+          </Link>
+        </div>
+      </section>
 
       <section aria-label="Suite" className="bg-muted py-12">
         <div className="conteneur flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
@@ -201,6 +245,16 @@ function Rubrique({ id, titre, children }: { id: string; titre: string; children
       </h2>
       <div>{children}</div>
     </section>
+  );
+}
+
+function Role({ p }: { p: Projet }) {
+  return (
+    <>
+      {p.monRole.texte.charAt(0).toUpperCase() + p.monRole.texte.slice(1)}
+      {p.monRole.gras && <strong>{p.monRole.gras}</strong>}
+      {p.monRole.suite}
+    </>
   );
 }
 
