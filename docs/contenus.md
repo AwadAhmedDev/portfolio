@@ -135,9 +135,9 @@ Petite note sous les chiffres : *Chiffres relevés sur les dépôts et les sites
 
 ## 3. Détails des projets — `/projets/[projet]/`
 
-Structure commune : fil d'Ariane · nom · badge · début · captures · **Le projet** · **Mon rôle** · **Fonctionnalités** · **Technologies** · **Choix techniques** · **Qualité** · liens · **Projet suivant** · **Me contacter**.
+Structure commune *(étude de cas, 26/11/2026)* : fil d'Ariane · badge · début · nom · phrase · **Mon rôle** et **Technologies** (en tête) · liens · captures légendées · **Le contexte** · **Mon rôle en détail** (Solidays) · **Architecture** (schéma + technologies) · **Défis et solutions** · **Fonctionnalités clés** · **Résultats** (qualité, Lighthouse, liens) · **Vous avez un projet similaire ?** (bouton **Parlons de votre projet** vers `/contact/?demande=freelance`) · **Projet suivant** · **Me contacter**.
 
-Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison donnée en une phrase est **à valider par Awad** (c'est lui qui a fait ces choix).
+Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison donnée en une phrase est **à valider par Awad** (c'est lui qui a fait ces choix). Sur la fiche, chacun s'affiche en **Défi** (le problème, liste « Défis » ci-dessous, même ordre) puis **Solution** (le choix).
 
 ### 3.1 RepaTek — `/projets/repatek/`
 
@@ -153,6 +153,11 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
   - Back-office : rendez-vous, prestations, horaires, jours fermés et réglages.
   - Une page par prestation, une FAQ et les pages légales.
 - **Technologies** : React 19, TypeScript, Vite, React Router, Tailwind CSS 4, Supabase (PostgreSQL, authentification, Row Level Security, fonctions SQL, Edge Functions), Resend, GitHub Actions, Hostinger.
+- **Schéma d'architecture** : Interface (React 19, TypeScript, Vite, Tailwind CSS 4) → Serveur (Supabase : authentification, fonctions SQL, Edge Functions) → Base de données (PostgreSQL avec Row Level Security) → Services (Resend pour les e-mails)
+- **Défis** :
+  1. Un visiteur ne doit pas pouvoir contourner les règles de réservation depuis son navigateur.
+  2. Deux clients ne doivent jamais obtenir le même créneau, même s'ils réservent au même moment.
+  3. Le calendrier public ne doit révéler aucune information sur les autres clients.
 - **Choix techniques** :
   - **Une réservation passe uniquement par une fonction SQL qui revalide tout** (horaires, délai, marge de trajet, champs) : le navigateur ne peut pas créer un rendez-vous qui ne respecte pas les règles.
   - **La base refuse elle-même deux rendez-vous qui se chevauchent** (contrainte d'exclusion PostgreSQL) : c'est la dernière barrière, quel que soit le code.
@@ -178,6 +183,11 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
   - **Interface** : React 19, TypeScript, Vite, React Router, Tailwind CSS 4, shadcn/ui, React Hook Form, Zod
   - **Serveur** : Node.js, Express 5, MySQL, JWT, bcrypt, Helmet, Cloudflare R2, Resend
   - **Tests et mise en ligne** : Vitest, Supertest, GitHub Actions, Hostinger
+- **Schéma d'architecture** : Interface (React 19, TypeScript, Vite, Tailwind CSS 4, shadcn/ui) → API (Node.js, Express 5, authentification JWT) → Données (MySQL, images privées sur Cloudflare R2) → Services (Resend pour les e-mails)
+- **Défis** :
+  1. Chaque profil (créateur, expert, administrateur) doit n'accéder qu'à ce qui le concerne.
+  2. Les images déposées par les membres ne doivent pas être accessibles à tout le monde.
+  3. Une API ouverte sur Internet est exposée aux abus et aux attaques courantes.
 - **Choix techniques** :
   - **Une API Express séparée de l'interface**, avec authentification par jeton (JWT).
   - **Images stockées dans un espace privé Cloudflare R2**, servies uniquement par l'API.
@@ -201,6 +211,11 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
   - Newsletter et formulaire de contact protégé contre les robots.
   - Back-office : tableau de bord, articles (brouillon, publié, archivé), rubriques et pays, inscrits à la newsletter, messages.
 - **Technologies** : Next.js 16 (App Router, Server Components, Server Actions), React 19, TypeScript, Tailwind CSS 4, Prisma 7, PostgreSQL (Supabase), Zod, Cloudflare R2, Resend, Cloudflare Turnstile, Vitest, GitHub Actions, Hostinger.
+- **Schéma d'architecture** : Application (Next.js 16 : Server Components et Server Actions, TypeScript) → Base de données (PostgreSQL (Supabase) avec Prisma 7) → Stockage (Cloudflare R2 pour les images) → Services (Resend pour les e-mails, Cloudflare Turnstile contre les robots)
+- **Défis** :
+  1. Un média accumule beaucoup d'images, qui ne doivent pas alourdir le serveur du site.
+  2. Envoyer des e-mails sans ajouter de dépendance à maintenir.
+  3. Les formulaires de contact et de newsletter attirent les robots.
 - **Choix techniques** :
   - **Images stockées sur Cloudflare R2**, hors du serveur du site.
   - **E-mails envoyés par l'API de Resend avec un simple appel HTTP**, sans bibliothèque en plus.
@@ -222,6 +237,10 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
   - Base de données avec Prisma 7 et PostgreSQL.
   - Déploiement prêt avec Docker et Caddy.
 - **Technologies** : Next.js 16, React 19, TypeScript, Tailwind CSS 4, Better Auth, Stripe, Prisma 7, PostgreSQL, Resend, Vitest, Playwright, Docker, Caddy, GitHub Actions.
+- **Défis** :
+  1. Vérifier automatiquement les parcours complets avant chaque mise en ligne.
+  2. Pouvoir déployer simplement sur un serveur, avec HTTPS.
+  3. Les dépendances d'un projet vieillissent et peuvent contenir des failles.
 - **Choix techniques** :
   - **Tests de bout en bout Playwright dans l'intégration continue**, sur une vraie base de données préparée à chaque lancement.
   - **Docker et Caddy** pour déployer sur un serveur avec HTTPS automatique.
@@ -251,6 +270,11 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
   - Suivi de commande.
   - Back-office.
 - **Technologies** : React 19, TypeScript, Vite, Express 5, MySQL, Zod, Stripe, Vitest, Supertest, GitHub Actions, Hostinger.
+- **Schéma d'architecture** : Interface (React 19, TypeScript, Vite) → API (Express 5, validation avec Zod) → Base de données (MySQL) → Services (Stripe en mode test)
+- **Défis** :
+  1. Deux clients peuvent commander le dernier article en stock au même moment.
+  2. Intégrer le paiement sans aucun risque de débiter une vraie carte.
+  3. Chaque modification ne doit pas casser le serveur de la boutique.
 - **Choix techniques** :
   - **Le stock est modifié dans une transaction** : deux commandes en même temps ne peuvent pas vendre le même dernier article.
   - **Stripe appelé directement par son API**, sans bibliothèque en plus, et **seule une clé de test est acceptée**.
@@ -273,6 +297,12 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
   - Billetterie (liens vers les vendeurs officiels) et page Festival.
   - Back-office sécurisé : connexion administrateur, ajout, modification et suppression d'artistes, envoi d'images avec aperçu.
 - **Technologies** : React 19, TypeScript, Vite, React Router, Express 5, MySQL, Zod, Helmet, GitHub Actions, Dependabot, Hostinger.
+- **Mon rôle (en tête de fiche)** : Lead Dev de l'équipe de 3
+- **Schéma d'architecture** : Interface (React 19, TypeScript, Vite, React Router) → API (Express 5, Zod, Helmet) → Base de données (MySQL, modélisée avec la méthode Merise)
+- **Défis** :
+  1. Travailler à trois sur le même code sans se gêner.
+  2. Gérer la programmation des artistes sans toucher au code du site.
+  3. Protéger l'API et le back-office contre les données invalides et les attaques courantes.
 - **Choix techniques** :
   - **Une branche par fonctionnalité et des revues de code** pour travailler à trois sur le même dépôt.
   - **Les données des artistes viennent d'une API Express et d'une base MySQL**, modélisée ensemble avec la méthode Merise.

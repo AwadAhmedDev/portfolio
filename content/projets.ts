@@ -39,6 +39,9 @@ export type Projet = {
   fonctionnalites: string[];
   technologies: string[] | { titre: string; liste: string[] }[];
   choix: ChoixTechnique[];
+  defis: string[]; // le problème que résout chaque choix, dans le même ordre (fiche « Défis et solutions »)
+  architecture?: { titre: string; detail: string }[]; // couches du schéma d'architecture
+  roleCourt?: string; // rôle affiché en tête de fiche quand « Mon rôle » est long (Solidays)
   qualite: string[];
   tests: Tests;
   lighthouse?: { mesure: string; ordinateur: Scores; mobile: Scores };
@@ -98,6 +101,17 @@ export const projets: Projet[] = [
         raison: " (Row Level Security) : le calendrier public ne reçoit que des heures occupées.",
       },
     ],
+    defis: [
+      "Un visiteur ne doit pas pouvoir contourner les règles de réservation depuis son navigateur.",
+      "Deux clients ne doivent jamais obtenir le même créneau, même s'ils réservent au même moment.",
+      "Le calendrier public ne doit révéler aucune information sur les autres clients.",
+    ],
+    architecture: [
+      { titre: "Interface", detail: "React 19, TypeScript, Vite, Tailwind CSS 4" },
+      { titre: "Serveur", detail: "Supabase : authentification, fonctions SQL, Edge Functions" },
+      { titre: "Base de données", detail: "PostgreSQL avec Row Level Security" },
+      { titre: "Services", detail: "Resend pour les e-mails" },
+    ],
     qualite: ["17 tests automatisés, lancés avant chaque déploiement", "Déploiement automatique sur Hostinger"],
     tests: { unitaires: 17 },
     lighthouse: {
@@ -154,6 +168,17 @@ export const projets: Projet[] = [
       { decision: "Images stockées dans un espace privé Cloudflare R2", raison: ", servies uniquement par l'API." },
       { decision: "Protection de l'API", raison: " : limite de demandes et en-têtes de sécurité." },
     ],
+    defis: [
+      "Chaque profil (créateur, expert, administrateur) doit n'accéder qu'à ce qui le concerne.",
+      "Les images déposées par les membres ne doivent pas être accessibles à tout le monde.",
+      "Une API ouverte sur Internet est exposée aux abus et aux attaques courantes.",
+    ],
+    architecture: [
+      { titre: "Interface", detail: "React 19, TypeScript, Vite, Tailwind CSS 4, shadcn/ui" },
+      { titre: "API", detail: "Node.js, Express 5, authentification JWT" },
+      { titre: "Données", detail: "MySQL, images privées sur Cloudflare R2" },
+      { titre: "Services", detail: "Resend pour les e-mails" },
+    ],
     qualite: ["45 tests d'intégration (Vitest et Supertest)", "TypeScript strict", "Intégration continue"],
     tests: { integration: 45 },
     lighthouse: {
@@ -207,6 +232,17 @@ export const projets: Projet[] = [
         raison: ", sans bibliothèque en plus.",
       },
       { decision: "Protection anti-robots avec Cloudflare Turnstile." },
+    ],
+    defis: [
+      "Un média accumule beaucoup d'images, qui ne doivent pas alourdir le serveur du site.",
+      "Envoyer des e-mails sans ajouter de dépendance à maintenir.",
+      "Les formulaires de contact et de newsletter attirent les robots.",
+    ],
+    architecture: [
+      { titre: "Application", detail: "Next.js 16 : Server Components et Server Actions, TypeScript" },
+      { titre: "Base de données", detail: "PostgreSQL (Supabase) avec Prisma 7" },
+      { titre: "Stockage", detail: "Cloudflare R2 pour les images" },
+      { titre: "Services", detail: "Resend pour les e-mails, Cloudflare Turnstile contre les robots" },
     ],
     qualite: [
       "16 tests unitaires sur les règles de sécurité",
@@ -269,6 +305,11 @@ export const projets: Projet[] = [
         raison: ", et mises à jour proposées par Dependabot.",
       },
     ],
+    defis: [
+      "Vérifier automatiquement les parcours complets avant chaque mise en ligne.",
+      "Pouvoir déployer simplement sur un serveur, avec HTTPS.",
+      "Les dépendances d'un projet vieillissent et peuvent contenir des failles.",
+    ],
     qualite: [
       "13 tests unitaires (Vitest)",
       "7 scénarios E2E exécutés sur 2 profils : ordinateur et mobile (Playwright)",
@@ -324,6 +365,17 @@ export const projets: Projet[] = [
       },
       { decision: "API testée avec Supertest", raison: " : 63 tests vérifient le serveur à chaque modification." },
     ],
+    defis: [
+      "Deux clients peuvent commander le dernier article en stock au même moment.",
+      "Intégrer le paiement sans aucun risque de débiter une vraie carte.",
+      "Chaque modification ne doit pas casser le serveur de la boutique.",
+    ],
+    architecture: [
+      { titre: "Interface", detail: "React 19, TypeScript, Vite" },
+      { titre: "API", detail: "Express 5, validation avec Zod" },
+      { titre: "Base de données", detail: "MySQL" },
+      { titre: "Services", detail: "Stripe en mode test" },
+    ],
     qualite: ["63 tests automatisés", "Intégration continue"],
     tests: { unitaires: 63 },
     lighthouse: {
@@ -334,6 +386,7 @@ export const projets: Projet[] = [
   },
   {
     slug: "solidays",
+    roleCourt: "Lead Dev de l'équipe de 3",
     nom: "Solidays",
     badge: "Projet de formation",
     equipe: "en équipe de 3",
@@ -384,6 +437,16 @@ export const projets: Projet[] = [
         raison: ", modélisée ensemble avec la méthode Merise.",
       },
       { decision: "Entrées validées côté serveur avec Zod", raison: " et en-têtes de sécurité avec Helmet." },
+    ],
+    defis: [
+      "Travailler à trois sur le même code sans se gêner.",
+      "Gérer la programmation des artistes sans toucher au code du site.",
+      "Protéger l'API et le back-office contre les données invalides et les attaques courantes.",
+    ],
+    architecture: [
+      { titre: "Interface", detail: "React 19, TypeScript, Vite, React Router" },
+      { titre: "API", detail: "Express 5, Zod, Helmet" },
+      { titre: "Base de données", detail: "MySQL, modélisée avec la méthode Merise" },
     ],
     qualite: ["24 tests automatisés", "Intégration et déploiement continus", "Dependabot"],
     tests: { unitaires: 24 },
