@@ -63,4 +63,17 @@ export const images: ImageDeclaree[] = [
   { nom: "emateriel-etape-panier", alt: "eMatériel, panier avec la quantité modifiable et le total TTC" },
   { nom: "solidays-ordinateur", alt: "Page d'accueil du site Solidays sur ordinateur" },
   { nom: "solidays-mobile", alt: "Page d'accueil du site Solidays sur téléphone" },
+  // Parcours Solidays (27/11/2026), capturé par le robot sur le site de démonstration.
+  {
+    nom: "solidays-etape-programmation",
+    alt: "Solidays, programmation filtrée sur le samedi avec les photos des artistes",
+  },
+  {
+    nom: "solidays-etape-artiste",
+    alt: "Solidays, fiche d'un artiste avec sa description, son jour de concert et un lien vidéo",
+  },
+  {
+    nom: "solidays-etape-billetterie",
+    alt: "Solidays, billetterie avec les pass 3 jours, vendredi, samedi et dimanche",
+  },
 ];

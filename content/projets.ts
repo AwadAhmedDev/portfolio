@@ -549,6 +549,29 @@ export const projets: Projet[] = [
       { titre: "API", detail: "Express 5, Zod, Helmet" },
       { titre: "Base de données", detail: "MySQL, modélisée avec la méthode Merise" },
     ],
+    parcours: [
+      {
+        image: "solidays-etape-programmation",
+        titre: "1. La programmation, filtrée par jour",
+        legende: "Les artistes sont chargés depuis l'API et se filtrent par jour en un clic.",
+      },
+      {
+        image: "solidays-etape-artiste",
+        titre: "2. La fiche d'un artiste",
+        legende: "Description, jour du concert et lien vidéo, gérés par l'équipe depuis le back-office.",
+      },
+      {
+        image: "solidays-etape-billetterie",
+        titre: "3. La billetterie",
+        legende: "Chaque pass renvoie vers les vendeurs officiels du festival : le site ne vend rien lui-même.",
+      },
+    ],
+    video: {
+      fichier: "/videos/solidays-parcours.mp4",
+      poster: "/images/solidays-etape-programmation-960.webp",
+      description:
+        "Vidéo sans son : programmation filtrée sur le samedi, fiche d'un artiste, puis les pass de la billetterie.",
+    },
     qualite: ["24 tests automatisés", "Intégration et déploiement continus", "Dependabot"],
     tests: { unitaires: 24 },
   },

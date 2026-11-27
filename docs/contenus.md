@@ -310,6 +310,11 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
 - Mention en haut : **Projet de formation Simplon.co, réalisé en équipe de 3 : Awad, Prativa et Manon.**
 - **Le projet** : une reproduction du site du festival Solidays, avec un espace de gestion des artistes. Le site de démonstration n'est pas référencé sur Google, pour ne pas être confondu avec le vrai festival.
 - **Mon rôle** : **Lead Dev de l'équipe de 3.** *J'ai créé et mis en place le dépôt du projet, puis réalisé l'en-tête et la navigation adaptés au mobile, la section d'accueil animée, le pied de page, la page Festival, la billetterie, les mentions légales et le back-office de gestion des artistes. Après la formation, j'ai rénové le site, ajouté les tests et l'intégration continue, et je l'ai mis en ligne.* Organisation de l'équipe : une branche par fonctionnalité, pull requests et revues de code, modélisation de la base réalisée ensemble.
+- **Le parcours en images** *(27/11/2026, captures et vidéo prises par le robot sur le site de démonstration)* :
+  1. **1. La programmation, filtrée par jour** — Les artistes sont chargés depuis l'API et se filtrent par jour en un clic.
+  2. **2. La fiche d'un artiste** — Description, jour du concert et lien vidéo, gérés par l'équipe depuis le back-office.
+  3. **3. La billetterie** — Chaque pass renvoie vers les vendeurs officiels du festival : le site ne vend rien lui-même.
+  - Vidéo (environ 16 s, sans son, `/videos/solidays-parcours.mp4`) : **Vidéo sans son : programmation filtrée sur le samedi, fiche d'un artiste, puis les pass de la billetterie.**
 - **Fonctionnalités** :
   - Accueil fidèle au site d'origine, avec une bannière d'artistes interactive : la photo change au survol de chaque nom.
   - Programmation chargée depuis l'API, filtrée par jour.
