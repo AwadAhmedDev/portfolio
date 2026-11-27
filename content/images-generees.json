@@ -66,6 +66,33 @@
     "largeur": 1440,
     "hauteur": 900
   },
+  "plateforme-editoriale-etape-article": {
+    "largeurs": [
+      640,
+      960,
+      1440
+    ],
+    "largeur": 1440,
+    "hauteur": 900
+  },
+  "plateforme-editoriale-etape-pays": {
+    "largeurs": [
+      640,
+      960,
+      1440
+    ],
+    "largeur": 1440,
+    "hauteur": 900
+  },
+  "plateforme-editoriale-etape-recherche": {
+    "largeurs": [
+      640,
+      960,
+      1440
+    ],
+    "largeur": 1440,
+    "hauteur": 900
+  },
   "plateforme-editoriale-mobile": {
     "largeurs": [
       640
