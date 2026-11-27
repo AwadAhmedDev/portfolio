@@ -12,6 +12,16 @@ export const images: ImageDeclaree[] = [
   { nom: "awad-ahmed", alt: "Portrait d'Awad" },
   { nom: "repatek-ordinateur", alt: "Page d'accueil du site RepaTek sur ordinateur" },
   { nom: "repatek-mobile", alt: "Page d'accueil du site RepaTek sur téléphone" },
+  // Parcours de réservation RepaTek (26/11/2026), capturé par le robot sans jamais envoyer de demande.
+  {
+    nom: "repatek-etape-prestation",
+    alt: "Réservation RepaTek, étape 1, choix de la prestation parmi les services, avec prix et durée",
+  },
+  { nom: "repatek-etape-creneau", alt: "Réservation RepaTek, étape 2, choix du jour puis d'un créneau horaire libre" },
+  {
+    nom: "repatek-etape-coordonnees",
+    alt: "Réservation RepaTek, étape 3, formulaire de coordonnées et d'adresse d'intervention",
+  },
   { nom: "i-make-my-world-ordinateur", alt: "Page d'accueil du site I Make My World sur ordinateur" },
   { nom: "i-make-my-world-mobile", alt: "Page d'accueil du site I Make My World sur téléphone" },
   { nom: "plateforme-editoriale-ordinateur", alt: "Page d'accueil du site Plateforme éditoriale sur ordinateur" },

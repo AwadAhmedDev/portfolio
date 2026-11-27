@@ -45,6 +45,9 @@ export type Projet = {
   qualite: string[];
   tests: Tests;
   lighthouse?: { mesure: string; ordinateur: Scores; mobile: Scores };
+  // Parcours en images (26/11/2026) : écrans clés légendés et courte vidéo sans son, dans « Fonctionnalités clés ».
+  parcours?: { image: string; titre: string; legende: string }[];
+  video?: { fichier: string; poster: string; description: string };
   schema?: boolean; // schéma d'architecture à la place des captures (Template)
 };
 
@@ -112,6 +115,31 @@ export const projets: Projet[] = [
       { titre: "Base de données", detail: "PostgreSQL avec Row Level Security" },
       { titre: "Services", detail: "Resend pour les e-mails" },
     ],
+    parcours: [
+      {
+        image: "repatek-etape-prestation",
+        titre: "1. Le client choisit sa prestation",
+        legende: "Chaque service affiche son prix et sa durée, qui servent ensuite à calculer les créneaux.",
+      },
+      {
+        image: "repatek-etape-creneau",
+        titre: "2. Il choisit un jour et un créneau",
+        legende:
+          "Seuls les créneaux vraiment libres sont proposés : horaires, jours fermés, durée de la prestation et temps de trajet sont pris en compte.",
+      },
+      {
+        image: "repatek-etape-coordonnees",
+        titre: "3. Il indique ses coordonnées et son adresse",
+        legende:
+          "Le technicien valide ensuite la demande depuis son back-office, et le client reçoit un e-mail à chaque étape.",
+      },
+    ],
+    video: {
+      fichier: "/videos/repatek-reservation.mp4",
+      poster: "/images/repatek-etape-prestation-960.webp",
+      description:
+        "Vidéo sans son : choix d'une prestation, d'un jour et d'un créneau, puis formulaire de coordonnées. La démonstration s'arrête avant l'envoi.",
+    },
     qualite: ["17 tests automatisés, lancés avant chaque déploiement", "Déploiement automatique sur Hostinger"],
     tests: { unitaires: 17 },
     lighthouse: {
