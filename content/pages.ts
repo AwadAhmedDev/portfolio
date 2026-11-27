@@ -178,7 +178,7 @@ export const aPropos = {
   surtitre: "À propos",
   titre: "Je transforme un besoin en application web qui fonctionne.",
   presentation: [
-    "Je suis Awad, développeur Full Stack JavaScript / TypeScript en Île-de-France, avec React, Next.js et Node.js. Je conçois des applications web sur mesure, de la base de données jusqu'à l'écran de vos utilisateurs.",
+    "Je suis Awad, Développeur Full Stack JavaScript / TypeScript · React, Next.js, Node.js. Basé en Île-de-France, je conçois des applications web sur mesure, de la base de données jusqu'à l'écran de vos utilisateurs.",
     "Mon objectif : allier rigueur technique et vision business. Avant d'écrire du code, je cherche à comprendre ce que le produit doit apporter, puis je livre une solution solide qui répond précisément au besoin.",
     "Formé chez Simplon.co, j'ai déjà livré {clients} projets pour des clients, tous en ligne aujourd'hui.",
   ],

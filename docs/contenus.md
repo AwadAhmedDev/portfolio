@@ -348,7 +348,7 @@ Refonte du 26/11/2026 : texte proposé par Awad, adapté (chaque promesse a une 
 - Surtitre : **À propos** (en couleur, en capitales, au-dessus du grand titre)
 - Grand titre : **Je transforme un besoin en application web qui fonctionne.**
 - Texte (3 paragraphes) :
-  1. **Je suis Awad, développeur Full Stack JavaScript / TypeScript en Île-de-France, avec React, Next.js et Node.js. Je conçois des applications web sur mesure, de la base de données jusqu'à l'écran de vos utilisateurs.**
+  1. **Je suis Awad, Développeur Full Stack JavaScript / TypeScript · React, Next.js, Node.js. Basé en Île-de-France, je conçois des applications web sur mesure, de la base de données jusqu'à l'écran de vos utilisateurs.**
   2. **Mon objectif : allier rigueur technique et vision business. Avant d'écrire du code, je cherche à comprendre ce que le produit doit apporter, puis je livre une solution solide qui répond précisément au besoin.**
   3. **Formé chez Simplon.co, j'ai déjà livré {clients} projets pour des clients, tous en ligne aujourd'hui.**
 - Boutons : **Voir mes projets** (principal) · **Me contacter**
