@@ -3,6 +3,7 @@ import { metaPage } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projetParSlug, projets, projetSuivant, type Projet } from "@/content/projets";
+import { ParcoursImages } from "@/components/projet/ParcoursImages";
 import { SchemaArchitecture } from "@/components/projet/SchemaArchitecture";
 import { SchemaTemplate } from "@/components/projet/SchemaTemplate";
 import { TableauLighthouse } from "@/components/projet/TableauLighthouse";
@@ -168,6 +169,7 @@ export default async function FicheProjet({ params }: Props) {
           </ol>
         </Rubrique>
         <Rubrique id="fonctionnalites" titre="Fonctionnalités clés">
+          <ParcoursImages p={p} />
           <ul className="flex list-disc flex-col gap-2 pl-5">
             {p.fonctionnalites.map((f) => (
               <li key={f}>{riche(f)}</li>

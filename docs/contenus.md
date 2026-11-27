@@ -146,6 +146,11 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
 
 - **Le projet** : RepaTek est le site d'un service de dépannage informatique à domicile aux Ulis, en Essonne : diagnostic, suppression de virus, passage au SSD, récupération de données. Le client choisit une prestation et un créneau, indique son adresse, et le technicien valide le rendez-vous depuis un back-office.
 - **Mon rôle** : seul développeur, de la conception à la mise en ligne, pour le client **Aden Dahier Okieh**.
+- **Le parcours en images** *(26/11/2026, captures et vidéo prises par le robot, sans jamais envoyer de demande)* :
+  1. **1. Le client choisit sa prestation** — Chaque service affiche son prix et sa durée, qui servent ensuite à calculer les créneaux.
+  2. **2. Il choisit un jour et un créneau** — Seuls les créneaux vraiment libres sont proposés : horaires, jours fermés, durée de la prestation et temps de trajet sont pris en compte.
+  3. **3. Il indique ses coordonnées et son adresse** — Le technicien valide ensuite la demande depuis son back-office, et le client reçoit un e-mail à chaque étape.
+  - Vidéo (environ 13 s, sans son, `/videos/repatek-reservation.mp4`) : **Vidéo sans son : choix d'une prestation, d'un jour et d'un créneau, puis formulaire de coordonnées. La démonstration s'arrête avant l'envoi.**
 - **Fonctionnalités** :
   - Réservation en 4 étapes : prestation, date et créneau, coordonnées et adresse, confirmation.
   - Créneaux calculés selon les horaires, les jours fermés, la durée de la prestation, le délai de prévenance et une marge de trajet entre deux rendez-vous.
