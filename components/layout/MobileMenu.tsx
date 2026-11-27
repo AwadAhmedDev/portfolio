@@ -53,7 +53,7 @@ export function MobileMenu() {
         id="menu-mobile"
         ref={panneauRef}
         hidden={!ouvert}
-        className="absolute inset-x-0 top-16 border-b border-border bg-background"
+        className="absolute inset-x-0 top-16 border-b border-border bg-card"
       >
         <nav aria-label="Navigation principale" className="conteneur flex flex-col gap-1 py-3">
           {nav.map((l) => (

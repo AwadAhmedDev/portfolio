@@ -10,7 +10,7 @@ import { ThemeToggle } from "./ThemeToggle";
 export function Header() {
   const cv = cvFrancais();
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background">
+    <header className="sticky top-0 z-40 border-b border-border bg-card">
       <div className="conteneur relative flex h-16 items-center justify-between gap-4">
         <Link
           href="/"

@@ -48,11 +48,12 @@ Tous les textes passent le niveau AA de WCAG 2.2 dans les deux thèmes. Contrast
 
 | Rôle | Variable | shadcn/ui | Clair | Sombre | Contraste clair / sombre |
 |---|---|---|---|---|---|
-| Fond de page | `--bg` | `--background` | `#ffffff` | `#0b1120` | — |
-| Surface, survol | `--sf` | `--muted`, `--accent` | `#f5f7fa` | `#121a2c` | — |
+| Fond de page | `--bg` | `--background` | `#f4f6fa` | `#0b1120` | — |
+| Cartes, en-tête, champs | `--cd` | `--card` | `#ffffff` | `#0b1120` | — |
+| Surface, bandeaux | `--sf` | `--muted`, `--accent` | `#e9eef5` | `#121a2c` | — |
 | Texte | `--tx` | `--foreground` | `#0f172a` | `#e6eaf2` | 17,9:1 / 15,6:1 |
 | Texte secondaire | `--mu` | `--muted-foreground` | `#475569` | `#9aa7ba` | 7,6:1 / 7,7:1 |
-| Bordure décorative | `--bd` | `--border` | `#cbd5e1` | `#334155` | décoratif |
+| Bordure décorative | `--bd` | `--border` | `#d3dbe6` | `#334155` | décoratif |
 | Contour des contrôles | `--bs` | `--input` | `#64748b` | `#64748b` | 4,8:1 / 4,0:1 |
 | Accent, liens, focus | `--ac` | `--primary`, `--ring` | `#1d4ed8` | `#8fb0ff` | 6,7:1 / 8,8:1 |
 | Accent au survol | `--ach` | — | `#1e40af` | `#b0c8ff` | 8,7:1 / 11,3:1 |
@@ -64,6 +65,8 @@ Tous les textes passent le niveau AA de WCAG 2.2 dans les deux thèmes. Contrast
 | Confirmation (fond / texte) | `--okb` / `--okf` | — | `#f0fdf4` / `#166534` | `#0f2418` / `#bbf7d0` | 6,8:1 / 13,5:1 |
 
 Contrôles complémentaires (Claude Code, 22/11/2026) : sur la surface `--sf`, texte secondaire 7,1:1 / 7,1:1, accent 6,2:1 / 8,1:1, contour des contrôles 4,4:1 / 3,7:1 ; texte sur accent au survol 8,7:1 / 11,3:1 ; badge neutre (`--tx` sur `--sf`) 16,6:1 / 14,4:1 ; option choisie (`--tx` sur `--so`) 15,5:1 / 11,9:1.
+
+Mode clair adouci (27/11/2026, demande d'Awad : « tout est blanc ») : page `#f4f6fa`, bandeaux `#e9eef5`, cartes blanches avec une ombre douce (`--om`, plus marquée au survol : `--omh`). Contrastes recalculés : sur la page, texte 16,5:1, secondaire 7,0:1, accent 6,2:1, contour 4,4:1 ; sur les bandeaux, texte 15,3:1, secondaire 6,5:1, accent 5,7:1, contour 4,1:1 ; sur les cartes blanches, inchangés. Mode sombre inchangé.
 
 ### 3.2 Typographie
 

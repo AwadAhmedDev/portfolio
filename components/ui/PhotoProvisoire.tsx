@@ -11,7 +11,7 @@ export function PhotoProvisoire({ alt, libelle }: { alt: string; libelle: string
         <circle cx="80" cy="80" r="34" className="fill-primary/20" />
         <path d="M14 200c0-46 29-74 66-74s66 28 66 74Z" className="fill-primary/20" />
       </svg>
-      <span className="mono absolute left-3 top-3 rounded-full border border-border bg-background px-2.5 py-1 text-[12px] text-muted-foreground">
+      <span className="mono absolute left-3 top-3 rounded-full border border-border bg-card px-2.5 py-1 text-[12px] text-muted-foreground">
         {libelle}
       </span>
     </div>

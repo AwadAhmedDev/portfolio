@@ -110,7 +110,7 @@ export default function Accueil() {
           {a.pourQui.choix.map((c) => (
             <li
               key={c.pour}
-              className="flex flex-col gap-3 rounded-[16px] border border-border bg-background p-6 sm:flex-row sm:items-center sm:justify-between"
+              className="flex flex-col gap-3 rounded-[16px] border border-border bg-card p-6 shadow-carte sm:flex-row sm:items-center sm:justify-between"
             >
               <div>
                 <h3 className="text-[20px]">{c.pour}</h3>
@@ -163,7 +163,7 @@ export default function Accueil() {
             return (
               <li
                 key={av.cle}
-                className="flex flex-col gap-3 rounded-[16px] border border-border bg-background p-6 transition-[border-color,box-shadow] duration-200 hover:border-input hover:shadow-[0_12px_32px_-16px_rgb(15_23_42/0.35)]"
+                className="flex flex-col gap-3 rounded-[16px] border border-border bg-card p-6 shadow-carte transition-[transform,border-color,box-shadow] duration-300 ease-out motion-safe:hover:-translate-y-0.5 hover:border-input hover:shadow-carte-survol"
               >
                 <span className="flex size-11 items-center justify-center rounded-[10px] bg-secondary text-secondary-foreground">
                   <Icone />
@@ -243,7 +243,7 @@ export default function Accueil() {
           {/* Deux parcours : premier site ou refonte (26/11/2026). */}
           <ul className="grid gap-4 border-t border-border pt-6 md:grid-cols-2 wide:col-span-3">
             {a.freelance.parcours.map((p) => (
-              <li key={p.titre} className="rounded-[16px] border-t-[3px] border-t-primary bg-background p-6">
+              <li key={p.titre} className="rounded-[16px] border-t-[3px] border-t-primary bg-card p-6 shadow-carte">
                 <h3 className="text-[22px]">{p.titre}</h3>
                 <p className="mt-1 text-muted-foreground">{p.intro}</p>
                 <ul className="mt-4 flex flex-col gap-3">
@@ -263,7 +263,7 @@ export default function Accueil() {
             <h3 className="text-[22px]">{a.freelance.inclusTitre}</h3>
             <ul className="mt-4 grid gap-3 sm:grid-cols-2">
               {a.freelance.inclus.map((x) => (
-                <li key={x} className="flex items-start gap-3 rounded-[10px] bg-background px-4 py-3">
+                <li key={x} className="flex items-start gap-3 rounded-[10px] bg-card px-4 py-3">
                   <span className="mt-0.5 text-primary">
                     <IconeCoche />
                   </span>

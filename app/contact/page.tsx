@@ -65,7 +65,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="rounded-[16px] border border-border bg-background p-6 shadow-[0_24px_48px_-32px_rgb(15_23_42/0.45)] md:p-8">
+        <div className="rounded-[16px] border border-border bg-card p-6 shadow-[0_24px_48px_-32px_rgb(15_23_42/0.45)] md:p-8">
           <h2 className="text-[22px]">{contact.formulaireTitre}</h2>
           <div className="mt-6">
             <noscript>
