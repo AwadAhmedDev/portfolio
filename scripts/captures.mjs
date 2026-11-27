@@ -202,7 +202,11 @@ async function parcoursSolidays(page, capture) {
   await capture("solidays-etape-artiste");
   // 3. Billetterie : liens vers les vendeurs officiels.
   await page.goto(`${SOLIDAYS}/billetterie`, { waitUntil: "load", timeout: 90_000 });
-  await page.waitForTimeout(2500);
+  await page.waitForTimeout(2000);
+  // Cadrer sur les pass (le bandeau du haut n'apprend rien) : titre « Choisissez votre pass » en haut de l'écran.
+  const pass = page.getByRole("heading", { name: /choisissez votre pass/i });
+  await pass.evaluate((titre) => window.scrollTo({ top: titre.getBoundingClientRect().top + window.scrollY - 140 }));
+  await page.waitForTimeout(1500);
   await capture("solidays-etape-billetterie");
 }
 
