@@ -452,6 +452,31 @@ export const projets: Projet[] = [
       { titre: "Base de données", detail: "MySQL" },
       { titre: "Services", detail: "Stripe en mode test" },
     ],
+    parcours: [
+      {
+        image: "emateriel-etape-catalogue",
+        titre: "1. Le catalogue",
+        legende: "Chaque produit affiche sa catégorie, son prix et sa disponibilité en stock.",
+      },
+      {
+        image: "emateriel-etape-produit",
+        titre: "2. La fiche produit et l'ajout au panier",
+        legende:
+          "Le stock restant est indiqué, et l'ajout au panier est confirmé tout de suite, compteur du panier compris.",
+      },
+      {
+        image: "emateriel-etape-panier",
+        titre: "3. Le panier",
+        legende:
+          "Quantités modifiables et total TTC. La commande passe ensuite par une connexion, puis par le paiement Stripe en mode test.",
+      },
+    ],
+    video: {
+      fichier: "/videos/emateriel-parcours.mp4",
+      poster: "/images/emateriel-etape-catalogue-960.webp",
+      description:
+        "Vidéo sans son : catalogue, fiche d'un produit, ajout au panier, puis le panier. La démonstration s'arrête avant la commande.",
+    },
     qualite: ["63 tests automatisés", "Intégration continue"],
     tests: { unitaires: 63 },
     lighthouse: {

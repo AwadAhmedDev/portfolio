@@ -7,6 +7,33 @@
     "largeur": 320,
     "hauteur": 320
   },
+  "emateriel-etape-catalogue": {
+    "largeurs": [
+      640,
+      960,
+      1440
+    ],
+    "largeur": 1440,
+    "hauteur": 900
+  },
+  "emateriel-etape-panier": {
+    "largeurs": [
+      640,
+      960,
+      1440
+    ],
+    "largeur": 1440,
+    "hauteur": 900
+  },
+  "emateriel-etape-produit": {
+    "largeurs": [
+      640,
+      960,
+      1440
+    ],
+    "largeur": 1440,
+    "hauteur": 900
+  },
   "emateriel-mobile": {
     "largeurs": [
       640

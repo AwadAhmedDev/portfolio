@@ -157,12 +157,39 @@ async function parcoursPlateforme(page, capture) {
   await capture("plateforme-editoriale-etape-article");
 }
 
+// eMatériel (27/11/2026) : catalogue, fiche produit après ajout au panier, puis le panier.
+// Le panier est gardé dans le navigateur du robot (localStorage) : aucune commande, aucun paiement ;
+// le robot ne clique jamais le bouton de paiement.
+const EMATERIEL = "https://darkseagreen-sandpiper-710943.hostingersite.com";
+async function parcoursEmateriel(page, capture) {
+  // 1. Catalogue (le site Node.js peut mettre du temps à se réveiller).
+  await page.goto(`${EMATERIEL}/products`, { waitUntil: "load", timeout: 120_000 });
+  await refuserCookies(page);
+  await page.locator('a[href^="/products/"]').first().waitFor({ timeout: 90_000 });
+  await page.waitForTimeout(1500);
+  await capture("emateriel-etape-catalogue");
+  // 2. Fiche du premier produit, puis ajout au panier.
+  await page.locator('a[href^="/products/"]').first().click();
+  const ajouter = page.getByRole("button", { name: /ajouter au panier/i });
+  await ajouter.waitFor({ timeout: 60_000 });
+  await page.waitForTimeout(1000);
+  await ajouter.click();
+  await page.waitForTimeout(1500);
+  await capture("emateriel-etape-produit");
+  // 3. Le panier, sans aller plus loin.
+  await page.goto(`${EMATERIEL}/panier`, { waitUntil: "load", timeout: 90_000 });
+  await page.getByRole("heading", { level: 1 }).waitFor({ timeout: 60_000 });
+  await page.waitForTimeout(1500);
+  await capture("emateriel-etape-panier");
+}
+
 // Pour chaque parcours : captures fixes, puis la même suite filmée (pauses plus longues pour que la vidéo se suive bien).
 // La vidéo est coupée au début (chargement) et à la fin (attente) par le workflow, grâce aux fichiers .debut et .duree.
 const PARCOURS = {
   "repatek-reservation": reservationRepatek,
   "i-make-my-world-parcours": parcoursImakemyworld,
   "plateforme-editoriale-parcours": parcoursPlateforme,
+  "emateriel-parcours": parcoursEmateriel,
 };
 const { renameSync, writeFileSync } = await import("node:fs");
 for (const [video, parcours] of Object.entries(PARCOURS)) {

@@ -278,6 +278,11 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
 
 - **Le projet** : une boutique en ligne de smartphones, tablettes, ordinateurs et accessoires. Projet de formation Simplon.co, que j'ai ensuite terminé et mis en ligne.
 - **Mon rôle** : projet de formation réalisé seul, puis terminé et mis en ligne.
+- **Le parcours en images** *(27/11/2026, captures et vidéo prises par le robot ; panier gardé dans son navigateur, aucune commande)* :
+  1. **1. Le catalogue** — Chaque produit affiche sa catégorie, son prix et sa disponibilité en stock.
+  2. **2. La fiche produit et l'ajout au panier** — Le stock restant est indiqué, et l'ajout au panier est confirmé tout de suite, compteur du panier compris.
+  3. **3. Le panier** — Quantités modifiables et total TTC. La commande passe ensuite par une connexion, puis par le paiement Stripe en mode test.
+  - Vidéo (environ 12 s, sans son, `/videos/emateriel-parcours.mp4`) : **Vidéo sans son : catalogue, fiche d'un produit, ajout au panier, puis le panier. La démonstration s'arrête avant la commande.**
 - **Fonctionnalités** :
   - Catalogue et panier.
   - Paiement par Stripe, **en mode test** (aucun vrai paiement possible).
