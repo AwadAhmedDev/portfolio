@@ -43,4 +43,70 @@ for (const [slug, url] of Object.entries(SITES)) {
     console.log(`${slug}-${format}.png`);
   }
 }
+
+// Parcours en images (26/11/2026) : écrans clés et courte vidéo de la réservation RepaTek, en 1440 × 900 (16:10).
+// Le robot s'arrête sur le formulaire de coordonnées, VIDE : il ne clique jamais « Envoyer la Demande »,
+// donc aucun rendez-vous n'est créé chez le client. Vidéo enregistrée par Playwright (WebM), convertie ensuite.
+mkdirSync("videos-source", { recursive: true });
+const ecran = { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1, locale: "fr-FR", colorScheme: "light" };
+async function reservationRepatek(page, capture) {
+  await page.goto("https://repatek.fr/", { waitUntil: "load", timeout: 90_000 });
+  await page
+    .getByRole("button", { name: /tout refuser/i })
+    .first()
+    .click({ timeout: 5000 })
+    .catch(() => {});
+  const reservation = page.locator("#booking");
+  await reservation.getByRole("button", { name: /continuer/i }).waitFor({ timeout: 60_000 });
+  await reservation.scrollIntoViewIfNeeded();
+  await page.evaluate(() => window.scrollBy(0, -80)); // garder le titre de la section sous l'en-tête
+  await page.waitForTimeout(1500);
+  // 1. Choix de la prestation : la première carte.
+  await reservation.locator(".grid button").first().click();
+  await page.waitForTimeout(1200);
+  await capture("repatek-etape-prestation");
+  await reservation.getByRole("button", { name: /continuer/i }).click();
+  // 2. Date et créneau : premier jour disponible, puis premier créneau proposé.
+  await reservation.locator(".overflow-x-auto button:not([disabled])").first().click();
+  await reservation.locator(".grid button").first().waitFor({ timeout: 30_000 });
+  await page.waitForTimeout(800);
+  await reservation.locator(".grid button").first().click();
+  await page.waitForTimeout(1200);
+  await capture("repatek-etape-creneau");
+  await reservation.getByRole("button", { name: /continuer/i }).click();
+  // 3. Coordonnées et adresse : formulaire laissé vide, on s'arrête là.
+  await page.waitForTimeout(1500);
+  await capture("repatek-etape-coordonnees");
+}
+
+// Captures fixes, puis la même suite filmée (pauses plus longues pour que la vidéo se suive bien).
+{
+  const contexte = await navigateur.newContext({ ...ecran, reducedMotion: "reduce" });
+  const page = await contexte.newPage();
+  await reservationRepatek(page, (nom) =>
+    page.screenshot({ path: `images-source/${nom}.png` }).then(() => console.log(`${nom}.png`)),
+  );
+  await contexte.close();
+}
+{
+  const contexte = await navigateur.newContext({
+    ...ecran,
+    recordVideo: { dir: "videos-source", size: { width: 1440, height: 900 } },
+  });
+  const page = await contexte.newPage();
+  const debut = Date.now();
+  let pret = 0;
+  await reservationRepatek(page, async () => {
+    if (!pret) pret = Date.now();
+    await page.waitForTimeout(1500);
+  });
+  await page.waitForTimeout(1500);
+  const video = page.video();
+  await contexte.close();
+  const { renameSync, writeFileSync } = await import("node:fs");
+  renameSync(await video.path(), "videos-source/repatek-reservation.webm");
+  // Moment où la section de réservation est prête : on coupe le chargement au début de la vidéo.
+  writeFileSync("videos-source/repatek-reservation.debut", String(Math.max(0, (pret - debut) / 1000 - 3.5)));
+  console.log("repatek-reservation.webm");
+}
 await navigateur.close();
