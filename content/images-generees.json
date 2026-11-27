@@ -179,6 +179,33 @@
     "largeur": 1440,
     "hauteur": 900
   },
+  "solidays-etape-artiste": {
+    "largeurs": [
+      640,
+      960,
+      1440
+    ],
+    "largeur": 1440,
+    "hauteur": 900
+  },
+  "solidays-etape-billetterie": {
+    "largeurs": [
+      640,
+      960,
+      1440
+    ],
+    "largeur": 1440,
+    "hauteur": 900
+  },
+  "solidays-etape-programmation": {
+    "largeurs": [
+      640,
+      960,
+      1440
+    ],
+    "largeur": 1440,
+    "hauteur": 900
+  },
   "solidays-mobile": {
     "largeurs": [
       640
