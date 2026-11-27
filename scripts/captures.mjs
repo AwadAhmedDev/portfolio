@@ -17,7 +17,8 @@ const FORMATS = {
 };
 
 mkdirSync("images-source", { recursive: true });
-const navigateur = await chromium.launch();
+// Navigateur en français : les champs de date affichent jj/mm/aaaa, comme pour un visiteur en France.
+const navigateur = await chromium.launch({ args: ["--lang=fr-FR"] });
 for (const [slug, url] of Object.entries(SITES)) {
   for (const [format, options] of Object.entries(FORMATS)) {
     const contexte = await navigateur.newContext({
