@@ -17,7 +17,8 @@ const FORMATS = {
 };
 
 mkdirSync("images-source", { recursive: true });
-const navigateur = await chromium.launch();
+// Navigateur en français : les champs de date affichent jj/mm/aaaa, comme pour un visiteur en France.
+const navigateur = await chromium.launch({ args: ["--lang=fr-FR"] });
 for (const [slug, url] of Object.entries(SITES)) {
   for (const [format, options] of Object.entries(FORMATS)) {
     const contexte = await navigateur.newContext({
@@ -130,9 +131,39 @@ async function parcoursImakemyworld(page, capture) {
   await capture("i-make-my-world-etape-experts");
 }
 
+// Plateforme éditoriale (27/11/2026) : page d'un pays avec ses filtres, recherche plein texte, puis un article.
+// Seule action : taper un mot dans la recherche ; aucun formulaire (contact, newsletter) n'est rempli ni envoyé.
+const PLATEFORME = "https://snowy-floralwhite-giraffe-20.hostingersite.com";
+async function parcoursPlateforme(page, capture) {
+  // 1. Page d'un pays : articles de la zone et filtres par rubrique, type et date.
+  await page.goto(`${PLATEFORME}/zone/ethiopie`, { waitUntil: "load", timeout: 90_000 });
+  await refuserCookies(page);
+  await page.getByRole("heading", { level: 1 }).waitFor({ timeout: 60_000 });
+  await page.waitForTimeout(1200);
+  await capture("plateforme-editoriale-etape-pays");
+  // 2. Recherche plein texte.
+  await page.goto(`${PLATEFORME}/recherche`, { waitUntil: "load", timeout: 90_000 });
+  const champ = page.getByPlaceholder(/rechercher un sujet/i);
+  await champ.waitFor({ timeout: 60_000 });
+  await champ.pressSequentially("déplacés", { delay: 90 });
+  await champ.press("Enter");
+  await page.waitForLoadState("load");
+  await page.waitForTimeout(2000);
+  await capture("plateforme-editoriale-etape-recherche");
+  // 3. Premier article trouvé.
+  await page.locator('main a[href^="/articles/"]').first().click();
+  await page.getByRole("heading", { level: 1 }).waitFor({ timeout: 60_000 });
+  await page.waitForTimeout(1500);
+  await capture("plateforme-editoriale-etape-article");
+}
+
 // Pour chaque parcours : captures fixes, puis la même suite filmée (pauses plus longues pour que la vidéo se suive bien).
 // La vidéo est coupée au début (chargement) et à la fin (attente) par le workflow, grâce aux fichiers .debut et .duree.
-const PARCOURS = { "repatek-reservation": reservationRepatek, "i-make-my-world-parcours": parcoursImakemyworld };
+const PARCOURS = {
+  "repatek-reservation": reservationRepatek,
+  "i-make-my-world-parcours": parcoursImakemyworld,
+  "plateforme-editoriale-parcours": parcoursPlateforme,
+};
 const { renameSync, writeFileSync } = await import("node:fs");
 for (const [video, parcours] of Object.entries(PARCOURS)) {
   {

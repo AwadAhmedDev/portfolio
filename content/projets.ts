@@ -297,6 +297,29 @@ export const projets: Projet[] = [
       { titre: "Stockage", detail: "Cloudflare R2 pour les images" },
       { titre: "Services", detail: "Resend pour les e-mails, Cloudflare Turnstile contre les robots" },
     ],
+    parcours: [
+      {
+        image: "plateforme-editoriale-etape-pays",
+        titre: "1. Les articles d'un pays",
+        legende: "Chaque pays et chaque rubrique a sa page, avec des filtres par rubrique, type de contenu et date.",
+      },
+      {
+        image: "plateforme-editoriale-etape-recherche",
+        titre: "2. La recherche plein texte",
+        legende: "Un mot-clé suffit, et les résultats peuvent être affinés par pays, rubrique, type et période.",
+      },
+      {
+        image: "plateforme-editoriale-etape-article",
+        titre: "3. La lecture d'un article",
+        legende: "Fil d'Ariane, chapeau, rubrique et date, puis le temps de lecture, le partage et les articles liés.",
+      },
+    ],
+    video: {
+      fichier: "/videos/plateforme-editoriale-parcours.mp4",
+      poster: "/images/plateforme-editoriale-etape-pays-960.webp",
+      description:
+        "Vidéo sans son : page d'un pays, recherche du mot « déplacés », puis ouverture du premier article trouvé.",
+    },
     qualite: [
       "16 tests unitaires sur les règles de sécurité",
       "Lint sans aucun avertissement",

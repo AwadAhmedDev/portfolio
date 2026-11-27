@@ -26,6 +26,10 @@ jobs:
       - run: npm install --no-save "$PLAYWRIGHT"
       - run: npx playwright install --with-deps chromium
       - run: node scripts/captures.mjs
+        env:
+          # Sous Linux, Chrome prend la langue du système : dates affichées jj/mm/aaaa comme en France.
+          LANG: fr_FR.UTF-8
+          LANGUAGE: fr_FR:fr
       # Vidéo du parcours : début et fin coupés, 1280 px de large, sans son, en MP4 (lu par tous les navigateurs).
       # « faststart » : la lecture commence avant la fin du téléchargement.
       - name: Vidéos MP4
