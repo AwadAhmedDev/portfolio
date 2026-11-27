@@ -108,13 +108,16 @@ async function reservationRepatek(page, capture) {
     if (!pret) pret = Date.now();
     await page.waitForTimeout(1500);
   });
+  const fin = Date.now(); // le formulaire de coordonnées est à l'écran depuis 1,5 s
   await page.waitForTimeout(1500);
   const video = page.video();
   await contexte.close();
   const { renameSync, writeFileSync } = await import("node:fs");
   renameSync(await video.path(), "videos-source/repatek-reservation.webm");
-  // Moment où la section de réservation est prête : on coupe le chargement au début de la vidéo.
-  writeFileSync("videos-source/repatek-reservation.debut", String(Math.max(0, (pret - debut) / 1000 - 3.5)));
+  // On coupe le chargement au début et l'attente à la fin : la vidéo ne montre que le parcours.
+  const coupe = Math.max(0, (pret - debut) / 1000 - 3.5);
+  writeFileSync("videos-source/repatek-reservation.debut", String(coupe));
+  writeFileSync("videos-source/repatek-reservation.duree", String((fin - debut) / 1000 + 0.5 - coupe));
   console.log("repatek-reservation.webm");
 }
 await navigateur.close();
