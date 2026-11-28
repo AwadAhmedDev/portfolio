@@ -21,7 +21,7 @@ export const liens = {
 // Un CV non fourni n'a pas de lien (EF-7). Mettre `taille` (ex. « 150 Ko ») quand le PDF est ajouté dans public/cv/.
 export type CV = { langue: "fr" | "en" | "de"; nom: string; fichier: string; taille: string | null };
 export const cvs: CV[] = [
-  { langue: "fr", nom: "CV en français", fichier: "/cv/awad-cv-fr.pdf", taille: null },
+  { langue: "fr", nom: "CV en français", fichier: "/cv/awad-cv-fr.pdf", taille: "85 Ko" },
   { langue: "en", nom: "CV en anglais", fichier: "/cv/awad-cv-en.pdf", taille: null },
   { langue: "de", nom: "CV en allemand", fichier: "/cv/awad-cv-de.pdf", taille: null },
 ];
