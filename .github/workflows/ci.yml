@@ -199,23 +199,38 @@ jobs:
         with:
           node-version: 22
       - run: npm install --global "$LIGHTHOUSE"
-      - name: Mesures (accueil et fiche RepaTek, ordinateur et mobile)
+      # 3 mesures par page et par appareil, médiane de chaque valeur : une machine GitHub lente
+      # (ex. run 46145301008, benchmarkIndex 450 au lieu de ~2 500) ne fausse plus le résultat.
+      # Une mesure en erreur arrête toujours le job (set -e), comme avant.
+      - name: Mesures (accueil et fiche RepaTek, ordinateur et mobile, 3 fois chacune)
         run: |
           set -euo pipefail
           mkdir -p rapports
-          echo "| Page | Appareil | Perf. | Access. | Bonnes pratiques | SEO | LCP | CLS | TBT |" >> "$GITHUB_STEP_SUMMARY"
-          echo "|---|---|---|---|---|---|---|---|---|" >> "$GITHUB_STEP_SUMMARY"
+          echo "Médiane de 3 mesures. « Perf. des 3 » et « Indice machine » (benchmarkIndex) aident à repérer une machine lente." >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Page | Appareil | Perf. | Access. | Bonnes pratiques | SEO | LCP | CLS | TBT | Perf. des 3 | Indice machine |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|---|---|---|---|---|---|---|---|---|---|---|" >> "$GITHUB_STEP_SUMMARY"
           for page in / /projets/repatek/; do
             for appareil in desktop mobile; do
               nom="$(echo "$page" | tr '/' '_')$appareil"
               opt=""; [ "$appareil" = desktop ] && opt="--preset=desktop"
-              lighthouse "$SITE_URL$page" $opt --quiet --chrome-flags="--headless=new --no-sandbox" \
-                --output=json --output=html --output-path="rapports/$nom"
+              for i in 1 2 3; do
+                lighthouse "$SITE_URL$page" $opt --quiet --chrome-flags="--headless=new --no-sandbox" \
+                  --output=json --output=html --output-path="rapports/$nom-$i"
+              done
               node -e '
-                const r = require(process.argv[1]); const c = r.categories, a = r.audits;
-                const s = (k) => Math.round(c[k].score * 100);
-                console.log(`| ${process.argv[2]} | ${process.argv[3]} | ${s("performance")} | ${s("accessibility")} | ${s("best-practices")} | ${s("seo")} | ${a["largest-contentful-paint"].displayValue} | ${a["cumulative-layout-shift"].displayValue} | ${a["total-blocking-time"].displayValue} |`);
-              ' "$PWD/rapports/$nom.report.json" "$page" "$appareil" | tee -a "$GITHUB_STEP_SUMMARY"
+                const [, base, page, appareil] = process.argv;
+                const r = [1, 2, 3].map((i) => require(`${base}-${i}.report.json`));
+                const med = (v) => [...v].sort((x, y) => x - y)[1]; // 3 valeurs : celle du milieu
+                const s = (k) => r.map((x) => Math.round(x.categories[k].score * 100));
+                const n = (k) => med(r.map((x) => x.audits[k].numericValue));
+                const cats = ["performance", "accessibility", "best-practices", "seo"].map((k) => med(s(k)));
+                const lcp = `${(n("largest-contentful-paint") / 1000).toFixed(1)} s`;
+                const cls = n("cumulative-layout-shift").toFixed(3).replace(/\.?0+$/, "");
+                const tbt = `${Math.round(n("total-blocking-time"))} ms`;
+                const indice = Math.round(med(r.map((x) => x.environment.benchmarkIndex)));
+                console.log(`| ${page} | ${appareil} | ${cats.join(" | ")} | ${lcp} | ${cls} | ${tbt} | ${s("performance").join(" / ")} | ${indice} |`);
+              ' "$PWD/rapports/$nom" "$page" "$appareil" | tee -a "$GITHUB_STEP_SUMMARY"
             done
           done
       - uses: actions/upload-artifact@v7
