@@ -407,7 +407,7 @@ Le lot 12 suit tous les autres : ses contrôles finaux se font avec les vraies i
 Les lots ont été réalisés et le site est en ligne depuis le 23/11/2026. Reste, dans cet ordre :
 
 **A. Réalisable par Claude Code** (chaque intervention présentée avant et validée après) :
-1. Lot 2 : corriger `bouton.secondaire` (`components/ui/styles.ts`), resté sur `bg-background` après le mode clair adouci (boutons secondaires gris-bleu dans les cartes blanches).
+1. ~~Lot 2 : corriger `bouton.secondaire` (`components/ui/styles.ts`), resté sur `bg-background` après le mode clair adouci (boutons secondaires gris-bleu dans les cartes blanches).~~ **Terminé le 28/11/2026** : `bg-card` à la place de `bg-background` (fusion `8cebb95`, PR n° 32) ; rendu contrôlé en local dans les deux thèmes ; en ligne, CI de `main` verte, `version.txt` = `8cebb95` et classe `bg-card` servie.
 2. Lots 2, 6 et 12 : noter les contrôles d'affichage manquants (360, 390, 1 024 et 1 440 px, thème sombre, liens du menu de 48 px).
 3. Lot 13 : comparer une fois le budget mesuré au build avec la taille réellement transférée ; étendre Lighthouse à Projets, À propos et Contact si Awad le souhaite.
 4. Lot 5 : nouvelle mesure Lighthouse des projets présentés, dont les 3 scores mobile d'eMatériel.
