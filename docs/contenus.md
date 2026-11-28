@@ -394,8 +394,8 @@ Bandeau final : **Un poste à pourvoir ou un projet à lancer ? Parlons-en.** ·
 
 
 ### 4.5 CV
-- Texte : **CV disponible en français, en anglais et en allemand.**
-- Liens : **CV en français (PDF)** · **CV en anglais (PDF)** · **CV en allemand (PDF)** — la taille sera ajoutée quand les fichiers seront fournis.
+- Texte : **CV disponible en français et en anglais.** (décision d'Awad du 28/11/2026 : pas de CV en allemand)
+- Liens : **CV en français (PDF, 85 Ko)** · **CV en anglais (PDF, 84 Ko)**.
 - Boutons : **Voir mes projets** (principal, décision C15) · **Me contacter**
 
 ---
@@ -439,7 +439,7 @@ Les champs obligatoires sont signalés par la mention **(obligatoire)** dans leu
 
 ### 5.3 À côté du formulaire
 - **LinkedIn** · **GitHub**
-- **CV disponible en français, en anglais et en allemand** + les 3 liens
+- **CV disponible en français et en anglais** + les 2 liens
 
 ---
 

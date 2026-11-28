@@ -139,7 +139,7 @@ flowchart TD
 
 ## Parcours 4 — Un visiteur souhaite télécharger le CV
 
-**Visiteur** : surtout recruteur ; parfois recruteur étranger (CV en anglais ou en allemand).
+**Visiteur** : surtout recruteur ; parfois recruteur étranger (CV en anglais).
 **But** : obtenir le CV en PDF, dans la bonne langue, en un clic.
 
 ```mermaid
@@ -169,7 +169,7 @@ flowchart TD
 - Un CV qui n'est pas à jour avec le site (projets, chiffres) crée une contradiction.
 
 **Améliorations possibles**
-- Dans l'en-tête, garder « CV » direct ; sur la page À propos et la page Contact, une mention visible en français : « CV disponible en français, en anglais et en allemand » **[P6]** (le site reste 100 % en français).
+- Dans l'en-tête, garder « CV » direct ; sur la page À propos et la page Contact, une mention visible en français : « CV disponible en français et en anglais » **[P6]** (le site reste 100 % en français).
 - Nom de fichier clair et stable (`awad-ahmed-cv-fr.pdf`) pour que le fichier téléchargé soit reconnaissable.
 - Vérifier, à chaque mise à jour du portfolio, que les 3 CV disent la même chose que le site.
 
@@ -234,7 +234,7 @@ flowchart TD
 | P3 | 3 étapes « Comment je travaille » | 2 | Faible | **Oui, au lancement**, sur l'accueil ou la page Contact |
 | P4 | « Projet freelance » présélectionné depuis le bloc freelance | 2 | Faible | **Oui** |
 | P5 | Partie « Choix techniques » dans chaque détail de projet | 3 | Moyen (textes à écrire) | **Oui, au lancement** : c'est ce qui convainc un CTO |
-| P6 | Mention visible des CV anglais et allemand | 4 | Faible | **Oui** |
+| P6 | Mention visible du CV anglais | 4 | Faible | **Oui** |
 | P7 | Phrase claire « formulaire ou LinkedIn » à la place d'une adresse e-mail | 5 | Faible | **Oui** |
 | P8 | E-mail automatique de confirmation au visiteur | 5 | Moyen (script PHP) | **Après le lancement** : utile, mais ce message pourrait être utilisé pour envoyer du spam à des tiers ; à faire avec des limites strictes |
 

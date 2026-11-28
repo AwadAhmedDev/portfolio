@@ -37,7 +37,7 @@ Le projet avance par phases, dans cet ordre :
 - **Signaler les incertitudes** et poser la question quand une information manque.
 - **Code simple, sécurisé et maintenable** : pas de dépendance, d'abstraction ou de fonctionnalité dont on n'a pas besoin.
 - **Expliquer avant d'agir** et attendre l'accord d'Awad pour toute action visible : création de dépôt, commit, push, publication, déploiement, achat.
-- **Confidentialité** : nom public **« Awad Dev »** (titres, pied de page) et **« Awad »** dans les phrases (décision d'Awad du 26/11/2026) ; le nom complet « Awad Ahmed » n'apparaît sur le site que dans les mentions légales (éditeur et destinataire des données du formulaire), où la loi l'exige. Les autres noms (clients, coéquipiers) sont cités seulement avec leur accord. Aucune adresse e-mail personnelle, aucun secret, aucun token dans le code, le site ou les commits.
+- **Confidentialité** : nom public **« Awad Dev »** (titres, pied de page) et **« Awad »** dans les phrases (décision d'Awad du 26/11/2026) ; le nom complet « Awad Ahmed » n'apparaît sur le site que dans les mentions légales (éditeur et destinataire des données du formulaire), où la loi l'exige, et dans les CV en PDF (`public/cv/`), où le nom complet « Awad Ahmed Roubah » est attendu par les recruteurs (décision d'Awad du 28/11/2026). Les autres noms (clients, coéquipiers) sont cités seulement avec leur accord. Aucune adresse e-mail personnelle, aucun secret, aucun token dans le code, le site ou les commits.
 - Répondre en français, avec des mots simples.
 
 ## 5. Contraintes matérielles
