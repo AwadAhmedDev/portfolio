@@ -66,6 +66,7 @@ jobs:
     name: Liens externes
     needs: verifier
     runs-on: ubuntu-latest
+    timeout-minutes: 15 # pire cas des réessais ci-dessous : environ 10 min
     steps:
       - uses: actions/download-artifact@v8
         with:
@@ -74,11 +75,17 @@ jobs:
       # Liens internes (fichiers de out/) et externes. LinkedIn refuse les robots (réponse 999) ;
       # les sites Node.js des projets peuvent mettre du temps à se réveiller : plusieurs essais, 45 s chacun.
       # example.invalid est l'adresse provisoire des adresses canoniques tant que le site n'existe pas.
+      # Hostinger (CDN hcdn) a deux fois laissé sans réponse tous ses sites pendant plusieurs minutes
+      # (runs 46089407379 et 46142483071) : requêtes espacées par site (2 à la fois, 500 ms d'écart) et
+      # 5 réessais au lieu de 4, soit ~5 min d'attente cumulée (10 + 20 + 40 + 80 + 160 s). Lychee ne réessaie que les
+      # délais dépassés, 408, 429 et 5xx ; toute erreur restante fait échouer le job (fail: true).
       - uses: lycheeverse/lychee-action@v2
         with:
           args: >-
             --no-progress
-            --max-retries 4 --retry-wait-time 10 --timeout 45
+            --max-retries 5 --retry-wait-time 10 --timeout 45
+            --host-concurrency 2 --host-request-interval 500ms
+            --host-stats
             --scheme https --scheme http --scheme file
             --exclude linkedin\.com
             --exclude example\.invalid
