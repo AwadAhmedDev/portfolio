@@ -235,9 +235,9 @@ export const projets: Projet[] = [
     qualite: ["45 tests d'intégration (Vitest et Supertest)", "TypeScript strict", "Intégration continue"],
     tests: { integration: 45 },
     lighthouse: {
-      mesure: "le 21 ou le 22 novembre 2026",
-      ordinateur: { performance: 99, accessibilite: 99, bonnesPratiques: 100, seo: 100 },
-      mobile: { performance: 90, accessibilite: 99, bonnesPratiques: 100, seo: 100 },
+      mesure: "le 28 novembre 2026",
+      ordinateur: { performance: 99, accessibilite: 96, bonnesPratiques: 100, seo: 100 },
+      mobile: { performance: 94, accessibilite: 96, bonnesPratiques: 100, seo: 100 },
     },
   },
   {
@@ -328,9 +328,9 @@ export const projets: Projet[] = [
     ],
     tests: { unitaires: 16 },
     lighthouse: {
-      mesure: "le 21 ou le 22 novembre 2026",
+      mesure: "le 28 novembre 2026",
       ordinateur: { performance: 100, accessibilite: 100, bonnesPratiques: 100, seo: 100 },
-      mobile: { performance: 93, accessibilite: 100, bonnesPratiques: 100, seo: 100 },
+      mobile: { performance: 95, accessibilite: 100, bonnesPratiques: 100, seo: 100 },
     },
   },
   {
@@ -480,9 +480,9 @@ export const projets: Projet[] = [
     qualite: ["63 tests automatisés", "Intégration continue"],
     tests: { unitaires: 63 },
     lighthouse: {
-      mesure: "le 21 ou le 22 novembre 2026",
+      mesure: "le 28 novembre 2026",
       ordinateur: { performance: 100, accessibilite: 100, bonnesPratiques: 100, seo: 100 },
-      mobile: { performance: 98, accessibilite: null, bonnesPratiques: null, seo: null },
+      mobile: { performance: 100, accessibilite: 100, bonnesPratiques: 100, seo: 100 },
     },
   },
   {

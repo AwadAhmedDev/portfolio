@@ -82,7 +82,7 @@ test("adresse inconnue : page 404 avec le code HTTP 404", async ({ page }) => {
 test("navigation entre les pages sans rechargement", async ({ page }) => {
   await page.goto("/");
   await page.evaluate(() => ((window as unknown as Fenetre).marqueur = true));
-  await page.getByRole("link", { name: "Voir les 6 projets" }).click();
+  await page.getByRole("link", { name: "Voir tous les projets" }).click();
   await expect(page).toHaveURL(/\/projets\/$/);
   expect(await page.evaluate(() => (window as unknown as Fenetre).marqueur)).toBe(true);
 });

@@ -54,7 +54,7 @@ Juste sous le premier écran, deux cartes pour que chaque visiteur trouve son ch
 - Titre : **Projets clients**
 - Sous-titre : **Des sites réels, conçus et développés pour des clients, en ligne aujourd'hui.**
 - 3 cartes : RepaTek, I Make My World, Plateforme éditoriale (textes des cartes : section 2)
-- Lien : **Voir les 6 projets**
+- Lien : **Voir tous les projets**
 
 ### 1.2 bis Ce que vous obtenez (ajouté le 25/11/2026, demande d'Awad)
 - Titre : **Ce que vous obtenez**
@@ -63,17 +63,17 @@ Juste sous le premier écran, deux cartes pour que chaque visiteur trouve son ch
   - **Un site rapide** — Il s'affiche en un instant, même sur téléphone : vos visiteurs restent. · *Jusqu'à 100/100 en vitesse sur l'outil de mesure de Google*
   - **Trouvé sur Google** — Chaque page est préparée pour le référencement : titres, descriptions et aperçus pour les réseaux sociaux. · *4 de mes sites ont 100/100 en référencement sur l'outil de Google*
   - **Sécurisé** — Connexion HTTPS, serveur protégé et formulaires à l'abri des robots. · *Protections contrôlées automatiquement à chaque mise en ligne de ce portfolio*
-  - **Parfait sur tous les écrans** — Téléphone, tablette ou ordinateur : le site s'adapte et reste agréable à utiliser. · *Ce portfolio est testé sur Chrome, Firefox et Safari*
+  - **Parfait sur tous les écrans** — Téléphone, tablette ou ordinateur : le site s'adapte et reste agréable à utiliser. · *Ce portfolio est testé automatiquement sur les moteurs Chromium, Firefox et WebKit via Playwright*
   - **Fiable** — Chaque modification est vérifiée automatiquement avant d'être mise en ligne : moins de pannes. · *185 tests automatiques sur mes 6 projets*
   - **Accessible à tous** — Lisible par tous, y compris par les personnes malvoyantes ou qui naviguent au clavier. · *100/100 en accessibilité pour ce portfolio*
 
 ### 1.3 Preuves en chiffres
 - **6 projets** présentés, dont **5 en ligne**
 - **185 tests automatisés** au total *(17 + 45 + 16 + 63 + 24 + 20)*
-- **Intégration continue** sur les 6 projets *(GitHub Actions)*
+- **Intégration continue** sur 6 projets, dont 1 dépôt privé *(GitHub Actions)*
 - **100 / 100** sur les 4 scores Lighthouse pour 2 sites, sur ordinateur
 
-Petite note sous les chiffres : *Chiffres relevés sur les dépôts et les sites en ligne le 22 novembre 2026.*
+Petite note sous les chiffres : *Tests : dernière CI de chaque projet, le 22 novembre 2026. Lighthouse : mesuré le 28 novembre 2026 (RepaTek : le 22 novembre 2026).*
 
 ### 1.4 Bloc freelance *(repensé le 26/11/2026, demande d'Awad : deux parcours, premier site ou refonte)*
 - Titre : **Vous avez un projet de site ou d'application ?**
@@ -202,7 +202,7 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
   - **Une API Express séparée de l'interface**, avec authentification par jeton (JWT).
   - **Images stockées dans un espace privé Cloudflare R2**, servies uniquement par l'API.
   - **Protection de l'API** : limite de demandes et en-têtes de sécurité.
-- **Qualité** : 45 tests d'intégration (Vitest et Supertest) · TypeScript strict · intégration continue · Lighthouse ordinateur 99 / 99 / 100 / 100, mobile 90 / 99 / 100 / 100 *(mesuré le 21 ou le 22 novembre 2026)*.
+- **Qualité** : 45 tests d'intégration (Vitest et Supertest) · TypeScript strict · intégration continue · Lighthouse ordinateur 99 / 96 / 100 / 100, mobile 94 / 96 / 100 / 100 *(mesuré le 28 novembre 2026)*.
 - Liens : **Voir le site**
 - Mention à la place du code : **Le code de ce projet client est privé. Je peux le présenter en entretien.**
 
@@ -235,7 +235,7 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
   - **Images stockées sur Cloudflare R2**, hors du serveur du site.
   - **E-mails envoyés par l'API de Resend avec un simple appel HTTP**, sans bibliothèque en plus.
   - **Protection anti-robots avec Cloudflare Turnstile.**
-- **Qualité** : 16 tests unitaires sur les règles de sécurité · lint sans aucun avertissement · TypeScript strict · intégration continue · Lighthouse ordinateur 100 / 100 / 100 / 100, mobile 93 / 100 / 100 / 100 *(mesuré le 21 ou le 22 novembre 2026)*.
+- **Qualité** : 16 tests unitaires sur les règles de sécurité · lint sans aucun avertissement · TypeScript strict · intégration continue · Lighthouse ordinateur 100 / 100 / 100 / 100, mobile 95 / 100 / 100 / 100 *(mesuré le 28 novembre 2026)*.
 - Liens : **Voir le site** · **Voir le code**
 
 ### 3.4 Template Next.js — `/projets/template-nextjs/`
@@ -299,7 +299,7 @@ Les « Choix techniques » décrivent ce qui est **dans le code** ; la raison do
   - **Le stock est modifié dans une transaction** : deux commandes en même temps ne peuvent pas vendre le même dernier article.
   - **Stripe appelé directement par son API**, sans bibliothèque en plus, et **seule une clé de test est acceptée**.
   - **API testée avec Supertest** : 63 tests vérifient le serveur à chaque modification.
-- **Qualité** : 63 tests automatisés · intégration continue · Lighthouse ordinateur 100 / 100 / 100 / 100, performance mobile 98 *(mesuré le 21 ou le 22 novembre 2026)*.
+- **Qualité** : 63 tests automatisés · intégration continue · Lighthouse ordinateur 100 / 100 / 100 / 100, mobile 100 / 100 / 100 / 100 *(mesuré le 28 novembre 2026)*.
 - Liens : **Voir le site** · **Voir le code**
 
 ### 3.6 Solidays — `/projets/solidays/`
