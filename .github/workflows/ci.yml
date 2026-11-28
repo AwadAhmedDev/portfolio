@@ -219,6 +219,7 @@ jobs:
             done
           done
       - uses: actions/upload-artifact@v7
+        if: always() # rapports gardés aussi quand une mesure échoue (ex. « interstitial » du run 46144048874)
         with:
           name: lighthouse
           path: rapports/
