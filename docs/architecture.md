@@ -206,7 +206,7 @@ Le formulaire envoie les données avec `fetch` (JSON) vers `/contact.php`, sur l
 - Le serveur ne conserve **aucun message**.
 
 **Journaux**
-- `display_errors` désactivé ; `expose_php` désactivé sur le site (prévu ; pas encore vérifié en ligne, `roadmap.md` lot 14).
+- `display_errors` désactivé ; `expose_php` désactivé sur Hostinger depuis le 28/11/2026 (PHP 8.3.37) : passé de `On` (valeur par défaut) à `Off` par l'API Hostinger, seule option modifiée. **Preuve de configuration** : relecture de la configuration par l'API après le changement (`Off`). **Réponses HTTP** testées ensuite : aucun en-tête `X-Powered-By` ; ce test seul ne prouve pas le réglage, car `contact.php` retire cet en-tête lui-même (`roadmap.md` lot 14).
 - Seules les **erreurs techniques** sont écrites, dans `private/contact-errors.log` : date, code de l'erreur, statut HTTP de Resend. **Jamais** le nom, l'e-mail, le message ni l'adresse IP.
 - Le fichier est limité à 1 Mo : au-delà, il est vidé et recommence. Les lignes de plus de 30 jours sont supprimées.
 

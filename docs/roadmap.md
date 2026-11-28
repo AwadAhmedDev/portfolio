@@ -88,7 +88,7 @@
 | 11 | Images et optimisation | **En cours** | Workflow et `Picture` faits ; photo plus grande ; test « image qui ne charge pas » à faire |
 | 12 | Responsive et accessibilité | **En cours** | axe sur les 11 pages en CI ; zoom 200 %, clavier page par page, NVDA (menu, formulaire) et largeurs dans les deux thèmes à noter |
 | 13 | Tests et audits | **En cours** | CI complète et verte, audits faits le 27/11/2026 ; reste la comparaison budget mesuré / taille transférée |
-| 14 | Déploiement | **En cours** | En ligne et contrôlé ; deux contrôles ouverts : `REMOTE_ADDR` mesuré directement (voir lot 8) et `expose_php` |
+| 14 | Déploiement | **En cours** | En ligne et contrôlé ; un seul contrôle ouvert : `REMOTE_ADDR` mesuré directement (voir lot 8) ; `expose_php` désactivé le 28/11/2026 |
 
 ### Budget JavaScript mesuré (build local du commit `24233db`, 27/11/2026, gzip niveau 9)
 
@@ -368,7 +368,7 @@ Mesures du 23/11/2026 : le formulaire coûtait 2 842 octets et la base React + N
 ### Lot 14 — Déploiement
 
 - **Objectif** : `architecture.md` §8.
-- **État** : **En cours** : site en ligne et contrôlé ; deux contrôles ouverts (`REMOTE_ADDR` mesuré directement, `expose_php`).
+- **État** : **En cours** : site en ligne et contrôlé ; un seul contrôle ouvert (`REMOTE_ADDR` mesuré directement) ; `expose_php` désactivé le 28/11/2026.
 - **Fichiers** : job `deployer` de `.github/workflows/ci.yml`, `README.md` ; sur le serveur : `private/config.php` (jamais dans le dépôt).
 - **Dépendances** : lot 13 (CI verte) ; décision d'Awad sur la création du site.
 - **Tâches**
@@ -376,7 +376,7 @@ Mesures du 23/11/2026 : le formulaire coûtait 2 842 octets et la base React + N
   - [x] **Par Awad** : `private/config.php` déposé ; envoi réel reçu le 25/11/2026. Il contient les 5 réglages lus par `contact.php` : clé Resend (`resend_cle`), adresse de réception (`destinataire`), adresse d'expédition (`expediteur`), origine du site (`origine`) et clé HMAC (`cle_hmac`). **Consignes non vérifiées en production** : droits 600 sur le fichier et clé HMAC de 32 octets (ni les droits ni la longueur de la clé ne sont contrôlés par le code ou par un test).
   - [x] Déploiement sans jeton (remplace `HOSTINGER_API_TOKEN` et `deploy.yml`, jamais créés) : le job `deployer` de `ci.yml`, après un push sur `main` et une CI verte, publie `out/` sur la branche `site` ; Hostinger la récupère par son déploiement Git automatique (dépôt `AwadAhmedDev/portfolio`, branche `site`, activé : lu dans l'API Hostinger le 27/11/2026).
   - [x] Après déploiement (vérifié le 27/11/2026) : commit en ligne = `main` (`24233db`, CI verte), 242 fichiers identiques octet pour octet à la branche `site` (les 4 autres : `.php` et `.htaccess`, non téléchargeables par conception) ; HTTPS (redirection 301), 6 en-têtes de sécurité, 404, adresses interdites en 403 ou 404, compression (brotli, zstd), cache, aucun `X-Powered-By` (cet en-tête est retiré par `contact.php` lui-même).
-  - [ ] `expose_php` désactivé (`architecture.md` §6.1) : **non vérifié** ; l'absence de `X-Powered-By` ne le prouve pas, puisque `contact.php` retire cet en-tête lui-même.
+  - [x] `expose_php` désactivé (`architecture.md` §6.1) : passé de `On` (valeur par défaut) à `Off` le 28/11/2026 par l'API Hostinger (PHP 8.3.37, seule option modifiée ; `display_errors` et `log_errors` restés à `Off`). **Preuve de configuration** : relecture par l'API après le changement (`Off`, autres options et extensions inchangées). **Réponses HTTP** ensuite : `/` et `/a-propos/` 200, `/contact.php` 405 (GET) et 403 (POST, origine refusée), `/_app/ContactHandler.php` 403, `/inexistant.php` 404, aucun `X-Powered-By` ; ce test seul ne prouve pas le réglage, puisque `contact.php` retire cet en-tête lui-même.
   - [ ] `REMOTE_ADDR` : Contrôle du 28/11/2026, fait par Awad : l'adresse IP publique du visiteur (relevée sur ifconfig.me) apparaît à l'identique dans les journaux d'accès Hostinger (ligne de `/a-propos/?test-ip=1`) ; la documentation de Hostinger indique que PHP reçoit normalement cette adresse dans `REMOTE_ADDR`. `$_SERVER['REMOTE_ADDR']` n'a **pas été mesuré directement** dans PHP : ce n'est pas une preuve expérimentale, la case reste donc ouverte. Le code garde `REMOTE_ADDR` (pas de `X-Forwarded-For`).
   - [x] Envoi réel d'un message : reçu le 25/11/2026 (confirmé par Awad).
   - [x] README du dépôt, sans donnée personnelle.
@@ -464,7 +464,7 @@ La mise en ligne a eu lieu le **23/11/2026**, avec l'accord d'Awad (RM6). Le tab
 | 10 | Accord explicite d'Awad pour créer le site et pour le premier déploiement | Oui (23/11/2026) |
 | 11 | `private/config.php` déposé ; secret `HOSTINGER_API_TOKEN` | `config.php` déposé ; le secret n'est plus nécessaire (déploiement par Git, lot 14) |
 | 12 | Fusion dans `main` par pull request, avec l'accord d'Awad | Oui |
-| 13 | Contrôles de production du lot 14 (HTTPS, en-têtes, 404, adresses interdites, `expose_php`, `REMOTE_ADDR`, envoi réel) | **En partie** : tout est contrôlé sauf `REMOTE_ADDR`, non mesuré directement dans PHP (adresse du visiteur vue dans les journaux d'accès, lot 8), et `expose_php`, non vérifié |
+| 13 | Contrôles de production du lot 14 (HTTPS, en-têtes, 404, adresses interdites, `expose_php`, `REMOTE_ADDR`, envoi réel) | **En partie** : tout est contrôlé sauf `REMOTE_ADDR`, non mesuré directement dans PHP (adresse du visiteur vue dans les journaux d'accès, lot 8) ; `expose_php` désactivé le 28/11/2026 (relecture de la configuration par l'API) |
 | 14 | Lighthouse conforme à `requirements.md` §6 sur l'accueil et une fiche, ordinateur et mobile | Oui (27/11/2026) |
 | 15 | Taille de JavaScript réellement transférée comparée une fois à la mesure du build | **Non** |
 
