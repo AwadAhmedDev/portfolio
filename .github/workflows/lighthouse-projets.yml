@@ -1,0 +1,84 @@
+# Mesure Lighthouse des sites présentés (roadmap lot 5, A3) : même outil, même version et mêmes options que le
+# job « lighthouse » de ci.yml, sur un serveur GitHub (rien installé sur l'ordinateur d'Awad, R7).
+# Les 30 audits (5 sites × 2 appareils × 3) tournent dans un seul job, sur la même machine, l'un après l'autre.
+# Le résumé donne la médiane de chaque catégorie ; les scores ne sont recopiés dans content/projets.ts et
+# contenus.md qu'après validation d'Awad (R8).
+name: Lighthouse des projets
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mesurer:
+    name: 5 sites, ordinateur et mobile, 3 audits chacun
+    runs-on: ubuntu-latest
+    env:
+      LIGHTHOUSE: "lighthouse@13.6.0" # même version que ci.yml
+      # Sites de content/projets.ts (champ « site »), au format « projet=adresse ».
+      SITES: >-
+        repatek=https://repatek.fr/
+        i-make-my-world=https://teal-starling-640860.hostingersite.com/
+        plateforme-editoriale=https://snowy-floralwhite-giraffe-20.hostingersite.com/
+        emateriel=https://darkseagreen-sandpiper-710943.hostingersite.com/
+        solidays=https://tasteful-lightcoral-yak-94.hostingersite.com/
+    steps:
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - run: npm install --global "$LIGHTHOUSE"
+      - name: 30 audits
+        run: |
+          set -euo pipefail
+          mkdir -p rapports
+          for site in $SITES; do
+            projet="${site%%=*}"; url="${site#*=}"
+            for appareil in desktop mobile; do
+              opt=""; [ "$appareil" = desktop ] && opt="--preset=desktop"
+              for i in 1 2 3; do
+                lighthouse "$url" $opt --only-categories=performance,accessibility,best-practices,seo \
+                  --quiet --chrome-flags="--headless=new --no-sandbox" \
+                  --output=json --output=html --output-path="rapports/$projet-$appareil-$i"
+              done
+            done
+          done
+      - name: Médianes
+        run: |
+          node -e '
+            const fs = require("fs");
+            const cats = ["performance", "accessibility", "best-practices", "seo"];
+            const med = (v) => [...v].sort((a, b) => a - b)[1]; // 3 valeurs : celle du milieu
+            const lignes = [];
+            for (const site of process.env.SITES.split(/\s+/).filter(Boolean)) {
+              const [projet, url] = site.split("=");
+              for (const appareil of ["desktop", "mobile"]) {
+                const r = [1, 2, 3].map((i) => JSON.parse(fs.readFileSync(`rapports/${projet}-${appareil}-${i}.report.json`, "utf8")));
+                for (const x of r) {
+                  // Un audit en erreur donne un score nul : on arrête plutôt que d afficher un faux score.
+                  if (x.runtimeError) throw new Error(`${projet} ${appareil} : ${x.runtimeError.code}`);
+                  for (const c of cats)
+                    if (typeof x.categories[c]?.score !== "number") throw new Error(`${projet} ${appareil} : ${c} sans score`);
+                }
+                const s = (c) => r.map((x) => Math.round(x.categories[c].score * 100));
+                const lcp = med(r.map((x) => x.audits["largest-contentful-paint"].numericValue));
+                lignes.push(
+                  `| ${projet} | ${appareil === "desktop" ? "ordinateur" : "mobile"} | ${cats.map((c) => med(s(c))).join(" | ")} | ` +
+                    `${s("performance").join(" / ")} | ${(lcp / 1000).toFixed(1)} s | ${r[0].fetchTime.slice(0, 10)} | ${url} |`,
+                );
+              }
+            }
+            const tete =
+              "| Projet | Appareil | Perf. | Access. | Bonnes pratiques | SEO | Perf. des 3 audits | LCP médian | Date (UTC) | Adresse |\n" +
+              "|---|---|---|---|---|---|---|---|---|---|";
+            const texte = `Médiane de 3 audits Lighthouse 13.6.0 par site et par appareil.\n\n${tete}\n${lignes.join("\n")}\n`;
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, texte);
+            console.log(texte);
+          '
+      - uses: actions/upload-artifact@v7
+        if: always() # rapports gardés même si un audit échoue, pour comprendre pourquoi
+        with:
+          name: lighthouse-projets
+          path: rapports/
+          retention-days: 30
