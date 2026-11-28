@@ -1,15 +1,15 @@
-# CLAUDE.md — Portfolio de Awad Ahmed
+# CLAUDE.md — Portfolio d'Awad (« Awad Dev »)
 
 Instructions générales pour toute intervention de Claude sur ce dépôt.
 
 ## 1. Contexte et objectif
 
-Portfolio professionnel de Awad Ahmed, développeur Full Stack JavaScript / TypeScript. Le site n'emploie ni « junior » ni « senior » et n'annonce aucun nombre d'années d'expérience.
+Portfolio professionnel d'Awad, développeur Full Stack JavaScript / TypeScript, publié sous le nom « Awad Dev ». Le site n'emploie ni « junior » ni « senior » et n'annonce aucun nombre d'années d'expérience.
 Objectif : présenter ses projets réels (avec un lien vers le site en ligne et vers le code quand ils existent), ses compétences et son parcours, et permettre de le contacter.
 
 Le portfolio est un projet séparé : il ne modifie pas les dépôts des projets qu'il présente, sauf demande explicite d'Awad.
 
-Stack choisie (pas encore installée) : Next.js en export statique, React, TypeScript, Tailwind CSS, shadcn/ui. Détails et décisions : `docs/product-discovery.md`.
+Stack en place : Next.js 16 en export statique, React 19, TypeScript 5.9 strict, Tailwind CSS 4. shadcn/ui n'est **pas** installé et aucun de ses composants n'est recopié : boutons, badges et puces sont de simples classes Tailwind (`components/ui/styles.ts`) ; seuls les noms des variables CSS reprennent ceux de shadcn/ui. Formulaire : PHP 8.3 + Resend. Site en ligne sur Hostinger (adresse provisoire) depuis le 23/11/2026, mis à jour automatiquement après chaque fusion dans `main` (voir `docs/architecture.md` §8). Détails et décisions : `docs/product-discovery.md`, `docs/architecture.md`, `docs/roadmap.md`.
 
 ## 2. Rôles
 
@@ -37,7 +37,7 @@ Le projet avance par phases, dans cet ordre :
 - **Signaler les incertitudes** et poser la question quand une information manque.
 - **Code simple, sécurisé et maintenable** : pas de dépendance, d'abstraction ou de fonctionnalité dont on n'a pas besoin.
 - **Expliquer avant d'agir** et attendre l'accord d'Awad pour toute action visible : création de dépôt, commit, push, publication, déploiement, achat.
-- **Confidentialité** : pour Awad, seul le nom « Awad Ahmed » apparaît ; les autres noms (clients, coéquipiers) sont cités seulement avec leur accord. Aucune adresse e-mail personnelle, aucun secret, aucun token dans le code, le site ou les commits.
+- **Confidentialité** : nom public **« Awad Dev »** (titres, pied de page) et **« Awad »** dans les phrases (décision d'Awad du 26/11/2026) ; le nom complet « Awad Ahmed » n'apparaît sur le site que dans les mentions légales (éditeur et destinataire des données du formulaire), où la loi l'exige. Les autres noms (clients, coéquipiers) sont cités seulement avec leur accord. Aucune adresse e-mail personnelle, aucun secret, aucun token dans le code, le site ou les commits.
 - Répondre en français, avec des mots simples.
 
 ## 5. Contraintes matérielles

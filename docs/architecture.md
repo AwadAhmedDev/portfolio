@@ -1,6 +1,7 @@
-# Architecture technique — Portfolio de Awad Ahmed
+# Architecture technique — Portfolio d'Awad (« Awad Dev »)
 
-> Statut : **architecture validée par Awad le 22/11/2026** (décisions R1 à R9 ci-dessous). Aucun code n'est écrit.
+> Statut : **architecture validée par Awad le 22/11/2026** (décisions R1 à R9 ci-dessous).
+> Mise à jour du 28/11/2026 : le code existe et le site est en ligne depuis le 23/11/2026. Les écarts entre ce document et le code sont signalés là où ils comptent (§1, §2, §8) et suivis dans `roadmap.md` §10.
 > Sources : `requirements.md`, `sitemap.md`, `contenus.md`, `design.md`. En cas d'écart : `contenus.md` pour les textes, les maquettes et `design.md` pour la présentation, ce document pour la technique.
 
 ---
@@ -10,12 +11,12 @@
 | Domaine | Choix | Raison |
 |---|---|---|
 | Framework | **Next.js 16**, App Router, `output: 'export'`, `trailingSlash: true` | Décision D1 ; site entièrement statique, adresses en `/` final (`/projets/repatek/`) |
-| Rendu | Composants serveur par défaut ; composants client **uniquement** pour le menu mobile, le bouton thème et le formulaire | Budget de 150 Ko de JavaScript par page |
+| Rendu | Composants serveur par défaut ; composants client **uniquement** pour le menu mobile, le bouton thème, le formulaire et le lien actif de la navigation (`NavLiens.tsx`) : 4 composants | Budget de 150 Ko de JavaScript par page |
 | Styles | **Tailwind CSS 4** + variables CSS aux noms de shadcn/ui ; point de rupture personnalisé **1 100 px** | `design.md` §3 |
-| Composants | Button, Badge, Card de shadcn/ui **recopiés sans Radix** (pas de `Slot`, `Sheet`, `RadioGroup`, `Checkbox`) ; boutons radio et case à cocher **natifs**, stylés avec `appearance: none` | Le HTML natif suffit et ne coûte aucun JavaScript |
+| Composants | Prévu : Button, Badge, Card de shadcn/ui recopiés sans Radix. **Réalisé** : aucun composant shadcn/ui recopié ni installé ; boutons, badges et puces sont de simples classes Tailwind (`components/ui/styles.ts`) ; boutons radio et case à cocher **natifs** | Le HTML natif suffit et ne coûte aucun JavaScript |
 | Formulaire | **Script PHP sur Hostinger + Resend** (R5, A7) | §6 |
-| Hébergement | **Nouveau site Hostinger** du portfolio, adresse temporaire (R6, D6) | Offre Business, PHP 8.3 (curl, SQLite vérifiés le 22/11/2026) |
-| Déploiement | **GitHub Actions** : build, archive zip, envoi par l'API Hostinger, comme RepaTek | Méthode déjà en service sur le compte |
+| Hébergement | **Site Hostinger** du portfolio, adresse temporaire (R6, D6), en ligne depuis le 23/11/2026 | Offre Business, PHP 8.3 (curl, SQLite vérifiés le 22/11/2026) |
+| Déploiement | Prévu : archive envoyée par l'API Hostinger. **Réalisé** : job `deployer` de `ci.yml` → branche `site` → déploiement Git automatique de Hostinger (§8.2), sans jeton | Aucun secret de déploiement dans GitHub |
 
 ---
 
@@ -69,9 +70,9 @@ portfolio/
 │   ├── php/                      tests du script PHP (CI)
 │   └── e2e/                      Playwright (CI uniquement)
 └── .github/workflows/
-    ├── ci.yml                    lint, types, tests, build, budget, liens, E2E
-    ├── deploy.yml                envoi vers Hostinger si la CI est verte
-    └── images.yml                manuel : prépare les images
+    ├── ci.yml                    lint, types, tests, build, budget, liens, E2E, puis déploiement (job deployer) et Lighthouse
+    ├── captures.yml              captures et vidéos des sites présentés (Playwright)
+    └── images.yml                prépare les images (AVIF, WebP)
 ```
 
 ## 3. Responsabilités
@@ -195,7 +196,7 @@ Le formulaire envoie les données avec `fetch` (JSON) vers `/contact.php`, sur l
 
 **Empreinte de l'adresse IP (HMAC)**
 - L'adresse IP n'est **jamais enregistrée en clair**. On garde seulement `hash_hmac('sha256', $ip, $cle)`, où `$cle` est une clé aléatoire de 32 octets, stockée dans la configuration privée. Sans cette clé, l'empreinte ne permet pas de retrouver l'adresse IP (un simple `sha256` pourrait être inversé en essayant toutes les adresses).
-- Adresse utilisée : `REMOTE_ADDR` uniquement. Les en-têtes `X-Forwarded-For` ne sont pas pris en compte, car n'importe qui peut les écrire. *À vérifier au premier déploiement : que `REMOTE_ADDR` contient bien l'adresse du visiteur chez Hostinger.*
+- Adresse utilisée : `REMOTE_ADDR` uniquement. Les en-têtes `X-Forwarded-For` ne sont pas pris en compte, car n'importe qui peut les écrire. Contrôle du 28/11/2026, fait par Awad : l'adresse IP publique du visiteur (relevée sur ifconfig.me) apparaît à l'identique dans les journaux d'accès Hostinger, sur la ligne de la requête `/a-propos/?test-ip=1`. La documentation de Hostinger (« Hostinger CDN: Visitor IP addresses in logs and analytics ») indique que PHP reçoit normalement cette adresse dans `REMOTE_ADDR`, le serveur faisant confiance au CDN placé devant le site (`Server: hcdn`). `$_SERVER['REMOTE_ADDR']` n'a toutefois **pas été mesuré directement** dans PHP : ce n'est pas une preuve expérimentale. Le code garde `REMOTE_ADDR` ; `X-Forwarded-For` n'est pas utilisé.
 - Les lignes de plus de 24 heures sont effacées de la base SQLite à chaque requête.
 
 **Envoi**
@@ -205,7 +206,7 @@ Le formulaire envoie les données avec `fetch` (JSON) vers `/contact.php`, sur l
 - Le serveur ne conserve **aucun message**.
 
 **Journaux**
-- `display_errors` désactivé ; `expose_php` désactivé sur le site.
+- `display_errors` désactivé ; `expose_php` désactivé sur le site (prévu ; pas encore vérifié en ligne, `roadmap.md` lot 14).
 - Seules les **erreurs techniques** sont écrites, dans `private/contact-errors.log` : date, code de l'erreur, statut HTTP de Resend. **Jamais** le nom, l'e-mail, le message ni l'adresse IP.
 - Le fichier est limité à 1 Mo : au-delà, il est vidé et recommence. Les lignes de plus de 30 jours sont supprimées.
 
@@ -246,13 +247,13 @@ default-src 'self'; script-src 'self' 'sha256-…' 'sha256-…'; style-src 'self
 | Étape | Outil | En local ? |
 |---|---|---|
 | Lint, format, types | ESLint, Prettier, `tsc` | Oui |
-| Tests unitaires (données, total de 185, règles de contenu, dates) | Vitest | Oui |
+| Tests unitaires (données, total de 185, règles de contenu, validation, scripts, images) | Vitest | Oui |
 | Tests du script PHP | PHP en ligne de commande | Non (CI) |
 | Build et export | `next build` | Oui |
 | Empreintes CSP, budget JavaScript (§7.1) | `scripts/*.mjs` | Oui |
 | Liens internes et externes | lychee (LinkedIn répond 999 : exclu) | Non (CI) |
 | Bout en bout : menu, thème sans flash, clavier, formulaire (envoi simulé), accessibilité (axe) | Playwright + axe-core | **Non (CI uniquement)** |
-| Lighthouse | Lighthouse CI sur le site en ligne, après déploiement | Non |
+| Lighthouse | Lighthouse sur le site en ligne après chaque déploiement (accueil et fiche RepaTek, ordinateur et mobile) | Non |
 
 ### 7.1 Mesure du budget JavaScript (150 Ko par page)
 
@@ -275,7 +276,7 @@ Sur ton compte, chaque site a un dossier `/home/u707298094/domains/<domaine>/`, 
 
 ```
 /home/u707298094/domains/<domaine>/
-├── public_html/                         ← SERVI sur internet, remplacé à chaque déploiement
+├── public_html/                         ← SERVI sur internet, copie Git de la branche `site` (`/.git/config` répond 403)
 │   ├── index.html, projets/, …          pages exportées (out/)
 │   ├── .htaccess                         en-têtes, 404, cache, HTTPS
 │   ├── contact.php                       seul point d'entrée PHP
@@ -283,7 +284,7 @@ Sur ton compte, chaque site a un dossier `/home/u707298094/domains/<domaine>/`, 
 │       ├── .htaccess                     Require all denied
 │       └── ContactHandler.php            logique, jamais appelable directement
 └── private/                             ← JAMAIS servi, JAMAIS touché par le déploiement
-    ├── config.php                        clé Resend, adresse de réception, origine du site, clé HMAC
+    ├── config.php                        clé Resend, adresses de réception et d'expédition, origine du site, clé HMAC
     ├── contact.sqlite                    limites de demandes (empreintes d'IP, 24 h)
     └── contact-errors.log                erreurs techniques seulement (§6.1)
 ```
@@ -293,16 +294,16 @@ Sur ton compte, chaque site a un dossier `/home/u707298094/domains/<domaine>/`, 
 - `contact.php` trouve la configuration par un chemin calculé (`dirname(__DIR__) . '/private/config.php'`), jamais écrit dans le dépôt. Si le fichier est absent, il répond **503** sans détail.
 - `ContactHandler.php` est dans `public_html/_app/`, protégé deux fois : le dossier refuse toute requête (`Require all denied`), et le fichier s'arrête aussitôt s'il est appelé sans passer par `contact.php` (constante définie par `contact.php`).
 - Le `.htaccess` principal refuse aussi l'accès aux fichiers `*.sqlite`, `*.log`, `*.md` et à ceux qui commencent par un point, au cas où l'un d'eux serait copié par erreur dans `public_html/`.
-- **Le déploiement n'écrit que dans `public_html/`.** L'archive envoyée par l'API Hostinger ne contient que le dossier `out/` ; elle ne peut pas atteindre `private/`.
+- **Le déploiement n'écrit que dans `public_html/`.** Hostinger y récupère la branche `site`, qui ne contient que le dossier `out/` (plus `version.txt`) ; il ne peut pas atteindre `private/`. La suppression des anciens fichiers, absents de la branche, n'a pas été vérifiée ; aucun secret n'est concerné, puisqu'ils sont dans `private/`.
 - `private/` est créé **une seule fois** : Awad dépose `config.php` (droits 600) avec le gestionnaire de fichiers de hPanel. La clé Resend n'est jamais écrite dans le dépôt, dans GitHub ni dans cette conversation. `contact.sqlite` et le journal sont créés automatiquement par le script au premier envoi (droits 600).
 - Un test de déploiement vérifie que `/_app/ContactHandler.php`, `/private/config.php` et `/.htaccess` répondent **403 ou 404**.
 
 ### 8.2 Étapes
 
 1. **Une fois, avec l'accord d'Awad** : créer le site Hostinger du portfolio (adresse temporaire, qui devient `SITE_URL` au build) ; Awad crée `private/config.php` comme ci-dessus.
-2. **À chaque push sur `main`** : CI ; si tout est vert, `deploy.yml` archive `out/` et l'envoie par l'API Hostinger (secret GitHub `HOSTINGER_API_TOKEN`), comme RepaTek.
-3. Pas d'envoi automatique Hostinger depuis Git : pour un site statique, Hostinger ne construit rien.
-4. Après le déploiement : contrôle de réponse du site, contrôle des 3 adresses interdites (§8.1), puis Lighthouse.
+2. **À chaque push sur `main`** (fusion d'une pull request) : CI ; si tout est vert, le job `deployer` de `ci.yml` refait le build, écrit `version.txt` (commit publié) et pousse `out/` sur la branche `site`. Aucun secret Hostinger dans GitHub.
+3. Hostinger récupère la branche `site` par son déploiement Git automatique (dépôt `AwadAhmedDev/portfolio`, branche `site`, activé : lu dans l'API Hostinger le 27/11/2026). Pour un site statique, Hostinger ne construit rien.
+4. Le job attend que `version.txt` en ligne corresponde au commit (10 minutes au plus), puis contrôle les pages, la 404, les adresses interdites (403 ou 404) et l'en-tête CSP ; Lighthouse mesure ensuite le site.
 
 ### 8.3 Prérequis du build
 
@@ -320,8 +321,8 @@ Sur ton compte, chaque site a un dossier `/home/u707298094/domains/<domaine>/`, 
 | Espace disque limité sur l'ordinateur d'Awad | Voir R7 ; Playwright, traitement des images et Docker restent en CI |
 | Budget JavaScript serré (React + Next.js) | Composants serveur, pas de Radix, budget contrôlé en CI |
 | CSP par empreintes sensible aux scripts de Next.js | Empreintes recalculées à chaque build ; meta en premier dans `<head>` ; test E2E sans violation de CSP |
-| Comportement de l'API Hostinger au déploiement (fichiers anciens supprimés ou non dans `public_html/`) | Sans risque pour les secrets (ils sont dans `private/`) ; à observer au premier déploiement pour les fichiers obsolètes |
-| `REMOTE_ADDR` derrière le serveur de Hostinger | À vérifier au premier déploiement (§6.1) |
+| Déploiement Git de Hostinger : suppression des anciens fichiers non vérifiée ; récupération parfois en retard | Sans risque pour les secrets (ils sont dans `private/`) ; le job `deployer` attend la bonne `version.txt` et échoue sinon (deux cas rencontrés, corrigés par un nouveau déploiement) |
+| `REMOTE_ADDR` derrière le CDN de Hostinger | Adresse du visiteur visible dans les journaux d'accès (contrôle d'Awad du 28/11/2026) ; selon Hostinger, PHP la reçoit dans `REMOTE_ADDR` ; non mesuré directement dans PHP (§6.1) |
 | Resend sans domaine vérifié | Accepté pour le lancement ; P8 après achat d'un domaine |
 | Textes à deux endroits | Règle R8 et tests de contenu |
 | Ressources absentes (photo, CV) | Emplacements provisoires (C6) ; captures faites par Claude Code |
