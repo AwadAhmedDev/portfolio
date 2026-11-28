@@ -383,7 +383,7 @@ Mesures du 23/11/2026 : le formulaire coûtait 2 842 octets et la base React + N
   - [x] `phase-4-developpement` fusionnée dans `main` par pull request, avec l'accord d'Awad.
 - **Critères d'acceptation** : critères « Projet » et « Qualité mesurée sur le site en ligne » de `requirements.md` §9.
 - **Tests** : contrôles automatiques après déploiement ; Lighthouse ; envoi réel.
-- **Risques** : suppression des anciens fichiers par le déploiement Git non vérifiée ; récupération de la branche `site` parfois en retard (deux cas rencontrés, corrigés par un nouveau déploiement) ; `REMOTE_ADDR` non mesuré directement ; aucun secret ne doit passer par le dépôt, GitHub ou la conversation.
+- **Risques** : suppression des anciens fichiers par le déploiement Git vérifiée le 28/11/2026 après le déploiement de la PR n° 34 (`a242ba9`) : les 4 fichiers renommés de la photo (`/images/awad-ahmed-200|320.avif|webp`) répondent 404, les 4 nouveaux (`awad-200|320`) répondent 200 (constat ponctuel) ; récupération de la branche `site` parfois en retard (deux cas rencontrés, corrigés par un nouveau déploiement) ; `REMOTE_ADDR` non mesuré directement ; aucun secret ne doit passer par le dépôt, GitHub ou la conversation.
 - **Terminé quand** : site en ligne, tous les contrôles en production passés, puis validation d'Awad.
 
 ---
