@@ -13,7 +13,7 @@ export const LARGEURS = { capture: [640, 960, 1440], photo: [200, 320, 640] };
 export const POIDS_MAX = 200 * 1024; // octets par fichier produit
 export const QUALITE = { avif: 50, webp: 75 };
 
-export const genre = (nom) => (nom === "awad-ahmed" ? "photo" : "capture");
+export const genre = (nom) => (nom === "awad" ? "photo" : "capture");
 
 // PNG ou JPEG, en minuscules, sans espace ni accent.
 export const nomValide = (fichier) => /^[a-z0-9]+(-[a-z0-9]+)*\.(png|jpe?g)$/.test(fichier);

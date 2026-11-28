@@ -25,7 +25,7 @@ export function Picture({ nom, ratio, sizes, provisoire, prioritaire = false }: 
   const declaree = images.find((i) => i.nom === nom);
   const generee = (generees as Record<string, Generee>)[nom];
   if (!declaree || !generee)
-    return nom === "awad-ahmed" ? (
+    return nom === "awad" ? (
       <PhotoProvisoire libelle={provisoire.libelle} alt={provisoire.alt} />
     ) : (
       <Provisoire libelle={provisoire.libelle} ratio={ratio} alt={provisoire.alt} />
