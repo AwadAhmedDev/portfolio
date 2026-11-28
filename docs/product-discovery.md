@@ -105,7 +105,7 @@ Les outils d'IA (Claude Code, Claude Design, ChatGPT) sont mentionnés sur le si
 7. **Adapté au mobile, accessible** (navigation au clavier, contrastes, textes alternatifs), mode clair et mode sombre.
 8. **SEO de base** : titres et descriptions, plan du site (sitemap), aperçus pour les réseaux sociaux (Open Graph).
 9. **Site 100 % en français**.
-10. **Photo et CV en PDF** téléchargeable, en **trois versions : français, anglais, allemand** (fournis par Awad, vérifiés : pas d'e-mail ni de téléphone personnels).
+10. **Photo et CV en PDF** téléchargeable, en **deux versions : français et anglais** (décision d'Awad du 28/11/2026 : pas de CV en allemand) (fournis par Awad, vérifiés : pas d'e-mail ni de téléphone personnels).
 
 ---
 
@@ -151,7 +151,7 @@ Les outils d'IA (Claude Code, Claude Design, ChatGPT) sont mentionnés sur le si
 |---|---|---|
 | Afficher une information fausse ou exagérée | Perte de confiance immédiate en entretien | Règle « aucun fait sans source », validation par Awad |
 | Publier sur un projet client plus que ce qui a été accepté (I Make My World) | Problème avec le client | Accord donné ; montrer au client le texte de sa fiche avant la mise en ligne |
-| CV anglais ou allemand inexact | Mauvaise impression auprès d'un recruteur étranger | CV fournis et relus par Awad |
+| CV anglais inexact | Mauvaise impression auprès d'un recruteur étranger | CV fournis et relus par Awad |
 | Une démo tombe en panne ou une adresse temporaire change | Lien cassé, mauvaise impression | Vérification automatique des liens, captures en secours |
 | Présenter un projet d'équipe comme un projet solo (Solidays) | Malhonnêteté visible | Toujours afficher « projet de formation en équipe de 3 » |
 | Disque plein pendant le développement | Installation qui échoue | Peu de dépendances, nettoyage régulier |
@@ -171,4 +171,4 @@ Les outils d'IA (Claude Code, Claude Design, ChatGPT) sont mentionnés sur le si
 | D5 | Outils d'IA | **Oui**, une phrase honnête sur la façon de travailler |
 | D6 | Adresses | **Adresses Hostinger actuelles** pour le portfolio et pour tous les liens « Voir le site » (y compris I Make My World). Les vrais noms de domaine viendront plus tard : les liens devront alors être mis à jour |
 | D7 | Contact | **Formulaire** (sans adresse affichée, anti-spam) **+ LinkedIn** |
-| D8 | Photo, CV, langues | **Photo : oui. CV PDF : oui**, en français, anglais et allemand (fournis par Awad). **Site : 100 % en français** (décision du 22/11/2026, qui remplace le site trilingue prévu au départ), comme les portfolios de développeurs en France |
+| D8 | Photo, CV, langues | **Photo : oui. CV PDF : oui**, en français et en anglais (fournis par Awad ; allemand abandonné le 28/11/2026). **Site : 100 % en français** (décision du 22/11/2026, qui remplace le site trilingue prévu au départ), comme les portfolios de développeurs en France |

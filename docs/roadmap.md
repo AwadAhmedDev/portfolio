@@ -236,9 +236,7 @@ Mesures du 23/11/2026 : le formulaire coûtait 2 842 octets et la base React + N
   - [x] Boutons « Voir mes projets » (C15) et « Me contacter ».
   - [x] Liens CV prêts : langue, format, taille, `hreflang` ; **rien n'est affiché tant qu'aucun PDF n'est fourni**.
   - [x] Photo réelle (vérifié le 27/11/2026).
-  - [ ] 3 CV en PDF dans `public/cv/`, vérifiés sans e-mail ni téléphone personnels (EF-7), tailles renseignées.
-    - [x] CV en français ajouté le 28/11/2026 (`awad-cv-fr.pdf`, 85 Ko) : sans e-mail ni téléphone, métadonnées sans nom complet ni e-mail.
-    - [ ] CV en anglais et en allemand.
+  - [x] 2 CV en PDF dans `public/cv/` (français 85 Ko, anglais 84 Ko), ajoutés le 28/11/2026 : sans e-mail ni téléphone personnels (EF-7), métadonnées sans nom complet ni e-mail. CV allemand abandonné (décision d'Awad du 28/11/2026).
 - **Critères d'acceptation** : textes identiques à `contenus.md` §4 ; aucune section « langues » (S4) ; aucune expérience non validée ; **chaque lien CV ouvre le bon PDF** (`requirements.md` §9) et annonce sa vraie taille ; le lien français de l'en-tête et du pied de page apparaît.
 - **Tests** : navigateur ; vérification de chaque PDF (contenu, métadonnées) avant publication ; lychee.
 - **Risques** : les métadonnées d'un PDF peuvent contenir un nom complet ou une adresse e-mail : à contrôler avant publication.
@@ -438,7 +436,7 @@ Les lots ont été réalisés et le site est en ligne depuis le 23/11/2026. Rest
 | Ressource | Fournie par | Lots | État |
 |---|---|---|---|
 | Photo carrée (affichée en rond) | Awad | 3, 7, 11 | En place depuis le 26/11/2026 (412 px) ; version d'au moins 640 px attendue |
-| 3 CV en PDF (français, anglais, allemand) | Awad | 2, 7 | **Manquants** |
+| 2 CV en PDF (français, anglais) | Awad | 2, 7 | **Fournis le 28/11/2026** |
 | Clé Resend et adresse de réception (dans `private/config.php` uniquement) | Awad | 8, 14 | En place ; envoi réel reçu le 25/11/2026 |
 | Accord pour créer le site Hostinger du portfolio | Awad | 14 | Obtenu le 23/11/2026 |
 | Captures ordinateur et mobile des 5 sites, parcours en images | Claude Code | 4, 5, 11 | Faits (workflow Captures) |

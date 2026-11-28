@@ -84,8 +84,8 @@ Règles :
 
 ### EF-7 — CV
 
-- Trois versions du CV en PDF : **français, anglais, allemand** **[A8]**, fournies par Awad.
-- Bouton « CV » dans l'en-tête (version française) : libellé visible « CV », nom lu par les lecteurs d'écran « CV en français (PDF) » — exception à la règle suivante, pour l'en-tête seulement (décision V3, 22/11/2026). Les trois versions sont dans À propos et Contact, avec la mention « CV disponible en français, en anglais et en allemand » (P6).
+- Deux versions du CV en PDF : **français et anglais** **[A8]**, fournies par Awad (décision d'Awad du 28/11/2026 : pas de CV en allemand).
+- Bouton « CV » dans l'en-tête (version française) : libellé visible « CV », nom lu par les lecteurs d'écran « CV en français (PDF) » — exception à la règle suivante, pour l'en-tête seulement (décision V3, 22/11/2026). Les deux versions sont dans À propos et Contact, avec la mention « CV disponible en français et en anglais » (P6).
 - Chaque lien annonce la langue, le format et la taille (ex. « CV en anglais (PDF, 150 Ko) »).
 - Chaque PDF est vérifié avant publication : pas d'adresse e-mail ni de téléphone personnels.
 - Une version pas encore fournie n'a pas de lien.
@@ -93,7 +93,7 @@ Règles :
 ### EF-8 — Langue du site
 
 - **Le site est 100 % en français** (décision d'Awad du 22/11/2026, qui remplace les décisions A9 et A10) : pas de version anglaise ni allemande, pas de sélecteur de langue.
-- Seul le CV existe aussi en anglais et en allemand (EF-7).
+- Seul le CV existe aussi en anglais (EF-7).
 - Dates et nombres au format français (ex. « 22 novembre 2026 »).
 
 ### EF-9 — Thème clair / sombre
@@ -149,7 +149,7 @@ Règles :
 Objectif : **WCAG 2.2 niveau AA** et Lighthouse Accessibilité 100.
 
 - Structure : un seul `h1` par page, titres dans l'ordre, zones `header`, `nav`, `main`, `footer`.
-- Langue déclarée : `lang="fr"` ; les liens vers les CV anglais et allemand portent `hreflang`.
+- Langue déclarée : `lang="fr"` ; le lien vers le CV anglais porte `hreflang`.
 - Contraste : 4,5:1 pour le texte, 3:1 pour les grands textes et les éléments d'interface, **dans les deux thèmes**.
 - Tout est utilisable au clavier, dans un ordre logique ; le focus est toujours visible.
 - Images : texte alternatif utile ; images décoratives ignorées par les lecteurs d'écran.
@@ -232,7 +232,7 @@ Le portfolio est accepté quand **tous** ces points sont vérifiés :
 
 **Fonctionnement**
 - [ ] Le menu mobile s'ouvre et se ferme (clic, Échap, clic en dehors).
-- [ ] Les liens vers les CV (français, anglais, allemand) ouvrent le bon PDF.
+- [ ] Les liens vers les CV (français, anglais) ouvrent le bon PDF.
 - [ ] Le thème suit le système au premier passage, puis le choix est conservé, sans flash.
 - [ ] Le formulaire : refuse un envoi invalide avec des messages clairs ; un envoi valide arrive dans la boîte de réception d'Awad ; un robot remplissant le champ piège ne déclenche aucun e-mail ; les cas d'erreur de la section 8 se comportent comme prévu.
 - [ ] La page 404 répond avec le code HTTP 404.
@@ -268,9 +268,9 @@ Les marqueurs **[A1]**… dans le document renvoient à ces décisions.
 | A5 | Dates des projets | **D'après les dépôts GitHub** : seul le **mois de début** (premier commit) est affiché, car le dernier commit de chaque dépôt correspond à des mises à jour récentes, pas à la fin du projet. Liste ci-dessous, validée par Awad le 22/11/2026 |
 | A6 | Anti-spam | **Champ piège + limite de demandes**, sans captcha ; Cloudflare Turnstile ajouté seulement si du spam arrive |
 | A7 | Envoi du formulaire | **Petit script PHP sur l'hébergement Hostinger**, qui envoie le message par Resend. La clé Resend et l'adresse de réception restent sur le serveur (jamais dans le dépôt ni dans le navigateur). Adresse de réception : à fournir par Awad au moment du développement |
-| A8 | CV | **Trois PDF : français, anglais, allemand**, fournis par Awad |
+| A8 | CV | **Deux PDF : français et anglais**, fournis par Awad (allemand abandonné le 28/11/2026) |
 | A9 | Adresse racine `/` | **Remplacée** : le site est 100 % en français, `/` est directement l'accueil (pas de `/fr/`) |
-| A10 | Traductions | **Remplacée** : pas de traduction du site ; seul le CV existe en anglais et en allemand |
+| A10 | Traductions | **Remplacée** : pas de traduction du site ; seul le CV existe en anglais |
 | A11 | Mentions légales | **Pas de SIRET pour l'instant** : mentions légales de particulier (nom « Awad Ahmed » et hébergeur Hostinger), à mettre à jour quand Awad aura un SIRET. Aucune adresse postale publiée |
 
 ### Dates de début des projets (premier commit, vérifié le 22/11/2026)

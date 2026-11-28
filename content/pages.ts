@@ -274,7 +274,7 @@ export const aPropos = {
     },
     { date: "Octobre 2026", projets: [{ slug: "template-nextjs", note: "personnel" }] },
   ],
-  cvTexte: "CV disponible en français, en anglais et en allemand.",
+  cvTexte: "CV disponible en français et en anglais.",
 };
 
 export const contact = {

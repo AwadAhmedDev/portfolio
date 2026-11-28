@@ -2,7 +2,7 @@
 
 > Statut : **validé par Awad le 22/11/2026**. Aucun développement n'est commencé.
 > Sources : [`product-discovery.md`](./product-discovery.md) et [`requirements.md`](./requirements.md).
-> **Le site est 100 % en français** (décision d'Awad du 22/11/2026). Seul le CV existe en trois versions : français, anglais, allemand.
+> **Le site est 100 % en français** (décision d'Awad du 22/11/2026). Seul le CV existe en deux versions : français et anglais (décision d'Awad du 28/11/2026 : pas de CV en allemand).
 > Les points tranchés par Awad sont marqués **[S1]**, **[S2]**… et détaillés à la fin.
 
 ---
@@ -17,7 +17,7 @@
 ├── /contact/              Contact (formulaire, LinkedIn, GitHub)
 ├── /mentions-legales/     Mentions légales
 ├── 404                    Page introuvable
-└── /cv/                   CV en PDF : français, anglais, allemand (fichiers, pas des pages)
+└── /cv/                   CV en PDF : français et anglais (fichiers, pas des pages)
 ```
 
 Total : **11 pages** (accueil, projets, 6 détails, à propos, contact, mentions légales) + la 404 + 3 PDF.
@@ -105,7 +105,7 @@ Cas particuliers :
 |---|---|
 | **Objectif** | Présenter le profil : compétences réellement démontrées, parcours, façon de travailler. |
 | **Audience** | Recruteurs et RH en priorité ; entrepreneurs qui veulent savoir à qui ils ont affaire. |
-| **Contenu** | 1. Présentation courte (photo, quelques phrases).<br>2. **Compétences** en trois groupes : « Utilisé dans plusieurs projets », « Utilisé dans un projet », « Outils de travail ».<br>3. **Façon de travailler** : méthode, tests et CI, et une phrase honnête sur les outils d'IA (D5).<br>4. **Parcours** : formation « Développeur web et web mobile » chez Simplon.co, projets datés. Expériences du CV ajoutées plus tard, après validation.<br>5. **CV** : les trois versions, avec la mention « CV disponible en français, en anglais et en allemand ». |
+| **Contenu** | 1. Présentation courte (photo, quelques phrases).<br>2. **Compétences** en trois groupes : « Utilisé dans plusieurs projets », « Utilisé dans un projet », « Outils de travail ».<br>3. **Façon de travailler** : méthode, tests et CI, et une phrase honnête sur les outils d'IA (D5).<br>4. **Parcours** : formation « Développeur web et web mobile » chez Simplon.co, projets datés. Expériences du CV ajoutées plus tard, après validation.<br>5. **CV** : les deux versions, avec la mention « CV disponible en français et en anglais ». |
 | **Appels à l'action** | Principal : « Voir mes projets » (décision C15). Secondaire : « Me contacter ». Le CV est proposé par les 3 liens de téléchargement. |
 | **Liens vers** | CV (3 versions), Projets, Contact, LinkedIn, GitHub. |
 
@@ -115,7 +115,7 @@ Cas particuliers :
 |---|---|
 | **Objectif** | Recevoir des propositions d'emploi et des demandes de projets freelance. |
 | **Audience** | Recruteurs, entrepreneurs et PME. |
-| **Contenu** | Une phrase d'accueil ; le formulaire (nom, e-mail, type de demande, message, case d'accord) ; à côté : LinkedIn, GitHub, CV (avec « CV disponible en français, en anglais et en allemand ») ; « Pour me joindre : ce formulaire ou LinkedIn » ; « Je réponds sous 24 h » **[S5]**. Depuis le bloc freelance de l'accueil, « Projet freelance » est déjà choisi. |
+| **Contenu** | Une phrase d'accueil ; le formulaire (nom, e-mail, type de demande, message, case d'accord) ; à côté : LinkedIn, GitHub, CV (avec « CV disponible en français et en anglais ») ; « Pour me joindre : ce formulaire ou LinkedIn » ; « Je réponds sous 24 h » **[S5]**. Depuis le bloc freelance de l'accueil, « Projet freelance » est déjà choisi. |
 | **Appels à l'action** | Principal : « Envoyer le message ». Secondaires : « Me contacter sur LinkedIn », « Télécharger mon CV ». |
 | **Liens vers** | Mentions légales (traitement des données), LinkedIn, GitHub, CV. |
 
@@ -145,7 +145,6 @@ Après l'envoi : message de confirmation sur la même page (pas de page « merci
 |---|---|
 | `/cv/awad-ahmed-cv-fr.pdf` | Français |
 | `/cv/awad-ahmed-cv-en.pdf` | Anglais |
-| `/cv/awad-ahmed-cv-de.pdf` | Allemand |
 
 - Pas des pages : des fichiers, ouverts dans le navigateur.
 - Accessibles depuis : l'en-tête et le pied de page (CV français), À propos et Contact (les 3 versions).
@@ -185,7 +184,7 @@ Next.js 16, **App Router**, **export statique** (`output: 'export'`, `trailingSl
 | Recruteur | Accueil → Projets → détail RepaTek → Contact | 3 |
 | CTO | Accueil → détail d'un projet mis en avant → « Voir le code » | 2 |
 | Entrepreneur | Accueil → bloc freelance « Parlons de votre projet » → Contact | 1 |
-| Recruteur étranger | Accueil → À propos → « CV en anglais » ou « CV en allemand » | 2 |
+| Recruteur étranger | Accueil → À propos → « CV en anglais » | 2 |
 
 ---
 
