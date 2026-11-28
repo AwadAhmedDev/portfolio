@@ -4,7 +4,7 @@ const base =
 
 export const bouton = {
   principal: `${base} bg-primary text-primary-foreground hover:bg-primary-hover`,
-  secondaire: `${base} border border-input bg-background text-foreground hover:bg-muted`,
+  secondaire: `${base} border border-input bg-card text-foreground hover:bg-muted`,
   icone:
     "inline-flex size-11 items-center justify-center rounded-[10px] border border-input bg-background text-foreground hover:bg-muted",
 };
