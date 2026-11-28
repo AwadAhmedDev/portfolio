@@ -47,7 +47,7 @@ export const accueil = {
         cle: "ecrans",
         titre: "Parfait sur tous les écrans",
         texte: "Téléphone, tablette ou ordinateur : le site s'adapte et reste agréable à utiliser.",
-        preuve: "Ce portfolio est testé sur Chrome, Firefox et Safari",
+        preuve: "Ce portfolio est testé automatiquement sur les moteurs Chromium, Firefox et WebKit via Playwright",
       },
       {
         cle: "fiable",
@@ -86,11 +86,11 @@ export const accueil = {
   projets: {
     titre: "Projets clients",
     sousTitre: "Des sites réels, conçus et développés pour des clients, en ligne aujourd'hui.",
-    lien: "Voir les 6 projets",
+    lien: "Voir tous les projets",
   },
   chiffres: {
     titre: "Preuves en chiffres",
-    note: "Chiffres relevés sur les dépôts et les sites en ligne le 22 novembre 2026.",
+    note: "Tests : dernière CI de chaque projet, le 22 novembre 2026. Lighthouse : mesuré le 28 novembre 2026 (RepaTek : le 22 novembre 2026).",
   },
   // Bloc freelance repensé le 26/11/2026 (demande d'Awad) : deux parcours, premier site ou refonte,
   // chacun avec ce qui compte pour un client (vitesse, Google, sécurité, accessibilité, téléphone).

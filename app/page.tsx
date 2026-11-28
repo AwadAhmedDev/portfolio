@@ -192,7 +192,7 @@ export default function Accueil() {
           />
           <Chiffre
             valeur="Intégration continue"
-            libelle={`sur les ${projets.length} projets`}
+            libelle={`sur ${projets.length} projets, dont ${projets.filter((p) => p.mentionCode).length} dépôt privé`}
             detail="GitHub Actions"
           />
           <Chiffre
